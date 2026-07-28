@@ -20,15 +20,15 @@ abstract final class AppTheme {
 
     return base.copyWith(
       scaffoldBackgroundColor: colors.background,
-      colorScheme: ColorScheme.dark(
-        primary: colors.primary,
-        secondary: colors.secondary,
-        tertiary: colors.accent,
-        surface: colors.surface,
-        error: const Color(0xFFFF6B6B),
-        onPrimary: colors.textPrimary,
-        onSecondary: const Color(0xFF2B1018),
-        onSurface: colors.textPrimary,
+      colorScheme: const ColorScheme.dark(
+        primary: Color(0xFFFF4D6D),
+        secondary: Color(0xFFFF8FA3),
+        tertiary: Color(0xFFFFB703),
+        surface: Color(0xFF1D1423),
+        error: Color(0xFFFF6B6B),
+        onPrimary: Color(0xFFFFFFFF),
+        onSecondary: Color(0xFF2B1018),
+        onSurface: Color(0xFFFFFFFF),
       ),
       textTheme: textTheme,
       dividerColor: colors.divider,
@@ -37,7 +37,7 @@ abstract final class AppTheme {
         indicatorColor: colors.primary.withValues(alpha: 0.18),
         labelTextStyle: WidgetStatePropertyAll(textTheme.labelSmall),
       ),
-      extensions: const [colors],
+      extensions: const [AppColors.dark],
     );
   }
 }
