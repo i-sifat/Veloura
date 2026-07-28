@@ -92,7 +92,30 @@ jobs:
           exit 1
 
       - name: Test
-        run: flutter test
+        id: test
+        continue-on-error: true
+        run: flutter test >test.log 2>&1
+
+      - name: Report test failure
+        if: steps.test.outcome == 'failure' && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const log = fs.readFileSync('test.log', 'utf8');
+            const tail = log.split('\n').slice(-160).join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `Tests failed:\n\n\`\`\`text\n${tail}\n\`\`\``,
+            });
+
+      - name: Stop after test failure
+        if: steps.test.outcome == 'failure'
+        run: |
+          cat test.log
+          exit 1
 
       - name: Build release APK
         run: flutter build apk --release
