@@ -3,6 +3,8 @@ import 'package:veloura/theme/app_colors.dart';
 import 'package:veloura/theme/app_theme.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   test('dark theme exposes the exact semantic palette', () {
     final colors = AppTheme.dark.extension<AppColors>();
 
