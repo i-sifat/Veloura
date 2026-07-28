@@ -1,16 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:veloura/main.dart';
+import 'package:veloura/app.dart';
 
 void main() {
-  testWidgets('Veloura launches with an empty dark scaffold', (tester) async {
-    await tester.pumpWidget(const VelouraApp());
+  testWidgets('Veloura launches into the five-tab Home shell', (tester) async {
+    await tester.pumpWidget(const ProviderScope(child: VelouraApp()));
+    await tester.pumpAndSettle();
 
-    expect(find.byType(Scaffold), findsOneWidget);
-    expect(find.text('Flutter Demo Home Page'), findsNothing);
+    expect(find.text('Make time for each other'), findsOneWidget);
+    expect(find.byType(NavigationBar), findsOneWidget);
+    expect(find.text('Home'), findsOneWidget);
+    expect(find.text('Games'), findsOneWidget);
+    expect(find.text('Daily'), findsOneWidget);
+    expect(find.text('Favorites'), findsOneWidget);
+    expect(find.text('Profile'), findsOneWidget);
+  });
 
-    final scaffold = tester.widget<Scaffold>(find.byType(Scaffold));
-    final context = tester.element(find.byWidget(scaffold));
-    expect(Theme.of(context).brightness, Brightness.dark);
+  testWidgets('all navigation branches are reachable', (tester) async {
+    await tester.pumpWidget(const ProviderScope(child: VelouraApp()));
+    await tester.pumpAndSettle();
+
+    for (final label in ['Games', 'Daily', 'Favorites', 'Profile']) {
+      await tester.tap(find.text(label));
+      await tester.pumpAndSettle();
+      expect(find.text('$label is ready for its planned feature phase.'), findsOneWidget);
+    }
   });
 }
