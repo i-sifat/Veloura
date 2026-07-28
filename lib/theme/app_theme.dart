@@ -20,14 +20,14 @@ abstract final class AppTheme {
 
     return base.copyWith(
       scaffoldBackgroundColor: colors.background,
-      colorScheme: const ColorScheme.dark(
+      colorScheme: ColorScheme.dark(
         primary: colors.primary,
         secondary: colors.secondary,
         tertiary: colors.accent,
         surface: colors.surface,
-        error: Color(0xFFFF6B6B),
+        error: const Color(0xFFFF6B6B),
         onPrimary: colors.textPrimary,
-        onSecondary: Color(0xFF2B1018),
+        onSecondary: const Color(0xFF2B1018),
         onSurface: colors.textPrimary,
       ),
       textTheme: textTheme,
