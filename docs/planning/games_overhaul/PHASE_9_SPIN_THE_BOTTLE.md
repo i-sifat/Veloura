@@ -273,7 +273,7 @@ test/features/spin_the_bottle/bottle_seed_test.dart
 
 ### Modify
 ```
-lib/config/router.dart                                  // /games/spin-the-bottle
+lib/config/router.dart                                   // /games/spin-the-bottle
 lib/features/games_hub/domain/game_catalog_entry.dart    // + GameTileSpan span
 lib/features/games_hub/domain/game_catalog.dart          // + spin_the_bottle entry (span: full)
 lib/features/games_hub/presentation/games_hub_screen.dart// CustomScrollView + wide tile sliver
@@ -299,7 +299,8 @@ Kiss me for ten seconds without using your hands.
 Kiss my shoulder, then stop and wait.
 ```
 **TOUCH**
-```Trace my spine slowly with two fingers.
+```
+Trace my spine slowly with two fingers.
 Hold my waist and pull me closer.
 Warm my hands with yours for one minute.
 ```
