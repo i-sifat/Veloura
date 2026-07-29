@@ -8,7 +8,7 @@ on:
       - 'phase/**'
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Validate committed Phase 3 content
         run: |
@@ -44,6 +46,16 @@ jobs:
         id: pubget
         continue-on-error: true
         run: flutter pub get >pub_get.log 2>&1
+
+      - name: Commit Phase 6 lockfile
+        if: github.ref_name == 'phase/06-premium-monetization' || github.head_ref == 'phase/06-premium-monetization'
+        run: |
+          if git diff --quiet -- pubspec.lock; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pubspec.lock
+          git commit -m "chore(deps): resolve RevenueCat packages"
+          git push origin HEAD:phase/06-premium-monetization
 
       - name: Report dependency resolution failure
         if: steps.pubget.outcome == 'failure' && github.event_name == 'pull_request'
