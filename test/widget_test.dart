@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veloura/app.dart';
 import 'package:veloura/core/app_result.dart';
 import 'package:veloura/features/daily/data/daily_notification_service.dart';
+import 'package:veloura/features/daily/domain/daily_challenge.dart';
 import 'package:veloura/features/daily/presentation/daily_controller.dart';
 import 'package:veloura/features/games/domain/game_catalog.dart';
 import 'package:veloura/features/session/domain/game_session.dart';
@@ -24,6 +25,24 @@ class _MemorySessionRepository implements SessionRepository {
   }
 }
 
+class _TestDailyController extends DailyController {
+  @override
+  Future<DailyState> build() async => DailyState(
+    challenge: const DailyChallenge(
+      id: 'test_daily',
+      title: 'A test moment',
+      prompt: 'Share one good thing from today.',
+      source: DailyChallengeSource.ritual,
+      estimatedMinutes: 5,
+    ),
+    completionDates: const {},
+    streak: 0,
+    rewardBalance: 0,
+    reminder: const DailyReminderSettings(),
+    displayedMonth: DateTime(2026, 7),
+  );
+}
+
 Widget _app() => ProviderScope(
   overrides: [
     sessionRepositoryProvider.overrideWith(
@@ -32,15 +51,10 @@ Widget _app() => ProviderScope(
     dailyNotificationServiceProvider.overrideWith(
       (ref) => const NoopDailyNotificationService(),
     ),
+    dailyControllerProvider.overrideWith(_TestDailyController.new),
   ],
   child: const VelouraApp(),
 );
-
-Future<void> _pumpUntilFound(WidgetTester tester, Finder finder) async {
-  for (var attempt = 0; attempt < 30 && finder.evaluate().isEmpty; attempt++) {
-    await tester.pump(const Duration(milliseconds: 100));
-  }
-}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -83,9 +97,8 @@ void main() {
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Daily'));
-    final dailyHeading = find.text('DAILY CONNECTION');
-    await _pumpUntilFound(tester, dailyHeading);
-    expect(dailyHeading, findsOneWidget);
+    await tester.pumpAndSettle();
+    expect(find.text('DAILY CONNECTION'), findsOneWidget);
 
     for (final label in ['Favorites', 'Profile']) {
       await tester.tap(find.text(label));
