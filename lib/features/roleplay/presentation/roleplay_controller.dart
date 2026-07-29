@@ -59,6 +59,7 @@ final roleplayRandomProvider = Provider<Random>((ref) => Random());
 
 /// Coordinates story filtering, selection, favorites, and twist pacing.
 class RoleplayController extends AsyncNotifier<RoleplayState> {
+  static const completedPlaysKey = 'roleplay_completed_plays';
   late RoleplayRepository _repository;
   late Random _random;
 
@@ -69,93 +70,74 @@ class RoleplayController extends AsyncNotifier<RoleplayState> {
     final result = await _repository.getAll();
     final items = switch (result) {
       AppSuccess<List<RoleplayStory>>(:final value) => value,
-      AppFailure<List<RoleplayStory>>(:final message) =>
-        throw StateError(message),
+      AppFailure<List<RoleplayStory>>(:final message) => throw StateError(message),
     };
     return RoleplayState(items: items);
   }
 
   void setCategory(RoleplayCategory? category) {
     final current = state.asData?.value;
-    if (current != null) {
-      state = AsyncData(current.copyWith(category: () => category));
-    }
+    if (current != null) state = AsyncData(current.copyWith(category: () => category));
   }
 
   void setDifficulty(Difficulty? difficulty) {
     final current = state.asData?.value;
-    if (current != null) {
-      state = AsyncData(current.copyWith(difficulty: () => difficulty));
-    }
+    if (current != null) state = AsyncData(current.copyWith(difficulty: () => difficulty));
   }
 
   List<RoleplayStory> visibleStories({required bool isPremium}) {
     final current = state.asData?.value;
     if (current == null) return const [];
-    return current.items
-        .where(
-          (item) =>
-              (current.category == null ||
-                  item.roleplayCategory == current.category) &&
-              (current.difficulty == null ||
-                  item.difficulty == current.difficulty) &&
-              (isPremium || !item.premium),
-        )
-        .toList(growable: false);
+    return current.items.where((item) =>
+      (current.category == null || item.roleplayCategory == current.category) &&
+      (current.difficulty == null || item.difficulty == current.difficulty) &&
+      (isPremium || !item.premium)).toList(growable: false);
   }
 
   bool randomize({required bool isPremium}) {
     final current = state.asData?.value;
     final candidates = visibleStories(isPremium: isPremium);
     if (current == null || candidates.isEmpty) return false;
-    final story = candidates[_random.nextInt(candidates.length)];
-    state = AsyncData(current.copyWith(current: () => story));
+    state = AsyncData(current.copyWith(current: () => candidates[_random.nextInt(candidates.length)]));
     return true;
   }
 
   void select(RoleplayStory story) {
     final current = state.asData?.value;
-    if (current != null) {
-      state = AsyncData(current.copyWith(current: () => story));
-    }
+    if (current != null) state = AsyncData(current.copyWith(current: () => story));
   }
 
   void startSession() {
     final current = state.asData?.value;
     if (current?.current == null) return;
-    state = AsyncData(
-      current!.copyWith(
-        inSession: true,
-        rolesSwapped: false,
-        revealedTwists: 0,
-      ),
-    );
+    state = AsyncData(current!.copyWith(inSession: true, rolesSwapped: false, revealedTwists: 0));
   }
 
   void swapRoles() {
     final current = state.asData?.value;
-    if (current != null) {
-      state = AsyncData(current.copyWith(rolesSwapped: !current.rolesSwapped));
-    }
+    if (current != null) state = AsyncData(current.copyWith(rolesSwapped: !current.rolesSwapped));
   }
 
   void revealNextTwist() {
     final current = state.asData?.value;
     final story = current?.current;
-    if (current == null || story == null) return;
-    if (current.revealedTwists >= story.twists.length) return;
-    state = AsyncData(
-      current.copyWith(revealedTwists: current.revealedTwists + 1),
-    );
+    if (current == null || story == null || current.revealedTwists >= story.twists.length) return;
+    state = AsyncData(current.copyWith(revealedTwists: current.revealedTwists + 1));
   }
 
   void endSession() {
     final current = state.asData?.value;
-    if (current != null) {
-      state = AsyncData(
-        current.copyWith(inSession: false, revealedTwists: 0),
-      );
-    }
+    if (current != null) state = AsyncData(current.copyWith(inSession: false, revealedTwists: 0));
+  }
+
+  /// Persists a compact completion event for future statistics.
+  Future<void> recordPlay(String storyId) async {
+    final preferences = await SharedPreferences.getInstance();
+    final plays = preferences.getStringList(completedPlaysKey) ?? <String>[];
+    await preferences.setStringList(completedPlaysKey, [
+      ...plays,
+      '$storyId|${DateTime.now().toUtc().toIso8601String()}',
+    ]);
   }
 
   Future<void> toggleFavorite(RoleplayStory story) async {
@@ -163,21 +145,10 @@ class RoleplayController extends AsyncNotifier<RoleplayState> {
     if (current == null) return;
     final result = await _repository.toggleFavorite(story.id);
     if (result case AppSuccess<RoleplayStory>(:final value)) {
-      final items = [
-        for (final candidate in current.items)
-          if (candidate.id == value.id) value else candidate,
-      ];
-      state = AsyncData(
-        current.copyWith(
-          items: items,
-          current: current.current?.id == value.id ? () => value : null,
-        ),
-      );
+      final items = [for (final candidate in current.items) if (candidate.id == value.id) value else candidate];
+      state = AsyncData(current.copyWith(items: items, current: current.current?.id == value.id ? () => value : null));
     }
   }
 }
 
-final roleplayControllerProvider =
-    AsyncNotifierProvider<RoleplayController, RoleplayState>(
-      RoleplayController.new,
-    );
+final roleplayControllerProvider = AsyncNotifierProvider<RoleplayController, RoleplayState>(RoleplayController.new);
