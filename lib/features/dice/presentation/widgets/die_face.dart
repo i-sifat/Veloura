@@ -25,8 +25,11 @@ class DieFace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = AppColors.of(context);
+    final opacity = textOpacity.clamp(0.0, 1.0).toDouble();
+    final shade = brightness.clamp(0.0, 1.0).toDouble();
+    final shadedColor = Color.lerp(colors.card, Colors.black, 1 - shade)!;
     final labelWidget = Opacity(
-      opacity: textOpacity.clamp(0.0, 1.0),
+      opacity: opacity,
       child: Padding(
         padding: EdgeInsets.all(size * 0.12),
         child: FittedBox(
@@ -60,11 +63,6 @@ class DieFace extends StatelessWidget {
         height: size,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: Color.lerp(
-            colors.card,
-            Colors.black,
-            1 - brightness.clamp(0.0, 1.0),
-          ),
           borderRadius: BorderRadius.circular(size * 0.18),
           border: Border.all(
             color: colors.secondary.withValues(alpha: 0.3),
@@ -73,8 +71,8 @@ class DieFace extends StatelessWidget {
             center: const Alignment(-0.5, -0.6),
             radius: 0.9,
             colors: [
-              Colors.white.withValues(alpha: 0.08),
-              Colors.transparent,
+              Color.lerp(shadedColor, Colors.white, 0.08)!,
+              shadedColor,
             ],
           ),
         ),
