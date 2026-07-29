@@ -36,6 +36,12 @@ Widget _app() => ProviderScope(
   child: const VelouraApp(),
 );
 
+Future<void> _pumpUntilFound(WidgetTester tester, Finder finder) async {
+  for (var attempt = 0; attempt < 30 && finder.evaluate().isEmpty; attempt++) {
+    await tester.pump(const Duration(milliseconds: 100));
+  }
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -77,8 +83,9 @@ void main() {
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Daily'));
-    await tester.pumpAndSettle();
-    expect(find.text('DAILY CONNECTION'), findsOneWidget);
+    final dailyHeading = find.text('DAILY CONNECTION');
+    await _pumpUntilFound(tester, dailyHeading);
+    expect(dailyHeading, findsOneWidget);
 
     for (final label in ['Favorites', 'Profile']) {
       await tester.tap(find.text(label));
