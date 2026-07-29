@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veloura/core/app_result.dart';
 import 'package:veloura/features/games/domain/game_catalog.dart';
+import 'package:veloura/features/games/domain/game_catalog_entry.dart';
 import 'package:veloura/features/games/presentation/games_hub_screen.dart';
+import 'package:veloura/features/games/presentation/widgets/game_tile.dart';
 import 'package:veloura/features/session/domain/game_session.dart';
 import 'package:veloura/features/session/domain/session_repository.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
@@ -54,18 +57,37 @@ void main() {
     }
   });
 
-  testWidgets('missing commissioned art falls back to themed glyphs', (
-    tester,
-  ) async {
-    await tester.pumpWidget(_app());
+  test('catalog artwork is bundled for every game', () async {
+    for (final entry in kGameCatalog) {
+      final data = await rootBundle.load(entry.art);
+      expect(data.lengthInBytes, greaterThan(0), reason: entry.art);
+    }
+  });
+
+  testWidgets('missing art falls back to a themed glyph', (tester) async {
+    const missingEntry = GameCatalogEntry(
+      id: 'missing_art',
+      title: 'Missing Art',
+      route: '/missing',
+      art: 'assets/does_not_exist.png',
+      gradient: [Color(0xFF51124D), Color(0xFF19061D)],
+      fallbackIcon: Icons.casino_outlined,
+    );
+
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: SizedBox(
+            width: 180,
+            height: 220,
+            child: GameTile(entry: missingEntry, locked: true),
+          ),
+        ),
+      ),
+    );
     await tester.pumpAndSettle();
 
-    final scrollable = find.byType(Scrollable).last;
-    for (final entry in kGameCatalog) {
-      final fallback = find.byKey(ValueKey('fallback-${entry.id}'));
-      await tester.scrollUntilVisible(fallback, 180, scrollable: scrollable);
-      expect(fallback, findsOneWidget);
-    }
+    expect(find.byKey(const ValueKey('fallback-missing_art')), findsOneWidget);
   });
 
   testWidgets('first visit requires player setup', (tester) async {
