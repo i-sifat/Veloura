@@ -25,7 +25,10 @@ void main() {
 
     await tester.tap(find.text('The Moonlit Masquerade'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Assign roles'));
+    final assignRoles = find.text('Assign roles');
+    await tester.ensureVisible(assignRoles);
+    await tester.pumpAndSettle();
+    await tester.tap(assignRoles);
     await tester.pumpAndSettle();
 
     expect(find.text('Partner one'), findsOneWidget);
