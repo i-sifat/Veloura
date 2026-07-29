@@ -8,30 +8,9 @@ import 'package:veloura/features/dice/domain/dice_roll_record.dart';
 import 'package:veloura/features/dice/presentation/dice_state.dart';
 import 'package:veloura/services/storage_service.dart';
 
-const _defaultActions = [
-  'Kiss',
-  'Trace',
-  'Whisper to',
-  'Compliment',
-  'Massage',
-  'Hold',
-];
-const _defaultBodies = [
-  'their hand',
-  'their cheek',
-  'their shoulder',
-  'their forehead',
-  'their neck',
-  'their back',
-];
-const _defaultExtras = [
-  'for 10 seconds',
-  'gently',
-  'with eyes closed',
-  'until they smile',
-  'slowly',
-  'with a compliment',
-];
+const _defaultActions = ['Kiss', 'Trace', 'Whisper to', 'Compliment', 'Massage', 'Hold'];
+const _defaultBodies = ['their hand', 'their cheek', 'their shoulder', 'their forehead', 'their neck', 'their back'];
+const _defaultExtras = ['for 10 seconds', 'gently', 'with eyes closed', 'until they smile', 'slowly', 'with a compliment'];
 
 /// Dice repository dependency.
 final diceRepositoryProvider = FutureProvider<DiceRepository>((ref) async {
@@ -49,6 +28,8 @@ final diceRandomProvider = Provider<Random>((ref) => Random.secure());
 class DiceController extends AsyncNotifier<DiceState> {
   late DiceRepository _repository;
   late Random _random;
+
+  DiceState? get _value => state.asData?.value;
 
   @override
   Future<DiceState> build() async {
@@ -77,19 +58,17 @@ class DiceController extends AsyncNotifier<DiceState> {
 
   /// Rolls all enabled dice and persists the result.
   Future<void> roll({Duration animationDuration = const Duration(milliseconds: 720)}) async {
-    final currentState = state.valueOrNull;
+    final currentState = _value;
     if (currentState == null || currentState.status == DiceRollStatus.rolling) return;
     state = AsyncData(currentState.copyWith(status: DiceRollStatus.rolling));
     await Future<void>.delayed(animationDuration);
-    final active = state.valueOrNull ?? currentState;
+    final active = _value ?? currentState;
     final timestamp = DateTime.now();
     final record = DiceRollRecord(
       id: '${timestamp.microsecondsSinceEpoch}',
       action: active.actions[_random.nextInt(active.actions.length)],
       body: active.bodies[_random.nextInt(active.bodies.length)],
-      extra: active.useThirdDie
-          ? active.extras[_random.nextInt(active.extras.length)]
-          : null,
+      extra: active.useThirdDie ? active.extras[_random.nextInt(active.extras.length)] : null,
       createdAt: timestamp,
     );
     final saved = await _repository.saveRoll(record);
@@ -109,23 +88,21 @@ class DiceController extends AsyncNotifier<DiceState> {
 
   /// Enables or disables the optional third die.
   void setThirdDie(bool enabled) {
-    final current = state.valueOrNull;
+    final current = _value;
     if (current != null) state = AsyncData(current.copyWith(useThirdDie: enabled));
   }
 
   /// Opens a historical result in the main result area.
   void selectRecord(DiceRollRecord record) {
-    final current = state.valueOrNull;
+    final current = _value;
     if (current != null) {
-      state = AsyncData(
-        current.copyWith(status: DiceRollStatus.result, current: record),
-      );
+      state = AsyncData(current.copyWith(status: DiceRollStatus.result, current: record));
     }
   }
 
   /// Persists custom action and body faces and enables the custom set.
   Future<void> saveCustomFaces(List<String> actions, List<String> bodies) async {
-    final current = state.valueOrNull;
+    final current = _value;
     if (current == null) return;
     final faces = DiceFaceSet(
       actions: _clean(actions, _defaultActions),
@@ -145,7 +122,7 @@ class DiceController extends AsyncNotifier<DiceState> {
 
   /// Toggles a persisted roll favorite.
   Future<void> toggleFavorite(String id) async {
-    final current = state.valueOrNull;
+    final current = _value;
     if (current == null) return;
     final result = await _repository.toggleFavorite(id);
     if (result case AppSuccess<DiceRollRecord>(:final value)) {
@@ -163,11 +140,16 @@ class DiceController extends AsyncNotifier<DiceState> {
   }
 
   static List<String> _clean(List<String> values, List<String> fallback) {
-    final cleaned = values.map((value) => value.trim()).where((value) => value.isNotEmpty).toSet().toList();
+    final cleaned = values
+        .map((value) => value.trim())
+        .where((value) => value.isNotEmpty)
+        .toSet()
+        .toList();
     return cleaned.length >= 2 ? cleaned : fallback;
   }
 }
 
 /// Dice flow state.
-final diceControllerProvider =
-    AsyncNotifierProvider<DiceController, DiceState>(DiceController.new);
+final diceControllerProvider = AsyncNotifierProvider<DiceController, DiceState>(
+  DiceController.new,
+);

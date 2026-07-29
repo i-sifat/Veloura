@@ -17,7 +17,7 @@ class DiceRollRecord {
   final bool favorite;
 
   /// User-facing combination text.
-  String get summary => [action, body, if (extra != null) extra!].join(' • ');
+  String get summary => [action, body, ?extra].join(' • ');
 
   DiceRollRecord copyWith({bool? favorite}) => DiceRollRecord(
     id: id,

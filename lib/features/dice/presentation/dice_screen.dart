@@ -41,20 +41,23 @@ class _DiceScreenState extends ConsumerState<DiceScreen> {
       event.x * event.x + event.y * event.y + event.z * event.z,
     );
     final now = DateTime.now();
-    if (magnitude > 22 && now.difference(_lastShake) > const Duration(seconds: 2)) {
+    if (magnitude > 22 &&
+        now.difference(_lastShake) > const Duration(seconds: 2)) {
       _lastShake = now;
       unawaited(_roll());
     }
   }
 
   Future<void> _roll() async {
-    final state = ref.read(diceControllerProvider).valueOrNull;
-    if (state == null || state.status == DiceRollStatus.rolling) return;
-    await HapticFeedback.mediumImpact();
+    final diceValue = ref.read(diceControllerProvider).asData?.value;
+    if (diceValue == null || diceValue.status == DiceRollStatus.rolling) return;
     final reduceMotion = MediaQuery.disableAnimationsOf(context);
-    await ref
-        .read(diceControllerProvider.notifier)
-        .roll(animationDuration: reduceMotion ? Duration.zero : const Duration(milliseconds: 720));
+    await HapticFeedback.mediumImpact();
+    await ref.read(diceControllerProvider.notifier).roll(
+      animationDuration: reduceMotion
+          ? Duration.zero
+          : const Duration(milliseconds: 720),
+    );
     await HapticFeedback.selectionClick();
   }
 
@@ -102,7 +105,9 @@ class _DiceBody extends ConsumerWidget {
         FilledButton.icon(
           onPressed: state.status == DiceRollStatus.rolling ? null : onRoll,
           icon: const Icon(Icons.casino),
-          label: Text(state.status == DiceRollStatus.rolling ? 'Rolling…' : 'Roll dice'),
+          label: Text(
+            state.status == DiceRollStatus.rolling ? 'Rolling…' : 'Roll dice',
+          ),
         ),
         const SizedBox(height: 8),
         Text(
@@ -123,7 +128,9 @@ class _DiceBody extends ConsumerWidget {
           title: const Text('Custom dice faces'),
           subtitle: Text(
             premium
-                ? (state.customFacesEnabled ? 'Custom set active' : 'Create your own set')
+                ? (state.customFacesEnabled
+                      ? 'Custom set active'
+                      : 'Create your own set')
                 : 'Premium feature',
           ),
           trailing: const Icon(Icons.chevron_right),
@@ -170,10 +177,19 @@ class _DiceStage extends StatelessWidget {
             spacing: 12,
             runSpacing: 12,
             children: [
-              _AnimatedDie(value: rolling ? '…' : record?.action ?? 'Action', rolling: rolling),
-              _AnimatedDie(value: rolling ? '…' : record?.body ?? 'Place', rolling: rolling),
+              _AnimatedDie(
+                value: rolling ? '…' : record?.action ?? 'Action',
+                rolling: rolling,
+              ),
+              _AnimatedDie(
+                value: rolling ? '…' : record?.body ?? 'Place',
+                rolling: rolling,
+              ),
               if (state.useThirdDie)
-                _AnimatedDie(value: rolling ? '…' : record?.extra ?? 'Twist', rolling: rolling),
+                _AnimatedDie(
+                  value: rolling ? '…' : record?.extra ?? 'Twist',
+                  rolling: rolling,
+                ),
             ],
           ),
           if (!rolling && record != null) ...[
@@ -202,8 +218,13 @@ class _AnimatedDie extends StatelessWidget {
     final colors = AppColors.of(context);
     return TweenAnimationBuilder<double>(
       key: ValueKey('$value-$rolling'),
-      tween: Tween(begin: 0, end: rolling && !reduceMotion ? math.pi * 3 : 0),
-      duration: reduceMotion ? Duration.zero : const Duration(milliseconds: 700),
+      tween: Tween(
+        begin: 0,
+        end: rolling && !reduceMotion ? math.pi * 3 : 0,
+      ),
+      duration: reduceMotion
+          ? Duration.zero
+          : const Duration(milliseconds: 700),
       curve: Curves.easeOutBack,
       builder: (context, angle, child) => Transform(
         alignment: Alignment.center,
@@ -223,7 +244,10 @@ class _AnimatedDie extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: colors.secondary),
           boxShadow: [
-            BoxShadow(color: colors.primary.withValues(alpha: 0.25), blurRadius: 18),
+            BoxShadow(
+              color: colors.primary.withValues(alpha: 0.25),
+              blurRadius: 18,
+            ),
           ],
         ),
         child: Text(value, textAlign: TextAlign.center),
@@ -248,7 +272,11 @@ class _HistoryTile extends StatelessWidget {
     return ListTile(
       contentPadding: EdgeInsets.zero,
       onTap: onTap,
-      title: Text(record.summary, maxLines: 2, overflow: TextOverflow.ellipsis),
+      title: Text(
+        record.summary,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
       subtitle: Text(_formatTime(record.createdAt)),
       trailing: IconButton(
         tooltip: record.favorite ? 'Remove favorite' : 'Favorite roll',
@@ -271,12 +299,24 @@ Future<void> _showPremiumMessage(BuildContext context) => showDialog<void>(
   context: context,
   builder: (context) => AlertDialog(
     title: const Text('Create your own dice'),
-    content: const Text('Custom face sets are included with Veloura Premium. The full upgrade flow arrives in Phase 6.'),
-    actions: [TextButton(onPressed: () => Navigator.pop(context), child: const Text('Got it'))],
+    content: const Text(
+      'Custom face sets are included with Veloura Premium. '
+      'The full upgrade flow arrives in Phase 6.',
+    ),
+    actions: [
+      TextButton(
+        onPressed: () => Navigator.pop(context),
+        child: const Text('Got it'),
+      ),
+    ],
   ),
 );
 
-Future<void> _showCustomFaces(BuildContext context, WidgetRef ref, DiceState state) async {
+Future<void> _showCustomFaces(
+  BuildContext context,
+  WidgetRef ref,
+  DiceState state,
+) async {
   final actions = TextEditingController(text: state.actions.join(', '));
   final bodies = TextEditingController(text: state.bodies.join(', '));
   await showDialog<void>(
@@ -286,12 +326,25 @@ Future<void> _showCustomFaces(BuildContext context, WidgetRef ref, DiceState sta
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          TextField(controller: actions, decoration: const InputDecoration(labelText: 'Actions, comma separated')),
-          TextField(controller: bodies, decoration: const InputDecoration(labelText: 'Places, comma separated')),
+          TextField(
+            controller: actions,
+            decoration: const InputDecoration(
+              labelText: 'Actions, comma separated',
+            ),
+          ),
+          TextField(
+            controller: bodies,
+            decoration: const InputDecoration(
+              labelText: 'Places, comma separated',
+            ),
+          ),
         ],
       ),
       actions: [
-        TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancel')),
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
         FilledButton(
           onPressed: () async {
             await ref.read(diceControllerProvider.notifier).saveCustomFaces(
