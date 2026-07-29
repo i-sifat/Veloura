@@ -20,7 +20,7 @@ class PremiumController extends AsyncNotifier<PremiumCatalog> {
   Future<void> purchase(String packageId) async {
     final current = state.asData?.value;
     if (current == null) return;
-    state = const AsyncLoading<PremiumCatalog>().copyWithPrevious(state);
+    state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       final status = await _repository.purchase(packageId);
       return PremiumCatalog(status: status, packages: current.packages);
@@ -30,7 +30,7 @@ class PremiumController extends AsyncNotifier<PremiumCatalog> {
   Future<void> restore() async {
     final current = state.asData?.value;
     if (current == null) return;
-    state = const AsyncLoading<PremiumCatalog>().copyWithPrevious(state);
+    state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       final status = await _repository.restore();
       return PremiumCatalog(status: status, packages: current.packages);

@@ -1,8 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:veloura/features/premium/domain/premium_repository.dart';
-import 'package:veloura/features/premium/domain/subscription.dart';
-import 'package:veloura/features/premium/presentation/premium_controller.dart';
 import 'package:veloura/features/premium/provider.dart';
 
 class _FakePremiumRepository implements PremiumRepository {
