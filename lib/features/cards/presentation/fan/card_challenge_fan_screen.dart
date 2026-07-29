@@ -61,6 +61,7 @@ class _CardChallengeFanScreenState
     final picked = ref.read(cardFanControllerProvider).requireValue.selected;
     if (picked == null || !mounted) return;
     await HapticFeedback.lightImpact();
+    if (!mounted) return;
     final action = await showGeneralDialog<_RevealAction>(
       context: context,
       barrierDismissible: false,
