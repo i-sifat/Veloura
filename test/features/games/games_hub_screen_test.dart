@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:veloura/app.dart';
 import 'package:veloura/core/app_result.dart';
 import 'package:veloura/features/games/domain/game_catalog.dart';
+import 'package:veloura/features/games/presentation/games_hub_screen.dart';
 import 'package:veloura/features/session/domain/game_session.dart';
 import 'package:veloura/features/session/domain/session_repository.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
+import 'package:veloura/theme/app_theme.dart';
 
-class _MemorySessionRepository implements SessionRepository {
+class _MemoryRepository implements SessionRepository {
   GameSession? value;
 
   @override
@@ -24,11 +25,9 @@ class _MemorySessionRepository implements SessionRepository {
 
 Widget _app() => ProviderScope(
   overrides: [
-    sessionRepositoryProvider.overrideWith(
-      (ref) async => _MemorySessionRepository(),
-    ),
+    sessionRepositoryProvider.overrideWith((ref) async => _MemoryRepository()),
   ],
-  child: const VelouraApp(),
+  child: MaterialApp(theme: AppTheme.dark, home: const GamesHubScreen()),
 );
 
 void main() {
@@ -38,27 +37,15 @@ void main() {
     SharedPreferences.setMockInitialValues({'session_players_configured': true});
   });
 
-  testWidgets('Veloura launches into the five-tab Home shell', (tester) async {
+  testWidgets('hub renders all six catalog tiles in a two-column grid', (
+    tester,
+  ) async {
     await tester.pumpWidget(_app());
-    await tester.pumpAndSettle();
-
-    expect(find.text('Make time for each other'), findsOneWidget);
-    expect(find.byType(NavigationBar), findsOneWidget);
-    expect(find.text('Home'), findsOneWidget);
-    expect(find.text('Games'), findsOneWidget);
-    expect(find.text('Daily'), findsOneWidget);
-    expect(find.text('Favorites'), findsOneWidget);
-    expect(find.text('Profile'), findsOneWidget);
-  });
-
-  testWidgets('Games exposes all Phase 4.5 catalog entries', (tester) async {
-    await tester.pumpWidget(_app());
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('Games'));
     await tester.pumpAndSettle();
 
     expect(kGameCatalog, hasLength(6));
+    expect(find.byKey(const ValueKey('games-grid')), findsOneWidget);
+    expect(find.text('SELECT A GAME'), findsOneWidget);
     final scrollable = find.byType(Scrollable).last;
     for (final entry in kGameCatalog) {
       final tile = find.byKey(ValueKey('game-tile-${entry.id}'));
@@ -67,17 +54,26 @@ void main() {
     }
   });
 
-  testWidgets('remaining navigation branches are reachable', (tester) async {
+  testWidgets('missing commissioned art falls back to themed glyphs', (
+    tester,
+  ) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
 
-    for (final label in ['Daily', 'Favorites', 'Profile']) {
-      await tester.tap(find.text(label));
-      await tester.pumpAndSettle();
-      expect(
-        find.text('$label is ready for its planned feature phase.'),
-        findsOneWidget,
-      );
+    final scrollable = find.byType(Scrollable).last;
+    for (final entry in kGameCatalog) {
+      final fallback = find.byKey(ValueKey('fallback-${entry.id}'));
+      await tester.scrollUntilVisible(fallback, 180, scrollable: scrollable);
+      expect(fallback, findsOneWidget);
     }
+  });
+
+  testWidgets('first visit requires player setup', (tester) async {
+    SharedPreferences.setMockInitialValues({});
+    await tester.pumpWidget(_app());
+    await tester.pumpAndSettle();
+
+    expect(find.text("Who's playing?"), findsOneWidget);
+    expect(find.text('Start playing'), findsOneWidget);
   });
 }
