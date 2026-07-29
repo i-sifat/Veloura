@@ -1,11 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veloura/app.dart';
+import 'package:veloura/core/app_result.dart';
+import 'package:veloura/features/session/domain/game_session.dart';
+import 'package:veloura/features/session/domain/session_repository.dart';
+import 'package:veloura/features/session/presentation/session_controller.dart';
+
+class _MemorySessionRepository implements SessionRepository {
+  GameSession? value;
+
+  @override
+  Future<AppResult<GameSession?>> load() async => AppResult.success(value);
+
+  @override
+  Future<AppResult<void>> save(GameSession session) async {
+    value = session;
+    return const AppResult.success(null);
+  }
+}
+
+Widget _app() => ProviderScope(
+  overrides: [
+    sessionRepositoryProvider.overrideWith(
+      (ref) async => _MemorySessionRepository(),
+    ),
+  ],
+  child: const VelouraApp(),
+);
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUp(() {
+    SharedPreferences.setMockInitialValues({'session_players_configured': true});
+  });
+
   testWidgets('Veloura launches into the five-tab Home shell', (tester) async {
-    await tester.pumpWidget(const ProviderScope(child: VelouraApp()));
+    await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
 
     expect(find.text('Make time for each other'), findsOneWidget);
@@ -17,21 +50,27 @@ void main() {
     expect(find.text('Profile'), findsOneWidget);
   });
 
-  testWidgets('Games exposes all Phase 2 and Phase 3 modules', (tester) async {
-    await tester.pumpWidget(const ProviderScope(child: VelouraApp()));
+  testWidgets('Games exposes all Phase 4.5 catalog entries', (tester) async {
+    await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Games'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Dice'), findsOneWidget);
-    expect(find.text('Truth or Dare'), findsOneWidget);
-    expect(find.text('Challenge Cards'), findsOneWidget);
-    expect(find.text('Conversation Starters'), findsOneWidget);
+    for (final label in [
+      'LUSTFUL ROLLS',
+      'CARD CHALLENGE',
+      'TRUTH OR DARE',
+      'CREATIVE CONNECTIONS',
+      'FOLLOW THE TEMPO',
+      'PASSIONATE ROLEPLAY',
+    ]) {
+      expect(find.text(label), findsOneWidget);
+    }
   });
 
   testWidgets('remaining navigation branches are reachable', (tester) async {
-    await tester.pumpWidget(const ProviderScope(child: VelouraApp()));
+    await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
 
     for (final label in ['Daily', 'Favorites', 'Profile']) {
