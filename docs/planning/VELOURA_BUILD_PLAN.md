@@ -4,6 +4,8 @@
 
 > **How to use this doc:** Work top to bottom. Do not start a phase until its "Blocked by" phases are ✅ complete and their Exit Gate passed. Each phase maps to one or more Bible prompts — run the Bible's Persona block (Section 1) at the top of every AI session, then the module prompt, then verify against the Exit Gate here. When a phase says "commit", make the commit before moving on.
 
+> **There is only one plan: this one.** Phases with their own detail documents (3.5, 4.5) keep those documents in `docs/planning/`, but they are *sub-plans of this file*, not alternatives to it. Never follow a phase document without first reading its entry here.
+
 ---
 
 ## 0. Current State
@@ -14,10 +16,11 @@
 |-------|-------|
 | 0 — Bootstrap & Tooling | ✅ merged |
 | 1 — Foundation & Architecture ⭐ | ✅ merged |
-| 2 — Dice Game | ✅ merged (functional; visual polish now split into Phase 3.5) |
+| 2 — Dice Game | ✅ merged (functional; visual polish split into Phase 3.5) |
 | 3 — Core Content Modules (T/D, Cards, Conversation) | ✅ merged |
-| **3.5 — Dice Realism & Roll Feel** | ⏭ **next** — see `docs/planning/PHASE3.5_DICE_REALISM.md` |
+| **3.5 — Dice Realism & Roll Feel** | ⏭ **in review** — see `docs/planning/PHASE3.5_DICE_REALISM.md` |
 | 4 — Advanced / Policy-Sensitive Modules | ⬜ not started (may run in parallel with 3.5) |
+| **4.5 — Game Experience Layer (UI overhaul)** | ⬜ not started — see `docs/planning/PHASE4.5_GAME_EXPERIENCE/` |
 | 5–10 | ⬜ not started |
 
 ### Repo state at plan authoring (verified 2026-07-28, retained for history)
@@ -57,6 +60,9 @@ Locked decisions. Every phase obeys these — do not introduce alternatives mid-
 - **D-5 — One shared premium flag.** Every module gates on a single `isPremiumProvider` bool during Phases 2–5, which Phase 6 swaps for a real `subscriptionStatusProvider` **without changing call sites**. Enforce this — divergent gating is the most expensive thing to unwind late.
 - **D-6 — Dice render as a transform-composed six-face cube with live text faces.** No 3D engine, no physics engine, no baked/pre-rendered tumble. Our dice faces are *words*, and premium users author their own — that rules out textured meshes and baked animations, both of which require the faces to be known at build time. Realism comes from motion and light (staggered landings, decaying wobble, impact squash, per-face Lambert shading, ground-contact shadow), not from geometry. Full rationale and the survey of how shipped games do this: `docs/planning/PHASE3.5_DICE_REALISM.md` §2. Revisit only if a designer delivers a Rive tumble.
 - **D-7 — The dice roll happens in place, in a tray on the Dice screen — no new route, no full-screen modal.** Turn-based board games take over the screen because the throw *is* the turn; repeat-roll tray games (Yahtzee, backgammon, RPG rollers, word-dice apps) roll in place because a modal per roll becomes friction fast. Veloura is the second kind. A full-screen "focus roll" is a defensible later extra, not part of Phase 3.5.
+- **D-8 — Game presentation is one shared layer, not per-module styling.** Every game screen is built from one `GameShell` (backdrop + app bar + turn chip + single CTA slot) and one `GameTokens` set that *extends* the Phase 1 `AppColors` palette — it introduces no second brand colour, and `GameTokens.rose` is an alias of `AppColors.primary #FF4D6D`. Bolted-on per-screen styling is why the shipped Dice screen drifted into a settings page with a game inside it. Accompanying this is a **cognitive-load contract** enforced in every Phase 4.5 exit gate: one hero object, one primary CTA, at most two text blocks per play surface; zero toggles, lists or premium rows on a play surface; the result shown once, largest, after the animation. Settings live in one gear sheet; history lives in Profile → Activity.
+- **D-9 — Phase 4.5 reuses existing content packs; it does not generate new ones.** The 500 Truth or Dare items, 256 challenges, 320 conversation prompts and 40–50 roleplay stories from Phases 3 and 4 are the content. Where a new UI needs a grouping the packs do not carry — for example three intensity decks on the card fan — it is **derived** from the existing `Difficulty` enum (`cute`+`romantic` → Sensual, `spicy` → Sexy, `extreme` → Superhot), not authored as a second corpus. A parallel content set would double the QA surface and guarantee voice drift. The one exception is Follow the Tempo, a new game whose entire content is six focus words in a Dart const.
+- **D-10 — Two-player session state is shared, not per-game.** One `GameSession` (two named players + whose turn it is, Hive-persisted) is created once and read by every game via `TurnChipBar`. Each game calls `nextTurn()` exactly once, when the player confirms the result. The shipped app shows only one player because no session model ever existed; solving that per-game would produce six divergent implementations.
 
 ---
 
@@ -87,6 +93,8 @@ Versions are indicative of the latest stable line compatible with Dart 3.12 — 
 | `firebase_analytics` `^11` | Analytics events | Phase 8 |
 | `firebase_crashlytics` `^4` | Crash reporting | Phase 8 |
 
+> **Phase 4.5 adds no runtime dependencies.** The card fan, wheel, swipe stack and pulse ring are all plain Flutter transforms, painters and animation controllers. If a sub-phase reaches for a package, that is a signal the spec was not read.
+
 **Dev / codegen**
 
 | Package | Purpose |
@@ -104,7 +112,7 @@ Versions are indicative of the latest stable line compatible with Dart 3.12 — 
 
 ## 3. Global Conventions (apply in every phase)
 
-- **Branching:** one feature branch per phase, e.g. `phase/01-foundation`, `phase/02-dice`. PR into `main`. Docs-only changes may go straight to `main`. Always pull before push.
+- **Branching:** one feature branch per phase, e.g. `phase/01-foundation`, `phase/02-dice`, `phase/4.5.1-game-shell`. PR into `main`. Docs-only changes may go straight to `main`. Always pull before push.
 - **Commits:** conventional style — `feat(dice): …`, `fix(td): …`, `chore(deps): …`, `docs: …`.
 - **Definition of Done (every phase, non-negotiable):**
   1. `flutter analyze` → **zero** errors/warnings.
@@ -116,6 +124,7 @@ Versions are indicative of the latest stable line compatible with Dart 3.12 — 
 - **Testing baseline:** from Phase 1 on, add unit tests for pure logic (deck building, streak rules, reward math) and a smoke `widget_test` per feature entry screen. Target: pure logic covered, not 100% coverage theater.
 - **typeId registry:** maintain a running list of Hive `typeId`s in `docs/planning/HIVE_TYPEIDS.md` (create in Phase 1). Every new adapter claims the next free id here **before** coding it. This prevents the #1 multi-module Hive failure (id collisions), audited formally in Phase 8.
 - **Motion quality bar (from Phase 3.5 on):** any signature animation must be non-uniform in speed, land on a deterministic end state, respect OS reduced-motion, never sit inside a `BackdropFilter`, and be profiled on a low-end physical device before its PR is accepted. "Feels smooth" is not a measurement — record the worst frame time.
+- **Cognitive-load bar (from Phase 4.5 on, D-8):** a play surface carries one hero object, one primary CTA, and at most two text blocks. No toggles, lists or premium rows. No information rendered twice. Settings go to a gear sheet, history to Profile → Activity. Phase 9 adds regression tests that assert this per screen.
 
 ---
 
@@ -198,7 +207,7 @@ Versions are indicative of the latest stable line compatible with Dart 3.12 — 
 - [x] Verified on device for animation smoothness (note any residual jank).
 - [x] Commit + PR: `feat(dice): dice game module`.
 
-> **Known gap carried forward:** the shipped tumble is a single flat rounded card rotated on X/Y — functionally animated, but it does not read as a thrown die, and the stage sits inside a `BackdropFilter`. This is **not** deferred to Phase 9; it is Phase 3.5.
+> **Known gaps carried forward:** (1) the shipped tumble is a single flat rounded card rotated on X/Y — functionally animated, but it does not read as a thrown die, and the stage sits inside a `BackdropFilter`. That is **Phase 3.5**. (2) The screen itself is a settings page with a game inside it — the result prints twice, three secondary controls sit under the primary action, and nothing shows that two people are playing. That is **Phase 4.5.2**. Neither is deferred to Phase 9.
 
 ---
 
@@ -234,16 +243,18 @@ Run in this sub-order:
 
 > **Content QA rule:** after each pack, spot-read 20 random items for voice + policy drift before accepting. An AI will happily claim balance it didn't hit — verify the QA summary against an actual count.
 
+> **These packs are the app's content, permanently.** Phase 4.5 reskins how they are selected and presented but generates nothing new (D-9). Any later phase proposing a parallel content set is doubling the QA surface — reject it.
+
 ---
 
 ### Phase 3.5 — Dice Realism & Roll Feel (3D cube) 🎲
-**Maps to:** Bible Prompt 2 (visual DoD) · **Blocked by:** Phase 3 · **Blocks:** nothing · **Est:** 1.5–2 days
+**Maps to:** Bible Prompt 2 (visual DoD) · **Blocked by:** Phase 3 · **Blocks:** Phase 4.5.2 · **Est:** 1.5–2 days
 
 > **Full spec: `docs/planning/PHASE3.5_DICE_REALISM.md`.** Read it before writing code — it contains the exact motion numbers, the face/normal/placement tables, the depth-sorting algorithm, and the test list.
 
 **Goal:** make the dice read as *real thrown dice* — rounded 3D cubes with depth, perspective, shading, a grounded shadow, and a convincing tumble — while keeping the readable word faces. **Presentation-layer only.** `DiceController`, `DiceState`, `DiceRollRecord`, the Hive box, favorites, history, premium gating and shake-to-roll are untouched.
 
-**Why it is its own phase and not part of Phase 9:** the Dice game is the app's first-impression toy. Shipping four more modules on top of a flat core interaction, then trying to retrofit motion into a screen nobody wants to reopen, is how polish debt becomes permanent. It is small (1.5–2 days), fully self-contained, independently reviewable, and it blocks nothing — Phase 4 can proceed in parallel.
+**Why it is its own phase and not part of Phase 9:** the Dice game is the app's first-impression toy. Shipping four more modules on top of a flat core interaction, then trying to retrofit motion into a screen nobody wants to reopen, is how polish debt becomes permanent. It is small (1.5–2 days), fully self-contained, independently reviewable, and it blocks nothing on the content path — Phase 4 can proceed in parallel.
 
 **Add deps:** `vector_math` (explicit; already transitive).
 
@@ -269,7 +280,7 @@ Run in this sub-order:
 - [ ] `flutter analyze` clean, `flutter test` green, `pubspec.lock` committed.
 - [ ] Commit + PR: `feat(dice): realistic 3D cube rendering and roll physics feel`.
 
-**Explicitly out of scope:** physics simulation, dice-to-dice collision, any 3D engine, Rive/Lottie baked tumble, full-screen roll, dice sound (wire the `onDieLanded` callback, defer audio to Phase 9), custom face skins/materials.
+**Explicitly out of scope:** physics simulation, dice-to-dice collision, any 3D engine, Rive/Lottie baked tumble, full-screen roll, dice sound (wire the `onDieLanded` callback, defer audio to Phase 9), custom face skins/materials. **Also out of scope: the screen layout around the tray** — the turn indicator, board backdrop, result sheet and removal of the toggle/history clutter are Phase 4.5.2. Do not pull them forward; they need the shared shell that does not exist yet.
 
 ---
 
@@ -295,6 +306,55 @@ Run in this sub-order:
 
 ---
 
+### Phase 4.5 — Game Experience Layer (UI overhaul) ✨
+**Maps to:** Bible §2 (design system) + every game module's visual DoD · **Blocked by:** Phase 4 for sub-phase 4.5.7, Phase 3.5 for sub-phase 4.5.2, Phase 3 for the rest · **Blocks:** nothing on the content path · **Est:** 8–9 days total
+
+> **Full spec: `docs/planning/PHASE4.5_GAME_EXPERIENCE/`.** Start with its `README.md`, then `4.5.0_DESIGN_SYSTEM.md`, then the sub-phase file you are building. Each sub-phase file is self-contained: it restates its own rules, lists exact files to create and modify, gives pixel-level specs, and ends with an exit gate.
+
+**Goal:** Phases 2–4 produced working engines with real content. They did not produce a product that *feels* premium. This phase is the presentation layer that fixes that across every game at once: one shared game shell, a visible two-player session, a signature hero interaction per game, and a hard cognitive-load contract (D-8) that keeps play surfaces clean.
+
+**Why it is its own phase rather than a Phase 9 polish item:** the same argument that justified Phase 3.5, applied to the other five games. Polish folded into a single late pass is polish that gets cut. This phase is also where the app stops looking like six separately-styled screens sharing a tab bar.
+
+**Why it is not new content:** per D-9 the existing packs are reused verbatim. This is a UI phase with a small amount of derived grouping logic, which is why 8–9 days covers six games.
+
+**Add deps:** none.
+
+**Sub-phases** (one branch + one PR each; 4.5.1 is blocking, then 4.5.2–4.5.7 are independent)
+
+| Sub-phase | Scope | Blocked by | Est |
+|---|---|---|---|
+| 4.5.1 | `GameTokens`, `GameShell` + shared game widgets, two-player `GameSession` (D-10), Games hub 2-column gradient grid | Phase 1 | 2 d |
+| 4.5.2 | Lustful Rolls: board backdrop, turn chip, result sheet, rename, clutter removal — **the screen around the Phase 3.5 cube** | 4.5.1 + **3.5 merged** | 1 d |
+| 4.5.3 | Truth or Dare: 10-petal pinwheel spin selecting from the existing 500-item pack | 4.5.1 + 3.1 | 1.5 d |
+| 4.5.4 | Card Challenge: 3-card fan + flip reveal over the existing 256-item pack, intensity decks derived from `Difficulty` | 4.5.1 + 3.2 | 1.5 d |
+| 4.5.5 | Creative Connections: swipe stack over the existing 320-prompt pack | 4.5.1 + 3.3 | 1 d |
+| 4.5.6 | Follow the Tempo: new pulse-ring pacing game (the only new game; no pack, no Hive) | 4.5.1 | 1 d |
+| 4.5.7 | Passionate Roleplay: scene carousel → role assign → one beat at a time | 4.5.1 + **4.1** | 1.5 d |
+
+**Games catalog after this phase:** Lustful Rolls · Card Challenge · Truth or Dare · Creative Connections · Follow the Tempo · Passionate Roleplay. Position Library stays out of the grid (D-3).
+
+**Key requirements**
+- One `GameTokens` extending `AppColors` — no second brand colour, `rose` is an alias of `primary #FF4D6D` (D-8).
+- One `GameShell`: backdrop + app bar + `TurnChipBar` + hero slot + single CTA slot + optional one-line footnote. It asserts the cognitive-load contract in debug.
+- One `GameSession` in Hive (typeIds 2 and 3), `nextTurn()` called exactly once per completed round, on confirm (D-10).
+- One `GamePreferencesSheet` — the **only** place a toggle may live. Third die, vibration, sound, soften decks, custom faces (premium), who's playing.
+- Every `Image.asset` has an `errorBuilder` falling back to a glyph, so missing artwork never breaks a build. Tile and scene art is a design task tracked outside codegen.
+- No new dependencies, no new content packs, no engine rewrites.
+
+**Explicitly out of scope (folded into later phases — see `AMENDMENTS_TO_LATER_PHASES.md`):** paywall wiring and entitlement swap (Phase 6), roll history and the unified activity feed and the haptics setting (Phase 7), audio, golden tests, the random-game FAB, accessibility and performance sweeps (Phase 9). **Do not create a Phase 4.5 polish sub-phase** — that is how a second competing checklist appears.
+
+**Exit Gate** (phase level; each sub-phase has its own)
+- [ ] All six games reachable from the new Games hub grid; every pre-existing module still works through its new route.
+- [ ] Both players visible in every game; turn advances exactly once per completed round.
+- [ ] Every play surface passes the cognitive-load contract: one hero, one CTA, ≤ 2 text blocks, zero toggles/lists/premium rows.
+- [ ] No new runtime dependency; no content pack modified; no engine, repository, model or typeId changed except the two claimed for the session.
+- [ ] Reduced-motion path verified on all six games.
+- [ ] Worst frame time recorded on a low-end physical device for each signature interaction.
+- [ ] `flutter analyze` clean, `build_runner` clean, `flutter test` green.
+- [ ] Commits: `feat(games|dice|td|cards|conversation|tempo|roleplay): …`, one PR per sub-phase.
+
+---
+
 ### Phase 5 — Daily Challenge
 **Maps to:** Bible Prompt 8 · **Blocked by:** Phases 3 (+4 for roleplay pool) · **Est:** 3–4 days
 
@@ -308,6 +368,7 @@ Run in this sub-order:
 - Calendar month-grid completion history (filled vs empty).
 - Local notification reminder: implement permission request + trigger; copy/schedule **configurable**, not hardcoded. Must not crash on permission denial.
 - Completion rewards: coordinate currency shape with Premium (Phase 6). If Premium hasn't run, define a minimal `RewardCurrency` service here and flag it for reuse.
+- If Phase 4.5 has shipped, the daily card reuses `GameTokens` and `PrimaryCta` rather than inventing a third button style.
 
 **Exit Gate** (Bible Prompt 8 DoD)
 - [ ] Same challenge consistent across a calendar day.
@@ -326,18 +387,20 @@ Run in this sub-order:
 **Add deps:** `purchases_flutter` (RevenueCat, D-2) — or `in_app_purchase` if D-2 is overridden.
 
 **Key requirements** (Bible §10)
-- Paywall: monthly/yearly/lifetime tiers, glass-blur+gradient treatment, **real** per-tier value bullets pulled from actual gated features (Dice custom sets, Challenge locked cards, Roleplay premium packs, Positions if enabled) — no placeholder bullets.
+- Paywall: monthly/yearly/lifetime tiers, glass-blur+gradient treatment, **real** per-tier value bullets pulled from actual gated features (Dice custom sets, Challenge locked cards + Superhot deck, Superhot Roulette, Roleplay premium packs, Positions if enabled) — no placeholder bullets.
 - Restore purchases flow.
 - Single entitlement source of truth backing `subscriptionStatusProvider`; verify every prior stub call site now reflects real state with zero call-site edits.
 - Coin/currency system if used, aligned with Daily's `RewardCurrency`.
 - No-ads flag wired to premium (even if ads unbuilt).
 - **Compliance:** all digital purchases route through Google Play Billing — flag any external-checkout path as a violation.
+- **Phase 4.5 additions:** every gated tap routes to the paywall with a `source` argument for analytics; no dead taps; locked states use `PremiumLockBadge` only, never greyed content or a locked list row on a play surface. Full list in `PHASE4.5_GAME_EXPERIENCE/AMENDMENTS_TO_LATER_PHASES.md`.
 
 **Exit Gate** (Bible Prompt 9 DoD)
 - [ ] Paywall renders per tier with real bullets.
 - [ ] Purchase completes in sandbox/test.
 - [ ] Restore re-unlocks gated content.
 - [ ] Every previously-stubbed `isPremiumProvider` site reflects real subscription state, unchanged at the call site.
+- [ ] Every Phase 4.5 gated surface routes to the paywall with a source tag; zero dead taps.
 - [ ] `flutter analyze` clean. Commit: `feat(premium): paywall + entitlements`.
 
 ---
@@ -348,17 +411,19 @@ Run in this sub-order:
 **Goal:** a read-only aggregation layer over existing repositories + settings. **Do not duplicate progress data into a new store.**
 
 **Key requirements** (Bible §11)
-- Couple profile: names/nicknames, relationship start date ("together for X days"), optional local avatar (no upload backend).
+- Couple profile: names/nicknames, relationship start date ("together for X days"), optional local avatar (no upload backend). If Phase 4.5 shipped, seed the names from `GameSession` rather than asking twice.
 - Aggregate stats from ≥3 modules (T/D completion by difficulty, Cards by category, Daily streak, Roleplay plays, favorites count) — read-only over existing repos.
 - 10–15 rule-based achievements checked against existing data (e.g. "7-day streak", "Tried every category", "50 dares completed") — no new tracking system.
 - Settings: theme (light-mode stub), notification prefs, haptics on/off, sound on/off, language (localization stub), data export/clear, privacy/terms links (**placeholder URLs, flagged as release-blocking until legal provides real ones**), subscription management deep-link to Premium.
+- **Profile → Activity** is the home for game history: the dice roll history removed from the Dice screen in 4.5.2, plus a unified play-event feed across all six games. Read-only aggregation — no new store.
 
-> **Note for Phase 3.5 integration:** the dice landing haptics must respect the haptics on/off setting built here. Phase 3.5 leaves a `TODO(phase7)` at the call site — resolve it in this phase.
+> **Notes for earlier-phase integration:** the dice landing haptics must respect the haptics on/off setting built here — Phase 3.5 leaves a `TODO(phase7)` at the call site, and Phase 4.5 routes all game haptics through one helper. Resolve both in this phase. Full list in `PHASE4.5_GAME_EXPERIENCE/AMENDMENTS_TO_LATER_PHASES.md`.
 
 **Exit Gate** (Bible Prompt 10 DoD)
 - [ ] Stats accurately reflect real data from ≥3 modules (spot-check vs manually completed items).
 - [ ] Achievements unlock correctly on criteria.
-- [ ] Settings persist across restart.
+- [ ] Settings persist across restart; haptics toggle actually mutes dice and game haptics.
+- [ ] Profile → Activity shows dice roll history and play events from every game.
 - [ ] `flutter analyze` clean. Commit: `feat(profile): profile, settings, stats, achievements`.
 
 ---
@@ -371,9 +436,9 @@ Run in this sub-order:
 **Add deps:** `flutter_localizations` (SDK), `intl`, `firebase_core`, `firebase_analytics`, `firebase_crashlytics`.
 
 **Tasks** (Bible §12)
-1. **Audit every Hive `typeId`** against `docs/planning/HIVE_TYPEIDS.md` — list all in use, resolve any collision **before** anything else.
+1. **Audit every Hive `typeId`** against `docs/planning/HIVE_TYPEIDS.md` — list all in use, resolve any collision **before** anything else. Includes the session ids claimed in 4.5.1.
 2. Versioned Hive migration stub (schema-version field + migration function scaffold) so future pack updates don't corrupt user data.
-3. Localization scaffolding: `flutter_localizations` + `intl`, extract **UI strings only** (not content-pack strings — that's a separate later effort) into ARB files, English base.
+3. Localization scaffolding: `flutter_localizations` + `intl`, extract **UI strings only** (not content-pack strings — that's a separate later effort) into ARB files, English base. Includes the Phase 4.5 game UI strings.
 4. Firebase readiness: `firebase_core` init **guarded** (app still runs with no Firebase project); stub `AnalyticsService` events at funnel points (onboarding complete, first game played, paywall viewed, purchase completed) — no direct SDK coupling in feature code.
 5. Crashlytics stub wired the same indirect way.
 6. Idempotent first-launch **seed loader**: loads all content JSON into Hive once (not per launch), with a visible progress state if slow.
@@ -393,16 +458,17 @@ Run in this sub-order:
 **Goal:** whole-app integration + pre-release quality pass.
 
 **Tasks** (Bible §13)
-1. Wire the FAB "random game" (stubbed in Phase 1) to randomly launch a game module.
+1. Wire the FAB "random game" (stubbed in Phase 1) to randomly launch a game module — pick from `kGameCatalog`, excluding premium-locked entries for non-subscribers.
 2. Home featured/popular sections pull **real** data (favorite counts, recently played), not Phase-1 mock values.
-3. Full navigation audit: every route reachable, no dead ends, correct Android back behavior (card session → picker, not straight Home).
+3. Full navigation audit: every route reachable, no dead ends, correct Android back behavior (card session → picker, not straight Home; roleplay scene exits once, not beat by beat).
 4. State-handling audit: every screen has genuine loading/empty/error states.
-5. Performance: Riverpod `select` to kill needless rebuilds, builder-based lists, cached images.
-6. Accessibility: semantic labels on icon-only buttons, WCAG AA contrast for text-over-gradient (double-check accent/secondary), reduced-motion respected.
-7. App icon, splash, store assets — flag as design work outside codegen if not provided.
-8. Audio pass: hook the dice `onDieLanded` callback (left wired in Phase 3.5) to a landing sound; respect the Settings sound toggle.
+5. Performance: Riverpod `select` to kill needless rebuilds, builder-based lists, cached images. Profile all six games on a low-end physical device; budget is no more than 3 frames over 16ms per interaction. Confirm no `BackdropFilter` sits over an animating subtree and every animated hero is inside a `RepaintBoundary`.
+6. Accessibility: semantic labels on icon-only buttons, WCAG AA contrast for text-over-gradient (double-check accent/secondary), reduced-motion respected, and all six games verified at `textScaleFactor` 1.3 with no overflow.
+7. App icon, splash, store assets — flag as design work outside codegen if not provided. **Also outstanding: the six game tile illustrations and the roleplay scene art** specified in `4.5.0_DESIGN_SYSTEM.md` §7. Builds do not break without them (glyph fallback), but the grid does not reach its intended quality until they land.
+8. Audio pass: hook the dice `onDieLanded` callback (left wired in Phase 3.5) to a landing sound, plus card flip, wheel tick and tempo beat; respect the Settings sound toggle and the OS silent switch.
+9. **Golden + cognitive-load regression tests** for the game surfaces: Games hub, card back/front per intensity deck, wheel at rest and mid-spin, scene card, tempo ring at max. At 390x844 and 360x800. Plus, per play screen, assert exactly one `PrimaryCta`, zero `Switch`, zero `ListView` — the cheapest guard against the text-heavy UI creeping back.
 
-> **De-scoped from this phase:** dice motion/3D quality. That was pulled forward into Phase 3.5 — do **not** redo it here. If a designer has since delivered a Rive tumble, swapping the internals of `DiceCube` behind its existing API is the only sanctioned change (D-6).
+> **De-scoped from this phase:** dice motion/3D quality (Phase 3.5) and game screen layout/hierarchy (Phase 4.5). Do **not** redo either here. If a designer has since delivered a Rive tumble, swapping the internals of `DiceCube` behind its existing API is the only sanctioned change (D-6).
 
 **Exit Gate** (Bible Prompt 12 DoD)
 - [ ] `flutter analyze` + `flutter test` pass clean.
@@ -440,8 +506,16 @@ Run in this sub-order:
 ```
 0 Bootstrap ✅ → 1 Foundation ⭐ ✅ → 2 Dice ✅
                                         → 3 Core content ✅ (TD, Cards, Conversation)
-                                            ├─ 3.5 Dice realism 🎲 (parallel, blocks nothing)
+                                            ├─ 3.5 Dice realism 🎲 (in review)
                                             └─ 4 Advanced (Roleplay; Positions ⚠ flagged off)
+                                                → 4.5 Game experience layer ✨
+                                                     4.5.1 shell/session/hub  ← blocking
+                                                       ├─ 4.5.2 dice screen (needs 3.5)
+                                                       ├─ 4.5.3 T/D wheel
+                                                       ├─ 4.5.4 card fan
+                                                       ├─ 4.5.5 connections stack
+                                                       ├─ 4.5.6 follow the tempo
+                                                       └─ 4.5.7 roleplay flow (needs 4.1)
                                                 → 5 Daily
                                                     → 6 Premium (swaps stub flag)
                                                         → 7 Profile/Stats
@@ -452,11 +526,12 @@ Run in this sub-order:
 
 - **Phase 1 is the bottleneck.** A weak Foundation contract makes Phases 2–7 diverge. Over-invest here; snapshot the contract.
 - **Phases 3.1/3.2/3.3 can parallelize** across developers/agents *if* Phase 2 validated the architecture — each is independent and only depends on the Foundation contract. Content-pack generation for all of them can run in parallel background sessions.
-- **Phase 3.5 is off the critical path.** It touches only `lib/features/dice/presentation/` and blocks nothing, so it can run in parallel with Phase 4 or slot in as a standalone 1.5–2 day PR. Do it *now* rather than in Phase 9 — polish debt on the app's first-impression toy compounds, and by Phase 9 nobody wants to reopen that screen.
-- **Phase 6 must come after all gating touchpoints exist** (2–5) or you'll retrofit call sites — exactly what D-5 exists to prevent.
-- **Positions (Phase 4.2)** is built but flag-gated off; it does not block the v1 critical path and does not gate Phase 5+.
+- **Phase 3.5 is off the critical path** for content, but it now **blocks 4.5.2** — the dice screen rebuild wraps the 3.5 cube and must not reimplement it. Finish 3.5 first.
+- **Phase 4.5 is off the critical path.** It touches presentation only and blocks nothing downstream, so it can run in parallel with Phase 5 if you have two agents. **4.5.1 is the internal bottleneck** — the other six sub-phases are independent of each other and parallelize cleanly once it merges. Order 4.5.2 → 4.5.3 → 4.5.4 first if you want the highest-visibility screens earliest.
+- **Phase 6 must come after all gating touchpoints exist** (2–5, plus the 4.5 additions) or you'll retrofit call sites — exactly what D-5 exists to prevent.
+- **Positions (Phase 4.2)** is built but flag-gated off; it does not block the v1 critical path, does not gate Phase 5+, and does not appear in the Phase 4.5 games grid.
 
-**Rough total:** ~35–50 working days for a single focused engineer/agent; less with content packs parallelized.
+**Rough total:** ~43–59 working days for a single focused engineer/agent; less with content packs and the 4.5 sub-phases parallelized.
 
 ---
 
@@ -470,8 +545,11 @@ Run in this sub-order:
 <tr><td>Play Store rejection over Sexual Content</td><td>Positions held for v1.1 (D-3), text-only non-explicit framing, §14 gate before submit</td></tr>
 <tr><td>Shallow content packs</td><td>Content generated in separate sessions from code; 20-item spot-read + QA-count verification per pack</td></tr>
 <tr><td>Payment policy violation</td><td>Google Play Billing only (RevenueCat/D-2); external-checkout flagged as violation in Phase 6</td></tr>
-<tr><td>Polish debt on core interactions deferred to a single late "polish pass" that never gets the attention it needs</td><td>Signature interactions get their own scoped phase with measurable gates — Phase 3.5 for Dice; motion quality bar added to §3 conventions</td></tr>
-<tr><td>Animation jank from blurred, animating subtrees (<code>BackdropFilter</code> over a per-frame repaint)</td><td>Explicit ban in the §3 motion quality bar; enforced in the Phase 3.5 gate with a recorded worst-frame time on a low-end physical device</td></tr>
+<tr><td>Polish debt on core interactions deferred to a single late "polish pass" that never gets the attention it needs</td><td>Signature interactions get their own scoped phase with measurable gates — Phase 3.5 for Dice, Phase 4.5 for the other five games; motion + cognitive-load quality bars added to §3 conventions</td></tr>
+<tr><td>Animation jank from blurred, animating subtrees (<code>BackdropFilter</code> over a per-frame repaint)</td><td>Explicit ban in the §3 motion quality bar; enforced in the Phase 3.5 and 4.5 gates with a recorded worst-frame time on a low-end physical device</td></tr>
+<tr><td>Play surfaces silently accumulating toggles, lists and duplicated text until the UI is unreadable (already happened to the Dice screen)</td><td>Cognitive-load contract in D-8, asserted by <code>GameShell</code> in debug, checked in every 4.5 exit gate, and locked in by Phase 9 regression tests</td></tr>
+<tr><td>A UI overhaul quietly turning into a second content corpus, doubling QA and drifting from the Bible voice</td><td>D-9 forbids new packs in Phase 4.5; new groupings are derived from <code>Difficulty</code>, and each sub-phase gate re-asserts "no pack modified"</td></tr>
+<tr><td>Two competing plan documents, so nobody knows which checklist is current</td><td>This file is the only plan; 3.5 and 4.5 detail docs are sub-plans entered from here, and Phase 4.5 deliberately has no polish sub-phase — those items are amended into Phases 6, 7 and 9</td></tr>
 </table>
 
 ---
@@ -483,6 +561,7 @@ Run in this sub-order:
 - `docs/planning/HIVE_TYPEIDS.md` (Phase 1, maintained throughout) — typeId registry.
 - `docs/planning/PHASE3_CONTENT_QA.md` (Phase 3) — content pack QA counts of record.
 - `docs/planning/PHASE3.5_DICE_REALISM.md` (Phase 3.5) — dice 3D/motion spec, industry survey, and test list.
+- `docs/planning/PHASE4.5_GAME_EXPERIENCE/` (Phase 4.5) — game design tokens, shared shell + session spec, and one implementation-ready file per sub-phase, plus `AMENDMENTS_TO_LATER_PHASES.md` listing what Phases 6, 7 and 9 must pick up.
 - Per-phase PR descriptions doubling as changelog entries.
 
 ---
