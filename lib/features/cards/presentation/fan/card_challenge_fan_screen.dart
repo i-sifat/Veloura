@@ -24,7 +24,7 @@ import 'package:veloura/shared/widgets/loading_shimmer.dart';
 import 'package:veloura/theme/app_colors.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
-/// Twelve-card mystery draw with heat-first selection and optional category filters.
+/// Twelve-card mystery draw with heat-first selection and optional categories.
 class CardChallengeFanScreen extends ConsumerStatefulWidget {
   const CardChallengeFanScreen({super.key});
 
@@ -87,11 +87,14 @@ class _CardChallengeFanScreenState
             .read(cardFanControllerProvider.notifier)
             .completeSelected();
         await ref.read(sessionControllerProvider.notifier).nextTurn();
+        break;
       case _RevealAction.skip:
         ref.read(cardFanControllerProvider.notifier).redeal();
         await ref.read(sessionControllerProvider.notifier).nextTurn();
+        break;
       case null:
         ref.read(cardFanControllerProvider.notifier).redeal();
+        break;
     }
   }
 
@@ -105,7 +108,10 @@ class _CardChallengeFanScreenState
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Pick a mystery card', style: Theme.of(context).textTheme.titleLarge),
+              Text(
+                'Pick a mystery card',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
               const SizedBox(height: 10),
               const Text(
                 'Choose heat first. Category is optional. Every number is a surprise.',
@@ -127,7 +133,7 @@ class _CardChallengeFanScreenState
   }
 
   Future<void> _showCategoryPicker(CardFanState state) async {
-    final selected = await showModalBottomSheet<ChallengeCategory?>(
+    final selected = await showModalBottomSheet<Object>(
       context: context,
       backgroundColor: GameTokens.sheet,
       builder: (context) => SafeArea(
@@ -137,7 +143,10 @@ class _CardChallengeFanScreenState
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Choose a category', style: Theme.of(context).textTheme.titleLarge),
+              Text(
+                'Choose a category',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
               const SizedBox(height: 16),
               Wrap(
                 spacing: 8,
@@ -146,7 +155,7 @@ class _CardChallengeFanScreenState
                   ChoiceChip(
                     label: const Text('All'),
                     selected: state.category == null,
-                    onSelected: (_) => Navigator.pop(context, _allCategories),
+                    onSelected: (_) => Navigator.pop(context, 'all'),
                   ),
                   for (final category in ChallengeCategory.values)
                     ChoiceChip(
@@ -162,9 +171,9 @@ class _CardChallengeFanScreenState
       ),
     );
     if (!mounted || selected == null) return;
-    ref
-        .read(cardFanControllerProvider.notifier)
-        .selectCategory(selected == _allCategories ? null : selected);
+    ref.read(cardFanControllerProvider.notifier).selectCategory(
+      selected == 'all' ? null : selected as ChallengeCategory,
+    );
   }
 
   @override
@@ -262,8 +271,6 @@ class _CardChallengeFanScreenState
   }
 }
 
-const _allCategories = ChallengeCategory.surprise;
-
 class _DeckSelector extends StatelessWidget {
   const _DeckSelector({required this.selected, required this.onSelected});
 
@@ -344,7 +351,8 @@ class _RevealCardDialogState extends ConsumerState<_RevealCardDialog>
     _flip = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 620),
-    )..forward().whenComplete(HapticFeedback.mediumImpact);
+    );
+    unawaited(_flip.forward().whenComplete(HapticFeedback.mediumImpact));
   }
 
   @override
@@ -354,93 +362,104 @@ class _RevealCardDialogState extends ConsumerState<_RevealCardDialog>
   }
 
   @override
-  Widget build(BuildContext context) => Material(
-    color: Colors.transparent,
-    child: SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  tooltip: widget.item.favorite ? 'Remove favorite' : 'Favorite',
-                  onPressed: () => ref
-                      .read(cardFanControllerProvider.notifier)
-                      .toggleFavorite(),
-                  icon: Icon(
-                    widget.item.favorite ? Icons.favorite : Icons.favorite_border,
-                  ),
-                ),
-                IconButton(
-                  tooltip: 'Share challenge',
-                  onPressed: () => SharePlus.instance.share(
-                    ShareParams(
-                      text:
-                          'Veloura challenge: ${widget.item.title}\n${widget.item.description}',
+  Widget build(BuildContext context) {
+    final liveItem =
+        ref.watch(cardFanControllerProvider).asData?.value.selected ??
+        widget.item;
+    return Material(
+      color: Colors.transparent,
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                    tooltip: liveItem.favorite
+                        ? 'Remove favorite'
+                        : 'Favorite',
+                    onPressed: () => ref
+                        .read(cardFanControllerProvider.notifier)
+                        .toggleFavorite(),
+                    icon: Icon(
+                      liveItem.favorite
+                          ? Icons.favorite
+                          : Icons.favorite_border,
                     ),
                   ),
-                  icon: const Icon(Icons.share_outlined),
-                ),
-              ],
-            ),
-            const Spacer(),
-            AnimatedBuilder(
-              animation: _flip,
-              builder: (context, _) {
-                final angle = math.pi * _flip.value;
-                final showFront = _flip.value >= 0.5;
-                return Transform(
-                  alignment: Alignment.center,
-                  transform: Matrix4.identity()
-                    ..setEntry(3, 2, 0.0012)
-                    ..rotateY(angle),
-                  child: showFront
-                      ? Transform(
-                          alignment: Alignment.center,
-                          transform: Matrix4.identity()..rotateY(math.pi),
-                          child: ChallengeCardFront(
-                            item: widget.item,
-                            deck: widget.deck,
-                            number: widget.number,
-                          ),
-                        )
-                      : SizedBox(
-                          width: 230,
-                          height: 340,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(colors: widget.deck.gradient),
-                              borderRadius: BorderRadius.circular(22),
-                            ),
-                            child: Center(
-                              child: Icon(
-                                widget.deck.icon,
-                                size: 72,
-                                color: Colors.white,
+                  IconButton(
+                    tooltip: 'Share challenge',
+                    onPressed: () => SharePlus.instance.share(
+                      ShareParams(
+                        text:
+                            'Veloura challenge: ${liveItem.title}\n${liveItem.description}',
+                      ),
+                    ),
+                    icon: const Icon(Icons.share_outlined),
+                  ),
+                ],
+              ),
+              const Spacer(),
+              AnimatedBuilder(
+                animation: _flip,
+                builder: (context, _) {
+                  final angle = math.pi * _flip.value;
+                  final showFront = _flip.value >= 0.5;
+                  return Transform(
+                    alignment: Alignment.center,
+                    transform: Matrix4.identity()
+                      ..setEntry(3, 2, 0.0012)
+                      ..rotateY(angle),
+                    child: SizedBox(
+                      width: 230,
+                      height: 340,
+                      child: showFront
+                          ? Transform(
+                              alignment: Alignment.center,
+                              transform: Matrix4.identity()..rotateY(math.pi),
+                              child: ChallengeCardFront(
+                                item: liveItem,
+                                deck: widget.deck,
+                                number: widget.number,
+                              ),
+                            )
+                          : DecoratedBox(
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: widget.deck.gradient,
+                                ),
+                                borderRadius: BorderRadius.circular(22),
+                              ),
+                              child: Center(
+                                child: Icon(
+                                  widget.deck.icon,
+                                  size: 72,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                );
-              },
-            ),
-            const Spacer(),
-            PrimaryCta(
-              label: 'Done',
-              onPressed: () => Navigator.pop(context, _RevealAction.done),
-            ),
-            const SizedBox(height: 4),
-            SecondaryTextButton(
-              label: 'Skip',
-              onPressed: () => Navigator.pop(context, _RevealAction.skip),
-            ),
-          ],
+                    ),
+                  );
+                },
+              ),
+              const Spacer(),
+              PrimaryCta(
+                label: 'Done',
+                onPressed: () => Navigator.pop(context, _RevealAction.done),
+              ),
+              const SizedBox(height: 4),
+              SecondaryTextButton(
+                label: 'Skip',
+                onPressed: () => Navigator.pop(context, _RevealAction.skip),
+              ),
+            ],
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
 
 String _categoryLabel(ChallengeCategory category) => switch (category) {
