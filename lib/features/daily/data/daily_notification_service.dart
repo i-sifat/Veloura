@@ -11,6 +11,37 @@ abstract interface class DailyNotificationService {
   Future<void> cancel();
 }
 
+/// Returns consecutive future reminder times in the device's local timezone.
+///
+/// Computing the first occurrence once avoids scheduling tomorrow twice when
+/// today's configured reminder time has already passed.
+List<DateTime> nextReminderOccurrences({
+  required DailyReminderSettings settings,
+  required DateTime now,
+  int count = 7,
+}) {
+  if (count <= 0) return const [];
+  var first = DateTime(
+    now.year,
+    now.month,
+    now.day,
+    settings.hour,
+    settings.minute,
+  );
+  if (!first.isAfter(now)) first = first.add(const Duration(days: 1));
+  return List.generate(
+    count,
+    (index) => DateTime(
+      first.year,
+      first.month,
+      first.day + index,
+      settings.hour,
+      settings.minute,
+    ),
+    growable: false,
+  );
+}
+
 /// Local notification implementation. It schedules the next seven local
 /// occurrences and refreshes them whenever the app opens or settings change.
 class PluginDailyNotificationService implements DailyNotificationService {
@@ -28,7 +59,11 @@ class PluginDailyNotificationService implements DailyNotificationService {
     tz_data.initializeTimeZones();
     const settings = InitializationSettings(
       android: AndroidInitializationSettings('@mipmap/ic_launcher'),
-      iOS: DarwinInitializationSettings(),
+      iOS: DarwinInitializationSettings(
+        requestAlertPermission: false,
+        requestBadgePermission: false,
+        requestSoundPermission: false,
+      ),
     );
     await _plugin.initialize(settings);
     _initialized = true;
@@ -55,17 +90,13 @@ class PluginDailyNotificationService implements DailyNotificationService {
     await initialize();
     await cancel();
     if (!settings.enabled) return;
-    final now = DateTime.now();
-    for (var offset = 0; offset < _daysScheduled; offset++) {
-      var local = DateTime(
-        now.year,
-        now.month,
-        now.day + offset,
-        settings.hour,
-        settings.minute,
-      );
-      if (!local.isAfter(now)) local = local.add(const Duration(days: 1));
-      final instant = tz.TZDateTime.from(local.toUtc(), tz.UTC);
+    final occurrences = nextReminderOccurrences(
+      settings: settings,
+      now: DateTime.now(),
+      count: _daysScheduled,
+    );
+    for (var offset = 0; offset < occurrences.length; offset++) {
+      final instant = tz.TZDateTime.from(occurrences[offset].toUtc(), tz.UTC);
       await _plugin.zonedSchedule(
         _firstNotificationId + offset,
         settings.title,
