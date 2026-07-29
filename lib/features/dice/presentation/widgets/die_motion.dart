@@ -54,9 +54,9 @@ class DieMotion {
   /// Samples the complete visual state at normalized shared time [globalT].
   DieFrame at(double globalT) {
     final delayFraction = delay.inMicroseconds / totalDuration.inMicroseconds;
-    final t = ((globalT.clamp(0.0, 1.0) - delayFraction) /
-            (1 - delayFraction))
-        .clamp(0.0, 1.0);
+    final t = _clamp01(
+      (globalT.clamp(0.0, 1.0) - delayFraction) / (1 - delayFraction),
+    );
     final (landingX, landingY) = orientationForFace(landingFaceIndex);
 
     final progress = switch (t) {
@@ -64,28 +64,31 @@ class DieMotion {
       < 0.62 =>
         0.78 *
             const Cubic(0.15, 0.85, 0.10, 1.00).transform(
-              ((t - 0.08) / 0.54).clamp(0.0, 1.0),
+              _clamp01((t - 0.08) / 0.54),
             ),
       < 0.85 =>
         0.78 +
             0.22 *
                 Curves.easeOutCubic.transform(
-                  ((t - 0.62) / 0.23).clamp(0.0, 1.0),
+                  _clamp01((t - 0.62) / 0.23),
                 ),
       _ => 1.0,
     };
 
-    final decelerationT = ((t - 0.62) / 0.23).clamp(0.0, 1.0);
+    final decelerationT = _clamp01((t - 0.62) / 0.23);
+    final decay = 1 - decelerationT;
     final wobble = t >= 0.62 && t < 0.85
         ? math.sin(decelerationT * 6 * math.pi) *
-              math.pow(1 - decelerationT, 3) *
+              decay *
+              decay *
+              decay *
               wobbleAmplitude
         : 0.0;
-    final flightT = ((t - 0.08) / 0.77).clamp(0.0, 1.0);
+    final flightT = _clamp01((t - 0.08) / 0.77);
     final flightHeight = t < 0.08 || t >= 0.85
         ? 0.0
         : math.sin(flightT * math.pi);
-    final impactT = ((t - 0.85) / 0.15).clamp(0.0, 1.0);
+    final impactT = _clamp01((t - 0.85) / 0.15);
     final impactEnvelope = t < 0.85
         ? 0.0
         : math.sin(impactT * math.pi) * (1 - impactT);
@@ -100,7 +103,7 @@ class DieMotion {
         : t < 0.75
         ? (0.75 - t) / 0.45
         : 0.0;
-    final blurSigma = 2.6 * blurProgress.clamp(0.0, 1.0);
+    final blurSigma = 2.6 * _clamp01(blurProgress);
 
     return DieFrame(
       rotationX: landingX + (1 - progress) * turnsX * 2 * math.pi + wobble,
@@ -117,6 +120,8 @@ class DieMotion {
       hasLanded: t >= 0.85,
     );
   }
+
+  static double _clamp01(num value) => value.clamp(0.0, 1.0).toDouble();
 }
 
 /// Immutable visual values sampled from a [DieMotion].
