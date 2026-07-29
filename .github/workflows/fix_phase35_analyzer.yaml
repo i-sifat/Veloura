@@ -1,0 +1,45 @@
+name: Fix Phase 3.5 analyzer diagnostics
+
+on:
+  push:
+    branches:
+      - phase/3.5-dice-realism
+
+permissions:
+  contents: write
+
+jobs:
+  fix-analyzer:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: phase/3.5-dice-realism
+      - name: Apply Flutter 3.44 API replacements
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          replacements = {
+              Path('lib/features/dice/presentation/dice_screen.dart'): (
+                  'SemanticsService.announce(summary, TextDirection.ltr);',
+                  'SemanticsService.sendAnnouncement(\n      View.of(context),\n      summary,\n      TextDirection.ltr,\n    );',
+              ),
+              Path('lib/features/dice/presentation/widgets/dice_cube.dart'): (
+                  '..translate(0.0, 0.0, half),',
+                  '..translateByDouble(0.0, 0.0, half, 1.0),',
+              ),
+          }
+          for path, (old, new) in replacements.items():
+              text = path.read_text()
+              if old not in text:
+                  raise SystemExit(f'Expected text not found in {path}: {old}')
+              path.write_text(text.replace(old, new))
+          PY
+      - name: Commit fixes
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add lib/features/dice/presentation/dice_screen.dart lib/features/dice/presentation/widgets/dice_cube.dart
+          git commit -m "fix(dice): use current Flutter semantics and matrix APIs"
+          git push
