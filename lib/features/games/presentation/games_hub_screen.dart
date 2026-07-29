@@ -59,11 +59,12 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
                       ),
                       const Spacer(),
                       InkWell(
-                        onTap: () => ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Premium arrives in Phase 6.'),
-                          ),
-                        ),
+                        onTap: isPremium
+                            ? null
+                            : () => openPremiumPaywall(
+                                context,
+                                source: 'games_hub_superhot',
+                              ),
                         borderRadius: BorderRadius.circular(15),
                         child: Container(
                           height: 30,
@@ -74,13 +75,16 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
                               colors: [GameTokens.rose, GameTokens.roseDeep],
                             ),
                           ),
-                          child: const Row(
+                          child: Row(
                             children: [
-                              Icon(Icons.local_fire_department, size: 14),
-                              SizedBox(width: 6),
+                              Icon(
+                                isPremium ? Icons.verified : Icons.local_fire_department,
+                                size: 14,
+                              ),
+                              const SizedBox(width: 6),
                               Text(
-                                'Superhot',
-                                style: TextStyle(fontWeight: FontWeight.w600),
+                                isPremium ? 'Premium' : 'Superhot',
+                                style: const TextStyle(fontWeight: FontWeight.w600),
                               ),
                             ],
                           ),
@@ -151,10 +155,7 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              'Choose a game',
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
+            Text('Choose a game', style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 10),
             Text(
               'Play one round together, confirm the result, then pass the turn.',
