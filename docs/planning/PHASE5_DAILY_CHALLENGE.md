@@ -12,7 +12,7 @@ Daily completion awards **10 sparks**, once per local date. `RewardCurrencyServi
 
 ## Reminder scheduling
 
-Reminder copy and time are persisted configuration. Permission is requested only when reminders are enabled, and denial leaves the feature disabled without throwing. Seven one-shot local notifications are refreshed on app launch/settings changes so local wall-clock time is preserved without adding a device-timezone discovery dependency.
+Reminder copy and time are persisted configuration. Permission is requested only when reminders are enabled, and denial leaves the feature disabled without throwing. Seven one-shot local notifications are refreshed on app launch/settings changes so local wall-clock time is preserved without adding a device-timezone discovery dependency. Android boot/package-replacement receivers preserve scheduled notifications across restarts.
 
 ## Content composition
 
