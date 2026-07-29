@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:veloura/features/home/presentation/home_controller.dart';
 import 'package:veloura/shared/widgets/glass_card.dart';
 import 'package:veloura/shared/widgets/section_header.dart';
@@ -23,7 +24,10 @@ class HomeScreen extends ConsumerWidget {
               children: [
                 _Greeting(greeting: state.greeting, streak: state.streakDays),
                 const SizedBox(height: 24),
-                _FeaturedCard(title: state.featuredTitle),
+                _FeaturedCard(
+                  title: state.featuredTitle,
+                  onTap: () => context.push('/home/conversation'),
+                ),
                 const SizedBox(height: 28),
                 const SectionHeader(title: 'Popular tonight'),
                 const SizedBox(height: 12),
@@ -86,28 +90,43 @@ class _Greeting extends StatelessWidget {
 }
 
 class _FeaturedCard extends StatelessWidget {
-  const _FeaturedCard({required this.title});
+  const _FeaturedCard({required this.title, required this.onTap});
 
   final String title;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     final colors = AppColors.of(context);
-    return GlassCard(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(Icons.auto_awesome, color: colors.accent),
-          const SizedBox(height: 24),
-          Text('FEATURED', style: Theme.of(context).textTheme.labelMedium),
-          const SizedBox(height: 6),
-          Text(title, style: Theme.of(context).textTheme.headlineSmall),
-          const SizedBox(height: 8),
-          Text(
-            'Game experiences arrive in the next phases.',
-            style: TextStyle(color: colors.textSecondary),
+    return Semantics(
+      button: true,
+      label: 'Open Conversation Starters',
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(20),
+        child: GlassCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.forum_outlined, color: colors.accent),
+                  const Spacer(),
+                  Icon(Icons.arrow_forward, color: colors.textSecondary),
+                ],
+              ),
+              const SizedBox(height: 24),
+              Text('CONVERSATION STARTERS', style: Theme.of(context).textTheme.labelMedium),
+              const SizedBox(height: 6),
+              Text(title, style: Theme.of(context).textTheme.headlineSmall),
+              const SizedBox(height: 8),
+              Text(
+                'Swipe through questions made for couples who already know each other.',
+                style: TextStyle(color: colors.textSecondary),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

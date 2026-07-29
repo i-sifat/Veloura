@@ -5,6 +5,7 @@ import 'package:veloura/config/navigation_shell.dart';
 import 'package:veloura/features/cards/presentation/challenge_screen.dart';
 import 'package:veloura/features/cards/presentation/fan/card_challenge_fan_screen.dart';
 import 'package:veloura/features/conversation/presentation/conversation_screen.dart';
+import 'package:veloura/features/conversation/presentation/stack/creative_connections_screen.dart';
 import 'package:veloura/features/dice/presentation/dice_screen.dart';
 import 'package:veloura/features/games/presentation/games_hub_screen.dart';
 import 'package:veloura/features/home/presentation/home_screen.dart';
@@ -25,7 +26,22 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         branches: [
           StatefulShellBranch(
             routes: [
-              GoRoute(path: '/home', builder: (_, _) => const HomeScreen()),
+              GoRoute(
+                path: '/home',
+                builder: (_, _) => const HomeScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'conversation',
+                    builder: (_, _) => const CreativeConnectionsScreen(),
+                    routes: [
+                      GoRoute(
+                        path: 'browse',
+                        builder: (_, _) => const ConversationScreen(),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ],
           ),
           StatefulShellBranch(
@@ -68,7 +84,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   GoRoute(path: 'challenges', redirect: (_, _) => '/games/card-challenge'),
                   GoRoute(
                     path: 'conversation',
-                    redirect: (_, _) => '/games/creative-connections/browse',
+                    redirect: (_, _) => '/home/conversation',
                   ),
                   GoRoute(path: 'roleplay', redirect: (_, _) => '/games/passionate-roleplay'),
                 ],
