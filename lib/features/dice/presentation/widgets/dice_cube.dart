@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 import 'package:veloura/features/dice/presentation/widgets/die_face.dart';
 
-/// A transform-composed six-face cube with live text faces.
+/// A live-text six-face cube with manual culling, depth order, and light.
 class DiceCube extends StatelessWidget {
   const DiceCube({
     required this.faces,
@@ -24,7 +24,7 @@ class DiceCube extends StatelessWidget {
   final double textOpacity;
 
   static final vector.Vector3 _lightDirection =
-      vector.Vector3(-0.35, -0.55, 0.76)..normalize();
+      vector.Vector3(-0.42, -0.58, 0.70)..normalize();
 
   static final List<_FaceDefinition> _definitions = [
     _FaceDefinition(vector.Vector3(0, 0, 1), 0, 0),
@@ -54,7 +54,7 @@ class DiceCube extends StatelessWidget {
         VisibleDieFace(
           index: index,
           depth: normal.z,
-          brightness: 0.42 + 0.58 * lambert,
+          brightness: 0.48 + 0.52 * lambert,
         ),
       );
     }
@@ -74,7 +74,7 @@ class DiceCube extends StatelessWidget {
         child: Transform(
           alignment: Alignment.center,
           transform: vector.Matrix4.identity()
-            ..setEntry(3, 2, 0.0012)
+            ..setEntry(3, 2, 0.0022)
             ..rotateX(rotationX)
             ..rotateY(rotationY),
           child: Stack(

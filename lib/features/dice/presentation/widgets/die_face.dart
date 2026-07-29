@@ -1,9 +1,9 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:veloura/theme/app_colors.dart';
+import 'package:veloura/theme/game_tokens.dart';
 
-/// One live-text face of a Veloura die.
+/// One pale, printed face of a transform-composed word die.
 class DieFace extends StatelessWidget {
   const DieFace({
     required this.label,
@@ -24,23 +24,29 @@ class DieFace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = AppColors.of(context);
     final opacity = textOpacity.clamp(0.0, 1.0).toDouble();
     final shade = brightness.clamp(0.0, 1.0).toDouble();
-    final shadedColor = Color.lerp(colors.card, Colors.black, 1 - shade)!;
+    const light = Color(0xFFFFF7FB);
+    const mid = Color(0xFFE7D6E2);
+    const edge = Color(0xFFC9AEC1);
+    final faceTop = Color.lerp(mid, light, 0.42 + shade * 0.50)!;
+    final faceBottom = Color.lerp(edge, mid, shade * 0.72)!;
+
     final labelWidget = Opacity(
       opacity: opacity,
       child: Padding(
-        padding: EdgeInsets.all(size * 0.12),
+        padding: EdgeInsets.all(size * 0.10),
         child: FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            label,
+            label.toUpperCase(),
             maxLines: 2,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
-              letterSpacing: 0.2,
-              color: colors.textPrimary,
+              color: GameTokens.textOnLight,
+              fontWeight: FontWeight.w700,
+              letterSpacing: 0.35,
+              height: 1.0,
             ),
           ),
         ),
@@ -63,20 +69,36 @@ class DieFace extends StatelessWidget {
         height: size,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(size * 0.18),
-          border: Border.all(
-            color: colors.secondary.withValues(alpha: 0.3),
+          borderRadius: BorderRadius.circular(size * 0.10),
+          border: Border.all(color: const Color(0xB3FFFFFF), width: 1.1),
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [faceTop, faceBottom],
           ),
-          gradient: RadialGradient(
-            center: const Alignment(-0.5, -0.6),
-            radius: 0.9,
-            colors: [
-              Color.lerp(shadedColor, Colors.white, 0.08)!,
-              shadedColor,
-            ],
-          ),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0x26000000),
+              blurRadius: 2,
+              offset: Offset(1, 2),
+            ),
+          ],
         ),
-        child: filteredLabel,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            const DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.center,
+                  colors: [Color(0x8CFFFFFF), Colors.transparent],
+                ),
+              ),
+            ),
+            Center(child: filteredLabel),
+          ],
+        ),
       ),
     );
   }
