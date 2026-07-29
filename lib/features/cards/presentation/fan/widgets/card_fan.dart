@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:veloura/features/cards/domain/challenge_item.dart';
 import 'package:veloura/features/cards/domain/intensity_deck.dart';
 import 'package:veloura/features/cards/presentation/fan/widgets/challenge_card_back.dart';
 
 /// Twelve numbered mystery cards arranged as a compact 3 x 4 deal.
 class CardFan extends StatelessWidget {
   const CardFan({
-    required this.cards,
     required this.deck,
     required this.locked,
     required this.onPick,
     super.key,
   });
 
-  final List<ChallengeItem> cards;
   final IntensityDeck deck;
   final bool locked;
   final ValueChanged<int> onPick;
@@ -29,13 +26,13 @@ class CardFan extends StatelessWidget {
       mainAxisSpacing: 14,
       childAspectRatio: 0.72,
     ),
-    itemCount: cards.length,
+    itemCount: 12,
     itemBuilder: (context, index) => Semantics(
       button: true,
       label: '${deck.label} mystery card ${index + 1}',
       child: GestureDetector(
         key: ValueKey('challenge-card-${index + 1}'),
-        onTap: () => onPick(index),
+        onTap: () => onPick(index + 1),
         child: ChallengeCardBack(
           number: index + 1,
           deck: deck,

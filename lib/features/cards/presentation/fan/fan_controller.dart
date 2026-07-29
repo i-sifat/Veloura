@@ -11,44 +11,48 @@ import 'package:veloura/features/premium/provider.dart';
 /// Injectable shuffle source for deterministic deal tests.
 final cardDealRandomProvider = Provider<Random>((ref) => Random());
 
-/// Twelve-card deal shown for one intensity and optional category.
+/// Current mystery-card round for one intensity and optional category.
 class CardFanState {
   const CardFanState({
-    required this.cards,
+    required this.pool,
     required this.progress,
     this.deck = IntensityDeck.romantic,
     this.category,
     this.selected,
+    this.selectedNumber,
     this.dealNumber = 0,
   });
 
-  final List<ChallengeItem> cards;
+  final List<ChallengeItem> pool;
   final Map<String, ChallengeProgress> progress;
   final IntensityDeck deck;
   final ChallengeCategory? category;
   final ChallengeItem? selected;
+  final int? selectedNumber;
   final int dealNumber;
 
-  bool get premiumLocked => deck == IntensityDeck.superhot;
-
   CardFanState copyWith({
-    List<ChallengeItem>? cards,
+    List<ChallengeItem>? pool,
     Map<String, ChallengeProgress>? progress,
     IntensityDeck? deck,
     ChallengeCategory? Function()? category,
     ChallengeItem? Function()? selected,
+    int? Function()? selectedNumber,
     int? dealNumber,
   }) => CardFanState(
-    cards: cards ?? this.cards,
+    pool: pool ?? this.pool,
     progress: progress ?? this.progress,
     deck: deck ?? this.deck,
     category: category == null ? this.category : category(),
     selected: selected == null ? this.selected : selected(),
+    selectedNumber: selectedNumber == null
+        ? this.selectedNumber
+        : selectedNumber(),
     dealNumber: dealNumber ?? this.dealNumber,
   );
 }
 
-/// Deals numbered mystery cards without repeating within a session.
+/// Resolves one of twelve identical mystery backs without session repeats.
 class CardFanController extends AsyncNotifier<CardFanState> {
   late ChallengeRepository _repository;
   late Random _random;
@@ -67,13 +71,13 @@ class CardFanController extends AsyncNotifier<CardFanState> {
       AppFailure<List<ChallengeItem>>(:final message) => throw StateError(message),
     };
     final initial = CardFanState(
-      cards: const [],
+      pool: const [],
       progress: await _repository.getProgress(),
     );
     return _deal(initial);
   }
 
-  /// Selects a heat level and immediately deals a fresh set.
+  /// Selects a heat level and immediately refreshes the hidden pool.
   void selectDeck(IntensityDeck deck) {
     final current = state.asData?.value;
     if (current != null) state = AsyncData(_deal(current.copyWith(deck: deck)));
@@ -87,13 +91,22 @@ class CardFanController extends AsyncNotifier<CardFanState> {
     }
   }
 
-  /// Stores the chosen numbered card for the reveal surface.
-  void pick(ChallengeItem item) {
+  /// Resolves a numbered back to one random unused challenge.
+  void pickNumber(int number) {
+    assert(number >= 1 && number <= 12);
     final current = state.asData?.value;
-    if (current != null) state = AsyncData(current.copyWith(selected: () => item));
+    if (current == null || current.pool.isEmpty) return;
+    final item = current.pool[_random.nextInt(current.pool.length)];
+    _usedIds[current.deck]!.add(item.id);
+    state = AsyncData(
+      current.copyWith(
+        selected: () => item,
+        selectedNumber: () => number,
+      ),
+    );
   }
 
-  /// Re-deals twelve backs from the current deck and category.
+  /// Clears the reveal and refreshes the eligible pool.
   void redeal() {
     final current = state.asData?.value;
     if (current != null) state = AsyncData(_deal(current));
@@ -114,7 +127,6 @@ class CardFanController extends AsyncNotifier<CardFanState> {
       _deal(
         current.copyWith(
           progress: {...current.progress, item.id: progress},
-          selected: () => null,
         ),
       ),
     );
@@ -131,32 +143,25 @@ class CardFanController extends AsyncNotifier<CardFanState> {
         for (final candidate in _all)
           if (candidate.id == value.id) value else candidate,
       ];
-      state = AsyncData(
-        current.copyWith(
-          cards: [
-            for (final candidate in current.cards)
-              if (candidate.id == value.id) value else candidate,
-          ],
-          selected: () => value,
-        ),
-      );
+      state = AsyncData(current.copyWith(selected: () => value));
     }
   }
 
   CardFanState _deal(CardFanState current) {
     final premium = ref.read(isPremiumProvider);
     final used = _usedIds[current.deck]!;
-    var pool = _eligible(current, premium).where((item) => !used.contains(item.id)).toList();
+    var pool = _eligible(current, premium)
+        .where((item) => !used.contains(item.id))
+        .toList();
     if (pool.isEmpty) {
       used.clear();
       pool = _eligible(current, premium);
     }
     pool.shuffle(_random);
-    final cards = pool.take(12).toList(growable: false);
-    used.addAll(cards.map((item) => item.id));
     return current.copyWith(
-      cards: cards,
+      pool: pool,
       selected: () => null,
+      selectedNumber: () => null,
       dealNumber: current.dealNumber + 1,
     );
   }
@@ -164,14 +169,21 @@ class CardFanController extends AsyncNotifier<CardFanState> {
   List<ChallengeItem> _eligible(CardFanState state, bool premium) => _all
       .where(state.deck.accepts)
       .where(
-        (item) => state.category == null || item.challengeCategory == state.category,
+        (item) =>
+            state.category == null || item.challengeCategory == state.category,
       )
       .where(
-        (item) => state.progress[item.id]?.status != ChallengeStatus.completed,
+        (item) =>
+            state.progress[item.id]?.status != ChallengeStatus.completed,
       )
-      .where((item) => state.deck == IntensityDeck.superhot || premium || !item.premium)
+      .where(
+        (item) =>
+            state.deck == IntensityDeck.superhot || premium || !item.premium,
+      )
       .toList();
 }
 
 final cardFanControllerProvider =
-    AsyncNotifierProvider<CardFanController, CardFanState>(CardFanController.new);
+    AsyncNotifierProvider<CardFanController, CardFanState>(
+      CardFanController.new,
+    );
