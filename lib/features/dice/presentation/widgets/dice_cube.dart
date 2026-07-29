@@ -87,7 +87,7 @@ class DiceCube extends StatelessWidget {
                     transform: vector.Matrix4.identity()
                       ..rotateY(_definitions[face.index].yaw)
                       ..rotateX(_definitions[face.index].pitch)
-                      ..translate(0.0, 0.0, half),
+                      ..translateByDouble(0.0, 0.0, half, 1.0),
                     child: DieFace(
                       label: faces[face.index],
                       size: size,

@@ -337,7 +337,11 @@ class _DiceStageState extends State<_DiceStage>
     final summary = widget.state.current?.summary;
     if (_announced || summary == null || !_showResult) return;
     _announced = true;
-    SemanticsService.announce(summary, TextDirection.ltr);
+    SemanticsService.sendAnnouncement(
+      View.of(context),
+      summary,
+      TextDirection.ltr,
+    );
   }
 
   @override
