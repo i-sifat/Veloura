@@ -59,7 +59,7 @@ class PositionRepositoryAsset implements PositionRepository {
               .join(' ');
     final heatMin = zone == PositionZone.wild
         ? 4
-        : 1 + (index ~/ 48).clamp(0, 3);
+        : 1 + (index ~/ 48).clamp(0, 3).toInt();
     return IntimacyPosition(
       id: 'asset_pos_${index + 1}',
       zone: zone,
