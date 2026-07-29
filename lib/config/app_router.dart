@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:veloura/config/navigation_shell.dart';
+import 'package:veloura/features/dice/presentation/dice_screen.dart';
+import 'package:veloura/features/games/presentation/games_screen.dart';
 import 'package:veloura/features/home/presentation/home_screen.dart';
 import 'package:veloura/shared/widgets/placeholder_screen.dart';
 
@@ -22,10 +24,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: '/games',
-                builder: (_, _) => const PlaceholderScreen(
-                  title: 'Games',
-                  icon: Icons.casino_outlined,
-                ),
+                builder: (_, _) => const GamesScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'dice',
+                    builder: (_, _) => const DiceScreen(),
+                  ),
+                ],
               ),
             ],
           ),
