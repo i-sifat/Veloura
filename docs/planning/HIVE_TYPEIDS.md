@@ -8,6 +8,10 @@ Claim the next free ID before implementing an adapter. IDs are permanent after r
 | 1 | `DiceRollRecord` | Dice | Active |
 | 2 | Unassigned | — | Available |
 
+## Phase 3 note
+
+Truth or Dare, Challenge Cards, and Conversation Starters load immutable seed JSON and persist only string/list/map flags through `shared_preferences`. They add no Hive adapters and therefore claim no type IDs.
+
 ## Rules
 
 - One row per adapter.

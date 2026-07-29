@@ -1,2 +1,1 @@
-/// Truth or Dare feature provider barrel.
-library;
+export 'presentation/truth_dare_controller.dart';

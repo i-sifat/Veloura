@@ -25,6 +25,27 @@ class GamesScreen extends StatelessWidget {
             icon: Icons.casino_outlined,
             onTap: () => context.push('/games/dice'),
           ),
+          const SizedBox(height: 10),
+          CategoryCard(
+            title: 'Truth or Dare',
+            subtitle: 'Filter a 500-card deck and swipe into the next moment.',
+            icon: Icons.style_outlined,
+            onTap: () => context.push('/games/truth-dare'),
+          ),
+          const SizedBox(height: 10),
+          CategoryCard(
+            title: 'Challenge Cards',
+            subtitle: 'Complete specific ideas across eight categories.',
+            icon: Icons.task_alt_outlined,
+            onTap: () => context.push('/games/challenges'),
+          ),
+          const SizedBox(height: 10),
+          CategoryCard(
+            title: 'Conversation Starters',
+            subtitle: 'Reveal a random prompt or browse by mood.',
+            icon: Icons.forum_outlined,
+            onTap: () => context.push('/games/conversation'),
+          ),
         ],
       ),
     );

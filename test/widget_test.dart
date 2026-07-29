@@ -17,19 +17,30 @@ void main() {
     expect(find.text('Profile'), findsOneWidget);
   });
 
-  testWidgets('Games exposes Dice and remaining branches are reachable', (tester) async {
+  testWidgets('Games exposes all Phase 2 and Phase 3 modules', (tester) async {
     await tester.pumpWidget(const ProviderScope(child: VelouraApp()));
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Games'));
     await tester.pumpAndSettle();
-    expect(find.text('Choose a playful way to connect.'), findsOneWidget);
+
     expect(find.text('Dice'), findsOneWidget);
+    expect(find.text('Truth or Dare'), findsOneWidget);
+    expect(find.text('Challenge Cards'), findsOneWidget);
+    expect(find.text('Conversation Starters'), findsOneWidget);
+  });
+
+  testWidgets('remaining navigation branches are reachable', (tester) async {
+    await tester.pumpWidget(const ProviderScope(child: VelouraApp()));
+    await tester.pumpAndSettle();
 
     for (final label in ['Daily', 'Favorites', 'Profile']) {
       await tester.tap(find.text(label));
       await tester.pumpAndSettle();
-      expect(find.text('$label is ready for its planned feature phase.'), findsOneWidget);
+      expect(
+        find.text('$label is ready for its planned feature phase.'),
+        findsOneWidget,
+      );
     }
   });
 }

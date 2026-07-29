@@ -20,6 +20,13 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Validate committed Phase 3 content
+        run: |
+          python3 tools/generate_phase3_content.py
+          python3 tools/enrich_phase3_content.py
+          python3 tools/fix_phase3_sources.py
+          git diff --exit-code -- lib/features/*/data/*_seed.json docs/planning/PHASE3_CONTENT_QA.md lib/features/truth_dare/presentation/truth_dare_screen.dart
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
@@ -44,25 +51,17 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const log = fs.readFileSync('pub_get.log', 'utf8');
-            const tail = log.split('\n').slice(-80).join('\n');
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: `Dependency resolution failed:\n\n\`\`\`text\n${tail}\n\`\`\``,
-            });
+            const tail = fs.readFileSync('pub_get.log', 'utf8').split('\n').slice(-80).join('\n');
+            await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body: `Dependency resolution failed:\n\n\`\`\`text\n${tail}\n\`\`\``});
 
       - name: Stop after dependency failure
         if: steps.pubget.outcome == 'failure'
-        run: |
-          cat pub_get.log
-          exit 1
+        run: cat pub_get.log && exit 1
 
       - name: Verify dependency lockfile is current
         run: git diff --exit-code -- pubspec.lock
 
-      - name: Generate source
+      - name: Generate Dart source
         run: dart run build_runner build --delete-conflicting-outputs
 
       - name: Analyze
@@ -76,20 +75,12 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const log = fs.readFileSync('analyze.log', 'utf8');
-            const tail = log.split('\n').slice(-120).join('\n');
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: `Analyzer failed:\n\n\`\`\`text\n${tail}\n\`\`\``,
-            });
+            const tail = fs.readFileSync('analyze.log', 'utf8').split('\n').slice(-160).join('\n');
+            await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body: `Analyzer failed:\n\n\`\`\`text\n${tail}\n\`\`\``});
 
       - name: Stop after analyzer failure
         if: steps.analyze.outcome == 'failure'
-        run: |
-          cat analyze.log
-          exit 1
+        run: cat analyze.log && exit 1
 
       - name: Test
         id: test
@@ -102,20 +93,12 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const log = fs.readFileSync('test.log', 'utf8');
-            const tail = log.split('\n').slice(-160).join('\n');
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: `Tests failed:\n\n\`\`\`text\n${tail}\n\`\`\``,
-            });
+            const tail = fs.readFileSync('test.log', 'utf8').split('\n').slice(-200).join('\n');
+            await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body: `Tests failed:\n\n\`\`\`text\n${tail}\n\`\`\``});
 
       - name: Stop after test failure
         if: steps.test.outcome == 'failure'
-        run: |
-          cat test.log
-          exit 1
+        run: cat test.log && exit 1
 
       - name: Build release APK
         run: flutter build apk --release
