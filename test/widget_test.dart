@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veloura/app.dart';
 import 'package:veloura/core/app_result.dart';
+import 'package:veloura/features/games/domain/game_catalog.dart';
 import 'package:veloura/features/session/domain/game_session.dart';
 import 'package:veloura/features/session/domain/session_repository.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
@@ -57,15 +58,12 @@ void main() {
     await tester.tap(find.text('Games'));
     await tester.pumpAndSettle();
 
-    for (final label in [
-      'LUSTFUL ROLLS',
-      'CARD CHALLENGE',
-      'TRUTH OR DARE',
-      'CREATIVE CONNECTIONS',
-      'FOLLOW THE TEMPO',
-      'PASSIONATE ROLEPLAY',
-    ]) {
-      expect(find.text(label), findsOneWidget);
+    expect(kGameCatalog, hasLength(6));
+    final scrollable = find.byType(Scrollable).last;
+    for (final entry in kGameCatalog) {
+      final tile = find.byKey(ValueKey('game-tile-${entry.id}'));
+      await tester.scrollUntilVisible(tile, 180, scrollable: scrollable);
+      expect(tile, findsOneWidget);
     }
   });
 
