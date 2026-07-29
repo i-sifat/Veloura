@@ -8,7 +8,7 @@ on:
       - 'phase/**'
 
 permissions:
-  contents: write
+  contents: read
   pull-requests: write
 
 jobs:
@@ -20,10 +20,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Generate and validate Phase 3 content
+      - name: Validate committed Phase 3 content
         run: |
           python3 tools/generate_phase3_content.py
           python3 tools/enrich_phase3_content.py
+          git diff --exit-code -- lib/features/*/data/*_seed.json docs/planning/PHASE3_CONTENT_QA.md
 
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -43,31 +44,63 @@ jobs:
         continue-on-error: true
         run: flutter pub get >pub_get.log 2>&1
 
+      - name: Report dependency resolution failure
+        if: steps.pubget.outcome == 'failure' && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const log = fs.readFileSync('pub_get.log', 'utf8');
+            const tail = log.split('\n').slice(-80).join('\n');
+            await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body: `Dependency resolution failed:\n\n\`\`\`text\n${tail}\n\`\`\``});
+
       - name: Stop after dependency failure
         if: steps.pubget.outcome == 'failure'
-        run: |
-          cat pub_get.log
-          exit 1
+        run: cat pub_get.log && exit 1
 
-      - name: Commit generated packs and dependency lockfile
-        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/phase/')
-        run: |
-          if ! git diff --quiet; then
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add pubspec.lock lib/features/*/data/*_seed.json docs/planning/PHASE3_CONTENT_QA.md
-            git commit -m 'chore(content): generate validated Phase 3 packs'
-            git push
-          fi
+      - name: Verify dependency lockfile is current
+        run: git diff --exit-code -- pubspec.lock
 
       - name: Generate Dart source
         run: dart run build_runner build --delete-conflicting-outputs
 
       - name: Analyze
-        run: flutter analyze
+        id: analyze
+        continue-on-error: true
+        run: flutter analyze >analyze.log 2>&1
+
+      - name: Report analyzer failure
+        if: steps.analyze.outcome == 'failure' && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const log = fs.readFileSync('analyze.log', 'utf8');
+            const tail = log.split('\n').slice(-140).join('\n');
+            await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body: `Analyzer failed:\n\n\`\`\`text\n${tail}\n\`\`\``});
+
+      - name: Stop after analyzer failure
+        if: steps.analyze.outcome == 'failure'
+        run: cat analyze.log && exit 1
 
       - name: Test
-        run: flutter test
+        id: test
+        continue-on-error: true
+        run: flutter test >test.log 2>&1
+
+      - name: Report test failure
+        if: steps.test.outcome == 'failure' && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const log = fs.readFileSync('test.log', 'utf8');
+            const tail = log.split('\n').slice(-180).join('\n');
+            await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body: `Tests failed:\n\n\`\`\`text\n${tail}\n\`\`\``});
+
+      - name: Stop after test failure
+        if: steps.test.outcome == 'failure'
+        run: cat test.log && exit 1
 
       - name: Build release APK
         run: flutter build apk --release
