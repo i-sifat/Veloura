@@ -1,2 +1,1 @@
-/// Challenge Cards feature provider barrel.
-library;
+export 'presentation/challenge_controller.dart';
