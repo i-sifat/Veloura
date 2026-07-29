@@ -9,7 +9,7 @@ import 'package:veloura/features/dice/presentation/dice_screen.dart';
 import 'package:veloura/features/games/presentation/games_hub_screen.dart';
 import 'package:veloura/features/home/presentation/home_screen.dart';
 import 'package:veloura/features/positions/presentation/creative_positions_screen.dart';
-import 'package:veloura/features/roleplay/presentation/roleplay_screen.dart';
+import 'package:veloura/features/roleplay/presentation/flow/roleplay_flow_screen.dart';
 import 'package:veloura/features/tempo/presentation/follow_the_tempo_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/truth_dare_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/wheel/truth_or_dare_wheel_screen.dart';
@@ -62,7 +62,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   ),
                   GoRoute(
                     path: 'passionate-roleplay',
-                    builder: (_, _) => const RoleplayScreen(),
+                    builder: (_, _) => const RoleplayFlowScreen(),
                   ),
                   GoRoute(path: 'dice', redirect: (_, _) => '/games/lustful-rolls'),
                   GoRoute(path: 'challenges', redirect: (_, _) => '/games/card-challenge'),
