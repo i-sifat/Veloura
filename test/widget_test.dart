@@ -4,6 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veloura/app.dart';
 import 'package:veloura/core/app_result.dart';
+import 'package:veloura/features/daily/data/daily_notification_service.dart';
+import 'package:veloura/features/daily/presentation/daily_controller.dart';
 import 'package:veloura/features/games/domain/game_catalog.dart';
 import 'package:veloura/features/session/domain/game_session.dart';
 import 'package:veloura/features/session/domain/session_repository.dart';
@@ -26,6 +28,9 @@ Widget _app() => ProviderScope(
   overrides: [
     sessionRepositoryProvider.overrideWith(
       (ref) async => _MemorySessionRepository(),
+    ),
+    dailyNotificationServiceProvider.overrideWith(
+      (ref) => const NoopDailyNotificationService(),
     ),
   ],
   child: const VelouraApp(),
@@ -71,7 +76,11 @@ void main() {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
 
-    for (final label in ['Daily', 'Favorites', 'Profile']) {
+    await tester.tap(find.text('Daily'));
+    await tester.pumpAndSettle();
+    expect(find.text('DAILY CONNECTION'), findsOneWidget);
+
+    for (final label in ['Favorites', 'Profile']) {
       await tester.tap(find.text(label));
       await tester.pumpAndSettle();
       expect(
