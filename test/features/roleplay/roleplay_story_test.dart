@@ -30,23 +30,27 @@ void main() {
   });
 
   test('copyWith changes only favorite state', () {
-    const story = RoleplayStory(
+    final story = RoleplayStory(
       id: 'rp_test',
       title: 'Test Story',
       roleplayCategory: RoleplayCategory.adventure,
       difficulty: Difficulty.cute,
-      characterA: RoleplayCharacter(name: 'A', description: 'First'),
-      characterB: RoleplayCharacter(name: 'B', description: 'Second'),
+      characterA: const RoleplayCharacter(
+        name: 'A',
+        description: 'First',
+      ),
+      characterB: const RoleplayCharacter(
+        name: 'B',
+        description: 'Second',
+      ),
       setting: 'Setting',
       goal: 'Goal',
-      twists: ['Twist'],
+      twists: const ['Twist'],
       estimatedDuration: '10 min',
       packId: 'pack',
       packTitle: 'Pack',
       premium: false,
-      createdAt: const Duration().inMicroseconds == 0
-          ? DateTime(2026)
-          : DateTime(2025),
+      createdAt: DateTime(2026),
     );
 
     final updated = story.copyWith(favorite: true);
