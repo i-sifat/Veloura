@@ -55,27 +55,15 @@ void main() {
     }
   });
 
-  test('Creative Positions commissioned art is bundled', () async {
-    final entry = kGameCatalog.singleWhere(
-      (candidate) => candidate.id == 'creative_connections',
-    );
-    final bytes = await rootBundle.load(entry.art);
-    expect(bytes.lengthInBytes, greaterThan(0));
-  });
-
-  testWidgets('remaining missing art falls back to themed glyphs', (
-    tester,
-  ) async {
-    await tester.pumpWidget(_app());
-    await tester.pumpAndSettle();
-
-    final scrollable = find.byType(Scrollable).last;
-    for (final entry in kGameCatalog.where(
-      (candidate) => candidate.id != 'creative_connections',
-    )) {
-      final fallback = find.byKey(ValueKey('fallback-${entry.id}'));
-      await tester.scrollUntilVisible(fallback, 180, scrollable: scrollable);
-      expect(fallback, findsOneWidget);
+  test('all commissioned Games hub artwork is bundled', () async {
+    expect(kGameCatalog, hasLength(6));
+    for (final entry in kGameCatalog) {
+      final bytes = await rootBundle.load(entry.art);
+      expect(
+        bytes.lengthInBytes,
+        greaterThan(0),
+        reason: '${entry.title} artwork should be bundled at ${entry.art}',
+      );
     }
   });
 

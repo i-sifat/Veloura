@@ -41,7 +41,12 @@ flutter:
   uses-material-design: true
   assets:
     - assets/Positions/
+    - assets/lustful_rolls.png
+    - assets/card_challenge.png
+    - assets/truth_dare.png
     - assets/creative_positions.png
+    - assets/follow_tempo.png
+    - assets/passionate_roleplay.png
     - lib/features/truth_dare/data/truth_dare_seed.json
     - lib/features/cards/data/challenge_seed.json
     - lib/features/conversation/data/conversation_seed.json
