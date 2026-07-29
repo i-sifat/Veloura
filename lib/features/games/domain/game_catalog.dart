@@ -51,6 +51,5 @@ const kGameCatalog = <GameCatalogEntry>[
     art: 'assets/passionate_roleplay.png',
     gradient: GameTokens.passionateRoleplay,
     fallbackIcon: Icons.theater_comedy_outlined,
-    isPremium: true,
   ),
 ];

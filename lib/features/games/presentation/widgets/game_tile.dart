@@ -35,7 +35,11 @@ class _GameTileState extends State<GameTile> {
           HapticFeedback.lightImpact();
           if (widget.locked) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Passionate Roleplay unlocks with Veloura Premium.')),
+              SnackBar(
+                content: Text(
+                  '${widget.entry.title} unlocks with Veloura Premium.',
+                ),
+              ),
             );
           } else {
             context.push(widget.entry.route);
