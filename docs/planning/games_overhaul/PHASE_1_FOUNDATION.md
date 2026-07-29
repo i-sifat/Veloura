@@ -174,7 +174,7 @@ reachable from the hub's gear icon and is normally dismissible.
 
 ```
 GameBackdrop > SafeArea > Column
-────────────────────────────────
+──────────────────────────────────
 Row (height 44, padding H 20):
   icon tune 22 textMid            → GamePreferencesSheet
   8
