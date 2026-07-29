@@ -21,7 +21,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Generate and validate Phase 3 content
-        run: python3 tools/generate_phase3_content.py
+        run: |
+          python3 tools/generate_phase3_content.py
+          python3 tools/enrich_phase3_content.py
 
       - name: Set up Java
         uses: actions/setup-java@v4
