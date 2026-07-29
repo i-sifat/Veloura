@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:veloura/features/premium/provider.dart';
+import 'package:veloura/features/roleplay/domain/roleplay_story.dart';
 import 'package:veloura/features/roleplay/presentation/flow/roleplay_flow_controller.dart';
 import 'package:veloura/features/roleplay/presentation/flow/widgets/beat_view.dart';
 import 'package:veloura/features/roleplay/presentation/flow/widgets/role_pick_row.dart';
@@ -22,13 +23,13 @@ class RoleplayFlowScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final catalog = ref.watch(roleplayControllerProvider);
     final flow = ref.watch(roleplayFlowControllerProvider);
-    final flowController = ref.read(roleplayFlowControllerProvider.notifier);
+    final controller = ref.read(roleplayFlowControllerProvider.notifier);
     return catalog.when(
       loading: () => const Scaffold(body: Center(child: CircularProgressIndicator())),
       error: (error, _) => Scaffold(body: ErrorState(message: '$error', onRetry: () => ref.invalidate(roleplayControllerProvider))),
       data: (roleplay) {
         if (flow.selectedScene == null && roleplay.items.isNotEmpty) {
-          WidgetsBinding.instance.addPostFrameCallback((_) => flowController.selectScene(roleplay.items.first));
+          WidgetsBinding.instance.addPostFrameCallback((_) => controller.selectScene(roleplay.items.first));
         }
         return switch (flow.step) {
           RoleplayFlowStep.scenes => _SceneStep(stories: roleplay.items),
@@ -42,18 +43,17 @@ class RoleplayFlowScreen extends ConsumerWidget {
 
 class _SceneStep extends ConsumerWidget {
   const _SceneStep({required this.stories});
-  final List<dynamic> stories;
+  final List<RoleplayStory> stories;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final flow = ref.watch(roleplayFlowControllerProvider);
     final premium = ref.watch(isPremiumProvider);
     final controller = ref.read(roleplayFlowControllerProvider.notifier);
-    final typedStories = stories.cast();
     return GameShell(
       title: 'Passionate roleplay',
       headline: Text('CHOOSE A SCENE', style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800)),
-      hero: SceneCarousel(stories: typedStories, isPremium: premium, onChanged: controller.selectScene),
+      hero: SceneCarousel(stories: stories, isPremium: premium, onChanged: controller.selectScene),
       cta: PrimaryCta(label: 'Choose this scene', onPressed: flow.selectedScene == null ? null : () {
         if (flow.selectedScene!.premium && !premium) {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('This scene unlocks with Veloura Premium.')));
