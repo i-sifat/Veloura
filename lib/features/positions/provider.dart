@@ -1,2 +1,1 @@
-/// Position Library feature provider barrel.
-library;
+export 'presentation/positions_controller.dart';

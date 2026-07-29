@@ -9,6 +9,7 @@ import 'package:veloura/features/dice/presentation/dice_screen.dart';
 import 'package:veloura/features/games/presentation/games_hub_screen.dart';
 import 'package:veloura/features/games/presentation/tempo_placeholder_screen.dart';
 import 'package:veloura/features/home/presentation/home_screen.dart';
+import 'package:veloura/features/positions/presentation/creative_positions_screen.dart';
 import 'package:veloura/features/roleplay/presentation/roleplay_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/truth_dare_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/wheel/truth_or_dare_wheel_screen.dart';
@@ -50,7 +51,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   ),
                   GoRoute(
                     path: 'creative-connections',
-                    builder: (_, _) => const ConversationScreen(),
+                    builder: (_, _) => const CreativePositionsScreen(),
+                    routes: [
+                      GoRoute(path: 'browse', builder: (_, _) => const ConversationScreen()),
+                    ],
                   ),
                   GoRoute(
                     path: 'follow-the-tempo',
@@ -62,7 +66,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   ),
                   GoRoute(path: 'dice', redirect: (_, _) => '/games/lustful-rolls'),
                   GoRoute(path: 'challenges', redirect: (_, _) => '/games/card-challenge'),
-                  GoRoute(path: 'conversation', redirect: (_, _) => '/games/creative-connections'),
+                  GoRoute(
+                    path: 'conversation',
+                    redirect: (_, _) => '/games/creative-connections/browse',
+                  ),
                   GoRoute(path: 'roleplay', redirect: (_, _) => '/games/passionate-roleplay'),
                 ],
               ),
