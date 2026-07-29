@@ -46,7 +46,7 @@ class _MemoryConversationRepository implements ConversationRepository {
 
   @override
   Future<AppResult<List<ConversationItem>>> getFavorites() async =>
-      const AppResult.success([]);
+      AppResult.success(<ConversationItem>[]);
 
   @override
   Future<AppResult<ConversationItem>> getRandom({
@@ -79,7 +79,7 @@ void main() {
     final container = ProviderContainer(
       overrides: [
         conversationRepositoryProvider.overrideWith((ref) async => repository),
-        conversationStackRandomProvider.overrideWithValue(Random(7)),
+        conversationStackRandomProvider.overrideWith((ref) => Random(7)),
       ],
     );
     addTearDown(container.dispose);
@@ -92,7 +92,9 @@ void main() {
     final answeredId = initial.current!.id;
 
     await container.read(conversationStackControllerProvider.notifier).advance();
-    final advanced = container.read(conversationStackControllerProvider).value!;
+    final advanced = container
+        .read(conversationStackControllerProvider)
+        .requireValue;
 
     expect(repository.answered, contains(answeredId));
     expect(repository.recent.first, answeredId);

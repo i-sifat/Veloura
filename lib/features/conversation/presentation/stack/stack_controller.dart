@@ -20,7 +20,7 @@ class ConversationStackState {
   final List<String> recentIds;
   final bool hasAdvanced;
 
-  ConversationItem? get current => queue.firstOrNull;
+  ConversationItem? get current => queue.isEmpty ? null : queue.first;
 
   ConversationStackState copyWith({
     List<ConversationItem>? queue,
@@ -44,6 +44,7 @@ class ConversationStackController extends AsyncNotifier<ConversationStackState> 
 
   late ConversationRepository _repository;
   late Random _random;
+  bool _advancing = false;
 
   @override
   Future<ConversationStackState> build() async {
@@ -66,30 +67,36 @@ class ConversationStackController extends AsyncNotifier<ConversationStackState> 
   /// Marks the visible prompt answered, advances the queue, and persists the
   /// same rolling no-repeat window used by the legacy Random mode.
   Future<void> advance() async {
+    if (_advancing) return;
     final current = state.asData?.value;
     final answered = current?.current;
     if (current == null || answered == null) return;
 
-    final recentIds = <String>[
-      answered.id,
-      ...current.recentIds.where((id) => id != answered.id),
-    ].take(recentWindow).toList(growable: false);
-    await _repository.markAnswered(answered.id, DateTime.now());
-    await _repository.setRecentIds(recentIds);
+    _advancing = true;
+    try {
+      final recentIds = <String>[
+        answered.id,
+        ...current.recentIds.where((id) => id != answered.id),
+      ].take(recentWindow).toList(growable: false);
+      await _repository.markAnswered(answered.id, DateTime.now());
+      await _repository.setRecentIds(recentIds);
 
-    final remaining = current.queue.skip(1).toList(growable: true);
-    final queue = _refill(
-      items: current.items,
-      recentIds: recentIds,
-      existing: remaining,
-    );
-    state = AsyncData(
-      current.copyWith(
-        queue: queue,
+      final remaining = current.queue.skip(1).toList(growable: true);
+      final queue = _refill(
+        items: current.items,
         recentIds: recentIds,
-        hasAdvanced: true,
-      ),
-    );
+        existing: remaining,
+      );
+      state = AsyncData(
+        current.copyWith(
+          queue: queue,
+          recentIds: recentIds,
+          hasAdvanced: true,
+        ),
+      );
+    } finally {
+      _advancing = false;
+    }
   }
 
   List<ConversationItem> _refill({

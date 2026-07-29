@@ -69,7 +69,8 @@ class _QuestionStackState extends State<QuestionStack> {
     final fade = reducedMotion
         ? 1.0
         : (1 - ((_dragX.abs() - _distanceThreshold).clamp(0, 220) / 260))
-              .clamp(0.15, 1.0);
+              .clamp(0.15, 1.0)
+              .toDouble();
     final angle = reducedMotion ? 0.0 : (_dragX / 24) * math.pi / 180;
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
@@ -102,8 +103,7 @@ class _QuestionStackState extends State<QuestionStack> {
         child: AnimatedContainer(
           duration: reducedMotion ? const Duration(milliseconds: 220) : _duration,
           curve: Curves.easeOutCubic,
-          transform: Matrix4.translationValues(_dragX, 0, 0)
-            ..rotateZ(angle),
+          transform: Matrix4.translationValues(_dragX, 0, 0)..rotateZ(angle),
           transformAlignment: Alignment.center,
           child: QuestionCard(
             item: item,
