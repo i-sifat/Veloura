@@ -38,18 +38,28 @@ class PositionRepositoryAsset implements PositionRepository {
     final withoutPrefix = raw.replaceFirst(RegExp(r'^imgi_\d+_'), '');
     final cleaned = withoutPrefix
         .replaceAll(RegExp(r'[-_]+'), ' ')
-        .replaceAll(RegExp(r'\b(scaled|sex|sexual|position|1024x724)\b', caseSensitive: false), ' ')
+        .replaceAll(
+          RegExp(
+            r'\b(scaled|sex|sexual|position|1024x724)\b',
+            caseSensitive: false,
+          ),
+          ' ',
+        )
         .replaceAll(RegExp(r'\s+'), ' ')
         .trim();
     final name = cleaned.isEmpty
         ? 'Position ${index + 1}'
         : cleaned
               .split(' ')
-              .map((word) => word.isEmpty
-                  ? word
-                  : '${word[0].toUpperCase()}${word.substring(1).toLowerCase()}')
+              .map(
+                (word) => word.isEmpty
+                    ? word
+                    : '${word[0].toUpperCase()}${word.substring(1).toLowerCase()}',
+              )
               .join(' ');
-    final heatMin = zone == PositionZone.wild ? 4 : 1 + (index ~/ 48).clamp(0, 3);
+    final heatMin = zone == PositionZone.wild
+        ? 4
+        : 1 + (index ~/ 48).clamp(0, 3);
     return IntimacyPosition(
       id: 'asset_pos_${index + 1}',
       zone: zone,

@@ -20,7 +20,7 @@ abstract final class SpinSolver {
     final target = random.nextInt(zoneCount);
     final offset = isDouble ? sweep / 2 : 0.0;
     return SpinSolution(
-      endDegrees: direction * (turns * 360 + target * sweep + offset),
+      endDegrees: direction * turns * 360 + target * sweep + offset,
       target: target,
       isDouble: isDouble,
     );
