@@ -21,6 +21,7 @@ dependencies:
   hive_ce_flutter: ^2.3.4
   json_annotation: ^4.9.0
   lottie: ^3.5.1
+  # RevenueCat delegates purchases to Google Play Billing / StoreKit.
   purchases_flutter: ^8.11.0
   riverpod_annotation: 3.0.3
   sensors_plus: ^6.1.2
