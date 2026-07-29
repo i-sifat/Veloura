@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:veloura/features/daily/domain/daily_challenge.dart';
 import 'package:veloura/features/daily/domain/daily_selector.dart';
 import 'package:veloura/features/daily/presentation/daily_controller.dart';
-import 'package:veloura/shared/widgets/empty_state.dart';
 import 'package:veloura/shared/widgets/error_state.dart';
 import 'package:veloura/shared/widgets/game/game_backdrop.dart';
 import 'package:veloura/shared/widgets/game/primary_cta.dart';
@@ -285,7 +284,7 @@ class _CalendarCard extends ConsumerWidget {
               ),
             ],
           ),
-          const Row(
+          Row(
             children: [
               for (final label in ['M', 'T', 'W', 'T', 'F', 'S', 'S'])
                 Expanded(child: Center(child: Text(label))),
