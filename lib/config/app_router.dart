@@ -5,8 +5,10 @@ import 'package:veloura/config/navigation_shell.dart';
 import 'package:veloura/features/cards/presentation/challenge_screen.dart';
 import 'package:veloura/features/conversation/presentation/conversation_screen.dart';
 import 'package:veloura/features/dice/presentation/dice_screen.dart';
-import 'package:veloura/features/games/presentation/games_screen.dart';
+import 'package:veloura/features/games/presentation/games_hub_screen.dart';
+import 'package:veloura/features/games/presentation/tempo_placeholder_screen.dart';
 import 'package:veloura/features/home/presentation/home_screen.dart';
+import 'package:veloura/features/roleplay/presentation/roleplay_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/truth_dare_screen.dart';
 import 'package:veloura/shared/widgets/placeholder_screen.dart';
 
@@ -27,21 +29,27 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             routes: [
               GoRoute(
                 path: '/games',
-                builder: (_, _) => const GamesScreen(),
+                builder: (_, _) => const GamesHubScreen(),
                 routes: [
-                  GoRoute(path: 'dice', builder: (_, _) => const DiceScreen()),
+                  GoRoute(path: 'lustful-rolls', builder: (_, _) => const DiceScreen()),
+                  GoRoute(path: 'card-challenge', builder: (_, _) => const ChallengeScreen()),
+                  GoRoute(path: 'truth-or-dare', builder: (_, _) => const TruthDareScreen()),
                   GoRoute(
-                    path: 'truth-dare',
-                    builder: (_, _) => const TruthDareScreen(),
-                  ),
-                  GoRoute(
-                    path: 'challenges',
-                    builder: (_, _) => const ChallengeScreen(),
-                  ),
-                  GoRoute(
-                    path: 'conversation',
+                    path: 'creative-connections',
                     builder: (_, _) => const ConversationScreen(),
                   ),
+                  GoRoute(
+                    path: 'follow-the-tempo',
+                    builder: (_, _) => const TempoPlaceholderScreen(),
+                  ),
+                  GoRoute(
+                    path: 'passionate-roleplay',
+                    builder: (_, _) => const RoleplayScreen(),
+                  ),
+                  GoRoute(path: 'dice', redirect: (_, _) => '/games/lustful-rolls'),
+                  GoRoute(path: 'challenges', redirect: (_, _) => '/games/card-challenge'),
+                  GoRoute(path: 'conversation', redirect: (_, _) => '/games/creative-connections'),
+                  GoRoute(path: 'roleplay', redirect: (_, _) => '/games/passionate-roleplay'),
                 ],
               ),
             ],

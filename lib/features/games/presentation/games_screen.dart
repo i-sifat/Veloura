@@ -46,6 +46,13 @@ class GamesScreen extends StatelessWidget {
             icon: Icons.forum_outlined,
             onTap: () => context.push('/games/conversation'),
           ),
+          const SizedBox(height: 10),
+          CategoryCard(
+            title: 'Roleplay Stories',
+            subtitle: 'Choose roles, enter a scene, and reveal twists together.',
+            icon: Icons.theater_comedy_outlined,
+            onTap: () => context.push('/games/roleplay'),
+          ),
         ],
       ),
     );
