@@ -7,6 +7,19 @@ Read `00_DESIGN_SYSTEM.md` first. Depends on: **Phase 1 (Foundation)**. Independ
 Build it after Phase 4 (the wheel teaches the tick-haptic and landing-accuracy patterns reused here)
 and merge it **before Phase 8**, which audits it alongside the other games.
 
+> **AMENDMENT — the spin engine is shared and lives elsewhere.**
+> `docs/planning/PHASE4.5_GAME_EXPERIENCE/4.5.5_CREATIVE_POSITIONS.md` creates `lib/core/spin/` as the
+> single spin engine for the whole app: the solver, the velocity→turns mapping, the weak-flick
+> rejection, the throttled tick haptics, the damped wobble and the reduce-motion resolved-angle path.
+> This phase **consumes it** with `zoneCount: 8, seamChance: 0.08` and no longer ships its own
+> `bottle_spin_solver.dart`. See §5 and §8. **Land 4.5.5 before this phase.** If for some reason this
+> phase goes first, create `lib/core/spin/` here to the 4.5.5 spec and note it in the PR — either way
+> there is exactly one solver in the repo.
+>
+> What stays owned by this phase: the bottle painter, the 8-zone puck ring and palette, seam doubles,
+> the prompt pack, and the result sheet. The bottle and the Creative Positions dial are different
+> objects with different payloads; only the maths and the feel are shared.
+
 ## 0. Non-negotiable rules (apply to this entire phase)
 
 1. **Scope discipline.** Implement only what this phase file lists. Do not touch other phases'
@@ -62,6 +75,12 @@ Three hard differentiators, all mandatory:
    reads as physics, not as a chart segment.
 3. **Eight zones, and the seam counts.** Roughly 1 spin in 12 stops on a seam between two pucks and
    resolves as a **double** — two instructions in one turn. Nothing else in the app can do that.
+
+Note on overlap: Creative Positions (4.5.5) is also flick-driven. The differentiation between the two
+is the **object and the payload** — bottle → verbal/foreplay zones → one instruction; dial → position
+zones → an illustrated card plus a tempo script. Seam doubles stay exclusive to the bottle. If at
+review the two still feel like the same game, cut this one and fold its eight zones into 4.5.5 as a
+second mode rather than shipping two spinners that read alike.
 
 ## 2. Screen anatomy
 
@@ -145,6 +164,9 @@ cap glow pulses (`pulseGlow`). Breathing stops the instant a drag begins.
     `selectionClick`, change no state, show no result.
   - otherwise → `turns = (|ω| / 3.2).round().clamp(2, 7)`, direction `= ω.sign`, and the spin runs.
 
+The velocity→turns mapping and the weak-flick rejection threshold live in `lib/core/spin/` and are
+shared with Creative Positions. Do not re-tune them here; changing them changes both games.
+
 ### CTA (fallback, always available)
 
 `PrimaryCta("Spin the bottle")` → `lightImpact` → `turns = 3 + random.nextInt(3)`, direction
@@ -154,31 +176,42 @@ clockwise. Required for reduce-motion, screen-reader and one-handed use — it i
 
 The flick decides *how it spins*; `Random` decides *where it lands*. That split is deliberate: real
 friction would silently bias outcomes toward whichever zone sits opposite the flick, and a rigged
-feel is worse than an honest one. Put this comment in `bottle_spin_solver.dart` so nobody
+feel is worse than an honest one. That comment lives in `lib/core/spin/spin_solver.dart` so nobody
 "fixes" it later.
 
+**Use the shared solver. Do not write a bottle-specific one.**
+
 ```dart
-// bottle_spin_solver.dart — pure functions, no Flutter imports, fully unit-testable.
-const zoneCount = 8;
-const zoneSweep = 360 / zoneCount;                 // 45°
+// lib/core/spin/spin_solver.dart — created by Phase 4.5.5. Pure, no Flutter imports.
+// Signature: solve({random, zoneCount, turns, direction, seamChance})
+// This phase calls it with zoneCount: 8 and seamChance: 0.08.
 
-SpinSolution solve({required Random random, required int turns, required int direction}) {
-  final isDouble = random.nextDouble() < 0.08;     // ~1 spin in 12 lands on a seam
-  final target   = random.nextInt(zoneCount);      // uniform over the 8 zones
-  final offset   = isDouble ? zoneSweep / 2 : 0;   // seam = exactly between target and target+1
-  final endDeg   = direction * (turns * 360 + target * zoneSweep + offset);
-  return SpinSolution(endDegrees: endDeg, target: target, isDouble: isDouble);
-}
+const zoneCount  = 8;
+const seamChance = 0.08;               // ~1 spin in 12 lands on a seam → a double
 
-// Inverse, used by tests and by the landed-puck highlight:
-int zoneForDegrees(double deg) => (((deg % 360) + 360) % 360 / zoneSweep).round() % zoneCount;
+final solution = solve(
+  random: random,
+  zoneCount: zoneCount,
+  turns: turns,
+  direction: direction,
+  seamChance: seamChance,
+);
+// solution.endDegrees · solution.target · solution.isDouble
+
+// Inverse, also shared, used by tests and by the landed-puck highlight:
+// zoneForDegrees(double deg, int zoneCount)
 ```
+
+Seam doubles are this phase's feature: `isDouble` is only ever true where `seamChance > 0`, and
+Creative Positions passes `0`. The seam offset is exactly half a sweep, so a double resolves to the
+`target` / `target + 1` pair.
 
 - `AnimationController(duration: bottleSpin)` with curve `Cubic(0.16, 0.84, 0.04, 1.0)`, then a
   chained `bottleSettle` wobble: two damped oscillations of ±3.5° around the final angle
   (`easeOutSine`), amplitude halving each pass.
-- **Tick haptics.** In the listener compute `crossed = (degrees / zoneSweep).floor()`; on change fire
-  `HapticFeedback.selectionClick()`, throttled to a minimum of 45ms apart.
+- **Tick haptics.** Use the shared `spin_tick_haptics.dart` helper: it computes
+  `crossed = (degrees / zoneSweep).floor()` and fires `HapticFeedback.selectionClick()` on change,
+  throttled to a minimum of 45ms apart.
 - **Landing.** `heavyImpact`; the winning puck animates to its landed state, all other pucks dim to
   45%. Doubles fire `heavyImpact` then `mediumImpact` 120ms later, and **both** pucks light up.
 - **Accuracy.** Assert the resolved angle maps back to `target` (or to the `target` / `target + 1`
@@ -252,8 +285,6 @@ Free game — no `PremiumLockBadge`. `BottleHeat.hot` prompts are the only gated
 lib/features/spin_the_bottle/domain/bottle_zone.dart          // enum + label/icon/colorValue metadata
 lib/features/spin_the_bottle/domain/bottle_prompt.dart        // { id, zone, heat, text }
 lib/features/spin_the_bottle/domain/bottle_heat.dart          // enum { mild, warm, hot }
-lib/features/spin_the_bottle/domain/spin_solution.dart        // { endDegrees, target, isDouble }
-lib/features/spin_the_bottle/domain/bottle_spin_solver.dart   // pure math, no Flutter imports
 lib/features/spin_the_bottle/domain/bottle_prompt_repository.dart  // interface → AppResult
 lib/features/spin_the_bottle/data/bottle_seed.json            // 64 prompts + seedVersion
 lib/features/spin_the_bottle/data/bottle_prompt_repository_asset.dart
@@ -266,10 +297,19 @@ lib/features/spin_the_bottle/provider.dart
 
 lib/features/games_hub/presentation/widgets/wide_game_tile.dart
 
-test/features/spin_the_bottle/bottle_spin_solver_test.dart
 test/features/spin_the_bottle/bottle_controller_test.dart
+test/features/spin_the_bottle/bottle_landing_test.dart        // 8-zone uniformity + seam doubles
 test/features/spin_the_bottle/bottle_seed_test.dart
 ```
+
+**Deleted from this phase's scope** (now shared, created by 4.5.5):
+```
+lib/features/spin_the_bottle/domain/spin_solution.dart        → lib/core/spin/spin_solution.dart
+lib/features/spin_the_bottle/domain/bottle_spin_solver.dart   → lib/core/spin/spin_solver.dart
+test/features/spin_the_bottle/bottle_spin_solver_test.dart    → test/core/spin/spin_solver_test.dart
+```
+`bottle_landing_test.dart` still belongs to this phase: it asserts the 8-zone distribution and the
+seam-double rate through the shared solver.
 
 ### Modify
 ```
@@ -348,6 +388,8 @@ You choose: repeat any zone you like.
 
 ## 10. Acceptance criteria
 
+- [ ] No second spin solver exists in the repo: this module imports `lib/core/spin/` and ships no
+      `bottle_spin_solver.dart`.
 - [ ] Dragging the bottle rotates it 1:1 with the thumb; releasing spins it in the flick's direction.
 - [ ] Flick strength changes rotation count (2–7 turns) while landing stays uniform: over 4000 seeded
       spins every zone lands within ±2% of 12.5%.
