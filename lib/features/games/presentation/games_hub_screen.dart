@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veloura/features/games/domain/game_catalog.dart';
 import 'package:veloura/features/games/presentation/widgets/game_tile.dart';
 import 'package:veloura/features/premium/provider.dart';
+import 'package:veloura/features/session/domain/game_session.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
 import 'package:veloura/features/session/presentation/who_is_playing_sheet.dart';
 import 'package:veloura/shared/widgets/game/game_backdrop.dart';
@@ -28,7 +29,9 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
     final isPremium = ref.watch(isPremiumProvider);
     if (!_checkedFirstRun && session.hasValue) {
       _checkedFirstRun = true;
-      WidgetsBinding.instance.addPostFrameCallback((_) => _showFirstRun(session.requireValue));
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => _showFirstRun(session.requireValue),
+      );
     }
 
     return Scaffold(
@@ -37,7 +40,9 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: GameTokens.screenPadH),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: GameTokens.screenPadH,
+                ),
                 child: SizedBox(
                   height: 44,
                   child: Row(
@@ -55,7 +60,9 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
                       const Spacer(),
                       InkWell(
                         onTap: () => ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Premium arrives in Phase 6.')),
+                          const SnackBar(
+                            content: Text('Premium arrives in Phase 6.'),
+                          ),
                         ),
                         borderRadius: BorderRadius.circular(15),
                         child: Container(
@@ -71,7 +78,10 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
                             children: [
                               Icon(Icons.local_fire_department, size: 14),
                               SizedBox(width: 6),
-                              Text('Superhot', style: TextStyle(fontWeight: FontWeight.w600)),
+                              Text(
+                                'Superhot',
+                                style: TextStyle(fontWeight: FontWeight.w600),
+                              ),
                             ],
                           ),
                         ),
@@ -117,10 +127,17 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
     );
   }
 
-  Future<void> _showFirstRun(session) async {
+  Future<void> _showFirstRun(GameSession session) async {
     final preferences = await SharedPreferences.getInstance();
-    if (!mounted || (preferences.getBool('session_players_configured') ?? false)) return;
-    await WhoIsPlayingSheet.show(context, session: session, dismissible: false);
+    if (!mounted ||
+        (preferences.getBool('session_players_configured') ?? false)) {
+      return;
+    }
+    await WhoIsPlayingSheet.show(
+      context,
+      session: session,
+      dismissible: false,
+    );
     await preferences.setBool('session_players_configured', true);
   }
 
@@ -134,7 +151,10 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('Choose a game', style: Theme.of(context).textTheme.titleLarge),
+            Text(
+              'Choose a game',
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
             const SizedBox(height: 10),
             Text(
               'Play one round together, confirm the result, then pass the turn.',

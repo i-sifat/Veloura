@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:veloura/theme/game_tokens.dart';
 
 /// Resilient fallback when commissioned game artwork is unavailable.
 class GameTileGlyph extends StatelessWidget {

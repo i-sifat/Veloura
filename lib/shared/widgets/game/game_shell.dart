@@ -41,9 +41,9 @@ class GameShell extends StatelessWidget {
               GameAppBar(title: title, leading: leading, onInfo: onInfo),
               const TurnChipBar(),
               const SizedBox(height: 8),
-              if (headline != null) headline!,
+              ?headline,
               Expanded(child: Center(child: RepaintBoundary(child: hero))),
-              if (footnote != null) footnote!,
+              ?footnote,
               const SizedBox(height: 16),
               cta,
               SizedBox(
