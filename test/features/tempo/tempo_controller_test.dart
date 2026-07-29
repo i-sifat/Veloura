@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veloura/core/app_result.dart';
 import 'package:veloura/features/session/domain/game_session.dart';
@@ -86,6 +87,12 @@ void main() {
   testWidgets('running screen disposes its clock and animation cleanly', (
     tester,
   ) async {
+    final router = GoRouter(
+      routes: [
+        GoRoute(path: '/', builder: (_, _) => const FollowTheTempoScreen()),
+      ],
+    );
+    addTearDown(router.dispose);
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
@@ -93,9 +100,9 @@ void main() {
             (ref) async => _MemoryRepository(),
           ),
         ],
-        child: MaterialApp(
+        child: MaterialApp.router(
           theme: AppTheme.dark,
-          home: const FollowTheTempoScreen(),
+          routerConfig: router,
         ),
       ),
     );
