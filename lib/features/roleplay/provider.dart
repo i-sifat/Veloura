@@ -3,4 +3,5 @@ library;
 
 export 'domain/roleplay_repository.dart';
 export 'domain/roleplay_story.dart';
+export 'presentation/flow/roleplay_flow_controller.dart';
 export 'presentation/roleplay_controller.dart';
