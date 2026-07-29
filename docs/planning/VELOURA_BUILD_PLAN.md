@@ -6,7 +6,21 @@
 
 ---
 
-## 0. Current State (verified 2026-07-28)
+## 0. Current State
+
+### Phase progress (updated 2026-07-29)
+
+| Phase | State |
+|-------|-------|
+| 0 — Bootstrap & Tooling | ✅ merged |
+| 1 — Foundation & Architecture ⭐ | ✅ merged |
+| 2 — Dice Game | ✅ merged (functional; visual polish now split into Phase 3.5) |
+| 3 — Core Content Modules (T/D, Cards, Conversation) | ✅ merged |
+| **3.5 — Dice Realism & Roll Feel** | ⏭ **next** — see `docs/planning/PHASE3.5_DICE_REALISM.md` |
+| 4 — Advanced / Policy-Sensitive Modules | ⬜ not started (may run in parallel with 3.5) |
+| 5–10 | ⬜ not started |
+
+### Repo state at plan authoring (verified 2026-07-28, retained for history)
 
 | Area | State |
 |------|-------|
@@ -18,7 +32,7 @@
 | Tests | Empty `test/`. |
 | Docs | `README.md` (default), `veloura-prompt-bible.md` (the vision/spec). |
 
-**Net:** greenfield. Nothing to refactor, everything to build. The counter app gets deleted in Phase 0.
+**Net at authoring:** greenfield. Nothing to refactor, everything to build. The counter app gets deleted in Phase 0.
 
 ---
 
@@ -41,6 +55,8 @@ Locked decisions. Every phase obeys these — do not introduce alternatives mid-
 - **D-3 — Position Library (Bible §7) ships in v1.1, NOT v1.** Ship the lower-risk ~90% of the app first, confirm Play Store listing approval, then add the Sexual-Content-policy-flagged module. Build the module (Phase 4) behind a compile-time/remote feature flag so it can be excluded from the v1 bundle. This is a product/legal call — flagged for sign-off, defaulting to "hold for v1.1".
 - **D-4 — Models: use `freezed` for immutable domain models + `json_serializable` for seed-pack parsing.** Keeps `ContentItem` subclasses boilerplate-free and gives you copyWith/equality for free. Hive adapters are generated separately (see D-1).
 - **D-5 — One shared premium flag.** Every module gates on a single `isPremiumProvider` bool during Phases 2–5, which Phase 6 swaps for a real `subscriptionStatusProvider` **without changing call sites**. Enforce this — divergent gating is the most expensive thing to unwind late.
+- **D-6 — Dice render as a transform-composed six-face cube with live text faces.** No 3D engine, no physics engine, no baked/pre-rendered tumble. Our dice faces are *words*, and premium users author their own — that rules out textured meshes and baked animations, both of which require the faces to be known at build time. Realism comes from motion and light (staggered landings, decaying wobble, impact squash, per-face Lambert shading, ground-contact shadow), not from geometry. Full rationale and the survey of how shipped games do this: `docs/planning/PHASE3.5_DICE_REALISM.md` §2. Revisit only if a designer delivers a Rive tumble.
+- **D-7 — The dice roll happens in place, in a tray on the Dice screen — no new route, no full-screen modal.** Turn-based board games take over the screen because the throw *is* the turn; repeat-roll tray games (Yahtzee, backgammon, RPG rollers, word-dice apps) roll in place because a modal per roll becomes friction fast. Veloura is the second kind. A full-screen "focus roll" is a defensible later extra, not part of Phase 3.5.
 
 ---
 
@@ -63,6 +79,7 @@ Versions are indicative of the latest stable line compatible with Dart 3.12 — 
 | `cached_network_image` `^3.4` | Image caching | Phase 1 |
 | `sensors_plus` `^6` | Shake-to-roll (Dice) | Phase 2 |
 | `share_plus` `^10` | Share sheet (Challenge Cards) | Phase 3 |
+| `vector_math` `^2.1` | 3D normals/depth sort for the dice cube (D-6) | Phase 3.5 |
 | `flutter_local_notifications` `^18` | Daily reminder | Phase 5 |
 | `purchases_flutter` `^8` (RevenueCat, D-2) | Subscriptions | Phase 6 |
 | `flutter_localizations` (SDK) + `intl` | Localization scaffolding | Phase 8 |
@@ -98,6 +115,7 @@ Versions are indicative of the latest stable line compatible with Dart 3.12 — 
   6. Phase-specific Exit Gate (below) fully checked.
 - **Testing baseline:** from Phase 1 on, add unit tests for pure logic (deck building, streak rules, reward math) and a smoke `widget_test` per feature entry screen. Target: pure logic covered, not 100% coverage theater.
 - **typeId registry:** maintain a running list of Hive `typeId`s in `docs/planning/HIVE_TYPEIDS.md` (create in Phase 1). Every new adapter claims the next free id here **before** coding it. This prevents the #1 multi-module Hive failure (id collisions), audited formally in Phase 8.
+- **Motion quality bar (from Phase 3.5 on):** any signature animation must be non-uniform in speed, land on a deterministic end state, respect OS reduced-motion, never sit inside a `BackdropFilter`, and be profiled on a low-end physical device before its PR is accepted. "Feels smooth" is not a measurement — record the worst frame time.
 
 ---
 
@@ -173,12 +191,14 @@ Versions are indicative of the latest stable line compatible with Dart 3.12 — 
 - Respect OS reduced-motion; haptics on roll start + land. Dispose `AnimationController`s; no full-screen rebuild per frame.
 
 **Exit Gate** (Bible Prompt 2 DoD)
-- [ ] Rolls are visibly random + animated, not instant swaps.
-- [ ] History persists across restart.
-- [ ] Custom dice gated behind `isPremiumProvider` with upgrade affordance; no real payments.
-- [ ] `flutter analyze` clean; no logic in `build()`.
-- [ ] Verified on device for animation smoothness (note any residual jank).
-- [ ] Commit + PR: `feat(dice): dice game module`.
+- [x] Rolls are visibly random + animated, not instant swaps.
+- [x] History persists across restart.
+- [x] Custom dice gated behind `isPremiumProvider` with upgrade affordance; no real payments.
+- [x] `flutter analyze` clean; no logic in `build()`.
+- [x] Verified on device for animation smoothness (note any residual jank).
+- [x] Commit + PR: `feat(dice): dice game module`.
+
+> **Known gap carried forward:** the shipped tumble is a single flat rounded card rotated on X/Y — functionally animated, but it does not read as a thrown die, and the stage sits inside a `BackdropFilter`. This is **not** deferred to Phase 9; it is Phase 3.5.
 
 ---
 
@@ -204,20 +224,57 @@ Run in this sub-order:
 **Add deps:** `share_plus`.
 
 **Exit Gate**
-- [ ] All three full flows playable start→finish with real packs loaded.
-- [ ] T/D swipe feels intentional (velocity-aware); filters narrow the deck; session summary counts accurate.
-- [ ] Challenge Cards: 8 categories browsable w/ correct counts; completion persists → category progress %; share output well-formatted; locked cards don't crash.
-- [ ] Conversation: random no-repeat window works; browse filters correctly; "answered together" persists.
-- [ ] Favorites persist across restart in all three.
-- [ ] typeIds registered; content packs validated as parseable JSON with QA summaries recorded.
-- [ ] `flutter analyze` clean. Commit each module separately: `feat(td|cards|conversation): …`.
+- [x] All three full flows playable start→finish with real packs loaded.
+- [x] T/D swipe feels intentional (velocity-aware); filters narrow the deck; session summary counts accurate.
+- [x] Challenge Cards: 8 categories browsable w/ correct counts; completion persists → category progress %; share output well-formatted; locked cards don't crash.
+- [x] Conversation: random no-repeat window works; browse filters correctly; "answered together" persists.
+- [x] Favorites persist across restart in all three.
+- [x] typeIds registered; content packs validated as parseable JSON with QA summaries recorded.
+- [x] `flutter analyze` clean. Commit each module separately: `feat(td|cards|conversation): …`.
 
 > **Content QA rule:** after each pack, spot-read 20 random items for voice + policy drift before accepting. An AI will happily claim balance it didn't hit — verify the QA summary against an actual count.
 
 ---
 
+### Phase 3.5 — Dice Realism & Roll Feel (3D cube) 🎲
+**Maps to:** Bible Prompt 2 (visual DoD) · **Blocked by:** Phase 3 · **Blocks:** nothing · **Est:** 1.5–2 days
+
+> **Full spec: `docs/planning/PHASE3.5_DICE_REALISM.md`.** Read it before writing code — it contains the exact motion numbers, the face/normal/placement tables, the depth-sorting algorithm, and the test list.
+
+**Goal:** make the dice read as *real thrown dice* — rounded 3D cubes with depth, perspective, shading, a grounded shadow, and a convincing tumble — while keeping the readable word faces. **Presentation-layer only.** `DiceController`, `DiceState`, `DiceRollRecord`, the Hive box, favorites, history, premium gating and shake-to-roll are untouched.
+
+**Why it is its own phase and not part of Phase 9:** the Dice game is the app's first-impression toy. Shipping four more modules on top of a flat core interaction, then trying to retrofit motion into a screen nobody wants to reopen, is how polish debt becomes permanent. It is small (1.5–2 days), fully self-contained, independently reviewable, and it blocks nothing — Phase 4 can proceed in parallel.
+
+**Add deps:** `vector_math` (explicit; already transitive).
+
+**Key requirements**
+- Six-face cube per die via composed `Matrix4` transforms with perspective — **live text faces**, so premium custom faces keep working (D-6).
+- Manual back-face culling + nearest-last depth sorting. Flutter has no depth buffer; a `Stack` will happily paint back faces over front ones. This is the one thing naive implementations get wrong.
+- Per-face Lambert shading from one fixed light (ambient floor 0.42) — side faces visibly darker than the front face.
+- Separate ground-contact shadow that tightens/darkens on landing and spreads/fades at apex. **This is the strongest depth cue in the whole phase.**
+- Physics-*plausible* motion: wind-up → fast tumble → decel with decaying wobble → **snap to an axis-aligned face** → impact squash + two micro-bounces. Exact windows and curves in the spec.
+- Per-die randomisation (delay, axis weighting, turns, lift, landing face) so no two rolls animate alike; staggered landings with one light haptic per die.
+- Real decoy words visible mid-tumble — **delete the `…` placeholder**. Faces blur and dim only while spinning fast, crisp at rest.
+- Roll stays **in place** in a fixed-height tray (D-7). **Swap `GlassCard` off the animating stage** — a `BackdropFilter` over a subtree that repaints every frame is a guaranteed jank source.
+- Reduced-motion path renders the settled cube immediately with a 150 ms fade — the result is never gated behind the animation.
+
+**Exit Gate** (abridged — full checklist in the phase doc)
+- [ ] Three faces visible at rest, correctly shaded and depth-sorted; no back-face bleed-through at any rotation.
+- [ ] Contact shadow behaves with flight height; landing snaps dead-on to a face across 20 consecutive rolls.
+- [ ] Motion is non-uniform, staggered, and visibly different every roll.
+- [ ] Decoy faces visible in flight; words crisp at rest.
+- [ ] No `BackdropFilter` in the dice stage; tray height fixed (no reflow when the third die toggles).
+- [ ] Profiled on a low-end physical Android device with three dice; worst frame time recorded in the PR.
+- [ ] Controller/state/model/typeIds unchanged; all pre-existing dice tests pass untouched.
+- [ ] `flutter analyze` clean, `flutter test` green, `pubspec.lock` committed.
+- [ ] Commit + PR: `feat(dice): realistic 3D cube rendering and roll physics feel`.
+
+**Explicitly out of scope:** physics simulation, dice-to-dice collision, any 3D engine, Rive/Lottie baked tumble, full-screen roll, dice sound (wire the `onDieLanded` callback, defer audio to Phase 9), custom face skins/materials.
+
+---
+
 ### Phase 4 — Advanced / Policy-Sensitive Modules
-**Maps to:** Bible Prompts 6 (Positions ⚠) + 7 (Roleplay) · **Blocked by:** Phase 3 · **Est:** 5–7 days
+**Maps to:** Bible Prompts 6 (Positions ⚠) + 7 (Roleplay) · **Blocked by:** Phase 3 (Phase 3.5 may run in parallel) · **Est:** 5–7 days
 
 **Goal:** the two richer modules. **Position Library carries the highest Play Store policy risk in the app** and per **D-3 is built now but excluded from the v1 bundle behind a feature flag.**
 
@@ -296,6 +353,8 @@ Run in this sub-order:
 - 10–15 rule-based achievements checked against existing data (e.g. "7-day streak", "Tried every category", "50 dares completed") — no new tracking system.
 - Settings: theme (light-mode stub), notification prefs, haptics on/off, sound on/off, language (localization stub), data export/clear, privacy/terms links (**placeholder URLs, flagged as release-blocking until legal provides real ones**), subscription management deep-link to Premium.
 
+> **Note for Phase 3.5 integration:** the dice landing haptics must respect the haptics on/off setting built here. Phase 3.5 leaves a `TODO(phase7)` at the call site — resolve it in this phase.
+
 **Exit Gate** (Bible Prompt 10 DoD)
 - [ ] Stats accurately reflect real data from ≥3 modules (spot-check vs manually completed items).
 - [ ] Achievements unlock correctly on criteria.
@@ -341,6 +400,9 @@ Run in this sub-order:
 5. Performance: Riverpod `select` to kill needless rebuilds, builder-based lists, cached images.
 6. Accessibility: semantic labels on icon-only buttons, WCAG AA contrast for text-over-gradient (double-check accent/secondary), reduced-motion respected.
 7. App icon, splash, store assets — flag as design work outside codegen if not provided.
+8. Audio pass: hook the dice `onDieLanded` callback (left wired in Phase 3.5) to a landing sound; respect the Settings sound toggle.
+
+> **De-scoped from this phase:** dice motion/3D quality. That was pulled forward into Phase 3.5 — do **not** redo it here. If a designer has since delivered a Rive tumble, swapping the internals of `DiceCube` behind its existing API is the only sanctioned change (D-6).
 
 **Exit Gate** (Bible Prompt 12 DoD)
 - [ ] `flutter analyze` + `flutter test` pass clean.
@@ -376,19 +438,21 @@ Run in this sub-order:
 ## 5. Critical Path & Sequencing Notes
 
 ```
-0 Bootstrap → 1 Foundation ⭐ → 2 Dice (smoke test)
-                                   → 3 Core content (TD, Cards, Conversation)
-                                       → 4 Advanced (Roleplay; Positions ⚠ flagged off)
-                                       → 5 Daily
-                                           → 6 Premium (swaps stub flag)
-                                               → 7 Profile/Stats
-                                                   → 8 Hardening/L10n/Firebase
-                                                       → 9 Integration/QA
-                                                           → 10 Compliance/Submit
+0 Bootstrap ✅ → 1 Foundation ⭐ ✅ → 2 Dice ✅
+                                        → 3 Core content ✅ (TD, Cards, Conversation)
+                                            ├─ 3.5 Dice realism 🎲 (parallel, blocks nothing)
+                                            └─ 4 Advanced (Roleplay; Positions ⚠ flagged off)
+                                                → 5 Daily
+                                                    → 6 Premium (swaps stub flag)
+                                                        → 7 Profile/Stats
+                                                            → 8 Hardening/L10n/Firebase
+                                                                → 9 Integration/QA
+                                                                    → 10 Compliance/Submit
 ```
 
 - **Phase 1 is the bottleneck.** A weak Foundation contract makes Phases 2–7 diverge. Over-invest here; snapshot the contract.
 - **Phases 3.1/3.2/3.3 can parallelize** across developers/agents *if* Phase 2 validated the architecture — each is independent and only depends on the Foundation contract. Content-pack generation for all of them can run in parallel background sessions.
+- **Phase 3.5 is off the critical path.** It touches only `lib/features/dice/presentation/` and blocks nothing, so it can run in parallel with Phase 4 or slot in as a standalone 1.5–2 day PR. Do it *now* rather than in Phase 9 — polish debt on the app's first-impression toy compounds, and by Phase 9 nobody wants to reopen that screen.
 - **Phase 6 must come after all gating touchpoints exist** (2–5) or you'll retrofit call sites — exactly what D-5 exists to prevent.
 - **Positions (Phase 4.2)** is built but flag-gated off; it does not block the v1 critical path and does not gate Phase 5+.
 
@@ -400,12 +464,14 @@ Run in this sub-order:
 
 <table>
 <tr><th>Risk</th><th>Mitigation</th></tr>
-<tr><td>Interface drift across 10 modules</td><td>One Foundation contract + `CONTRACT_SNAPSHOT.md` pasted into every session (Phase 1 gate)</td></tr>
+<tr><td>Interface drift across 10 modules</td><td>One Foundation contract + <code>CONTRACT_SNAPSHOT.md</code> pasted into every session (Phase 1 gate)</td></tr>
 <tr><td>Hive typeId collisions (the classic multi-module Hive failure)</td><td>Running <code>HIVE_TYPEIDS.md</code> registry from Phase 1; formal audit in Phase 8</td></tr>
 <tr><td>Premium gating retrofit pain</td><td>Single <code>isPremiumProvider</code> stub (D-5) swapped once in Phase 6, zero call-site edits</td></tr>
 <tr><td>Play Store rejection over Sexual Content</td><td>Positions held for v1.1 (D-3), text-only non-explicit framing, §14 gate before submit</td></tr>
 <tr><td>Shallow content packs</td><td>Content generated in separate sessions from code; 20-item spot-read + QA-count verification per pack</td></tr>
 <tr><td>Payment policy violation</td><td>Google Play Billing only (RevenueCat/D-2); external-checkout flagged as violation in Phase 6</td></tr>
+<tr><td>Polish debt on core interactions deferred to a single late "polish pass" that never gets the attention it needs</td><td>Signature interactions get their own scoped phase with measurable gates — Phase 3.5 for Dice; motion quality bar added to §3 conventions</td></tr>
+<tr><td>Animation jank from blurred, animating subtrees (<code>BackdropFilter</code> over a per-frame repaint)</td><td>Explicit ban in the §3 motion quality bar; enforced in the Phase 3.5 gate with a recorded worst-frame time on a low-end physical device</td></tr>
 </table>
 
 ---
@@ -415,6 +481,8 @@ Run in this sub-order:
 - `ARCHITECTURE.md` (Phase 1) — conventions of record.
 - `docs/planning/CONTRACT_SNAPSHOT.md` (Phase 1) — the exact generated contract code to paste between prompts.
 - `docs/planning/HIVE_TYPEIDS.md` (Phase 1, maintained throughout) — typeId registry.
+- `docs/planning/PHASE3_CONTENT_QA.md` (Phase 3) — content pack QA counts of record.
+- `docs/planning/PHASE3.5_DICE_REALISM.md` (Phase 3.5) — dice 3D/motion spec, industry survey, and test list.
 - Per-phase PR descriptions doubling as changelog entries.
 
 ---
