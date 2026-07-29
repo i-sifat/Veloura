@@ -7,7 +7,7 @@ Generated deterministically and validated by `tools/generate_phase3_content.py`.
 - Truth or Dare: **500** (cute 130, romantic 150, spicy 150, extreme 70; even truth/dare per tier; all five categories in every tier).
 - Challenge Cards: **256** (32 in each of exactly eight categories).
 - Conversation Starters: **320** (Deep 70, Funny 70, Romantic 60, Future 60, Getting-to-Know-You-Again 60).
-- IDs are unique and all files are valid JSON.
+- IDs and all 500 Truth or Dare prompt strings are unique; all files are valid JSON.
 
 ## Deterministic 20-item spot read
 
