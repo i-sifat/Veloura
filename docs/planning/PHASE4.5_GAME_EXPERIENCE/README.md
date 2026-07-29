@@ -32,8 +32,8 @@ Phase 4.5 is the **presentation layer** that fixes that across every game:
   as-is. Where a new UI needs grouping (for example three intensity decks), it *derives* that grouping
   from the existing `Difficulty` enum and categories. See D-9 in the master plan.
   The exception is **4.5.5 Creative Positions**, which ships a closed 36-position pack because
-  `lib/features/positions/` is an empty stub and there is nothing to reuse. That is ADR **D-10**;
-  no other sub-phase may add content.
+  `lib/features/positions/` is an empty stub and there is nothing to reuse. That is ADR **D-11**
+  (D-10 is already taken by the shared-session decision); no other sub-phase may add content.
 - **Not a rewrite of engines.** Controllers, repositories, models, Hive boxes, favourites, history and
   premium gating from earlier phases are untouched unless a sub-phase explicitly says otherwise.
 - **Not a second dice renderer.** Phase 3.5 owns the cube. Sub-phase 4.5.2 owns the screen *around*

@@ -12,7 +12,9 @@ Claim the next free ID before implementing an adapter. IDs are permanent after r
 
 ## Seeded content modules add no type IDs
 
-Truth or Dare, Challenge Cards, Conversation Starters, Roleplay Stories, and Spin the Bottle load immutable seed JSON and persist only string/list/map flags through `shared_preferences` or `game_prefs_box`. They add no Hive adapters and therefore claim no type IDs.
+Truth or Dare, Challenge Cards, Conversation Starters, Roleplay Stories, Spin the Bottle, and Creative Positions load immutable seed JSON and persist only string/list/map flags through `shared_preferences` or `game_prefs_box`. They add no Hive adapters and therefore claim no type IDs.
+
+Creative Positions (Phase 4.5.5) is explicitly included above: its round state, heat level and `usedIds` set are in-memory for the life of the session, and its consent + seen-id flags go to `game_prefs_box`. **It must not claim id 4.**
 
 ## Rules
 
