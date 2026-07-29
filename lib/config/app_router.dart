@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:veloura/config/navigation_shell.dart';
 import 'package:veloura/features/cards/presentation/challenge_screen.dart';
+import 'package:veloura/features/cards/presentation/fan/card_challenge_fan_screen.dart';
 import 'package:veloura/features/conversation/presentation/conversation_screen.dart';
 import 'package:veloura/features/dice/presentation/dice_screen.dart';
 import 'package:veloura/features/games/presentation/games_hub_screen.dart';
@@ -33,7 +34,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                 builder: (_, _) => const GamesHubScreen(),
                 routes: [
                   GoRoute(path: 'lustful-rolls', builder: (_, _) => const DiceScreen()),
-                  GoRoute(path: 'card-challenge', builder: (_, _) => const ChallengeScreen()),
+                  GoRoute(
+                    path: 'card-challenge',
+                    builder: (_, _) => const CardChallengeFanScreen(),
+                    routes: [
+                      GoRoute(path: 'browse', builder: (_, _) => const ChallengeScreen()),
+                    ],
+                  ),
                   GoRoute(
                     path: 'truth-or-dare',
                     builder: (_, _) => const TruthOrDareWheelScreen(),
