@@ -12,6 +12,7 @@ This folder is the complete, self-contained plan for rebuilding the Games experi
    standalone prompt: it repeats the non-negotiable rules, lists exactly which files to create
    and modify, gives pixel-level specs, and ends with acceptance criteria + a done checklist.
 3. Do not start Phase N+1 until Phase N is merged. Later phases assume earlier ones exist.
+   The one exception is Phase 9, which only needs Phase 1 and must land before Phase 8's audit.
 4. Nothing already shipped gets deleted unless a phase file explicitly says so. The end state is
    the previous app **plus** this overhaul.
 
@@ -27,6 +28,7 @@ This folder is the complete, self-contained plan for rebuilding the Games experi
 | `PHASE_5_CREATIVE_CONNECTIONS.md` | Swipe-stack question game (reskin of conversation_starters) |
 | `PHASE_6_FOLLOW_THE_TEMPO.md` | New pacing game with a pulsing ring |
 | `PHASE_7_PASSIONATE_ROLEPLAY.md` | Scene picker → role assign → beat-by-beat play (premium) |
+| `PHASE_9_SPIN_THE_BOTTLE.md` | New flick-driven bottle on an 8-zone ring + 64 seeded prompts |
 | `PHASE_8_POLISH_AND_HARDENING.md` | Premium gating, reduce-motion, stats, golden tests, perf pass |
 
 ## Phase map
@@ -38,12 +40,14 @@ Phase 1  Foundation           ← blocking. Everything depends on it.
   ├── Phase 4  Truth or Dare        (wheel)
   ├── Phase 5  Creative Connections (swipe stack)
   ├── Phase 6  Follow the Tempo     (pulse ring, new module)
-  └── Phase 7  Passionate Roleplay  (scenes, premium)
-Phase 8  Polish & hardening   ← after 2–7 are merged.
+  ├── Phase 7  Passionate Roleplay  (scenes, premium)
+  └── Phase 9  Spin the Bottle      (flick physics, new module — build after Phase 4)
+Phase 8  Polish & hardening   ← after 2–7 and 9 are merged.
 ```
 
-Phases 2–7 are independent of each other. They can be built in any order after Phase 1, but the
-listed order ships the highest-value screens first.
+Phases 2–7 and 9 are independent of each other. They can be built in any order after Phase 1, but
+the listed order ships the highest-value screens first. Phase 9 keeps its out-of-sequence number so
+that already-queued phase branches never have to be renumbered.
 
 ## Product decisions already locked (do not re-litigate)
 
@@ -53,9 +57,14 @@ listed order ships the highest-value screens first.
 - **The player never makes two selections.** One tap throws both cubes at once. Who performs the
   action is not chosen either — it alternates by turn.
 - The 3D cube is **pure Flutter** (6 transformed faces + perspective + back-face culling).
-  No 3D engine, no physics engine, no WebView, no Rive.
+  No 3D engine, no physics engine, no WebView, no Rive. The bottle in Phase 9 follows the same
+  rule: it is a `CustomPainter`, not an asset and not a physics simulation.
 - Every game shares one `GameSession` (two named players, active turn) so both players are always
   visible. This is why the current app only shows one player: there is no session model.
 - **Cognitive-load contract** (enforced in every phase): one hero object, one primary CTA, at most
   two text blocks, and zero toggles / lists / locked rows on a play surface. Settings live in a
   gear sheet. History lives in Profile → Activity.
+- **Spin the Bottle is a gesture game, not a second wheel.** Its flick input, asymmetric pointer
+  and seam doubles are the reason it exists. If those are cut, the game is cut.
+- **The hub holds seven games: six half tiles plus one full-width wide tile.** Seven half tiles
+  would leave an orphan. `position_library` still stays out of the grid, reachable from Home.
