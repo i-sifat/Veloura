@@ -5,7 +5,8 @@ Claim the next free ID before implementing an adapter. IDs are permanent after r
 | ID | Model | Feature | Status |
 |---:|---|---|---|
 | 0 | Reserved foundation range | Foundation | Reserved |
-| 1 | Unassigned | — | Available |
+| 1 | `DiceRollRecord` | Dice | Active |
+| 2 | Unassigned | — | Available |
 
 ## Rules
 
