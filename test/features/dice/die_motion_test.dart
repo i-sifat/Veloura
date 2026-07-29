@@ -8,12 +8,19 @@ void main() {
 
   DieMotion motionFor(int face) => DieMotion(
     delay: Duration.zero,
-    turnsX: 2.3,
-    turnsY: 0.9,
+    turnsX: 3.3,
+    turnsY: 1.9,
+    turnsZ: 1.4,
     landingFaceIndex: face,
-    lift: 0.09,
-    liftPx: 14,
-    wobbleAmplitude: 0.09,
+    lift: 0.16,
+    liftPx: 38,
+    wobbleAmplitude: 0.10,
+    startX: -1.2,
+    startY: -0.8,
+    endX: 0.3,
+    endY: 0.2,
+    restTiltX: 0.28,
+    restTiltY: -0.34,
   );
 
   bool isQuarterTurn(double angle) {
@@ -21,7 +28,7 @@ void main() {
     return (turns - turns.round()).abs() < epsilon;
   }
 
-  test('all landing orientations are exact quarter turns', () {
+  test('base landing orientations are exact quarter turns', () {
     for (var face = 0; face < 6; face++) {
       final (x, y) = DieMotion.orientationForFace(face);
       expect(isQuarterTurn(x), isTrue, reason: 'face $face x');
@@ -29,18 +36,34 @@ void main() {
     }
   });
 
-  test('every face settles exactly axis aligned', () {
+  test('every result face settles with the intentional three-face tilt', () {
     for (var face = 0; face < 6; face++) {
-      final frame = motionFor(face).at(1);
-      expect(isQuarterTurn(frame.rotationX), isTrue, reason: 'face $face x');
-      expect(isQuarterTurn(frame.rotationY), isTrue, reason: 'face $face y');
+      final motion = motionFor(face);
+      final frame = motion.at(1);
+      final (baseX, baseY) = DieMotion.orientationForFace(face);
+      expect(frame.rotationX, closeTo(baseX + motion.restTiltX, epsilon));
+      expect(frame.rotationY, closeTo(baseY + motion.restTiltY, epsilon));
+      expect(frame.rotationZ, closeTo(0, epsilon));
     }
   });
 
-  test('flight begins and ends grounded and rises mid-roll', () {
+  test('die travels from outside the board to its scattered resting point', () {
+    final motion = motionFor(0);
+    final start = motion.at(0);
+    final middle = motion.at(0.46);
+    final end = motion.at(1);
+
+    expect(start.translateX, closeTo(motion.startX, epsilon));
+    expect(start.translateY, closeTo(motion.startY, epsilon));
+    expect(middle.translateY, lessThan(motion.endY));
+    expect(end.translateX, closeTo(motion.endX, epsilon));
+    expect(end.translateY, closeTo(motion.endY, epsilon));
+  });
+
+  test('flight begins and ends grounded and rises mid-throw', () {
     final motion = motionFor(0);
     expect(motion.at(0).flightHeight, 0);
-    expect(motion.at(0.46).flightHeight, greaterThan(0.95));
+    expect(motion.at(0.45).flightHeight, greaterThan(0.95));
     expect(motion.at(1).flightHeight, 0);
   });
 
@@ -51,9 +74,12 @@ void main() {
       final values = [
         frame.rotationX,
         frame.rotationY,
+        frame.rotationZ,
         frame.scaleX,
         frame.scaleY,
+        frame.translateX,
         frame.translateY,
+        frame.bounceY,
         frame.flightHeight,
         frame.shadowWidthFactor,
         frame.shadowBlur,
@@ -65,14 +91,15 @@ void main() {
     }
   });
 
-  test('different random seeds produce varied motion', () {
+  test('different random seeds produce visibly different throws', () {
     final first = DieMotion.random(math.Random(1), dieIndex: 0);
     final second = DieMotion.random(math.Random(2), dieIndex: 0);
     expect(
       first.turnsX != second.turnsX ||
           first.turnsY != second.turnsY ||
           first.landingFaceIndex != second.landingFaceIndex ||
-          first.lift != second.lift,
+          first.endX != second.endX ||
+          first.restTiltY != second.restTiltY,
       isTrue,
     );
   });
