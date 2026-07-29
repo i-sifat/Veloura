@@ -56,7 +56,7 @@ class _SceneStep extends ConsumerWidget {
       hero: SceneCarousel(stories: stories, isPremium: premium, onChanged: controller.selectScene),
       cta: PrimaryCta(label: 'Choose this scene', onPressed: flow.selectedScene == null ? null : () {
         if (flow.selectedScene!.premium && !premium) {
-          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('This scene unlocks with Veloura Premium.')));
+          openPremiumPaywall(context, source: 'roleplay_premium_pack');
         } else {
           controller.confirmScene();
         }

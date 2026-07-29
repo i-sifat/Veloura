@@ -11,6 +11,7 @@ import 'package:veloura/features/dice/presentation/dice_screen.dart';
 import 'package:veloura/features/games/presentation/games_hub_screen.dart';
 import 'package:veloura/features/home/presentation/home_screen.dart';
 import 'package:veloura/features/positions/presentation/creative_positions_screen.dart';
+import 'package:veloura/features/premium/presentation/premium_paywall_screen.dart';
 import 'package:veloura/features/roleplay/presentation/flow/roleplay_flow_screen.dart';
 import 'package:veloura/features/tempo/presentation/follow_the_tempo_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/truth_dare_screen.dart';
@@ -22,6 +23,12 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   final router = GoRouter(
     initialLocation: '/home',
     routes: [
+      GoRoute(
+        path: '/premium',
+        builder: (_, state) => PremiumPaywallScreen(
+          source: state.uri.queryParameters['source'] ?? 'unknown',
+        ),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, shell) => NavigationShell(shell: shell),
         branches: [
@@ -83,10 +90,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   ),
                   GoRoute(path: 'dice', redirect: (_, _) => '/games/lustful-rolls'),
                   GoRoute(path: 'challenges', redirect: (_, _) => '/games/card-challenge'),
-                  GoRoute(
-                    path: 'conversation',
-                    redirect: (_, _) => '/home/conversation',
-                  ),
+                  GoRoute(path: 'conversation', redirect: (_, _) => '/home/conversation'),
                   GoRoute(path: 'roleplay', redirect: (_, _) => '/games/passionate-roleplay'),
                 ],
               ),
