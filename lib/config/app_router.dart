@@ -7,6 +7,7 @@ import 'package:veloura/features/conversation/presentation/conversation_screen.d
 import 'package:veloura/features/dice/presentation/dice_screen.dart';
 import 'package:veloura/features/games/presentation/games_screen.dart';
 import 'package:veloura/features/home/presentation/home_screen.dart';
+import 'package:veloura/features/roleplay/presentation/roleplay_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/truth_dare_screen.dart';
 import 'package:veloura/shared/widgets/placeholder_screen.dart';
 
@@ -41,6 +42,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   GoRoute(
                     path: 'conversation',
                     builder: (_, _) => const ConversationScreen(),
+                  ),
+                  GoRoute(
+                    path: 'roleplay',
+                    builder: (_, _) => const RoleplayScreen(),
                   ),
                 ],
               ),
