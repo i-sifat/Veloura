@@ -1,0 +1,2242 @@
+[
+  {
+    "id": "cv_0001",
+    "prompt": "What belief have you changed your mind about in the last few years? What makes that answer true for you?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0002",
+    "prompt": "When do you feel most understood by another person? What makes that answer true for you?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0003",
+    "prompt": "What does a meaningful life look like to you right now? What makes that answer true for you?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0004",
+    "prompt": "Which fear has quietly shaped more choices than you expected? What makes that answer true for you?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0005",
+    "prompt": "What part of yourself are you learning to be gentler with? What makes that answer true for you?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0006",
+    "prompt": "What belief have you changed your mind about in the last few years? Has your answer changed recently?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0007",
+    "prompt": "When do you feel most understood by another person? Has your answer changed recently?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0008",
+    "prompt": "What does a meaningful life look like to you right now? Has your answer changed recently?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0009",
+    "prompt": "Which fear has quietly shaped more choices than you expected? Has your answer changed recently?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0010",
+    "prompt": "What part of yourself are you learning to be gentler with? Has your answer changed recently?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0011",
+    "prompt": "What belief have you changed your mind about in the last few years? What story best explains your answer?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0012",
+    "prompt": "When do you feel most understood by another person? What story best explains your answer?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0013",
+    "prompt": "What does a meaningful life look like to you right now? What story best explains your answer?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0014",
+    "prompt": "Which fear has quietly shaped more choices than you expected? What story best explains your answer?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0015",
+    "prompt": "What part of yourself are you learning to be gentler with? What story best explains your answer?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0016",
+    "prompt": "What belief have you changed your mind about in the last few years? What would you like your partner to understand about that?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0017",
+    "prompt": "When do you feel most understood by another person? What would you like your partner to understand about that?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0018",
+    "prompt": "What does a meaningful life look like to you right now? What would you like your partner to understand about that?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0019",
+    "prompt": "Which fear has quietly shaped more choices than you expected? What would you like your partner to understand about that?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0020",
+    "prompt": "What part of yourself are you learning to be gentler with? What would you like your partner to understand about that?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0021",
+    "prompt": "What belief have you changed your mind about in the last few years? What is one small example from this month?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0022",
+    "prompt": "When do you feel most understood by another person? What is one small example from this month?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0023",
+    "prompt": "What does a meaningful life look like to you right now? What is one small example from this month?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0024",
+    "prompt": "Which fear has quietly shaped more choices than you expected? What is one small example from this month?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0025",
+    "prompt": "What part of yourself are you learning to be gentler with? What is one small example from this month?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0026",
+    "prompt": "What belief have you changed your mind about in the last few years? How could the two of you explore that together?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0027",
+    "prompt": "When do you feel most understood by another person? How could the two of you explore that together?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0028",
+    "prompt": "What does a meaningful life look like to you right now? How could the two of you explore that together?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0029",
+    "prompt": "Which fear has quietly shaped more choices than you expected? How could the two of you explore that together?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0030",
+    "prompt": "What part of yourself are you learning to be gentler with? How could the two of you explore that together?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0031",
+    "prompt": "What belief have you changed your mind about in the last few years? What surprised you while thinking about it?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0032",
+    "prompt": "When do you feel most understood by another person? What surprised you while thinking about it?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0033",
+    "prompt": "What does a meaningful life look like to you right now? What surprised you while thinking about it?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0034",
+    "prompt": "Which fear has quietly shaped more choices than you expected? What surprised you while thinking about it?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0035",
+    "prompt": "What part of yourself are you learning to be gentler with? What surprised you while thinking about it?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0036",
+    "prompt": "What belief have you changed your mind about in the last few years? Which detail matters most?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0037",
+    "prompt": "When do you feel most understood by another person? Which detail matters most?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0038",
+    "prompt": "What does a meaningful life look like to you right now? Which detail matters most?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0039",
+    "prompt": "Which fear has quietly shaped more choices than you expected? Which detail matters most?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0040",
+    "prompt": "What part of yourself are you learning to be gentler with? Which detail matters most?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0041",
+    "prompt": "What belief have you changed your mind about in the last few years? What might make your answer different next year?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0042",
+    "prompt": "When do you feel most understood by another person? What might make your answer different next year?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0043",
+    "prompt": "What does a meaningful life look like to you right now? What might make your answer different next year?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0044",
+    "prompt": "Which fear has quietly shaped more choices than you expected? What might make your answer different next year?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0045",
+    "prompt": "What part of yourself are you learning to be gentler with? What might make your answer different next year?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0046",
+    "prompt": "What belief have you changed your mind about in the last few years? What question would you ask back?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0047",
+    "prompt": "When do you feel most understood by another person? What question would you ask back?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0048",
+    "prompt": "What does a meaningful life look like to you right now? What question would you ask back?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0049",
+    "prompt": "Which fear has quietly shaped more choices than you expected? What question would you ask back?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0050",
+    "prompt": "What part of yourself are you learning to be gentler with? What question would you ask back?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0051",
+    "prompt": "What belief have you changed your mind about in the last few years? What feeling sits underneath that answer?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0052",
+    "prompt": "When do you feel most understood by another person? What feeling sits underneath that answer?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0053",
+    "prompt": "What does a meaningful life look like to you right now? What feeling sits underneath that answer?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0054",
+    "prompt": "Which fear has quietly shaped more choices than you expected? What feeling sits underneath that answer?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0055",
+    "prompt": "What part of yourself are you learning to be gentler with? What feeling sits underneath that answer?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0056",
+    "prompt": "What belief have you changed your mind about in the last few years? What would make this easier to talk about?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0057",
+    "prompt": "When do you feel most understood by another person? What would make this easier to talk about?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0058",
+    "prompt": "What does a meaningful life look like to you right now? What would make this easier to talk about?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0059",
+    "prompt": "Which fear has quietly shaped more choices than you expected? What would make this easier to talk about?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0060",
+    "prompt": "What part of yourself are you learning to be gentler with? What would make this easier to talk about?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0061",
+    "prompt": "What belief have you changed your mind about in the last few years? When did you first notice this?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0062",
+    "prompt": "When do you feel most understood by another person? When did you first notice this?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0063",
+    "prompt": "What does a meaningful life look like to you right now? When did you first notice this?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0064",
+    "prompt": "Which fear has quietly shaped more choices than you expected? When did you first notice this?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0065",
+    "prompt": "What part of yourself are you learning to be gentler with? When did you first notice this?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0066",
+    "prompt": "What belief have you changed your mind about in the last few years? What is the most playful version of your answer?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0067",
+    "prompt": "When do you feel most understood by another person? What is the most playful version of your answer?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0068",
+    "prompt": "What does a meaningful life look like to you right now? What is the most playful version of your answer?",
+    "conversationCategory": "deep",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0069",
+    "prompt": "Which fear has quietly shaped more choices than you expected? What is the most playful version of your answer?",
+    "conversationCategory": "deep",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0070",
+    "prompt": "What part of yourself are you learning to be gentler with? What is the most playful version of your answer?",
+    "conversationCategory": "deep",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0071",
+    "prompt": "What harmless conspiracy theory could you invent about our household? What makes that answer true for you?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0072",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? What makes that answer true for you?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0073",
+    "prompt": "Which everyday task would you turn into an Olympic event? What makes that answer true for you?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0074",
+    "prompt": "What is the worst possible name for a restaurant we would open? What makes that answer true for you?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0075",
+    "prompt": "If we switched voices for a day, what would become funniest? What makes that answer true for you?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0076",
+    "prompt": "What harmless conspiracy theory could you invent about our household? Has your answer changed recently?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0077",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? Has your answer changed recently?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0078",
+    "prompt": "Which everyday task would you turn into an Olympic event? Has your answer changed recently?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0079",
+    "prompt": "What is the worst possible name for a restaurant we would open? Has your answer changed recently?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0080",
+    "prompt": "If we switched voices for a day, what would become funniest? Has your answer changed recently?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0081",
+    "prompt": "What harmless conspiracy theory could you invent about our household? What story best explains your answer?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0082",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? What story best explains your answer?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0083",
+    "prompt": "Which everyday task would you turn into an Olympic event? What story best explains your answer?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0084",
+    "prompt": "What is the worst possible name for a restaurant we would open? What story best explains your answer?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0085",
+    "prompt": "If we switched voices for a day, what would become funniest? What story best explains your answer?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0086",
+    "prompt": "What harmless conspiracy theory could you invent about our household? What would you like your partner to understand about that?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0087",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? What would you like your partner to understand about that?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0088",
+    "prompt": "Which everyday task would you turn into an Olympic event? What would you like your partner to understand about that?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0089",
+    "prompt": "What is the worst possible name for a restaurant we would open? What would you like your partner to understand about that?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0090",
+    "prompt": "If we switched voices for a day, what would become funniest? What would you like your partner to understand about that?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0091",
+    "prompt": "What harmless conspiracy theory could you invent about our household? What is one small example from this month?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0092",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? What is one small example from this month?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0093",
+    "prompt": "Which everyday task would you turn into an Olympic event? What is one small example from this month?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0094",
+    "prompt": "What is the worst possible name for a restaurant we would open? What is one small example from this month?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0095",
+    "prompt": "If we switched voices for a day, what would become funniest? What is one small example from this month?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0096",
+    "prompt": "What harmless conspiracy theory could you invent about our household? How could the two of you explore that together?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0097",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? How could the two of you explore that together?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0098",
+    "prompt": "Which everyday task would you turn into an Olympic event? How could the two of you explore that together?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0099",
+    "prompt": "What is the worst possible name for a restaurant we would open? How could the two of you explore that together?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0100",
+    "prompt": "If we switched voices for a day, what would become funniest? How could the two of you explore that together?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0101",
+    "prompt": "What harmless conspiracy theory could you invent about our household? What surprised you while thinking about it?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0102",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? What surprised you while thinking about it?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0103",
+    "prompt": "Which everyday task would you turn into an Olympic event? What surprised you while thinking about it?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0104",
+    "prompt": "What is the worst possible name for a restaurant we would open? What surprised you while thinking about it?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0105",
+    "prompt": "If we switched voices for a day, what would become funniest? What surprised you while thinking about it?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0106",
+    "prompt": "What harmless conspiracy theory could you invent about our household? Which detail matters most?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0107",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? Which detail matters most?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0108",
+    "prompt": "Which everyday task would you turn into an Olympic event? Which detail matters most?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0109",
+    "prompt": "What is the worst possible name for a restaurant we would open? Which detail matters most?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0110",
+    "prompt": "If we switched voices for a day, what would become funniest? Which detail matters most?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0111",
+    "prompt": "What harmless conspiracy theory could you invent about our household? What might make your answer different next year?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0112",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? What might make your answer different next year?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0113",
+    "prompt": "Which everyday task would you turn into an Olympic event? What might make your answer different next year?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0114",
+    "prompt": "What is the worst possible name for a restaurant we would open? What might make your answer different next year?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0115",
+    "prompt": "If we switched voices for a day, what would become funniest? What might make your answer different next year?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0116",
+    "prompt": "What harmless conspiracy theory could you invent about our household? What question would you ask back?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0117",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? What question would you ask back?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0118",
+    "prompt": "Which everyday task would you turn into an Olympic event? What question would you ask back?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0119",
+    "prompt": "What is the worst possible name for a restaurant we would open? What question would you ask back?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0120",
+    "prompt": "If we switched voices for a day, what would become funniest? What question would you ask back?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0121",
+    "prompt": "What harmless conspiracy theory could you invent about our household? What feeling sits underneath that answer?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0122",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? What feeling sits underneath that answer?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0123",
+    "prompt": "Which everyday task would you turn into an Olympic event? What feeling sits underneath that answer?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0124",
+    "prompt": "What is the worst possible name for a restaurant we would open? What feeling sits underneath that answer?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0125",
+    "prompt": "If we switched voices for a day, what would become funniest? What feeling sits underneath that answer?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0126",
+    "prompt": "What harmless conspiracy theory could you invent about our household? What would make this easier to talk about?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0127",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? What would make this easier to talk about?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0128",
+    "prompt": "Which everyday task would you turn into an Olympic event? What would make this easier to talk about?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0129",
+    "prompt": "What is the worst possible name for a restaurant we would open? What would make this easier to talk about?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0130",
+    "prompt": "If we switched voices for a day, what would become funniest? What would make this easier to talk about?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0131",
+    "prompt": "What harmless conspiracy theory could you invent about our household? When did you first notice this?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0132",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? When did you first notice this?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0133",
+    "prompt": "Which everyday task would you turn into an Olympic event? When did you first notice this?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0134",
+    "prompt": "What is the worst possible name for a restaurant we would open? When did you first notice this?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0135",
+    "prompt": "If we switched voices for a day, what would become funniest? When did you first notice this?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0136",
+    "prompt": "What harmless conspiracy theory could you invent about our household? What is the most playful version of your answer?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0137",
+    "prompt": "If our relationship had a mascot, what ridiculous creature would it be? What is the most playful version of your answer?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0138",
+    "prompt": "Which everyday task would you turn into an Olympic event? What is the most playful version of your answer?",
+    "conversationCategory": "funny",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0139",
+    "prompt": "What is the worst possible name for a restaurant we would open? What is the most playful version of your answer?",
+    "conversationCategory": "funny",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0140",
+    "prompt": "If we switched voices for a day, what would become funniest? What is the most playful version of your answer?",
+    "conversationCategory": "funny",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0141",
+    "prompt": "Which moment with me felt unexpectedly romantic? What makes that answer true for you?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0142",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? What makes that answer true for you?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0143",
+    "prompt": "What kind of affection helps you reconnect after a long day? What makes that answer true for you?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0144",
+    "prompt": "Which future tradition would you love us to create? What makes that answer true for you?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0145",
+    "prompt": "What do you hope we will still tease each other about years from now? What makes that answer true for you?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0146",
+    "prompt": "Which moment with me felt unexpectedly romantic? Has your answer changed recently?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0147",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? Has your answer changed recently?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0148",
+    "prompt": "What kind of affection helps you reconnect after a long day? Has your answer changed recently?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0149",
+    "prompt": "Which future tradition would you love us to create? Has your answer changed recently?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0150",
+    "prompt": "What do you hope we will still tease each other about years from now? Has your answer changed recently?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0151",
+    "prompt": "Which moment with me felt unexpectedly romantic? What story best explains your answer?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0152",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? What story best explains your answer?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0153",
+    "prompt": "What kind of affection helps you reconnect after a long day? What story best explains your answer?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0154",
+    "prompt": "Which future tradition would you love us to create? What story best explains your answer?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0155",
+    "prompt": "What do you hope we will still tease each other about years from now? What story best explains your answer?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0156",
+    "prompt": "Which moment with me felt unexpectedly romantic? What would you like your partner to understand about that?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0157",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? What would you like your partner to understand about that?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0158",
+    "prompt": "What kind of affection helps you reconnect after a long day? What would you like your partner to understand about that?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0159",
+    "prompt": "Which future tradition would you love us to create? What would you like your partner to understand about that?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0160",
+    "prompt": "What do you hope we will still tease each other about years from now? What would you like your partner to understand about that?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0161",
+    "prompt": "Which moment with me felt unexpectedly romantic? What is one small example from this month?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0162",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? What is one small example from this month?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0163",
+    "prompt": "What kind of affection helps you reconnect after a long day? What is one small example from this month?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0164",
+    "prompt": "Which future tradition would you love us to create? What is one small example from this month?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0165",
+    "prompt": "What do you hope we will still tease each other about years from now? What is one small example from this month?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0166",
+    "prompt": "Which moment with me felt unexpectedly romantic? How could the two of you explore that together?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0167",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? How could the two of you explore that together?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0168",
+    "prompt": "What kind of affection helps you reconnect after a long day? How could the two of you explore that together?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0169",
+    "prompt": "Which future tradition would you love us to create? How could the two of you explore that together?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0170",
+    "prompt": "What do you hope we will still tease each other about years from now? How could the two of you explore that together?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0171",
+    "prompt": "Which moment with me felt unexpectedly romantic? What surprised you while thinking about it?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0172",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? What surprised you while thinking about it?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0173",
+    "prompt": "What kind of affection helps you reconnect after a long day? What surprised you while thinking about it?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0174",
+    "prompt": "Which future tradition would you love us to create? What surprised you while thinking about it?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0175",
+    "prompt": "What do you hope we will still tease each other about years from now? What surprised you while thinking about it?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0176",
+    "prompt": "Which moment with me felt unexpectedly romantic? Which detail matters most?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0177",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? Which detail matters most?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0178",
+    "prompt": "What kind of affection helps you reconnect after a long day? Which detail matters most?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0179",
+    "prompt": "Which future tradition would you love us to create? Which detail matters most?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0180",
+    "prompt": "What do you hope we will still tease each other about years from now? Which detail matters most?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0181",
+    "prompt": "Which moment with me felt unexpectedly romantic? What might make your answer different next year?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0182",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? What might make your answer different next year?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0183",
+    "prompt": "What kind of affection helps you reconnect after a long day? What might make your answer different next year?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0184",
+    "prompt": "Which future tradition would you love us to create? What might make your answer different next year?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0185",
+    "prompt": "What do you hope we will still tease each other about years from now? What might make your answer different next year?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0186",
+    "prompt": "Which moment with me felt unexpectedly romantic? What question would you ask back?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0187",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? What question would you ask back?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0188",
+    "prompt": "What kind of affection helps you reconnect after a long day? What question would you ask back?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0189",
+    "prompt": "Which future tradition would you love us to create? What question would you ask back?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0190",
+    "prompt": "What do you hope we will still tease each other about years from now? What question would you ask back?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0191",
+    "prompt": "Which moment with me felt unexpectedly romantic? What feeling sits underneath that answer?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0192",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? What feeling sits underneath that answer?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0193",
+    "prompt": "What kind of affection helps you reconnect after a long day? What feeling sits underneath that answer?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0194",
+    "prompt": "Which future tradition would you love us to create? What feeling sits underneath that answer?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0195",
+    "prompt": "What do you hope we will still tease each other about years from now? What feeling sits underneath that answer?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0196",
+    "prompt": "Which moment with me felt unexpectedly romantic? What would make this easier to talk about?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0197",
+    "prompt": "What gesture makes you feel chosen rather than simply noticed? What would make this easier to talk about?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0198",
+    "prompt": "What kind of affection helps you reconnect after a long day? What would make this easier to talk about?",
+    "conversationCategory": "romantic",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0199",
+    "prompt": "Which future tradition would you love us to create? What would make this easier to talk about?",
+    "conversationCategory": "romantic",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0200",
+    "prompt": "What do you hope we will still tease each other about years from now? What would make this easier to talk about?",
+    "conversationCategory": "romantic",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0201",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? What makes that answer true for you?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0202",
+    "prompt": "Which shared skill would be exciting for us to learn? What makes that answer true for you?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0203",
+    "prompt": "What place would you like us to know well rather than visit once? What makes that answer true for you?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0204",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? What makes that answer true for you?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0205",
+    "prompt": "Which future version of us are you most curious to meet? What makes that answer true for you?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0206",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? Has your answer changed recently?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0207",
+    "prompt": "Which shared skill would be exciting for us to learn? Has your answer changed recently?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0208",
+    "prompt": "What place would you like us to know well rather than visit once? Has your answer changed recently?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0209",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? Has your answer changed recently?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0210",
+    "prompt": "Which future version of us are you most curious to meet? Has your answer changed recently?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0211",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? What story best explains your answer?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0212",
+    "prompt": "Which shared skill would be exciting for us to learn? What story best explains your answer?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0213",
+    "prompt": "What place would you like us to know well rather than visit once? What story best explains your answer?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0214",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? What story best explains your answer?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0215",
+    "prompt": "Which future version of us are you most curious to meet? What story best explains your answer?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0216",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? What would you like your partner to understand about that?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0217",
+    "prompt": "Which shared skill would be exciting for us to learn? What would you like your partner to understand about that?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0218",
+    "prompt": "What place would you like us to know well rather than visit once? What would you like your partner to understand about that?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0219",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? What would you like your partner to understand about that?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0220",
+    "prompt": "Which future version of us are you most curious to meet? What would you like your partner to understand about that?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0221",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? What is one small example from this month?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0222",
+    "prompt": "Which shared skill would be exciting for us to learn? What is one small example from this month?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0223",
+    "prompt": "What place would you like us to know well rather than visit once? What is one small example from this month?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0224",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? What is one small example from this month?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0225",
+    "prompt": "Which future version of us are you most curious to meet? What is one small example from this month?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0226",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? How could the two of you explore that together?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0227",
+    "prompt": "Which shared skill would be exciting for us to learn? How could the two of you explore that together?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0228",
+    "prompt": "What place would you like us to know well rather than visit once? How could the two of you explore that together?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0229",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? How could the two of you explore that together?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0230",
+    "prompt": "Which future version of us are you most curious to meet? How could the two of you explore that together?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0231",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? What surprised you while thinking about it?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0232",
+    "prompt": "Which shared skill would be exciting for us to learn? What surprised you while thinking about it?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0233",
+    "prompt": "What place would you like us to know well rather than visit once? What surprised you while thinking about it?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0234",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? What surprised you while thinking about it?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0235",
+    "prompt": "Which future version of us are you most curious to meet? What surprised you while thinking about it?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0236",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? Which detail matters most?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0237",
+    "prompt": "Which shared skill would be exciting for us to learn? Which detail matters most?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0238",
+    "prompt": "What place would you like us to know well rather than visit once? Which detail matters most?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0239",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? Which detail matters most?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0240",
+    "prompt": "Which future version of us are you most curious to meet? Which detail matters most?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0241",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? What might make your answer different next year?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0242",
+    "prompt": "Which shared skill would be exciting for us to learn? What might make your answer different next year?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0243",
+    "prompt": "What place would you like us to know well rather than visit once? What might make your answer different next year?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0244",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? What might make your answer different next year?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0245",
+    "prompt": "Which future version of us are you most curious to meet? What might make your answer different next year?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0246",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? What question would you ask back?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0247",
+    "prompt": "Which shared skill would be exciting for us to learn? What question would you ask back?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0248",
+    "prompt": "What place would you like us to know well rather than visit once? What question would you ask back?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0249",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? What question would you ask back?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0250",
+    "prompt": "Which future version of us are you most curious to meet? What question would you ask back?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0251",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? What feeling sits underneath that answer?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0252",
+    "prompt": "Which shared skill would be exciting for us to learn? What feeling sits underneath that answer?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0253",
+    "prompt": "What place would you like us to know well rather than visit once? What feeling sits underneath that answer?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0254",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? What feeling sits underneath that answer?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0255",
+    "prompt": "Which future version of us are you most curious to meet? What feeling sits underneath that answer?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0256",
+    "prompt": "What would an ideal ordinary Tuesday look like for us in five years? What would make this easier to talk about?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0257",
+    "prompt": "Which shared skill would be exciting for us to learn? What would make this easier to talk about?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0258",
+    "prompt": "What place would you like us to know well rather than visit once? What would make this easier to talk about?",
+    "conversationCategory": "future",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0259",
+    "prompt": "What financial or lifestyle goal would feel meaningful to build together? What would make this easier to talk about?",
+    "conversationCategory": "future",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0260",
+    "prompt": "Which future version of us are you most curious to meet? What would make this easier to talk about?",
+    "conversationCategory": "future",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0261",
+    "prompt": "What recent interest of yours do you wish I asked about more? What makes that answer true for you?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0262",
+    "prompt": "What currently gives you energy that did not a year ago? What makes that answer true for you?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0263",
+    "prompt": "Which part of your daily life feels invisible to most people? What makes that answer true for you?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0264",
+    "prompt": "What small preference of yours may have changed lately? What makes that answer true for you?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0265",
+    "prompt": "What would you love me to understand about who you are becoming? What makes that answer true for you?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0266",
+    "prompt": "What recent interest of yours do you wish I asked about more? Has your answer changed recently?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0267",
+    "prompt": "What currently gives you energy that did not a year ago? Has your answer changed recently?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0268",
+    "prompt": "Which part of your daily life feels invisible to most people? Has your answer changed recently?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0269",
+    "prompt": "What small preference of yours may have changed lately? Has your answer changed recently?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0270",
+    "prompt": "What would you love me to understand about who you are becoming? Has your answer changed recently?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0271",
+    "prompt": "What recent interest of yours do you wish I asked about more? What story best explains your answer?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0272",
+    "prompt": "What currently gives you energy that did not a year ago? What story best explains your answer?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0273",
+    "prompt": "Which part of your daily life feels invisible to most people? What story best explains your answer?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0274",
+    "prompt": "What small preference of yours may have changed lately? What story best explains your answer?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0275",
+    "prompt": "What would you love me to understand about who you are becoming? What story best explains your answer?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0276",
+    "prompt": "What recent interest of yours do you wish I asked about more? What would you like your partner to understand about that?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0277",
+    "prompt": "What currently gives you energy that did not a year ago? What would you like your partner to understand about that?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0278",
+    "prompt": "Which part of your daily life feels invisible to most people? What would you like your partner to understand about that?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0279",
+    "prompt": "What small preference of yours may have changed lately? What would you like your partner to understand about that?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0280",
+    "prompt": "What would you love me to understand about who you are becoming? What would you like your partner to understand about that?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0281",
+    "prompt": "What recent interest of yours do you wish I asked about more? What is one small example from this month?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0282",
+    "prompt": "What currently gives you energy that did not a year ago? What is one small example from this month?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0283",
+    "prompt": "Which part of your daily life feels invisible to most people? What is one small example from this month?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0284",
+    "prompt": "What small preference of yours may have changed lately? What is one small example from this month?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0285",
+    "prompt": "What would you love me to understand about who you are becoming? What is one small example from this month?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0286",
+    "prompt": "What recent interest of yours do you wish I asked about more? How could the two of you explore that together?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0287",
+    "prompt": "What currently gives you energy that did not a year ago? How could the two of you explore that together?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0288",
+    "prompt": "Which part of your daily life feels invisible to most people? How could the two of you explore that together?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0289",
+    "prompt": "What small preference of yours may have changed lately? How could the two of you explore that together?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0290",
+    "prompt": "What would you love me to understand about who you are becoming? How could the two of you explore that together?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0291",
+    "prompt": "What recent interest of yours do you wish I asked about more? What surprised you while thinking about it?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0292",
+    "prompt": "What currently gives you energy that did not a year ago? What surprised you while thinking about it?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0293",
+    "prompt": "Which part of your daily life feels invisible to most people? What surprised you while thinking about it?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0294",
+    "prompt": "What small preference of yours may have changed lately? What surprised you while thinking about it?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0295",
+    "prompt": "What would you love me to understand about who you are becoming? What surprised you while thinking about it?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0296",
+    "prompt": "What recent interest of yours do you wish I asked about more? Which detail matters most?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0297",
+    "prompt": "What currently gives you energy that did not a year ago? Which detail matters most?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0298",
+    "prompt": "Which part of your daily life feels invisible to most people? Which detail matters most?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0299",
+    "prompt": "What small preference of yours may have changed lately? Which detail matters most?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0300",
+    "prompt": "What would you love me to understand about who you are becoming? Which detail matters most?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0301",
+    "prompt": "What recent interest of yours do you wish I asked about more? What might make your answer different next year?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0302",
+    "prompt": "What currently gives you energy that did not a year ago? What might make your answer different next year?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0303",
+    "prompt": "Which part of your daily life feels invisible to most people? What might make your answer different next year?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0304",
+    "prompt": "What small preference of yours may have changed lately? What might make your answer different next year?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0305",
+    "prompt": "What would you love me to understand about who you are becoming? What might make your answer different next year?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0306",
+    "prompt": "What recent interest of yours do you wish I asked about more? What question would you ask back?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0307",
+    "prompt": "What currently gives you energy that did not a year ago? What question would you ask back?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0308",
+    "prompt": "Which part of your daily life feels invisible to most people? What question would you ask back?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0309",
+    "prompt": "What small preference of yours may have changed lately? What question would you ask back?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0310",
+    "prompt": "What would you love me to understand about who you are becoming? What question would you ask back?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0311",
+    "prompt": "What recent interest of yours do you wish I asked about more? What feeling sits underneath that answer?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0312",
+    "prompt": "What currently gives you energy that did not a year ago? What feeling sits underneath that answer?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0313",
+    "prompt": "Which part of your daily life feels invisible to most people? What feeling sits underneath that answer?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0314",
+    "prompt": "What small preference of yours may have changed lately? What feeling sits underneath that answer?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0315",
+    "prompt": "What would you love me to understand about who you are becoming? What feeling sits underneath that answer?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0316",
+    "prompt": "What recent interest of yours do you wish I asked about more? What would make this easier to talk about?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0317",
+    "prompt": "What currently gives you energy that did not a year ago? What would make this easier to talk about?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0318",
+    "prompt": "Which part of your daily life feels invisible to most people? What would make this easier to talk about?",
+    "conversationCategory": "rediscover",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0319",
+    "prompt": "What small preference of yours may have changed lately? What would make this easier to talk about?",
+    "conversationCategory": "rediscover",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "cv_0320",
+    "prompt": "What would you love me to understand about who you are becoming? What would make this easier to talk about?",
+    "conversationCategory": "rediscover",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  }
+]

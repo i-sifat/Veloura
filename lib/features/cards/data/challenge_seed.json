@@ -1,0 +1,2562 @@
+[
+  {
+    "id": "ch_0001",
+    "title": "Romance spark 1",
+    "description": "Plan a candlelit snack together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0002",
+    "title": "Romance spark 2",
+    "description": "Write a tiny love note before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0003",
+    "title": "Romance spark 3",
+    "description": "Recreate a favorite date moment using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0004",
+    "title": "Romance spark 4",
+    "description": "Build a shared playlist and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0005",
+    "title": "Romance spark 5",
+    "description": "Plan a candlelit snack together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0006",
+    "title": "Romance spark 6",
+    "description": "Write a tiny love note before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0007",
+    "title": "Romance spark 7",
+    "description": "Recreate a favorite date moment using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0008",
+    "title": "Romance spark 8",
+    "description": "Build a shared playlist and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0009",
+    "title": "Romance spark 9",
+    "description": "Plan a candlelit snack together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0010",
+    "title": "Romance spark 10",
+    "description": "Write a tiny love note before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0011",
+    "title": "Romance spark 11",
+    "description": "Recreate a favorite date moment using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0012",
+    "title": "Romance spark 12",
+    "description": "Build a shared playlist and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0013",
+    "title": "Romance spark 13",
+    "description": "Plan a candlelit snack together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0014",
+    "title": "Romance spark 14",
+    "description": "Write a tiny love note before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0015",
+    "title": "Romance spark 15",
+    "description": "Recreate a favorite date moment using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0016",
+    "title": "Romance spark 16",
+    "description": "Build a shared playlist and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0017",
+    "title": "Romance spark 17",
+    "description": "Plan a candlelit snack together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0018",
+    "title": "Romance spark 18",
+    "description": "Write a tiny love note before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0019",
+    "title": "Romance spark 19",
+    "description": "Recreate a favorite date moment using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0020",
+    "title": "Romance spark 20",
+    "description": "Build a shared playlist and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0021",
+    "title": "Romance spark 21",
+    "description": "Plan a candlelit snack together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0022",
+    "title": "Romance spark 22",
+    "description": "Write a tiny love note before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0023",
+    "title": "Romance spark 23",
+    "description": "Recreate a favorite date moment using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0024",
+    "title": "Romance spark 24",
+    "description": "Build a shared playlist and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0025",
+    "title": "Romance spark 25",
+    "description": "Plan a candlelit snack together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0026",
+    "title": "Romance spark 26",
+    "description": "Write a tiny love note before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0027",
+    "title": "Romance spark 27",
+    "description": "Recreate a favorite date moment using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0028",
+    "title": "Romance spark 28",
+    "description": "Build a shared playlist and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0029",
+    "title": "Romance spark 29",
+    "description": "Plan a candlelit snack together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0030",
+    "title": "Romance spark 30",
+    "description": "Write a tiny love note before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0031",
+    "title": "Romance spark 31",
+    "description": "Recreate a favorite date moment using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0032",
+    "title": "Romance spark 32",
+    "description": "Build a shared playlist and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "romance",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0033",
+    "title": "Adventure spark 1",
+    "description": "Take a new walking route together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0034",
+    "title": "Adventure spark 2",
+    "description": "Visit a place neither of you has explored before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0035",
+    "title": "Adventure spark 3",
+    "description": "Try a new café using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0036",
+    "title": "Adventure spark 4",
+    "description": "Choose a spontaneous mini outing and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0037",
+    "title": "Adventure spark 5",
+    "description": "Take a new walking route together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0038",
+    "title": "Adventure spark 6",
+    "description": "Visit a place neither of you has explored before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0039",
+    "title": "Adventure spark 7",
+    "description": "Try a new café using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0040",
+    "title": "Adventure spark 8",
+    "description": "Choose a spontaneous mini outing and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0041",
+    "title": "Adventure spark 9",
+    "description": "Take a new walking route together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0042",
+    "title": "Adventure spark 10",
+    "description": "Visit a place neither of you has explored before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0043",
+    "title": "Adventure spark 11",
+    "description": "Try a new café using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0044",
+    "title": "Adventure spark 12",
+    "description": "Choose a spontaneous mini outing and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0045",
+    "title": "Adventure spark 13",
+    "description": "Take a new walking route together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0046",
+    "title": "Adventure spark 14",
+    "description": "Visit a place neither of you has explored before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0047",
+    "title": "Adventure spark 15",
+    "description": "Try a new café using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0048",
+    "title": "Adventure spark 16",
+    "description": "Choose a spontaneous mini outing and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0049",
+    "title": "Adventure spark 17",
+    "description": "Take a new walking route together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0050",
+    "title": "Adventure spark 18",
+    "description": "Visit a place neither of you has explored before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0051",
+    "title": "Adventure spark 19",
+    "description": "Try a new café using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0052",
+    "title": "Adventure spark 20",
+    "description": "Choose a spontaneous mini outing and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0053",
+    "title": "Adventure spark 21",
+    "description": "Take a new walking route together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0054",
+    "title": "Adventure spark 22",
+    "description": "Visit a place neither of you has explored before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0055",
+    "title": "Adventure spark 23",
+    "description": "Try a new café using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0056",
+    "title": "Adventure spark 24",
+    "description": "Choose a spontaneous mini outing and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0057",
+    "title": "Adventure spark 25",
+    "description": "Take a new walking route together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0058",
+    "title": "Adventure spark 26",
+    "description": "Visit a place neither of you has explored before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0059",
+    "title": "Adventure spark 27",
+    "description": "Try a new café using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0060",
+    "title": "Adventure spark 28",
+    "description": "Choose a spontaneous mini outing and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0061",
+    "title": "Adventure spark 29",
+    "description": "Take a new walking route together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0062",
+    "title": "Adventure spark 30",
+    "description": "Visit a place neither of you has explored before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0063",
+    "title": "Adventure spark 31",
+    "description": "Try a new café using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0064",
+    "title": "Adventure spark 32",
+    "description": "Choose a spontaneous mini outing and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "adventure",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0065",
+    "title": "Connection spark 1",
+    "description": "Trade three thoughtful questions together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0066",
+    "title": "Connection spark 2",
+    "description": "Share one current worry and one hope before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0067",
+    "title": "Connection spark 3",
+    "description": "Listen without interrupting for five minutes using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0068",
+    "title": "Connection spark 4",
+    "description": "Name one way you can support each other and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0069",
+    "title": "Connection spark 5",
+    "description": "Trade three thoughtful questions together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0070",
+    "title": "Connection spark 6",
+    "description": "Share one current worry and one hope before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0071",
+    "title": "Connection spark 7",
+    "description": "Listen without interrupting for five minutes using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0072",
+    "title": "Connection spark 8",
+    "description": "Name one way you can support each other and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0073",
+    "title": "Connection spark 9",
+    "description": "Trade three thoughtful questions together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0074",
+    "title": "Connection spark 10",
+    "description": "Share one current worry and one hope before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0075",
+    "title": "Connection spark 11",
+    "description": "Listen without interrupting for five minutes using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0076",
+    "title": "Connection spark 12",
+    "description": "Name one way you can support each other and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0077",
+    "title": "Connection spark 13",
+    "description": "Trade three thoughtful questions together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0078",
+    "title": "Connection spark 14",
+    "description": "Share one current worry and one hope before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0079",
+    "title": "Connection spark 15",
+    "description": "Listen without interrupting for five minutes using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0080",
+    "title": "Connection spark 16",
+    "description": "Name one way you can support each other and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0081",
+    "title": "Connection spark 17",
+    "description": "Trade three thoughtful questions together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0082",
+    "title": "Connection spark 18",
+    "description": "Share one current worry and one hope before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0083",
+    "title": "Connection spark 19",
+    "description": "Listen without interrupting for five minutes using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0084",
+    "title": "Connection spark 20",
+    "description": "Name one way you can support each other and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0085",
+    "title": "Connection spark 21",
+    "description": "Trade three thoughtful questions together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0086",
+    "title": "Connection spark 22",
+    "description": "Share one current worry and one hope before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0087",
+    "title": "Connection spark 23",
+    "description": "Listen without interrupting for five minutes using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0088",
+    "title": "Connection spark 24",
+    "description": "Name one way you can support each other and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0089",
+    "title": "Connection spark 25",
+    "description": "Trade three thoughtful questions together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0090",
+    "title": "Connection spark 26",
+    "description": "Share one current worry and one hope before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0091",
+    "title": "Connection spark 27",
+    "description": "Listen without interrupting for five minutes using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0092",
+    "title": "Connection spark 28",
+    "description": "Name one way you can support each other and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0093",
+    "title": "Connection spark 29",
+    "description": "Trade three thoughtful questions together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0094",
+    "title": "Connection spark 30",
+    "description": "Share one current worry and one hope before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0095",
+    "title": "Connection spark 31",
+    "description": "Listen without interrupting for five minutes using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0096",
+    "title": "Connection spark 32",
+    "description": "Name one way you can support each other and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "connection",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0097",
+    "title": "Playful spark 1",
+    "description": "Invent a ridiculous contest together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0098",
+    "title": "Playful spark 2",
+    "description": "Play a two-person scavenger hunt before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0099",
+    "title": "Playful spark 3",
+    "description": "Create a secret handshake using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0100",
+    "title": "Playful spark 4",
+    "description": "Act out a funny movie scene and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0101",
+    "title": "Playful spark 5",
+    "description": "Invent a ridiculous contest together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0102",
+    "title": "Playful spark 6",
+    "description": "Play a two-person scavenger hunt before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0103",
+    "title": "Playful spark 7",
+    "description": "Create a secret handshake using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0104",
+    "title": "Playful spark 8",
+    "description": "Act out a funny movie scene and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0105",
+    "title": "Playful spark 9",
+    "description": "Invent a ridiculous contest together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0106",
+    "title": "Playful spark 10",
+    "description": "Play a two-person scavenger hunt before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0107",
+    "title": "Playful spark 11",
+    "description": "Create a secret handshake using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0108",
+    "title": "Playful spark 12",
+    "description": "Act out a funny movie scene and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0109",
+    "title": "Playful spark 13",
+    "description": "Invent a ridiculous contest together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0110",
+    "title": "Playful spark 14",
+    "description": "Play a two-person scavenger hunt before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0111",
+    "title": "Playful spark 15",
+    "description": "Create a secret handshake using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0112",
+    "title": "Playful spark 16",
+    "description": "Act out a funny movie scene and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0113",
+    "title": "Playful spark 17",
+    "description": "Invent a ridiculous contest together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0114",
+    "title": "Playful spark 18",
+    "description": "Play a two-person scavenger hunt before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0115",
+    "title": "Playful spark 19",
+    "description": "Create a secret handshake using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0116",
+    "title": "Playful spark 20",
+    "description": "Act out a funny movie scene and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0117",
+    "title": "Playful spark 21",
+    "description": "Invent a ridiculous contest together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0118",
+    "title": "Playful spark 22",
+    "description": "Play a two-person scavenger hunt before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0119",
+    "title": "Playful spark 23",
+    "description": "Create a secret handshake using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0120",
+    "title": "Playful spark 24",
+    "description": "Act out a funny movie scene and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0121",
+    "title": "Playful spark 25",
+    "description": "Invent a ridiculous contest together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0122",
+    "title": "Playful spark 26",
+    "description": "Play a two-person scavenger hunt before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0123",
+    "title": "Playful spark 27",
+    "description": "Create a secret handshake using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0124",
+    "title": "Playful spark 28",
+    "description": "Act out a funny movie scene and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0125",
+    "title": "Playful spark 29",
+    "description": "Invent a ridiculous contest together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0126",
+    "title": "Playful spark 30",
+    "description": "Play a two-person scavenger hunt before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0127",
+    "title": "Playful spark 31",
+    "description": "Create a secret handshake using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0128",
+    "title": "Playful spark 32",
+    "description": "Act out a funny movie scene and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "playful",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0129",
+    "title": "Kindness spark 1",
+    "description": "Do one unnoticed chore for each other together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0130",
+    "title": "Kindness spark 2",
+    "description": "Prepare a small comfort surprise before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0131",
+    "title": "Kindness spark 3",
+    "description": "Leave an encouraging message using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0132",
+    "title": "Kindness spark 4",
+    "description": "Offer twenty minutes of practical help and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0133",
+    "title": "Kindness spark 5",
+    "description": "Do one unnoticed chore for each other together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0134",
+    "title": "Kindness spark 6",
+    "description": "Prepare a small comfort surprise before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0135",
+    "title": "Kindness spark 7",
+    "description": "Leave an encouraging message using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0136",
+    "title": "Kindness spark 8",
+    "description": "Offer twenty minutes of practical help and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0137",
+    "title": "Kindness spark 9",
+    "description": "Do one unnoticed chore for each other together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0138",
+    "title": "Kindness spark 10",
+    "description": "Prepare a small comfort surprise before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0139",
+    "title": "Kindness spark 11",
+    "description": "Leave an encouraging message using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0140",
+    "title": "Kindness spark 12",
+    "description": "Offer twenty minutes of practical help and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0141",
+    "title": "Kindness spark 13",
+    "description": "Do one unnoticed chore for each other together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0142",
+    "title": "Kindness spark 14",
+    "description": "Prepare a small comfort surprise before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0143",
+    "title": "Kindness spark 15",
+    "description": "Leave an encouraging message using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0144",
+    "title": "Kindness spark 16",
+    "description": "Offer twenty minutes of practical help and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0145",
+    "title": "Kindness spark 17",
+    "description": "Do one unnoticed chore for each other together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0146",
+    "title": "Kindness spark 18",
+    "description": "Prepare a small comfort surprise before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0147",
+    "title": "Kindness spark 19",
+    "description": "Leave an encouraging message using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0148",
+    "title": "Kindness spark 20",
+    "description": "Offer twenty minutes of practical help and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0149",
+    "title": "Kindness spark 21",
+    "description": "Do one unnoticed chore for each other together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0150",
+    "title": "Kindness spark 22",
+    "description": "Prepare a small comfort surprise before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0151",
+    "title": "Kindness spark 23",
+    "description": "Leave an encouraging message using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0152",
+    "title": "Kindness spark 24",
+    "description": "Offer twenty minutes of practical help and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0153",
+    "title": "Kindness spark 25",
+    "description": "Do one unnoticed chore for each other together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0154",
+    "title": "Kindness spark 26",
+    "description": "Prepare a small comfort surprise before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0155",
+    "title": "Kindness spark 27",
+    "description": "Leave an encouraging message using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0156",
+    "title": "Kindness spark 28",
+    "description": "Offer twenty minutes of practical help and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0157",
+    "title": "Kindness spark 29",
+    "description": "Do one unnoticed chore for each other together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0158",
+    "title": "Kindness spark 30",
+    "description": "Prepare a small comfort surprise before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0159",
+    "title": "Kindness spark 31",
+    "description": "Leave an encouraging message using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0160",
+    "title": "Kindness spark 32",
+    "description": "Offer twenty minutes of practical help and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "kindness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0161",
+    "title": "Creativity spark 1",
+    "description": "Draw a future memory together together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0162",
+    "title": "Creativity spark 2",
+    "description": "Write a six-line story starring both of you before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0163",
+    "title": "Creativity spark 3",
+    "description": "Build something from household objects using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0164",
+    "title": "Creativity spark 4",
+    "description": "Take themed photos around your home and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0165",
+    "title": "Creativity spark 5",
+    "description": "Draw a future memory together together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0166",
+    "title": "Creativity spark 6",
+    "description": "Write a six-line story starring both of you before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0167",
+    "title": "Creativity spark 7",
+    "description": "Build something from household objects using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0168",
+    "title": "Creativity spark 8",
+    "description": "Take themed photos around your home and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0169",
+    "title": "Creativity spark 9",
+    "description": "Draw a future memory together together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0170",
+    "title": "Creativity spark 10",
+    "description": "Write a six-line story starring both of you before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0171",
+    "title": "Creativity spark 11",
+    "description": "Build something from household objects using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0172",
+    "title": "Creativity spark 12",
+    "description": "Take themed photos around your home and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0173",
+    "title": "Creativity spark 13",
+    "description": "Draw a future memory together together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0174",
+    "title": "Creativity spark 14",
+    "description": "Write a six-line story starring both of you before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0175",
+    "title": "Creativity spark 15",
+    "description": "Build something from household objects using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0176",
+    "title": "Creativity spark 16",
+    "description": "Take themed photos around your home and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0177",
+    "title": "Creativity spark 17",
+    "description": "Draw a future memory together together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0178",
+    "title": "Creativity spark 18",
+    "description": "Write a six-line story starring both of you before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0179",
+    "title": "Creativity spark 19",
+    "description": "Build something from household objects using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0180",
+    "title": "Creativity spark 20",
+    "description": "Take themed photos around your home and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0181",
+    "title": "Creativity spark 21",
+    "description": "Draw a future memory together together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0182",
+    "title": "Creativity spark 22",
+    "description": "Write a six-line story starring both of you before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0183",
+    "title": "Creativity spark 23",
+    "description": "Build something from household objects using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0184",
+    "title": "Creativity spark 24",
+    "description": "Take themed photos around your home and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0185",
+    "title": "Creativity spark 25",
+    "description": "Draw a future memory together together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0186",
+    "title": "Creativity spark 26",
+    "description": "Write a six-line story starring both of you before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0187",
+    "title": "Creativity spark 27",
+    "description": "Build something from household objects using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0188",
+    "title": "Creativity spark 28",
+    "description": "Take themed photos around your home and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0189",
+    "title": "Creativity spark 29",
+    "description": "Draw a future memory together together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0190",
+    "title": "Creativity spark 30",
+    "description": "Write a six-line story starring both of you before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0191",
+    "title": "Creativity spark 31",
+    "description": "Build something from household objects using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0192",
+    "title": "Creativity spark 32",
+    "description": "Take themed photos around your home and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "creativity",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0193",
+    "title": "Wellness spark 1",
+    "description": "Take a screen-free walk together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0194",
+    "title": "Wellness spark 2",
+    "description": "Stretch together for ten minutes before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0195",
+    "title": "Wellness spark 3",
+    "description": "Prepare a colorful snack using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0196",
+    "title": "Wellness spark 4",
+    "description": "Create a calming bedtime ritual and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0197",
+    "title": "Wellness spark 5",
+    "description": "Take a screen-free walk together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0198",
+    "title": "Wellness spark 6",
+    "description": "Stretch together for ten minutes before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0199",
+    "title": "Wellness spark 7",
+    "description": "Prepare a colorful snack using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0200",
+    "title": "Wellness spark 8",
+    "description": "Create a calming bedtime ritual and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0201",
+    "title": "Wellness spark 9",
+    "description": "Take a screen-free walk together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0202",
+    "title": "Wellness spark 10",
+    "description": "Stretch together for ten minutes before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0203",
+    "title": "Wellness spark 11",
+    "description": "Prepare a colorful snack using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0204",
+    "title": "Wellness spark 12",
+    "description": "Create a calming bedtime ritual and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0205",
+    "title": "Wellness spark 13",
+    "description": "Take a screen-free walk together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0206",
+    "title": "Wellness spark 14",
+    "description": "Stretch together for ten minutes before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0207",
+    "title": "Wellness spark 15",
+    "description": "Prepare a colorful snack using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0208",
+    "title": "Wellness spark 16",
+    "description": "Create a calming bedtime ritual and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0209",
+    "title": "Wellness spark 17",
+    "description": "Take a screen-free walk together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0210",
+    "title": "Wellness spark 18",
+    "description": "Stretch together for ten minutes before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0211",
+    "title": "Wellness spark 19",
+    "description": "Prepare a colorful snack using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0212",
+    "title": "Wellness spark 20",
+    "description": "Create a calming bedtime ritual and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0213",
+    "title": "Wellness spark 21",
+    "description": "Take a screen-free walk together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0214",
+    "title": "Wellness spark 22",
+    "description": "Stretch together for ten minutes before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0215",
+    "title": "Wellness spark 23",
+    "description": "Prepare a colorful snack using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0216",
+    "title": "Wellness spark 24",
+    "description": "Create a calming bedtime ritual and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0217",
+    "title": "Wellness spark 25",
+    "description": "Take a screen-free walk together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0218",
+    "title": "Wellness spark 26",
+    "description": "Stretch together for ten minutes before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0219",
+    "title": "Wellness spark 27",
+    "description": "Prepare a colorful snack using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0220",
+    "title": "Wellness spark 28",
+    "description": "Create a calming bedtime ritual and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0221",
+    "title": "Wellness spark 29",
+    "description": "Take a screen-free walk together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0222",
+    "title": "Wellness spark 30",
+    "description": "Stretch together for ten minutes before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0223",
+    "title": "Wellness spark 31",
+    "description": "Prepare a colorful snack using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0224",
+    "title": "Wellness spark 32",
+    "description": "Create a calming bedtime ritual and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "wellness",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0225",
+    "title": "Surprise spark 1",
+    "description": "Swap mystery date envelopes together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0226",
+    "title": "Surprise spark 2",
+    "description": "Choose a surprise song and explain why before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0227",
+    "title": "Surprise spark 3",
+    "description": "Hide a tiny clue trail using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0228",
+    "title": "Surprise spark 4",
+    "description": "Prepare an unexpected five-minute celebration and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0229",
+    "title": "Surprise spark 5",
+    "description": "Swap mystery date envelopes together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0230",
+    "title": "Surprise spark 6",
+    "description": "Choose a surprise song and explain why before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0231",
+    "title": "Surprise spark 7",
+    "description": "Hide a tiny clue trail using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0232",
+    "title": "Surprise spark 8",
+    "description": "Prepare an unexpected five-minute celebration and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0233",
+    "title": "Surprise spark 9",
+    "description": "Swap mystery date envelopes together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0234",
+    "title": "Surprise spark 10",
+    "description": "Choose a surprise song and explain why before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0235",
+    "title": "Surprise spark 11",
+    "description": "Hide a tiny clue trail using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0236",
+    "title": "Surprise spark 12",
+    "description": "Prepare an unexpected five-minute celebration and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0237",
+    "title": "Surprise spark 13",
+    "description": "Swap mystery date envelopes together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0238",
+    "title": "Surprise spark 14",
+    "description": "Choose a surprise song and explain why before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0239",
+    "title": "Surprise spark 15",
+    "description": "Hide a tiny clue trail using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0240",
+    "title": "Surprise spark 16",
+    "description": "Prepare an unexpected five-minute celebration and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0241",
+    "title": "Surprise spark 17",
+    "description": "Swap mystery date envelopes together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0242",
+    "title": "Surprise spark 18",
+    "description": "Choose a surprise song and explain why before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0243",
+    "title": "Surprise spark 19",
+    "description": "Hide a tiny clue trail using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0244",
+    "title": "Surprise spark 20",
+    "description": "Prepare an unexpected five-minute celebration and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0245",
+    "title": "Surprise spark 21",
+    "description": "Swap mystery date envelopes together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0246",
+    "title": "Surprise spark 22",
+    "description": "Choose a surprise song and explain why before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0247",
+    "title": "Surprise spark 23",
+    "description": "Hide a tiny clue trail using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0248",
+    "title": "Surprise spark 24",
+    "description": "Prepare an unexpected five-minute celebration and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0249",
+    "title": "Surprise spark 25",
+    "description": "Swap mystery date envelopes together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0250",
+    "title": "Surprise spark 26",
+    "description": "Choose a surprise song and explain why before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0251",
+    "title": "Surprise spark 27",
+    "description": "Hide a tiny clue trail using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0252",
+    "title": "Surprise spark 28",
+    "description": "Prepare an unexpected five-minute celebration and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0253",
+    "title": "Surprise spark 29",
+    "description": "Swap mystery date envelopes together tonight. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 10,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0254",
+    "title": "Surprise spark 30",
+    "description": "Choose a surprise song and explain why before the weekend ends. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "romantic",
+    "estimatedMinutes": 20,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0255",
+    "title": "Surprise spark 31",
+    "description": "Hide a tiny clue trail using only what you already have. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "spicy",
+    "estimatedMinutes": 30,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "ch_0256",
+    "title": "Surprise spark 32",
+    "description": "Prepare an unexpected five-minute celebration and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.",
+    "challengeCategory": "surprise",
+    "difficulty": "cute",
+    "estimatedMinutes": 45,
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  }
+]

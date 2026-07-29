@@ -1,0 +1,4002 @@
+[
+  {
+    "id": "td_0001",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0002",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0003",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0004",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0005",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0006",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0007",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0008",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0009",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0010",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0011",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0012",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0013",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0014",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0015",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0016",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0017",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0018",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0019",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0020",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0021",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0022",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0023",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0024",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0025",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0026",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0027",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0028",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0029",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0030",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0031",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0032",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0033",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0034",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0035",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0036",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0037",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0038",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0039",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0040",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0041",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0042",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0043",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0044",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0045",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0046",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0047",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0048",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0049",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0050",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0051",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0052",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0053",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0054",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0055",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0056",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0057",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0058",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0059",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0060",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0061",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0062",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0063",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0064",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0065",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0066",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0067",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0068",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0069",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0070",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0071",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0072",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0073",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0074",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0075",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0076",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0077",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0078",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0079",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0080",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0081",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0082",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0083",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0084",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0085",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0086",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0087",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0088",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0089",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0090",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0091",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0092",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0093",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0094",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0095",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0096",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0097",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0098",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0099",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0100",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0101",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0102",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0103",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0104",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0105",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0106",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0107",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0108",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0109",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0110",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0111",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0112",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0113",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0114",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0115",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0116",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0117",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0118",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0119",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0120",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0121",
+    "kind": "truth",
+    "prompt": "What tiny habit of mine makes you smile without trying? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0122",
+    "kind": "dare",
+    "prompt": "Recreate your funniest shared facial expression together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0123",
+    "kind": "truth",
+    "prompt": "What nickname would you invent for this chapter of our relationship? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0124",
+    "kind": "dare",
+    "prompt": "Send your partner a message they can save for a difficult day. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0125",
+    "kind": "truth",
+    "prompt": "What simple thing can I do this week to brighten your day? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0126",
+    "kind": "dare",
+    "prompt": "Give your partner a ten-second hug and name one thing you appreciate. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0127",
+    "kind": "truth",
+    "prompt": "Which ordinary moment with us would you happily repeat? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0128",
+    "kind": "dare",
+    "prompt": "Invent a two-line theme song for your relationship and perform it. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0129",
+    "kind": "truth",
+    "prompt": "When did you most recently feel quietly proud of us? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0130",
+    "kind": "dare",
+    "prompt": "Hold hands and trade one sincere compliment each. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "cute",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0131",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0132",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0133",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0134",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0135",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0136",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0137",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0138",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0139",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0140",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0141",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0142",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0143",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0144",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0145",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0146",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0147",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0148",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0149",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0150",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0151",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0152",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0153",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0154",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0155",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0156",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0157",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0158",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0159",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0160",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0161",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0162",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0163",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0164",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0165",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0166",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0167",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0168",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0169",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0170",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0171",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0172",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0173",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0174",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0175",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0176",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0177",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0178",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0179",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0180",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0181",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0182",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0183",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0184",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0185",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0186",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0187",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0188",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0189",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0190",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0191",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0192",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0193",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0194",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0195",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0196",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0197",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0198",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0199",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0200",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0201",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0202",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0203",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0204",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0205",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0206",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0207",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0208",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0209",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0210",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0211",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0212",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0213",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0214",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0215",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0216",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0217",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0218",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0219",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0220",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0221",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0222",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0223",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0224",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0225",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0226",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0227",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0228",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0229",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0230",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0231",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0232",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0233",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0234",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0235",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0236",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0237",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0238",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0239",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0240",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0241",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0242",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0243",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0244",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0245",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0246",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0247",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0248",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0249",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0250",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0251",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0252",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0253",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0254",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0255",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0256",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0257",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0258",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0259",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0260",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0261",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0262",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0263",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0264",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0265",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0266",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0267",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0268",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0269",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0270",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0271",
+    "kind": "truth",
+    "prompt": "What moment made you realize our connection was becoming special? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0272",
+    "kind": "dare",
+    "prompt": "Describe your dream anniversary in exactly three sentences. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0273",
+    "kind": "truth",
+    "prompt": "Which memory of us still gives you butterflies? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0274",
+    "kind": "dare",
+    "prompt": "Plan a miniature date you can complete within the next seven days. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0275",
+    "kind": "truth",
+    "prompt": "When do you feel most emotionally close to me? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0276",
+    "kind": "dare",
+    "prompt": "Slow dance together for one song, even if there is no music. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0277",
+    "kind": "truth",
+    "prompt": "What kind of date would make you feel deeply chosen? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0278",
+    "kind": "dare",
+    "prompt": "Look into your partner’s eyes and finish: “I choose you because…” Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0279",
+    "kind": "truth",
+    "prompt": "What do you hope never changes about the way we love? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0280",
+    "kind": "dare",
+    "prompt": "Retell your first memorable moment as if it were a movie scene. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "romantic",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0281",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0282",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0283",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0284",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0285",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0286",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0287",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0288",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0289",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0290",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0291",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0292",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0293",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0294",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0295",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0296",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0297",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0298",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0299",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0300",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0301",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0302",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0303",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0304",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0305",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0306",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0307",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0308",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0309",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0310",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0311",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0312",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0313",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0314",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0315",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0316",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0317",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0318",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0319",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0320",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0321",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0322",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0323",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0324",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0325",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0326",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0327",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0328",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0329",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0330",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0331",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0332",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0333",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0334",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0335",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0336",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0337",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0338",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0339",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0340",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0341",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0342",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0343",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0344",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0345",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0346",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0347",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0348",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0349",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0350",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0351",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0352",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0353",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0354",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0355",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0356",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0357",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0358",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0359",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0360",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0361",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0362",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0363",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0364",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0365",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0366",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0367",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0368",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0369",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0370",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0371",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0372",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0373",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0374",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0375",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0376",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0377",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0378",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0379",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0380",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0381",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0382",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0383",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0384",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0385",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0386",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0387",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0388",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0389",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0390",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0391",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0392",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0393",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0394",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0395",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0396",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0397",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0398",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0399",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0400",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0401",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0402",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0403",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0404",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0405",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0406",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0407",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0408",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0409",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0410",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0411",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0412",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0413",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0414",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0415",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0416",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0417",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0418",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0419",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0420",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0421",
+    "kind": "truth",
+    "prompt": "What kind of flirtation from me instantly gets your attention? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0422",
+    "kind": "dare",
+    "prompt": "Choose a song and share one slow, playful dance together. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0423",
+    "kind": "truth",
+    "prompt": "What confident compliment would you love to hear from me? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0424",
+    "kind": "dare",
+    "prompt": "Create a secret flirt signal to use during your next date. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0425",
+    "kind": "truth",
+    "prompt": "Which romantic tension in a movie reminds you of us? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0426",
+    "kind": "dare",
+    "prompt": "Whisper a confident compliment and let the silence linger for five seconds. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0427",
+    "kind": "truth",
+    "prompt": "Which setting makes a date feel especially electric to you? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0428",
+    "kind": "dare",
+    "prompt": "Give your partner a lingering kiss only if they enthusiastically agree. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0429",
+    "kind": "truth",
+    "prompt": "What playful signal could mean “I want your full attention”? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0430",
+    "kind": "dare",
+    "prompt": "Describe a date-night outfit you would love to see your partner wear. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "spicy",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0431",
+    "kind": "truth",
+    "prompt": "What bold but consensual date-night idea have you hesitated to suggest? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0432",
+    "kind": "dare",
+    "prompt": "Take turns naming one adventurous yes, one maybe, and one clear no. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0433",
+    "kind": "truth",
+    "prompt": "What daring surprise would feel exciting while still safe and respectful? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0434",
+    "kind": "dare",
+    "prompt": "Share an ambitious fantasy setting using mood and story, not explicit detail. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0435",
+    "kind": "truth",
+    "prompt": "How would you like us to communicate when trying something far outside routine? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0436",
+    "kind": "dare",
+    "prompt": "Propose a daring date-night scenario, then agree on boundaries before deciding. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0437",
+    "kind": "truth",
+    "prompt": "Which boundary conversation would help us feel even more adventurous? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0438",
+    "kind": "dare",
+    "prompt": "Design a bold private challenge that either person can pause at any time. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0439",
+    "kind": "truth",
+    "prompt": "What fantasy atmosphere could we create without crossing either person’s limits? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0440",
+    "kind": "dare",
+    "prompt": "Agree on a safe word for future adventurous games and practice using it once. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0441",
+    "kind": "truth",
+    "prompt": "What bold but consensual date-night idea have you hesitated to suggest? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0442",
+    "kind": "dare",
+    "prompt": "Take turns naming one adventurous yes, one maybe, and one clear no. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0443",
+    "kind": "truth",
+    "prompt": "What daring surprise would feel exciting while still safe and respectful? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0444",
+    "kind": "dare",
+    "prompt": "Share an ambitious fantasy setting using mood and story, not explicit detail. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0445",
+    "kind": "truth",
+    "prompt": "How would you like us to communicate when trying something far outside routine? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0446",
+    "kind": "dare",
+    "prompt": "Propose a daring date-night scenario, then agree on boundaries before deciding. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0447",
+    "kind": "truth",
+    "prompt": "Which boundary conversation would help us feel even more adventurous? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0448",
+    "kind": "dare",
+    "prompt": "Design a bold private challenge that either person can pause at any time. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0449",
+    "kind": "truth",
+    "prompt": "What fantasy atmosphere could we create without crossing either person’s limits? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0450",
+    "kind": "dare",
+    "prompt": "Agree on a safe word for future adventurous games and practice using it once. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0451",
+    "kind": "truth",
+    "prompt": "What bold but consensual date-night idea have you hesitated to suggest? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0452",
+    "kind": "dare",
+    "prompt": "Take turns naming one adventurous yes, one maybe, and one clear no. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0453",
+    "kind": "truth",
+    "prompt": "What daring surprise would feel exciting while still safe and respectful? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0454",
+    "kind": "dare",
+    "prompt": "Share an ambitious fantasy setting using mood and story, not explicit detail. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0455",
+    "kind": "truth",
+    "prompt": "How would you like us to communicate when trying something far outside routine? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0456",
+    "kind": "dare",
+    "prompt": "Propose a daring date-night scenario, then agree on boundaries before deciding. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0457",
+    "kind": "truth",
+    "prompt": "Which boundary conversation would help us feel even more adventurous? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0458",
+    "kind": "dare",
+    "prompt": "Design a bold private challenge that either person can pause at any time. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0459",
+    "kind": "truth",
+    "prompt": "What fantasy atmosphere could we create without crossing either person’s limits? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0460",
+    "kind": "dare",
+    "prompt": "Agree on a safe word for future adventurous games and practice using it once. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0461",
+    "kind": "truth",
+    "prompt": "What bold but consensual date-night idea have you hesitated to suggest? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0462",
+    "kind": "dare",
+    "prompt": "Take turns naming one adventurous yes, one maybe, and one clear no. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0463",
+    "kind": "truth",
+    "prompt": "What daring surprise would feel exciting while still safe and respectful? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0464",
+    "kind": "dare",
+    "prompt": "Share an ambitious fantasy setting using mood and story, not explicit detail. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0465",
+    "kind": "truth",
+    "prompt": "How would you like us to communicate when trying something far outside routine? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0466",
+    "kind": "dare",
+    "prompt": "Propose a daring date-night scenario, then agree on boundaries before deciding. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0467",
+    "kind": "truth",
+    "prompt": "Which boundary conversation would help us feel even more adventurous? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0468",
+    "kind": "dare",
+    "prompt": "Design a bold private challenge that either person can pause at any time. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0469",
+    "kind": "truth",
+    "prompt": "What fantasy atmosphere could we create without crossing either person’s limits? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0470",
+    "kind": "dare",
+    "prompt": "Agree on a safe word for future adventurous games and practice using it once. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0471",
+    "kind": "truth",
+    "prompt": "What bold but consensual date-night idea have you hesitated to suggest? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0472",
+    "kind": "dare",
+    "prompt": "Take turns naming one adventurous yes, one maybe, and one clear no. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0473",
+    "kind": "truth",
+    "prompt": "What daring surprise would feel exciting while still safe and respectful? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0474",
+    "kind": "dare",
+    "prompt": "Share an ambitious fantasy setting using mood and story, not explicit detail. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0475",
+    "kind": "truth",
+    "prompt": "How would you like us to communicate when trying something far outside routine? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0476",
+    "kind": "dare",
+    "prompt": "Propose a daring date-night scenario, then agree on boundaries before deciding. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0477",
+    "kind": "truth",
+    "prompt": "Which boundary conversation would help us feel even more adventurous? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0478",
+    "kind": "dare",
+    "prompt": "Design a bold private challenge that either person can pause at any time. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0479",
+    "kind": "truth",
+    "prompt": "What fantasy atmosphere could we create without crossing either person’s limits? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0480",
+    "kind": "dare",
+    "prompt": "Agree on a safe word for future adventurous games and practice using it once. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0481",
+    "kind": "truth",
+    "prompt": "What bold but consensual date-night idea have you hesitated to suggest? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0482",
+    "kind": "dare",
+    "prompt": "Take turns naming one adventurous yes, one maybe, and one clear no. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0483",
+    "kind": "truth",
+    "prompt": "What daring surprise would feel exciting while still safe and respectful? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0484",
+    "kind": "dare",
+    "prompt": "Share an ambitious fantasy setting using mood and story, not explicit detail. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0485",
+    "kind": "truth",
+    "prompt": "How would you like us to communicate when trying something far outside routine? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0486",
+    "kind": "dare",
+    "prompt": "Propose a daring date-night scenario, then agree on boundaries before deciding. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0487",
+    "kind": "truth",
+    "prompt": "Which boundary conversation would help us feel even more adventurous? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0488",
+    "kind": "dare",
+    "prompt": "Design a bold private challenge that either person can pause at any time. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0489",
+    "kind": "truth",
+    "prompt": "What fantasy atmosphere could we create without crossing either person’s limits? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0490",
+    "kind": "dare",
+    "prompt": "Agree on a safe word for future adventurous games and practice using it once. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0491",
+    "kind": "truth",
+    "prompt": "What bold but consensual date-night idea have you hesitated to suggest? Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0492",
+    "kind": "dare",
+    "prompt": "Take turns naming one adventurous yes, one maybe, and one clear no. Focus on how you work as a team.",
+    "category": "relationship",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0493",
+    "kind": "truth",
+    "prompt": "What daring surprise would feel exciting while still safe and respectful? Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0494",
+    "kind": "dare",
+    "prompt": "Share an ambitious fantasy setting using mood and story, not explicit detail. Imagine without pressure to make it real.",
+    "category": "fantasy",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0495",
+    "kind": "truth",
+    "prompt": "How would you like us to communicate when trying something far outside routine? Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0496",
+    "kind": "dare",
+    "prompt": "Propose a daring date-night scenario, then agree on boundaries before deciding. Let a shared memory guide your answer.",
+    "category": "memories",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0497",
+    "kind": "truth",
+    "prompt": "Which boundary conversation would help us feel even more adventurous? Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0498",
+    "kind": "dare",
+    "prompt": "Design a bold private challenge that either person can pause at any time. Take a breath and answer honestly.",
+    "category": "deepTalk",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0499",
+    "kind": "truth",
+    "prompt": "What fantasy atmosphere could we create without crossing either person’s limits? Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "td_0500",
+    "kind": "dare",
+    "prompt": "Agree on a safe word for future adventurous games and practice using it once. Keep it light and make each other laugh.",
+    "category": "playful",
+    "difficulty": "extreme",
+    "createdAt": "2026-07-29T00:00:00Z"
+  }
+]
