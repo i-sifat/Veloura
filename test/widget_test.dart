@@ -4,6 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veloura/app.dart';
 import 'package:veloura/core/app_result.dart';
+import 'package:veloura/features/daily/data/daily_notification_service.dart';
+import 'package:veloura/features/daily/domain/daily_challenge.dart';
+import 'package:veloura/features/daily/presentation/daily_controller.dart';
 import 'package:veloura/features/games/domain/game_catalog.dart';
 import 'package:veloura/features/session/domain/game_session.dart';
 import 'package:veloura/features/session/domain/session_repository.dart';
@@ -22,11 +25,33 @@ class _MemorySessionRepository implements SessionRepository {
   }
 }
 
+class _TestDailyController extends DailyController {
+  @override
+  Future<DailyState> build() async => DailyState(
+    challenge: const DailyChallenge(
+      id: 'test_daily',
+      title: 'A test moment',
+      prompt: 'Share one good thing from today.',
+      source: DailyChallengeSource.ritual,
+      estimatedMinutes: 5,
+    ),
+    completionDates: const {},
+    streak: 0,
+    rewardBalance: 0,
+    reminder: const DailyReminderSettings(),
+    displayedMonth: DateTime(2026, 7),
+  );
+}
+
 Widget _app() => ProviderScope(
   overrides: [
     sessionRepositoryProvider.overrideWith(
       (ref) async => _MemorySessionRepository(),
     ),
+    dailyNotificationServiceProvider.overrideWith(
+      (ref) => const NoopDailyNotificationService(),
+    ),
+    dailyControllerProvider.overrideWith(_TestDailyController.new),
   ],
   child: const VelouraApp(),
 );
@@ -71,7 +96,11 @@ void main() {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
 
-    for (final label in ['Daily', 'Favorites', 'Profile']) {
+    await tester.tap(find.text('Daily'));
+    await tester.pumpAndSettle();
+    expect(find.text('DAILY CONNECTION'), findsOneWidget);
+
+    for (final label in ['Favorites', 'Profile']) {
       await tester.tap(find.text(label));
       await tester.pumpAndSettle();
       expect(

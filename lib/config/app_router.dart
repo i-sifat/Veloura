@@ -6,6 +6,7 @@ import 'package:veloura/features/cards/presentation/challenge_screen.dart';
 import 'package:veloura/features/cards/presentation/fan/card_challenge_fan_screen.dart';
 import 'package:veloura/features/conversation/presentation/conversation_screen.dart';
 import 'package:veloura/features/conversation/presentation/stack/creative_connections_screen.dart';
+import 'package:veloura/features/daily/presentation/daily_screen.dart';
 import 'package:veloura/features/dice/presentation/dice_screen.dart';
 import 'package:veloura/features/games/presentation/games_hub_screen.dart';
 import 'package:veloura/features/home/presentation/home_screen.dart';
@@ -93,13 +94,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           ),
           StatefulShellBranch(
             routes: [
-              GoRoute(
-                path: '/daily',
-                builder: (_, _) => const PlaceholderScreen(
-                  title: 'Daily',
-                  icon: Icons.calendar_today_outlined,
-                ),
-              ),
+              GoRoute(path: '/daily', builder: (_, _) => const DailyScreen()),
             ],
           ),
           StatefulShellBranch(
