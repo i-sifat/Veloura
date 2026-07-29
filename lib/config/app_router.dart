@@ -10,6 +10,7 @@ import 'package:veloura/features/games/presentation/tempo_placeholder_screen.dar
 import 'package:veloura/features/home/presentation/home_screen.dart';
 import 'package:veloura/features/roleplay/presentation/roleplay_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/truth_dare_screen.dart';
+import 'package:veloura/features/truth_dare/presentation/wheel/truth_or_dare_wheel_screen.dart';
 import 'package:veloura/shared/widgets/placeholder_screen.dart';
 
 /// Application router with state-preserving bottom-navigation branches.
@@ -33,7 +34,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                 routes: [
                   GoRoute(path: 'lustful-rolls', builder: (_, _) => const DiceScreen()),
                   GoRoute(path: 'card-challenge', builder: (_, _) => const ChallengeScreen()),
-                  GoRoute(path: 'truth-or-dare', builder: (_, _) => const TruthDareScreen()),
+                  GoRoute(
+                    path: 'truth-or-dare',
+                    builder: (_, _) => const TruthOrDareWheelScreen(),
+                    routes: [
+                      GoRoute(path: 'browse', builder: (_, _) => const TruthDareScreen()),
+                    ],
+                  ),
                   GoRoute(
                     path: 'creative-connections',
                     builder: (_, _) => const ConversationScreen(),
