@@ -25,7 +25,7 @@ class TempoState {
 }
 
 /// Owns the round clock and exposes deterministic elapsed-time progression.
-class TempoController extends AutoDisposeNotifier<TempoState> {
+class TempoController extends Notifier<TempoState> {
   Timer? _timer;
   DateTime? _lastTick;
 
