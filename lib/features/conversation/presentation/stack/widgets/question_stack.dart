@@ -67,7 +67,7 @@ class _QuestionStackState extends State<QuestionStack> {
 
     final reducedMotion = MediaQuery.of(context).disableAnimations;
     final fade = reducedMotion
-        ? 1.0
+        ? (_committing ? 0.0 : 1.0)
         : (1 - ((_dragX.abs() - _distanceThreshold).clamp(0, 220) / 260))
               .clamp(0.15, 1.0)
               .toDouble();
