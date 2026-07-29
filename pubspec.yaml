@@ -40,6 +40,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/Positions/
     - lib/features/truth_dare/data/truth_dare_seed.json
     - lib/features/cards/data/challenge_seed.json
     - lib/features/conversation/data/conversation_seed.json

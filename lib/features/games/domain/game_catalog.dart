@@ -30,11 +30,11 @@ const kGameCatalog = <GameCatalogEntry>[
   ),
   GameCatalogEntry(
     id: 'creative_connections',
-    title: 'Creative Connections',
+    title: 'Creative Positions',
     route: '/games/creative-connections',
-    art: 'assets/games/tiles/creative_connections.png',
+    art: 'assets/creative_positions.png',
     gradient: GameTokens.creativeConnections,
-    fallbackIcon: Icons.forum_outlined,
+    fallbackIcon: Icons.accessibility_new,
   ),
   GameCatalogEntry(
     id: 'follow_the_tempo',
