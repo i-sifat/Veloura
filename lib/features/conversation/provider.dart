@@ -1,2 +1,1 @@
-/// Conversation feature provider barrel.
-library;
+export 'presentation/conversation_controller.dart';
