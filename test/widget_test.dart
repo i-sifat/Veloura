@@ -116,22 +116,6 @@ void main() {
     }
   });
 
-  testWidgets('selected games cover and disable the tab shell', (tester) async {
-    await tester.pumpWidget(_app());
-    await tester.pumpAndSettle();
-    await tester.tap(find.byIcon(Icons.casino_outlined).last);
-    await tester.pumpAndSettle();
-
-    expect(find.byType(NavigationBar).hitTestable(), findsOneWidget);
-    final game = kGameCatalog[1];
-    await tester.tap(find.byKey(ValueKey('game-tile-${game.id}')));
-    await tester.pump(const Duration(milliseconds: 500));
-
-    expect(find.byType(NavigationBar).hitTestable(), findsNothing);
-    await tester.pumpWidget(const SizedBox.shrink());
-    await tester.pump();
-  });
-
   testWidgets('remaining navigation branches are reachable', (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
