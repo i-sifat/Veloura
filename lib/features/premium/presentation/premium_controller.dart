@@ -15,7 +15,6 @@ final paywallViewedProvider = FutureProvider.family<void, String>((ref, source) 
   );
 });
 
-/// Owns offerings, purchases, restores, and the app-wide entitlement state.
 class PremiumController extends AsyncNotifier<PremiumCatalog> {
   late PremiumRepository _repository;
 
@@ -28,7 +27,7 @@ class PremiumController extends AsyncNotifier<PremiumCatalog> {
   Future<void> purchase(String packageId) async {
     final current = state.asData?.value;
     if (current == null) return;
-    state = const AsyncLoading<PremiumCatalog>().copyWithPrevious(state);
+    state = const AsyncLoading<PremiumCatalog>();
     state = await AsyncValue.guard(() async {
       final status = await _repository.purchase(packageId);
       if (status.isPremium) {
@@ -44,7 +43,7 @@ class PremiumController extends AsyncNotifier<PremiumCatalog> {
   Future<void> restore() async {
     final current = state.asData?.value;
     if (current == null) return;
-    state = const AsyncLoading<PremiumCatalog>().copyWithPrevious(state);
+    state = const AsyncLoading<PremiumCatalog>();
     state = await AsyncValue.guard(() async {
       final status = await _repository.restore();
       return PremiumCatalog(status: status, packages: current.packages);

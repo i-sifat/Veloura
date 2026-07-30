@@ -1,7 +1,6 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// Analytics boundary. Feature code never imports a vendor SDK.
 abstract interface class AnalyticsService {
   Future<void> track(String name, {Map<String, Object?> properties = const {}});
 }
@@ -20,7 +19,13 @@ final class FirebaseAnalyticsService implements AnalyticsService {
   Future<void> track(
     String name, {
     Map<String, Object?> properties = const {},
-  }) => analytics.logEvent(name: name, parameters: properties);
+  }) => analytics.logEvent(
+    name: name,
+    parameters: {
+      for (final entry in properties.entries)
+        if (entry.value case final value?) entry.key: value,
+    },
+  );
 }
 
 final analyticsServiceProvider = Provider<AnalyticsService>(

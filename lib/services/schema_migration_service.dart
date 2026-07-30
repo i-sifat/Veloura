@@ -1,7 +1,5 @@
-import 'package:hive_ce/hive.dart';
 import 'package:veloura/services/storage_service.dart';
 
-/// Versioned local schema migration scaffold.
 class SchemaMigrationService {
   SchemaMigrationService(this.storage);
 
@@ -25,12 +23,9 @@ class SchemaMigrationService {
     return version;
   }
 
-  /// Version 1 records the baseline. Existing Dice and Session boxes already
-  /// use field-indexed adapters, so no data rewrite is required.
   Future<void> _toVersion1() async {}
 }
 
-/// Testable migration runner independent of Hive I/O.
 int nextSchemaVersion(int stored, {int current = currentVersionForTests}) {
   if (stored < 0 || stored > current) {
     throw StateError('Unsupported schema version $stored.');

@@ -1,9 +1,6 @@
 import 'package:flutter/services.dart';
-import 'package:hive_ce/hive.dart';
 import 'package:veloura/services/storage_service.dart';
 
-/// Idempotently snapshots immutable seed assets into Hive for versioned
-/// first-launch bootstrapping. Feature repositories remain the read boundary.
 class ContentSeedService {
   ContentSeedService(this.storage, {AssetBundle? bundle})
     : _bundle = bundle ?? rootBundle;
