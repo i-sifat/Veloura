@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:veloura/config/navigation_shell.dart';
@@ -12,11 +11,12 @@ import 'package:veloura/features/games/presentation/games_hub_screen.dart';
 import 'package:veloura/features/home/presentation/home_screen.dart';
 import 'package:veloura/features/positions/presentation/creative_positions_screen.dart';
 import 'package:veloura/features/premium/presentation/premium_paywall_screen.dart';
+import 'package:veloura/features/profile/presentation/favorites_screen.dart';
+import 'package:veloura/features/profile/presentation/profile_screen.dart';
 import 'package:veloura/features/roleplay/presentation/flow/roleplay_flow_screen.dart';
 import 'package:veloura/features/tempo/presentation/follow_the_tempo_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/truth_dare_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/wheel/truth_or_dare_wheel_screen.dart';
-import 'package:veloura/shared/widgets/placeholder_screen.dart';
 
 /// Application router with state-preserving bottom-navigation branches.
 final appRouterProvider = Provider<GoRouter>((ref) {
@@ -42,10 +42,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                     path: 'conversation',
                     builder: (_, _) => const CreativeConnectionsScreen(),
                     routes: [
-                      GoRoute(
-                        path: 'browse',
-                        builder: (_, _) => const ConversationScreen(),
-                      ),
+                      GoRoute(path: 'browse', builder: (_, _) => const ConversationScreen()),
                     ],
                   ),
                 ],
@@ -62,32 +59,20 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   GoRoute(
                     path: 'card-challenge',
                     builder: (_, _) => const CardChallengeFanScreen(),
-                    routes: [
-                      GoRoute(path: 'browse', builder: (_, _) => const ChallengeScreen()),
-                    ],
+                    routes: [GoRoute(path: 'browse', builder: (_, _) => const ChallengeScreen())],
                   ),
                   GoRoute(
                     path: 'truth-or-dare',
                     builder: (_, _) => const TruthOrDareWheelScreen(),
-                    routes: [
-                      GoRoute(path: 'browse', builder: (_, _) => const TruthDareScreen()),
-                    ],
+                    routes: [GoRoute(path: 'browse', builder: (_, _) => const TruthDareScreen())],
                   ),
                   GoRoute(
                     path: 'creative-connections',
                     builder: (_, _) => const CreativePositionsScreen(),
-                    routes: [
-                      GoRoute(path: 'browse', builder: (_, _) => const ConversationScreen()),
-                    ],
+                    routes: [GoRoute(path: 'browse', builder: (_, _) => const ConversationScreen())],
                   ),
-                  GoRoute(
-                    path: 'follow-the-tempo',
-                    builder: (_, _) => const FollowTheTempoScreen(),
-                  ),
-                  GoRoute(
-                    path: 'passionate-roleplay',
-                    builder: (_, _) => const RoleplayFlowScreen(),
-                  ),
+                  GoRoute(path: 'follow-the-tempo', builder: (_, _) => const FollowTheTempoScreen()),
+                  GoRoute(path: 'passionate-roleplay', builder: (_, _) => const RoleplayFlowScreen()),
                   GoRoute(path: 'dice', redirect: (_, _) => '/games/lustful-rolls'),
                   GoRoute(path: 'challenges', redirect: (_, _) => '/games/card-challenge'),
                   GoRoute(path: 'conversation', redirect: (_, _) => '/home/conversation'),
@@ -97,31 +82,13 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ],
           ),
           StatefulShellBranch(
-            routes: [
-              GoRoute(path: '/daily', builder: (_, _) => const DailyScreen()),
-            ],
+            routes: [GoRoute(path: '/daily', builder: (_, _) => const DailyScreen())],
           ),
           StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: '/favorites',
-                builder: (_, _) => const PlaceholderScreen(
-                  title: 'Favorites',
-                  icon: Icons.favorite_outline,
-                ),
-              ),
-            ],
+            routes: [GoRoute(path: '/favorites', builder: (_, _) => const FavoritesScreen())],
           ),
           StatefulShellBranch(
-            routes: [
-              GoRoute(
-                path: '/profile',
-                builder: (_, _) => const PlaceholderScreen(
-                  title: 'Profile',
-                  icon: Icons.person_outline,
-                ),
-              ),
-            ],
+            routes: [GoRoute(path: '/profile', builder: (_, _) => const ProfileScreen())],
           ),
         ],
       ),
