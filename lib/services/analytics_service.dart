@@ -1,16 +1,34 @@
-/// Analytics boundary. The Firebase implementation is introduced in Phase 8.
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 abstract interface class AnalyticsService {
-  /// Records an event without exposing an SDK to feature code.
   Future<void> track(String name, {Map<String, Object?> properties = const {}});
 }
 
-/// No-op analytics used until Phase 8.
 final class NoOpAnalyticsService implements AnalyticsService {
   const NoOpAnalyticsService();
+  @override
+  Future<void> track(String name, {Map<String, Object?> properties = const {}}) async {}
+}
+
+final class FirebaseAnalyticsService implements AnalyticsService {
+  FirebaseAnalyticsService(this.analytics);
+  final FirebaseAnalytics analytics;
 
   @override
   Future<void> track(
     String name, {
     Map<String, Object?> properties = const {},
-  }) async {}
+  }) => analytics.logEvent(
+    name: name,
+    parameters: Map<String, Object>.fromEntries(
+      properties.entries
+          .where((entry) => entry.value != null)
+          .map((entry) => MapEntry(entry.key, entry.value!)),
+    ),
+  );
 }
+
+final analyticsServiceProvider = Provider<AnalyticsService>(
+  (ref) => const NoOpAnalyticsService(),
+);
