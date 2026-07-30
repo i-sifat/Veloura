@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:veloura/services/app_haptics.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
 /// Single prominent game action with consistent press feedback.
@@ -41,7 +41,7 @@ class _PrimaryCtaState extends State<PrimaryCta> {
           onTapUp: enabled
               ? (_) {
                   setState(() => _pressed = false);
-                  HapticFeedback.lightImpact();
+                  AppHaptics.lightImpact();
                   widget.onPressed!();
                 }
               : null,
