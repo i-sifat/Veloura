@@ -14,33 +14,14 @@ import 'package:veloura/features/session/presentation/session_controller.dart';
 import 'package:veloura/features/truth_dare/presentation/truth_dare_controller.dart';
 
 class ProfileState {
-  const ProfileState({
-    required this.profile,
-    required this.settings,
-    required this.stats,
-    required this.achievements,
-    required this.activity,
-    required this.favorites,
-  });
-
+  const ProfileState({required this.profile, required this.settings, required this.stats, required this.achievements, required this.activity, required this.favorites});
   final CoupleProfile profile;
   final ProfileSettings settings;
   final ProfileStats stats;
   final List<Achievement> achievements;
   final List<ActivityEntry> activity;
   final List<FavoriteEntry> favorites;
-
-  ProfileState copyWith({
-    CoupleProfile? profile,
-    ProfileSettings? settings,
-  }) => ProfileState(
-    profile: profile ?? this.profile,
-    settings: settings ?? this.settings,
-    stats: stats,
-    achievements: achievements,
-    activity: activity,
-    favorites: favorites,
-  );
+  ProfileState copyWith({CoupleProfile? profile, ProfileSettings? settings}) => ProfileState(profile: profile ?? this.profile, settings: settings ?? this.settings, stats: stats, achievements: achievements, activity: activity, favorites: favorites);
 }
 
 class ProfileController extends AsyncNotifier<ProfileState> {
@@ -70,84 +51,31 @@ class ProfileController extends AsyncNotifier<ProfileState> {
     final cardProgress = await cardsRepository.getProgress();
     final answered = await conversationRepository.getAnswered();
     final daily = await dailyRepository.getCompletionDates();
-    final rawRoleplays = (await SharedPreferences.getInstance())
-            .getStringList(RoleplayController.completedPlaysKey) ??
-        <String>[];
+    final rawRoleplays = (await SharedPreferences.getInstance()).getStringList(RoleplayController.completedPlaysKey) ?? <String>[];
 
     final favorites = <FavoriteEntry>[
-      for (final record in dice.where((item) => item.favorite))
-        FavoriteEntry(source: 'Dice', label: record.summary),
+      for (final record in dice.where((item) => item.favorite)) FavoriteEntry(source: 'Dice', label: record.summary),
       ..._favoritesFromResult('Truth or Dare', truthAll, (item) => item.favorite, (item) => item.prompt),
       ..._favoritesFromResult('Challenges', cardAll, (item) => item.favorite, (item) => item.title),
       ..._favoritesFromResult('Conversation', conversationAll, (item) => item.favorite, (item) => item.prompt),
       ..._favoritesFromResult('Roleplay', roleplayAll, (item) => item.favorite, (item) => item.title),
     ];
-
-    final completedCards = cardProgress.values
-        .where((value) => value.completedAt != null)
-        .toList();
-    final stats = ProfileStats(
-      diceRolls: dice.length,
-      truthDareCompleted: truthCompleted.length,
-      challengesCompleted: completedCards.length,
-      conversationsAnswered: answered.length,
-      roleplaysCompleted: rawRoleplays.length,
-      dailyCompletions: daily.length,
-      favorites: favorites.length,
-    );
+    final completedCards = cardProgress.values.where((value) => value.completedAt != null).toList();
+    final stats = ProfileStats(diceRolls: dice.length, truthDareCompleted: truthCompleted.length, challengesCompleted: completedCards.length, conversationsAnswered: answered.length, roleplaysCompleted: rawRoleplays.length, dailyCompletions: daily.length, favorites: favorites.length);
     final activity = <ActivityEntry>[
-      for (final record in dice)
-        ActivityEntry(
-          gameId: 'dice',
-          label: record.summary,
-          timestamp: record.createdAt,
-        ),
+      for (final record in dice) ActivityEntry(gameId: 'dice', label: record.summary, timestamp: record.createdAt),
       for (final value in cardProgress.entries)
-        if (value.value.completedAt case final timestamp?)
-          ActivityEntry(
-            gameId: 'cards',
-            label: 'Completed challenge ${value.key}',
-            timestamp: timestamp,
-          ),
-      for (final value in answered.entries)
-        ActivityEntry(
-          gameId: 'conversation',
-          label: 'Answered a conversation prompt',
-          timestamp: value.value,
-        ),
-      for (final raw in rawRoleplays)
-        if (_roleplayActivity(raw) case final item?) item,
-      for (final date in daily)
-        ActivityEntry(
-          gameId: 'daily',
-          label: 'Completed the daily connection',
-          timestamp: date,
-        ),
+        if (value.value.completedAt case final timestamp?) ActivityEntry(gameId: 'cards', label: 'Completed challenge ${value.key}', timestamp: timestamp),
+      for (final value in answered.entries) ActivityEntry(gameId: 'conversation', label: 'Answered a conversation prompt', timestamp: value.value),
+      for (final raw in rawRoleplays) ?_roleplayActivity(raw),
+      for (final date in daily) ActivityEntry(gameId: 'daily', label: 'Completed the daily connection', timestamp: date),
     ]..sort((a, b) => b.timestamp.compareTo(a.timestamp));
 
-    return ProfileState(
-      profile: _preferences.loadProfile(
-        nameA: session.a.name,
-        nameB: session.b.name,
-      ),
-      settings: _preferences.loadSettings(),
-      stats: stats,
-      achievements: evaluateAchievements(stats),
-      activity: activity,
-      favorites: favorites,
-    );
+    return ProfileState(profile: _preferences.loadProfile(nameA: session.a.name, nameB: session.b.name), settings: _preferences.loadSettings(), stats: stats, achievements: evaluateAchievements(stats), activity: activity, favorites: favorites);
   }
 
-  List<FavoriteEntry> _favoritesFromResult<T>(
-    String source,
-    AppResult<List<T>> result,
-    bool Function(T) favorite,
-    String Function(T) label,
-  ) => switch (result) {
-    AppSuccess<List<T>>(:final value) => [
-      for (final item in value.where(favorite))
-        FavoriteEntry(source: source, label: label(item)),
-    ],
+  List<FavoriteEntry> _favoritesFromResult<T>(String source, AppResult<List<T>> result, bool Function(T) favorite, String Function(T) label) => switch (result) {
+    AppSuccess<List<T>>(:final value) => [for (final item in value.where(favorite)) FavoriteEntry(source: source, label: label(item))],
     _ => const [],
   };
 
@@ -156,11 +84,7 @@ class ProfileController extends AsyncNotifier<ProfileState> {
     if (parts.length != 2) return null;
     final timestamp = DateTime.tryParse(parts[1]);
     if (timestamp == null) return null;
-    return ActivityEntry(
-      gameId: 'roleplay',
-      label: 'Finished roleplay scene ${parts[0]}',
-      timestamp: timestamp.toLocal(),
-    );
+    return ActivityEntry(gameId: 'roleplay', label: 'Finished roleplay scene ${parts[0]}', timestamp: timestamp.toLocal());
   }
 
   Future<void> updateProfile(CoupleProfile value) async {
@@ -176,7 +100,4 @@ class ProfileController extends AsyncNotifier<ProfileState> {
   }
 }
 
-final profileControllerProvider =
-    AsyncNotifierProvider<ProfileController, ProfileState>(
-      ProfileController.new,
-    );
+final profileControllerProvider = AsyncNotifierProvider<ProfileController, ProfileState>(ProfileController.new);
