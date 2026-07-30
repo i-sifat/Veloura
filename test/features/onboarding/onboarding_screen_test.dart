@@ -7,7 +7,6 @@ import 'package:veloura/core/app_result.dart';
 import 'package:veloura/features/session/domain/game_session.dart';
 import 'package:veloura/features/session/domain/session_repository.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
-import 'package:veloura/services/storage_service.dart';
 
 class _MemorySessionRepository implements SessionRepository {
   GameSession? value;
@@ -27,12 +26,9 @@ void main() {
     tester,
   ) async {
     SharedPreferences.setMockInitialValues({});
-    final storage = StorageService();
-    await storage.initialize();
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          storageServiceProvider.overrideWithValue(storage),
           sessionRepositoryProvider.overrideWith(
             (ref) async => _MemorySessionRepository(),
           ),
