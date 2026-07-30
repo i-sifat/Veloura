@@ -116,21 +116,20 @@ void main() {
     }
   });
 
-  testWidgets('selected games open full-screen above the tab shell', (
-    tester,
-  ) async {
+  testWidgets('selected games cover and disable the tab shell', (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
     await tester.tap(find.byIcon(Icons.casino_outlined).last);
     await tester.pumpAndSettle();
 
-    expect(find.byType(NavigationBar), findsOneWidget);
+    expect(find.byType(NavigationBar).hitTestable(), findsOneWidget);
     await tester.tap(
       find.byKey(ValueKey('game-tile-${kGameCatalog.first.id}')),
     );
     await tester.pump(const Duration(milliseconds: 500));
 
-    expect(find.byType(NavigationBar), findsNothing);
+    expect(find.text('Dice'), findsOneWidget);
+    expect(find.byType(NavigationBar).hitTestable(), findsNothing);
   });
 
   testWidgets('remaining navigation branches are reachable', (tester) async {
