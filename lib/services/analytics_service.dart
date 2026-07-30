@@ -21,10 +21,11 @@ final class FirebaseAnalyticsService implements AnalyticsService {
     Map<String, Object?> properties = const {},
   }) => analytics.logEvent(
     name: name,
-    parameters: {
-      for (final entry in properties.entries)
-        if (entry.value case final value?) entry.key: value,
-    },
+    parameters: Map<String, Object>.fromEntries(
+      properties.entries
+          .where((entry) => entry.value != null)
+          .map((entry) => MapEntry(entry.key, entry.value!)),
+    ),
   );
 }
 
