@@ -23,10 +23,13 @@ import 'package:veloura/features/truth_dare/presentation/truth_dare_screen.dart'
 import 'package:veloura/features/truth_dare/presentation/wheel/truth_or_dare_wheel_screen.dart';
 import 'package:veloura/shared/widgets/navigation/confirm_exit_scope.dart';
 
+final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
+
 Widget _protectedGame(Widget child) => ConfirmExitScope(child: child);
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final router = GoRouter(
+    navigatorKey: _rootNavigatorKey,
     initialLocation: '/home',
     redirect: (context, state) async {
       final onboarding = OnboardingRepository(
@@ -58,6 +61,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                 builder: (_, _) => const HomeScreen(),
                 routes: [
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'conversation',
                     builder: (_, _) => _protectedGame(
                       const CreativeConnectionsScreen(),
@@ -82,10 +86,12 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                 builder: (_, _) => const GamesHubScreen(),
                 routes: [
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'lustful-rolls',
                     builder: (_, _) => _protectedGame(const DiceScreen()),
                   ),
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'card-challenge',
                     builder: (_, _) => _protectedGame(
                       const CardChallengeFanScreen(),
@@ -100,6 +106,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                     ],
                   ),
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'truth-or-dare',
                     builder: (_, _) => _protectedGame(
                       const TruthOrDareWheelScreen(),
@@ -114,6 +121,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                     ],
                   ),
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'creative-connections',
                     builder: (_, _) => _protectedGame(
                       const CreativePositionsScreen(),
@@ -128,12 +136,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                     ],
                   ),
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'follow-the-tempo',
                     builder: (_, _) => _protectedGame(
                       const FollowTheTempoScreen(),
                     ),
                   ),
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'passionate-roleplay',
                     builder: (_, _) => _protectedGame(
                       const RoleplayFlowScreen(),
