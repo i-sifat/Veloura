@@ -23,12 +23,13 @@ void main() {
     final tileFinder = find.byKey(ValueKey('game-tile-${entry.id}'));
     final tile = tester.widget<Container>(tileFinder);
     final decoration = tile.decoration! as BoxDecoration;
+    final border = decoration.border! as Border;
     final image = tester.widget<Image>(
       find.descendant(of: tileFinder, matching: find.byType(Image)),
     );
 
     expect(find.text(entry.title.toUpperCase()), findsNothing);
     expect(image.fit, BoxFit.cover);
-    expect(decoration.border!.top.width, 3);
+    expect(border.top.width, 3);
   });
 }
