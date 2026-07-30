@@ -1,24 +1,22 @@
 # Hive Type ID Registry
 
-Claim the next free ID before implementing an adapter. IDs are permanent after release; never reuse a retired ID.
+Formal Phase 8 audit completed on 07/30/2026. IDs are permanent after release; never reuse a retired ID.
 
-| ID | Model | Feature | Status |
-|---:|---|---|---|
-| 0 | Reserved foundation range | Foundation | Reserved |
-| 1 | `DiceRollRecord` | Dice | Active |
-| 2 | `Player` | Shared game session | Active |
-| 3 | `GameSession` | Shared game session | Active |
-| 4 | Unassigned | — | Available |
+| ID | Model | Adapter file | Feature | Status |
+|---:|---|---|---|---|
+| 0 | Reserved foundation range | — | Foundation | Reserved |
+| 1 | `DiceRollRecord` | `lib/features/dice/data/dice_roll_record_adapter.dart` | Dice | Active, verified |
+| 2 | `Player` | `lib/features/session/data/player_adapter.dart` | Shared session | Active, verified |
+| 3 | `GameSession` | `lib/features/session/data/game_session_adapter.dart` | Shared session | Active, verified |
+| 4 | Unassigned | — | — | Available |
 
-## Seeded content modules add no type IDs
+## Audit result
 
-Truth or Dare, Challenge Cards, Conversation Starters, Roleplay Stories, Spin the Bottle, and Creative Positions load immutable seed JSON and persist only string/list/map flags through `shared_preferences` or `game_prefs_box`. They add no Hive adapters and therefore claim no type IDs.
+- No collisions found.
+- `HiveAdapterRegistry` now rejects two adapter types claiming the same ID at startup.
+- Seeded modules persist JSON/string/map data and claim no adapter IDs.
+- `app_metadata` and `content_seed_cache` contain primitive values only and require no adapters.
 
-Creative Positions (Phase 4.5.5) is explicitly included above: its round state, heat level and `usedIds` set are in-memory for the life of the session, and its consent + seen-id flags go to `game_prefs_box`. **It must not claim id 4.**
+## Schema strategy
 
-## Rules
-
-- One row per adapter.
-- Feature PRs update this file before adding annotated models.
-- CI cannot detect semantic collisions, so every phase review must compare adapters to this table.
-- Phase 8 performs the formal full registry audit.
+`SchemaMigrationService` stores `schema_version` in `app_metadata` and applies ordered migrations before feature boxes are used. Version 1 is the existing baseline; future schema changes add a new ordered migration and never mutate an old adapter field index.
