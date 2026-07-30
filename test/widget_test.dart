@@ -80,7 +80,7 @@ void main() {
   testWidgets('Games exposes all Phase 4.5 catalog entries', (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Games'));
+    await tester.tap(find.byIcon(Icons.casino_outlined));
     await tester.pumpAndSettle();
     expect(kGameCatalog, hasLength(6));
     final scrollable = find.byType(Scrollable).last;
@@ -94,13 +94,13 @@ void main() {
   testWidgets('remaining navigation branches are reachable', (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Daily'));
+    await tester.tap(find.byIcon(Icons.calendar_today_outlined));
     await tester.pumpAndSettle();
     expect(find.text('DAILY CONNECTION'), findsOneWidget);
-    await tester.tap(find.text('Favorites'));
+    await tester.tap(find.byIcon(Icons.favorite_outline));
     await tester.pumpAndSettle();
     expect(find.text('Your saved favorites will appear here.'), findsOneWidget);
-    await tester.tap(find.text('Profile'));
+    await tester.tap(find.byIcon(Icons.person_outline));
     await tester.pumpAndSettle();
     expect(find.text('Your connection'), findsOneWidget);
   });
