@@ -22,7 +22,7 @@ class _MemorySessionRepository implements SessionRepository {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('new install opens onboarding and advances through three steps', (
+  testWidgets('new install completes onboarding and opens Home', (
     tester,
   ) async {
     SharedPreferences.setMockInitialValues({});
@@ -46,5 +46,13 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text("Who's playing?"), findsOneWidget);
     expect(find.byType(TextField), findsNWidgets(2));
+
+    await tester.enterText(find.byType(TextField).first, 'Alex');
+    await tester.enterText(find.byType(TextField).last, 'Jamie');
+    await tester.tap(find.text('Start connecting'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Make time for each other'), findsOneWidget);
+    expect(find.byType(NavigationBar), findsOneWidget);
   });
 }
