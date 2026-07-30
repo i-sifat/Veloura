@@ -1,0 +1,17 @@
+{
+  "appTitle": "Veloura",
+  "homeTab": "Home",
+  "gamesTab": "Games",
+  "dailyTab": "Daily",
+  "favoritesTab": "Favorites",
+  "profileTab": "Profile",
+  "randomGame": "Random game",
+  "goodEvening": "Good evening",
+  "conversationStarters": "Conversation starters",
+  "popularTonight": "Popular tonight",
+  "quoteOfTheDay": "Quote of the day",
+  "selectAGame": "Select a game",
+  "profileOverview": "Overview",
+  "profileActivity": "Activity",
+  "profileSettings": "Settings"
+}
