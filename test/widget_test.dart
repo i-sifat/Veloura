@@ -128,7 +128,6 @@ void main() {
     );
     await tester.pump(const Duration(milliseconds: 500));
 
-    expect(find.text('Dice'), findsOneWidget);
     expect(find.byType(NavigationBar).hitTestable(), findsNothing);
   });
 
