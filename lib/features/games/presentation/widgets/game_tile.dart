@@ -6,7 +6,7 @@ import 'package:veloura/shared/widgets/game/game_tile_glyph.dart';
 import 'package:veloura/shared/widgets/game/premium_lock_badge.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
-/// Pressable gradient game destination with resilient artwork fallback.
+/// Pressable full-art game destination with a resilient artwork fallback.
 class GameTile extends StatefulWidget {
   const GameTile({required this.entry, required this.locked, super.key});
 
@@ -49,67 +49,24 @@ class _GameTileState extends State<GameTile> {
           key: ValueKey('game-tile-${widget.entry.id}'),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(GameTokens.tileRadius),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: widget.entry.gradient,
-            ),
-            border: Border.all(color: const Color(0x1AFFFFFF)),
+            border: Border.all(color: GameTokens.roseLight, width: 3),
             boxShadow: const [GameTokens.tileShadow],
           ),
           clipBehavior: Clip.antiAlias,
           child: Stack(
             fit: StackFit.expand,
             children: [
-              const DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [Color(0x24FFFFFF), Colors.transparent],
-                    stops: [0, 0.45],
+              Image.asset(
+                widget.entry.art,
+                fit: BoxFit.cover,
+                alignment: Alignment.center,
+                errorBuilder: (_, _, _) => DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: widget.entry.gradient),
                   ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: FractionallySizedBox(
-                  heightFactor: 0.62,
-                  widthFactor: 1,
-                  child: Image.asset(
-                    widget.entry.art,
-                    fit: BoxFit.contain,
-                    alignment: Alignment.bottomCenter,
-                    errorBuilder: (_, _, _) => GameTileGlyph(
-                      key: ValueKey('fallback-${widget.entry.id}'),
-                      icon: widget.entry.fallbackIcon,
-                    ),
-                  ),
-                ),
-              ),
-              const DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Colors.transparent, Color(0x38000000)],
-                    stops: [0.55, 1],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(14, 18, 14, 0),
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Text(
-                    widget.entry.title.toUpperCase(),
-                    maxLines: 2,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      height: 1.18,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 0.6,
-                    ),
+                  child: GameTileGlyph(
+                    key: ValueKey('fallback-${widget.entry.id}'),
+                    icon: widget.entry.fallbackIcon,
                   ),
                 ),
               ),
