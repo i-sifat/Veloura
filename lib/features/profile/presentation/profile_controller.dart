@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veloura/core/app_result.dart';
+import 'package:veloura/features/cards/domain/challenge_repository.dart';
 import 'package:veloura/features/cards/presentation/challenge_controller.dart';
 import 'package:veloura/features/conversation/presentation/conversation_controller.dart';
 import 'package:veloura/features/daily/presentation/daily_controller.dart';
@@ -64,8 +65,7 @@ class ProfileController extends AsyncNotifier<ProfileState> {
     final stats = ProfileStats(diceRolls: dice.length, truthDareCompleted: truthCompleted.length, challengesCompleted: completedCards.length, conversationsAnswered: answered.length, roleplaysCompleted: rawRoleplays.length, dailyCompletions: daily.length, favorites: favorites.length);
     final activity = <ActivityEntry>[
       for (final record in dice) ActivityEntry(gameId: 'dice', label: record.summary, timestamp: record.createdAt),
-      for (final value in cardProgress.entries)
-        if (value.value.completedAt case final timestamp?) ActivityEntry(gameId: 'cards', label: 'Completed challenge ${value.key}', timestamp: timestamp),
+      for (final value in cardProgress.entries) ?_cardActivity(value),
       for (final value in answered.entries) ActivityEntry(gameId: 'conversation', label: 'Answered a conversation prompt', timestamp: value.value),
       for (final raw in rawRoleplays) ?_roleplayActivity(raw),
       for (final date in daily) ActivityEntry(gameId: 'daily', label: 'Completed the daily connection', timestamp: date),
@@ -79,12 +79,16 @@ class ProfileController extends AsyncNotifier<ProfileState> {
     _ => const [],
   };
 
+  ActivityEntry? _cardActivity(MapEntry<String, ChallengeProgress> value) {
+    final timestamp = value.value.completedAt;
+    return timestamp == null ? null : ActivityEntry(gameId: 'cards', label: 'Completed challenge ${value.key}', timestamp: timestamp);
+  }
+
   ActivityEntry? _roleplayActivity(String raw) {
     final parts = raw.split('|');
     if (parts.length != 2) return null;
     final timestamp = DateTime.tryParse(parts[1]);
-    if (timestamp == null) return null;
-    return ActivityEntry(gameId: 'roleplay', label: 'Finished roleplay scene ${parts[0]}', timestamp: timestamp.toLocal());
+    return timestamp == null ? null : ActivityEntry(gameId: 'roleplay', label: 'Finished roleplay scene ${parts[0]}', timestamp: timestamp.toLocal());
   }
 
   Future<void> updateProfile(CoupleProfile value) async {
