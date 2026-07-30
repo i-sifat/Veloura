@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:veloura/config/navigation_shell.dart';
@@ -60,23 +59,17 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   GoRoute(
                     path: 'card-challenge',
                     builder: (_, _) => const CardChallengeFanScreen(),
-                    routes: [
-                      GoRoute(path: 'browse', builder: (_, _) => const ChallengeScreen()),
-                    ],
+                    routes: [GoRoute(path: 'browse', builder: (_, _) => const ChallengeScreen())],
                   ),
                   GoRoute(
                     path: 'truth-or-dare',
                     builder: (_, _) => const TruthOrDareWheelScreen(),
-                    routes: [
-                      GoRoute(path: 'browse', builder: (_, _) => const TruthDareScreen()),
-                    ],
+                    routes: [GoRoute(path: 'browse', builder: (_, _) => const TruthDareScreen())],
                   ),
                   GoRoute(
                     path: 'creative-connections',
                     builder: (_, _) => const CreativePositionsScreen(),
-                    routes: [
-                      GoRoute(path: 'browse', builder: (_, _) => const ConversationScreen()),
-                    ],
+                    routes: [GoRoute(path: 'browse', builder: (_, _) => const ConversationScreen())],
                   ),
                   GoRoute(path: 'follow-the-tempo', builder: (_, _) => const FollowTheTempoScreen()),
                   GoRoute(path: 'passionate-roleplay', builder: (_, _) => const RoleplayFlowScreen()),
