@@ -20,7 +20,10 @@ void main() {
     final router = GoRouter(
       initialLocation: '/home',
       routes: [
-        GoRoute(path: '/home', builder: (_, _) => const HomeScreen()),
+        GoRoute(
+          path: '/home',
+          builder: (_, _) => const Scaffold(body: HomeScreen()),
+        ),
         GoRoute(
           path: '/home/conversation',
           builder: (_, _) => const Scaffold(body: Text('Conversation')),
@@ -39,8 +42,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    final popular = popularGamesFor(DateTime.now());
-    final first = popular.first;
+    final first = popularGamesFor(DateTime.now()).first;
     await tester.tap(find.byKey(ValueKey('popular-${first.id}')));
     await tester.pumpAndSettle();
 
