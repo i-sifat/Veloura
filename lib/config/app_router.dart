@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,6 +21,9 @@ import 'package:veloura/features/roleplay/presentation/flow/roleplay_flow_screen
 import 'package:veloura/features/tempo/presentation/follow_the_tempo_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/truth_dare_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/wheel/truth_or_dare_wheel_screen.dart';
+import 'package:veloura/shared/widgets/navigation/confirm_exit_scope.dart';
+
+Widget _protectedGame(Widget child) => ConfirmExitScope(child: child);
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final router = GoRouter(
@@ -55,11 +59,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                 routes: [
                   GoRoute(
                     path: 'conversation',
-                    builder: (_, _) => const CreativeConnectionsScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const CreativeConnectionsScreen(),
+                    ),
                     routes: [
                       GoRoute(
                         path: 'browse',
-                        builder: (_, _) => const ConversationScreen(),
+                        builder: (_, _) => _protectedGame(
+                          const ConversationScreen(),
+                        ),
                       ),
                     ],
                   ),
@@ -75,45 +83,61 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                 routes: [
                   GoRoute(
                     path: 'lustful-rolls',
-                    builder: (_, _) => const DiceScreen(),
+                    builder: (_, _) => _protectedGame(const DiceScreen()),
                   ),
                   GoRoute(
                     path: 'card-challenge',
-                    builder: (_, _) => const CardChallengeFanScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const CardChallengeFanScreen(),
+                    ),
                     routes: [
                       GoRoute(
                         path: 'browse',
-                        builder: (_, _) => const ChallengeScreen(),
+                        builder: (_, _) => _protectedGame(
+                          const ChallengeScreen(),
+                        ),
                       ),
                     ],
                   ),
                   GoRoute(
                     path: 'truth-or-dare',
-                    builder: (_, _) => const TruthOrDareWheelScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const TruthOrDareWheelScreen(),
+                    ),
                     routes: [
                       GoRoute(
                         path: 'browse',
-                        builder: (_, _) => const TruthDareScreen(),
+                        builder: (_, _) => _protectedGame(
+                          const TruthDareScreen(),
+                        ),
                       ),
                     ],
                   ),
                   GoRoute(
                     path: 'creative-connections',
-                    builder: (_, _) => const CreativePositionsScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const CreativePositionsScreen(),
+                    ),
                     routes: [
                       GoRoute(
                         path: 'browse',
-                        builder: (_, _) => const ConversationScreen(),
+                        builder: (_, _) => _protectedGame(
+                          const ConversationScreen(),
+                        ),
                       ),
                     ],
                   ),
                   GoRoute(
                     path: 'follow-the-tempo',
-                    builder: (_, _) => const FollowTheTempoScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const FollowTheTempoScreen(),
+                    ),
                   ),
                   GoRoute(
                     path: 'passionate-roleplay',
-                    builder: (_, _) => const RoleplayFlowScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const RoleplayFlowScreen(),
+                    ),
                   ),
                   GoRoute(
                     path: 'dice',

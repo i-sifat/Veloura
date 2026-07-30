@@ -200,7 +200,7 @@ class _RouletteSpinCurve extends Curve {
       return 0.16 * local * local * local;
     }
     final local = (t - 0.22) / 0.78;
-    return 0.16 + 0.84 * (1 - math.pow(1 - local, 4));
+    return (0.16 + 0.84 * (1 - math.pow(1 - local, 4))).toDouble();
   }
 }
 

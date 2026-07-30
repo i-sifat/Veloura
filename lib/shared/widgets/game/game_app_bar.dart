@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:veloura/theme/app_colors.dart';
 
-/// Compact game header with accessible navigation and info actions.
+/// Compact game header with consistent back navigation and info actions.
 class GameAppBar extends StatelessWidget {
   const GameAppBar({required this.title, this.leading, this.onInfo, super.key});
 
   final String title;
+
+  /// Kept for source compatibility; game headers intentionally use one back UI.
   final Widget? leading;
   final VoidCallback? onInfo;
 
@@ -20,10 +21,10 @@ class GameAppBar extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.centerLeft,
-            child: leading ?? IconButton(
+            child: IconButton(
               tooltip: 'Back',
-              onPressed: context.canPop() ? context.pop : null,
-              icon: const Icon(Icons.arrow_back_ios_new, size: 22),
+              onPressed: Navigator.of(context).maybePop,
+              icon: const Icon(Icons.arrow_back, size: 22),
             ),
           ),
           Text(
