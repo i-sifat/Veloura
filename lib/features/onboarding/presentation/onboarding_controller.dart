@@ -14,13 +14,17 @@ class OnboardingController extends AsyncNotifier<bool> {
   }
 
   Future<void> finish({required String nameA, required String nameB}) async {
+    final repository = OnboardingRepository(
+      await SharedPreferences.getInstance(),
+    );
+    await ref.read(sessionControllerProvider.future);
     await ref.read(sessionControllerProvider.notifier).setPlayers(
       nameA: nameA,
       colorA: 0xFFFF4D6D,
       nameB: nameB,
       colorB: 0xFF8E4BD1,
     );
-    await _repository.complete();
+    await repository.complete();
     await ref.read(analyticsServiceProvider).track('onboarding_complete');
     state = const AsyncData(true);
   }
