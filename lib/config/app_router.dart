@@ -52,7 +52,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         ),
       ),
       StatefulShellRoute.indexedStack(
-        builder: (context, state, shell) => NavigationShell(shell: shell),
+        builder: (context, state, shell) => NavigationShell(
+          shell: shell,
+          location: state.uri.path,
+        ),
         branches: [
           StatefulShellBranch(
             routes: [
