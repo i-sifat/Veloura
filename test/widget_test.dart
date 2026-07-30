@@ -30,11 +30,8 @@ class _TestDailyController extends DailyController {
   @override
   Future<DailyState> build() async => DailyState(
     challenge: const DailyChallenge(id: 'test_daily', title: 'A test moment', prompt: 'Share one good thing from today.', source: DailyChallengeSource.ritual, estimatedMinutes: 5),
-    completionDates: const {},
-    streak: 0,
-    rewardBalance: 0,
-    reminder: const DailyReminderSettings(),
-    displayedMonth: DateTime(2026, 7),
+    completionDates: const {}, streak: 0, rewardBalance: 0,
+    reminder: const DailyReminderSettings(), displayedMonth: DateTime(2026, 7),
   );
 }
 
@@ -42,14 +39,7 @@ class _TestProfileController extends ProfileController {
   @override
   Future<ProfileState> build() async {
     const stats = ProfileStats(diceRolls: 0, truthDareCompleted: 0, challengesCompleted: 0, conversationsAnswered: 0, roleplaysCompleted: 0, dailyCompletions: 0, favorites: 0);
-    return ProfileState(
-      profile: const CoupleProfile(nameA: 'You', nameB: 'Partner'),
-      settings: const ProfileSettings(),
-      stats: stats,
-      achievements: evaluateAchievements(stats),
-      activity: const [],
-      favorites: const [],
-    );
+    return ProfileState(profile: const CoupleProfile(nameA: 'You', nameB: 'Partner'), settings: const ProfileSettings(), stats: stats, achievements: evaluateAchievements(stats), activity: const [], favorites: const []);
   }
 }
 
@@ -80,7 +70,7 @@ void main() {
   testWidgets('Games exposes all Phase 4.5 catalog entries', (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
-    await tester.tap(find.byIcon(Icons.casino_outlined));
+    await tester.tap(find.byIcon(Icons.casino_outlined).last);
     await tester.pumpAndSettle();
     expect(kGameCatalog, hasLength(6));
     final scrollable = find.byType(Scrollable).last;
