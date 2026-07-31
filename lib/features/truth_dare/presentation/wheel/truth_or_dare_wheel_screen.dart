@@ -18,7 +18,7 @@ import 'package:veloura/shared/widgets/loading_shimmer.dart';
 import 'package:veloura/theme/app_colors.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
-/// Premium pinwheel entry mode over the existing Truth or Dare pack.
+/// Fast roulette that decides Truth or Dare, then reveals a matching prompt.
 class TruthOrDareWheelScreen extends ConsumerStatefulWidget {
   const TruthOrDareWheelScreen({super.key});
 
@@ -42,7 +42,7 @@ class _TruthOrDareWheelScreenState
     super.initState();
     _animation = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 4200),
+      duration: const Duration(milliseconds: 3000),
     )..addListener(_tickHaptic);
   }
 
@@ -51,7 +51,7 @@ class _TruthOrDareWheelScreenState
     final tick = (degrees / WheelMath.segmentDegrees).floor();
     final now = DateTime.now();
     if (tick != _lastTick &&
-        now.difference(_lastHaptic) >= const Duration(milliseconds: 45)) {
+        now.difference(_lastHaptic) >= const Duration(milliseconds: 32)) {
       _lastTick = tick;
       _lastHaptic = now;
       unawaited(HapticFeedback.selectionClick());
@@ -73,10 +73,7 @@ class _TruthOrDareWheelScreenState
       await Future<void>.delayed(GameTokens.fadeDuration);
     } else {
       _rotation = Tween<double>(begin: _settledRotation, end: end).animate(
-        CurvedAnimation(
-          parent: _animation,
-          curve: const Cubic(0.12, 0.78, 0.06, 1),
-        ),
+        CurvedAnimation(parent: _animation, curve: const _RouletteSpinCurve()),
       );
       _lastTick = -1;
       await _animation.forward(from: 0);
@@ -86,17 +83,12 @@ class _TruthOrDareWheelScreenState
 
     await ref.read(wheelControllerProvider.notifier).resolvePrompt();
     if (!mounted) return;
-    await Future<void>.delayed(const Duration(milliseconds: 300));
+    await Future<void>.delayed(const Duration(milliseconds: 180));
     if (!mounted) return;
     setState(() => _resultOpen = true);
-    await _showResultSheet();
+    await ResultSheet.show<void>(context, child: const _WheelResult());
     if (mounted) setState(() => _resultOpen = false);
   }
-
-  Future<void> _showResultSheet() => ResultSheet.show<void>(
-    context,
-    child: const _WheelResult(),
-  );
 
   void _showInfo() {
     showModalBottomSheet<void>(
@@ -108,10 +100,10 @@ class _TruthOrDareWheelScreenState
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Truth or dare', style: Theme.of(context).textTheme.titleLarge),
+              Text('Truth or Dare', style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 10),
               const Text(
-                'Spin for a surprise, or browse every card at your pace.',
+                'The wheel decides Truth or Dare, then deals a matching prompt.',
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 18),
@@ -157,20 +149,15 @@ class _TruthOrDareWheelScreenState
         final hideHeadline = state.spinning || _resultOpen;
         final diameter = math.min(MediaQuery.sizeOf(context).width - 72, 320.0);
         return GameShell(
-          title: 'Truth or dare',
+          title: 'Truth or Dare',
           onInfo: _showInfo,
-          leading: IconButton(
-            tooltip: 'Games',
-            onPressed: () => context.go('/games'),
-            icon: const Icon(Icons.home_outlined, size: 22),
-          ),
           headline: AnimatedOpacity(
             duration: GameTokens.fadeDuration,
             opacity: hideHeadline ? 0 : 1,
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'SPIN THE WHEEL\nTO PLAY',
+                'LET THE WHEEL\nDECIDE',
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.w800,
                   height: 1.02,
@@ -189,25 +176,7 @@ class _TruthOrDareWheelScreenState
               ),
             ),
           ),
-          footnote: InkWell(
-            borderRadius: BorderRadius.circular(20),
-            onTap: () => ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('Superhot Roulette requires Premium.')),
-            ),
-            child: const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.local_fire_department, size: 14, color: GameTokens.rose),
-                  SizedBox(width: 6),
-                  Text('Superhot Roulette'),
-                  SizedBox(width: 6),
-                  Icon(Icons.info_outline, size: 14),
-                ],
-              ),
-            ),
-          ),
+          footnote: const Text('The landed segment chooses the prompt type'),
           cta: PrimaryCta(
             label: 'Spin the wheel',
             icon: Icons.refresh,
@@ -217,6 +186,21 @@ class _TruthOrDareWheelScreenState
         );
       },
     );
+  }
+}
+
+/// Accelerates sharply, sustains speed, then eases into the selected segment.
+class _RouletteSpinCurve extends Curve {
+  const _RouletteSpinCurve();
+
+  @override
+  double transformInternal(double t) {
+    if (t < 0.22) {
+      final local = t / 0.22;
+      return 0.16 * local * local * local;
+    }
+    final local = (t - 0.22) / 0.78;
+    return (0.16 + 0.84 * (1 - math.pow(1 - local, 4))).toDouble();
   }
 }
 
@@ -236,36 +220,46 @@ class _WheelResult extends ConsumerWidget {
     final isTruth = item.kind == TruthDareKind.truth;
     final colors = AppColors.of(context);
     return SizedBox(
-      height: math.max(MediaQuery.sizeOf(context).height * 0.40, 300),
+      height: math.max(MediaQuery.sizeOf(context).height * 0.42, 320),
       child: Column(
         children: [
-          Align(
-            alignment: Alignment.centerRight,
-            child: IconButton(
-              tooltip: item.favorite ? 'Remove favorite' : 'Favorite prompt',
-              onPressed: () => ref
-                  .read(wheelControllerProvider.notifier)
-                  .toggleFavorite(),
-              icon: Icon(
-                item.favorite ? Icons.favorite : Icons.favorite_border,
-                color: item.favorite ? GameTokens.rose : colors.textSecondary,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  'The wheel chose ${item.kind.name.toUpperCase()}',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
               ),
-            ),
+              IconButton(
+                tooltip: item.favorite ? 'Remove favorite' : 'Favorite prompt',
+                onPressed: () => ref
+                    .read(wheelControllerProvider.notifier)
+                    .toggleFavorite(),
+                icon: Icon(
+                  item.favorite ? Icons.favorite : Icons.favorite_border,
+                  color: item.favorite ? GameTokens.rose : colors.textSecondary,
+                ),
+              ),
+            ],
           ),
+          const SizedBox(height: 12),
           Container(
-            height: 28,
-            padding: const EdgeInsets.symmetric(horizontal: 14),
+            height: 32,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: (isTruth ? const Color(0xFF4B2B8F) : GameTokens.rose)
-                  .withValues(alpha: isTruth ? 0.30 : 0.22),
-              borderRadius: BorderRadius.circular(14),
+                  .withValues(alpha: 0.28),
+              borderRadius: BorderRadius.circular(16),
             ),
             child: Text(
               item.kind.name.toUpperCase(),
               style: TextStyle(
-                color: isTruth ? const Color(0xFFB39CFF) : GameTokens.rose,
-                fontWeight: FontWeight.w700,
+                color: isTruth ? const Color(0xFFB39CFF) : GameTokens.roseLight,
+                fontWeight: FontWeight.w800,
                 letterSpacing: 1,
               ),
             ),
@@ -276,7 +270,7 @@ class _WheelResult extends ConsumerWidget {
               child: Text(
                 item.prompt,
                 textAlign: TextAlign.center,
-                maxLines: 4,
+                maxLines: 5,
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w700,
@@ -294,7 +288,7 @@ class _WheelResult extends ConsumerWidget {
           ),
           const SizedBox(height: 8),
           SecondaryTextButton(
-            label: 'Skip',
+            label: 'Another ${item.kind.name}',
             onPressed: () => ref.read(wheelControllerProvider.notifier).skip(),
           ),
         ],

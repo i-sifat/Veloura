@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,9 +21,15 @@ import 'package:veloura/features/roleplay/presentation/flow/roleplay_flow_screen
 import 'package:veloura/features/tempo/presentation/follow_the_tempo_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/truth_dare_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/wheel/truth_or_dare_wheel_screen.dart';
+import 'package:veloura/shared/widgets/navigation/confirm_exit_scope.dart';
+
+final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
+
+Widget _protectedGame(Widget child) => ConfirmExitScope(child: child);
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final router = GoRouter(
+    navigatorKey: _rootNavigatorKey,
     initialLocation: '/home',
     redirect: (context, state) async {
       final onboarding = OnboardingRepository(
@@ -45,7 +52,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         ),
       ),
       StatefulShellRoute.indexedStack(
-        builder: (context, state, shell) => NavigationShell(shell: shell),
+        builder: (context, state, shell) => NavigationShell(
+          shell: shell,
+          location: state.uri.path,
+        ),
         branches: [
           StatefulShellBranch(
             routes: [
@@ -54,12 +64,17 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                 builder: (_, _) => const HomeScreen(),
                 routes: [
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'conversation',
-                    builder: (_, _) => const CreativeConnectionsScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const CreativeConnectionsScreen(),
+                    ),
                     routes: [
                       GoRoute(
                         path: 'browse',
-                        builder: (_, _) => const ConversationScreen(),
+                        builder: (_, _) => _protectedGame(
+                          const ConversationScreen(),
+                        ),
                       ),
                     ],
                   ),
@@ -74,46 +89,68 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                 builder: (_, _) => const GamesHubScreen(),
                 routes: [
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'lustful-rolls',
-                    builder: (_, _) => const DiceScreen(),
+                    builder: (_, _) => _protectedGame(const DiceScreen()),
                   ),
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'card-challenge',
-                    builder: (_, _) => const CardChallengeFanScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const CardChallengeFanScreen(),
+                    ),
                     routes: [
                       GoRoute(
                         path: 'browse',
-                        builder: (_, _) => const ChallengeScreen(),
+                        builder: (_, _) => _protectedGame(
+                          const ChallengeScreen(),
+                        ),
                       ),
                     ],
                   ),
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'truth-or-dare',
-                    builder: (_, _) => const TruthOrDareWheelScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const TruthOrDareWheelScreen(),
+                    ),
                     routes: [
                       GoRoute(
                         path: 'browse',
-                        builder: (_, _) => const TruthDareScreen(),
+                        builder: (_, _) => _protectedGame(
+                          const TruthDareScreen(),
+                        ),
                       ),
                     ],
                   ),
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'creative-connections',
-                    builder: (_, _) => const CreativePositionsScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const CreativePositionsScreen(),
+                    ),
                     routes: [
                       GoRoute(
                         path: 'browse',
-                        builder: (_, _) => const ConversationScreen(),
+                        builder: (_, _) => _protectedGame(
+                          const ConversationScreen(),
+                        ),
                       ),
                     ],
                   ),
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'follow-the-tempo',
-                    builder: (_, _) => const FollowTheTempoScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const FollowTheTempoScreen(),
+                    ),
                   ),
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: 'passionate-roleplay',
-                    builder: (_, _) => const RoleplayFlowScreen(),
+                    builder: (_, _) => _protectedGame(
+                      const RoleplayFlowScreen(),
+                    ),
                   ),
                   GoRoute(
                     path: 'dice',

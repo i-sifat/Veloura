@@ -36,7 +36,7 @@ abstract final class WheelMath {
 class WheelState {
   const WheelState({
     this.target = 0,
-    this.turns = 4,
+    this.turns = 7,
     this.endDegrees = 0,
     this.spinning = false,
     this.item,
@@ -83,7 +83,7 @@ class WheelController extends AsyncNotifier<WheelState> {
     final current = state.asData?.value;
     if (current == null || current.spinning) return;
     final target = _random.nextInt(WheelMath.segmentCount);
-    final turns = 4 + _random.nextInt(3);
+    final turns = 7 + _random.nextInt(4);
     final end = WheelMath.endDegrees(target: target, turns: turns);
     assert(WheelMath.targetForEndDegrees(end) == target);
     state = AsyncData(
@@ -97,7 +97,7 @@ class WheelController extends AsyncNotifier<WheelState> {
     );
   }
 
-  /// Draws a matching prompt after the wheel visually lands.
+  /// Draws a prompt matching the Truth or Dare segment where the wheel landed.
   Future<void> resolvePrompt() async {
     final current = state.asData?.value;
     if (current == null) return;
@@ -107,18 +107,14 @@ class WheelController extends AsyncNotifier<WheelState> {
         final premium = ref.read(isPremiumProvider);
         var pool = value
             .where((item) => item.kind == current.kind)
-            .where(
-              (item) => premium || item.difficulty != Difficulty.extreme,
-            )
+            .where((item) => premium || item.difficulty != Difficulty.extreme)
             .where((item) => !_recentIds.contains(item.id))
             .toList();
         if (pool.isEmpty) {
           _recentIds.clear();
           pool = value
               .where((item) => item.kind == current.kind)
-              .where(
-                (item) => premium || item.difficulty != Difficulty.extreme,
-              )
+              .where((item) => premium || item.difficulty != Difficulty.extreme)
               .toList();
         }
         if (pool.isEmpty) throw StateError('No matching prompts');
@@ -126,24 +122,19 @@ class WheelController extends AsyncNotifier<WheelState> {
         _recentIds
           ..add(item.id)
           ..removeRange(0, max(0, _recentIds.length - 12));
-        state = AsyncData(
-          current.copyWith(spinning: false, item: () => item),
-        );
+        state = AsyncData(current.copyWith(spinning: false, item: () => item));
       case AppFailure<List<TruthDareItem>>(:final message, :final cause):
         state = AsyncError(message, StackTrace.fromString('$cause'));
     }
   }
 
-  /// Marks the revealed prompt complete using the existing progress API.
   Future<void> complete() async {
     final item = state.asData?.value.item;
     if (item != null) await _repository.markCompleted(item.id);
   }
 
-  /// Draws another prompt of the already selected type.
   Future<void> skip() => resolvePrompt();
 
-  /// Toggles the current prompt through the existing favourites API.
   Future<void> toggleFavorite() async {
     final current = state.asData?.value;
     final item = current?.item;

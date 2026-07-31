@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:veloura/features/games/domain/game_catalog.dart';
+import 'package:veloura/features/games/domain/game_catalog_entry.dart';
 import 'package:veloura/features/home/presentation/home_controller.dart';
 import 'package:veloura/shared/widgets/glass_card.dart';
 import 'package:veloura/shared/widgets/section_header.dart';
 import 'package:veloura/theme/app_colors.dart';
 
-/// Phase 1 Home shell. Real activity data replaces mock values in Phase 9.
+/// Returns a rotating, deterministic set of three games for the current day.
+List<GameCatalogEntry> popularGamesFor(DateTime date) {
+  final day = DateTime(date.year, date.month, date.day)
+      .difference(DateTime(date.year))
+      .inDays;
+  return List.generate(
+    3,
+    (index) => kGameCatalog[(day + index) % kGameCatalog.length],
+    growable: false,
+  );
+}
+
+/// Home discovery shell.
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
@@ -14,6 +28,7 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(homeControllerProvider);
     final colors = AppColors.of(context);
+    final popularGames = popularGamesFor(DateTime.now());
 
     return SafeArea(
       child: CustomScrollView(
@@ -31,9 +46,7 @@ class HomeScreen extends ConsumerWidget {
                 const SizedBox(height: 28),
                 const SectionHeader(title: 'Popular tonight'),
                 const SizedBox(height: 12),
-                const _PopularRow(),
-                const SizedBox(height: 28),
-                const _PremiumBanner(),
+                _PopularRow(games: popularGames),
                 const SizedBox(height: 28),
                 Text(
                   'Quote of the day',
@@ -116,7 +129,10 @@ class _FeaturedCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 24),
-              Text('CONVERSATION STARTERS', style: Theme.of(context).textTheme.labelMedium),
+              Text(
+                'CONVERSATION STARTERS',
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
               const SizedBox(height: 6),
               Text(title, style: Theme.of(context).textTheme.headlineSmall),
               const SizedBox(height: 8),
@@ -133,68 +149,52 @@ class _FeaturedCard extends StatelessWidget {
 }
 
 class _PopularRow extends StatelessWidget {
-  const _PopularRow();
+  const _PopularRow({required this.games});
+
+  final List<GameCatalogEntry> games;
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 118,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: const [
-          _PopularTile(label: 'Dice', icon: Icons.casino_outlined),
-          _PopularTile(label: 'Truth or Dare', icon: Icons.style_outlined),
-          _PopularTile(label: 'Conversation', icon: Icons.forum_outlined),
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => SizedBox(
+    height: 118,
+    child: ListView(
+      scrollDirection: Axis.horizontal,
+      children: [for (final game in games) _PopularTile(game: game)],
+    ),
+  );
 }
 
 class _PopularTile extends StatelessWidget {
-  const _PopularTile({required this.label, required this.icon});
+  const _PopularTile({required this.game});
 
-  final String label;
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = AppColors.of(context);
-    return Container(
-      width: 130,
-      margin: const EdgeInsets.only(right: 12),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: colors.card,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [Icon(icon, color: colors.secondary), Text(label)],
-      ),
-    );
-  }
-}
-
-class _PremiumBanner extends StatelessWidget {
-  const _PremiumBanner();
+  final GameCatalogEntry game;
 
   @override
   Widget build(BuildContext context) {
     final colors = AppColors.of(context);
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [colors.primary, colors.secondary]),
+    return Semantics(
+      button: true,
+      label: 'Open ${game.title}',
+      child: InkWell(
+        key: ValueKey('popular-${game.id}'),
+        onTap: () => context.push(game.route),
         borderRadius: BorderRadius.circular(20),
-      ),
-      child: const Row(
-        children: [
-          Icon(Icons.workspace_premium_outlined),
-          SizedBox(width: 12),
-          Expanded(child: Text('Premium experiences are coming in Phase 6.')),
-        ],
+        child: Container(
+          width: 130,
+          margin: const EdgeInsets.only(right: 12),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: colors.card,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Icon(game.fallbackIcon, color: colors.secondary),
+              Text(game.title),
+            ],
+          ),
+        ),
       ),
     );
   }

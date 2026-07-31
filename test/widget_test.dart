@@ -17,8 +17,10 @@ import 'package:veloura/features/session/presentation/session_controller.dart';
 
 class _MemorySessionRepository implements SessionRepository {
   GameSession? value;
+
   @override
   Future<AppResult<GameSession?>> load() async => AppResult.success(value);
+
   @override
   Future<AppResult<void>> save(GameSession session) async {
     value = session;
@@ -29,24 +31,52 @@ class _MemorySessionRepository implements SessionRepository {
 class _TestDailyController extends DailyController {
   @override
   Future<DailyState> build() async => DailyState(
-    challenge: const DailyChallenge(id: 'test_daily', title: 'A test moment', prompt: 'Share one good thing from today.', source: DailyChallengeSource.ritual, estimatedMinutes: 5),
-    completionDates: const {}, streak: 0, rewardBalance: 0,
-    reminder: const DailyReminderSettings(), displayedMonth: DateTime(2026, 7),
+    challenge: const DailyChallenge(
+      id: 'test_daily',
+      title: 'A test moment',
+      prompt: 'Share one good thing from today.',
+      source: DailyChallengeSource.ritual,
+      estimatedMinutes: 5,
+    ),
+    completionDates: const {},
+    streak: 0,
+    rewardBalance: 0,
+    reminder: const DailyReminderSettings(),
+    displayedMonth: DateTime(2026, 7),
   );
 }
 
 class _TestProfileController extends ProfileController {
   @override
   Future<ProfileState> build() async {
-    const stats = ProfileStats(diceRolls: 0, truthDareCompleted: 0, challengesCompleted: 0, conversationsAnswered: 0, roleplaysCompleted: 0, dailyCompletions: 0, favorites: 0);
-    return ProfileState(profile: const CoupleProfile(nameA: 'You', nameB: 'Partner'), settings: const ProfileSettings(), stats: stats, achievements: evaluateAchievements(stats), activity: const [], favorites: const []);
+    const stats = ProfileStats(
+      diceRolls: 0,
+      truthDareCompleted: 0,
+      challengesCompleted: 0,
+      conversationsAnswered: 0,
+      roleplaysCompleted: 0,
+      dailyCompletions: 0,
+      favorites: 0,
+    );
+    return ProfileState(
+      profile: const CoupleProfile(nameA: 'You', nameB: 'Partner'),
+      settings: const ProfileSettings(),
+      stats: stats,
+      achievements: evaluateAchievements(stats),
+      activity: const [],
+      favorites: const [],
+    );
   }
 }
 
 Widget _app() => ProviderScope(
   overrides: [
-    sessionRepositoryProvider.overrideWith((ref) async => _MemorySessionRepository()),
-    dailyNotificationServiceProvider.overrideWith((ref) => const NoopDailyNotificationService()),
+    sessionRepositoryProvider.overrideWith(
+      (ref) async => _MemorySessionRepository(),
+    ),
+    dailyNotificationServiceProvider.overrideWith(
+      (ref) => const NoopDailyNotificationService(),
+    ),
     dailyControllerProvider.overrideWith(_TestDailyController.new),
     profileControllerProvider.overrideWith(_TestProfileController.new),
   ],
@@ -55,7 +85,12 @@ Widget _app() => ProviderScope(
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  setUp(() => SharedPreferences.setMockInitialValues({'session_players_configured': true}));
+
+  setUp(
+    () => SharedPreferences.setMockInitialValues({
+      'session_players_configured': true,
+    }),
+  );
 
   testWidgets('Veloura launches into the five-tab Home shell', (tester) async {
     await tester.pumpWidget(_app());
@@ -89,7 +124,10 @@ void main() {
     expect(find.text('DAILY CONNECTION'), findsOneWidget);
     await tester.tap(find.byIcon(Icons.favorite_outline));
     await tester.pumpAndSettle();
-    expect(find.text('Your saved favorites will appear here.'), findsOneWidget);
+    expect(
+      find.text('Your saved favorites will appear here.'),
+      findsOneWidget,
+    );
     await tester.tap(find.byIcon(Icons.person_outline));
     await tester.pumpAndSettle();
     expect(find.text('Your connection'), findsOneWidget);

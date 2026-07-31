@@ -4,29 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:veloura/features/truth_dare/presentation/wheel/widgets/wheel_painter.dart';
 import 'package:veloura/features/truth_dare/presentation/wheel/widgets/wheel_pointer.dart';
 
-/// Animated ten-petal roulette wheel with upright icon medallions.
+/// Animated ten-petal roulette wheel with alternating Truth and Dare segments.
 class SpinWheel extends StatelessWidget {
-  const SpinWheel({
-    required this.rotation,
-    this.winningSegment,
-    super.key,
-  });
+  const SpinWheel({required this.rotation, this.winningSegment, super.key});
 
   final double rotation;
   final int? winningSegment;
-
-  static const _icons = [
-    Icons.casino,
-    Icons.water_drop,
-    Icons.arrow_forward,
-    Icons.music_note,
-    Icons.favorite,
-    Icons.star,
-    Icons.casino,
-    Icons.local_fire_department,
-    Icons.water_drop,
-    Icons.arrow_forward,
-  ];
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
@@ -63,17 +46,22 @@ class SpinWheel extends StatelessWidget {
                         child: Transform.rotate(
                           angle: -rotation,
                           child: Container(
-                            width: 30,
-                            height: 30,
+                            width: 46,
+                            height: 28,
+                            alignment: Alignment.center,
                             decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white.withValues(alpha: 0.92),
+                              borderRadius: BorderRadius.circular(14),
+                              color: Colors.white.withValues(alpha: 0.94),
                               border: Border.all(color: const Color(0x14000000)),
                             ),
-                            child: Icon(
-                              _icons[index],
-                              size: 16,
-                              color: const Color(0xFF8E2A63),
+                            child: Text(
+                              index.isEven ? 'DARE' : 'TRUTH',
+                              style: const TextStyle(
+                                color: Color(0xFF8E2A63),
+                                fontSize: 8,
+                                fontWeight: FontWeight.w900,
+                                letterSpacing: 0.2,
+                              ),
                             ),
                           ),
                         ),
