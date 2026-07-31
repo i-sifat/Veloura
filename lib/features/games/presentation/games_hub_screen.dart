@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veloura/features/games/domain/game_catalog.dart';
 import 'package:veloura/features/games/domain/game_catalog_entry.dart';
+import 'package:veloura/features/games/presentation/game_favorites_controller.dart';
 import 'package:veloura/features/premium/provider.dart';
 import 'package:veloura/features/session/domain/game_session.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
@@ -152,16 +153,20 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
   }
 }
 
-class _GameListCard extends StatelessWidget {
+class _GameListCard extends ConsumerWidget {
   const _GameListCard({required this.entry, required this.locked});
 
   final GameCatalogEntry entry;
   final bool locked;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final colors = AppColors.of(context);
-    final info = _displayFor(entry);
+    final info = gameDisplayInfo(entry);
+    final favorited = ref
+        .watch(gameFavoritesControllerProvider)
+        .valueOrNull
+        ?.contains(entry.id) ?? false;
     return Semantics(
       button: true,
       label: 'Open ${info.$1}',
@@ -250,6 +255,19 @@ class _GameListCard extends StatelessWidget {
                   ],
                 ),
               ),
+              IconButton(
+                key: ValueKey('game-favorite-${entry.id}'),
+                tooltip: favorited ? 'Remove from favorites' : 'Add to favorites',
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
+                onPressed: () => ref
+                    .read(gameFavoritesControllerProvider.notifier)
+                    .toggle(entry.id),
+                icon: Icon(
+                  favorited ? Icons.favorite : Icons.favorite_border,
+                  color: favorited ? colors.primary : colors.textSecondary,
+                ),
+              ),
               Icon(Icons.chevron_right, color: colors.textSecondary),
             ],
           ),
@@ -279,24 +297,6 @@ class _Badge extends StatelessWidget {
   );
 }
 
-(String, String, String) _displayFor(GameCatalogEntry entry) =>
-    switch (entry.id) {
-      'lustful_rolls' => ('Love Dice', 'Let fate decide.', '2 Players'),
-      'card_challenge' => ('Would You Rather', 'Reveal desires.', '2 Players'),
-      'truth_or_dare' => ('Truth or Dare', 'Classic. Bold. Fun.', '2 Players'),
-      'creative_connections' => (
-        'Creative Positions',
-        'Try something new.',
-        '2 Players',
-      ),
-      'follow_the_tempo' => (
-        'Follow the Tempo',
-        'Move together.',
-        '2 Players',
-      ),
-      _ => ('Passionate Roleplay', 'Become someone else.', '2+ Players'),
-    };
-
 class _GameSearchDelegate extends SearchDelegate<GameCatalogEntry> {
   @override
   List<Widget>? buildActions(BuildContext context) => [
@@ -317,7 +317,7 @@ class _GameSearchDelegate extends SearchDelegate<GameCatalogEntry> {
 
   Widget _results(BuildContext context) {
     final matches = kGameCatalog.where((entry) {
-      final display = _displayFor(entry);
+      final display = gameDisplayInfo(entry);
       return display.$1.toLowerCase().contains(query.toLowerCase());
     }).toList();
     return ListView(
@@ -325,8 +325,8 @@ class _GameSearchDelegate extends SearchDelegate<GameCatalogEntry> {
         for (final entry in matches)
           ListTile(
             leading: Icon(entry.fallbackIcon),
-            title: Text(_displayFor(entry).$1),
-            subtitle: Text(_displayFor(entry).$2),
+            title: Text(gameDisplayInfo(entry).$1),
+            subtitle: Text(gameDisplayInfo(entry).$2),
             onTap: () => close(context, entry),
           ),
       ],

@@ -1,231 +1,410 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:veloura/features/daily/presentation/daily_controller.dart';
+import 'package:veloura/features/premium/provider.dart';
 import 'package:veloura/features/profile/domain/profile_models.dart';
 import 'package:veloura/features/profile/presentation/profile_controller.dart';
+import 'package:veloura/features/profile/presentation/widgets/profile_sheets.dart';
 import 'package:veloura/shared/widgets/error_state.dart';
 import 'package:veloura/theme/app_colors.dart';
-import 'package:veloura/theme/game_tokens.dart';
+import 'package:veloura/theme/app_design_tokens.dart';
 
-/// Couple profile, aggregate statistics, achievements, activity and settings.
+/// Couple snapshot, streak stats, premium upsell, and settings entry points.
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final profile = ref.watch(profileControllerProvider);
-    return Scaffold(
-      appBar: AppBar(title: const Text('Profile')),
-      body: profile.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, _) => ErrorState(
-          message: '$error',
-          onRetry: () => ref.invalidate(profileControllerProvider),
+    final colors = AppColors.of(context);
+    return ColoredBox(
+      color: colors.background,
+      child: SafeArea(
+        bottom: false,
+        child: profile.when(
+          loading: () => const Center(child: CircularProgressIndicator()),
+          error: (error, _) => ErrorState(
+            message: '$error',
+            onRetry: () => ref.invalidate(profileControllerProvider),
+          ),
+          data: (state) => _ProfileBody(state: state),
         ),
-        data: (state) => DefaultTabController(
-          length: 3,
-          child: Column(
-            children: [
-              const TabBar(
-                tabs: [
-                  Tab(text: 'Overview'),
-                  Tab(text: 'Activity'),
-                  Tab(text: 'Settings'),
-                ],
-              ),
-              Expanded(
-                child: TabBarView(
+      ),
+    );
+  }
+}
+
+class _ProfileBody extends ConsumerWidget {
+  const _ProfileBody({required this.state});
+
+  final ProfileState state;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final streak = ref.watch(dailyControllerProvider).valueOrNull?.streak ?? 0;
+    final isPremium = ref.watch(isPremiumProvider);
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(24, 20, 24, 32),
+      children: [
+        _Header(onSettings: () => showSettingsSheet(context)),
+        const SizedBox(height: 18),
+        _HeroCard(
+          profile: state.profile,
+          onEdit: () => editNamesDialog(context, ref, state.profile),
+        ),
+        const SizedBox(height: 18),
+        _StatsRow(
+          streak: streak,
+          gamesPlayed: state.stats.totalPlays,
+          challengesCompleted: state.stats.challengesCompleted,
+        ),
+        const SizedBox(height: 18),
+        if (!isPremium) const _PremiumCard(),
+        if (!isPremium) const SizedBox(height: 18),
+        _ProfileListRow(
+          icon: Icons.emoji_events_outlined,
+          label: 'Achievements',
+          trailingCount: state.achievements.where((item) => item.unlocked).length,
+          onTap: () => showAchievementsSheet(context, state.achievements),
+        ),
+        _ProfileListRow(
+          icon: Icons.history,
+          label: 'Game History',
+          onTap: () => showHistorySheet(context, state.activity),
+        ),
+        _ProfileListRow(
+          icon: Icons.person_outline,
+          label: 'My Partner',
+          onTap: () => editNamesDialog(context, ref, state.profile),
+        ),
+        _ProfileListRow(
+          icon: Icons.lock_outline,
+          label: 'Privacy',
+          onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Privacy settings are coming soon.')),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _Header extends StatelessWidget {
+  const _Header({required this.onSettings});
+
+  final VoidCallback onSettings;
+
+  @override
+  Widget build(BuildContext context) => Row(
+    children: [
+      Text(
+        'Profile',
+        style: Theme.of(
+          context,
+        ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w700),
+      ),
+      const Spacer(),
+      IconButton(
+        tooltip: 'Settings',
+        onPressed: onSettings,
+        icon: const Icon(Icons.settings_outlined, size: 26),
+      ),
+    ],
+  );
+}
+
+class _HeroCard extends StatelessWidget {
+  const _HeroCard({required this.profile, required this.onEdit});
+
+  final CoupleProfile profile;
+  final VoidCallback onEdit;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: colors.surface,
+        borderRadius: BorderRadius.circular(AppDesignTokens.cardRadius),
+        border: Border.all(color: colors.divider),
+      ),
+      child: Row(
+        children: [
+          _AvatarRing(color: colors.primary),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
                   children: [
-                    _Overview(state: state),
-                    _Activity(entries: state.activity),
-                    _Settings(state: state),
+                    Flexible(
+                      child: Text(
+                        '${profile.nameA} & ${profile.nameB}',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(
+                          context,
+                        ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    GestureDetector(
+                      onTap: onEdit,
+                      child: Icon(
+                        Icons.edit_outlined,
+                        size: 16,
+                        color: colors.textSecondary,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                Row(
+                  children: [
+                    Icon(Icons.calendar_today, size: 14, color: colors.primary),
+                    const SizedBox(width: 6),
+                    Text(
+                      'Together since ${profile.togetherDays(DateTime.now())} days',
+                      style: TextStyle(color: colors.primary, fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _AvatarRing extends StatelessWidget {
+  const _AvatarRing({required this.color});
+
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    width: 68,
+    height: 68,
+    padding: const EdgeInsets.all(3),
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      border: Border.all(color: color, width: 2),
+    ),
+    child: CircleAvatar(
+      backgroundColor: AppColors.of(context).card,
+      child: Icon(Icons.favorite_rounded, color: color, size: 28),
+    ),
+  );
+}
+
+class _StatsRow extends StatelessWidget {
+  const _StatsRow({
+    required this.streak,
+    required this.gamesPlayed,
+    required this.challengesCompleted,
+  });
+
+  final int streak;
+  final int gamesPlayed;
+  final int challengesCompleted;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      decoration: BoxDecoration(
+        color: colors.surface,
+        borderRadius: BorderRadius.circular(AppDesignTokens.cardRadius),
+        border: Border.all(color: colors.divider),
+      ),
+      child: Row(
+        children: [
+          _StatItem(
+            icon: Icons.local_fire_department,
+            value: '$streak',
+            label: 'Day streak',
+            color: colors.accent,
+          ),
+          SizedBox(height: 40, child: VerticalDivider(color: colors.divider)),
+          _StatItem(
+            icon: Icons.favorite,
+            value: '$gamesPlayed',
+            label: 'Games played',
+            color: colors.primary,
+          ),
+          SizedBox(height: 40, child: VerticalDivider(color: colors.divider)),
+          _StatItem(
+            icon: Icons.star,
+            value: '$challengesCompleted',
+            label: 'Challenges\ncompleted',
+            color: colors.accent,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _StatItem extends StatelessWidget {
+  const _StatItem({
+    required this.icon,
+    required this.value,
+    required this.label,
+    required this.color,
+  });
+
+  final IconData icon;
+  final String value;
+  final String label;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) => Expanded(
+    child: Column(
+      children: [
+        Icon(icon, color: color, size: 20),
+        const SizedBox(height: 6),
+        Text(
+          value,
+          style: Theme.of(
+            context,
+          ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+        ),
+        Text(
+          label,
+          textAlign: TextAlign.center,
+          style: TextStyle(color: AppColors.of(context).textSecondary, fontSize: 11),
+        ),
+      ],
+    ),
+  );
+}
+
+class _PremiumCard extends StatelessWidget {
+  const _PremiumCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: colors.surface,
+        borderRadius: BorderRadius.circular(AppDesignTokens.cardRadius),
+        border: Border.all(color: colors.primary.withValues(alpha: .35)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: colors.primary,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: const Icon(Icons.diamond_outlined, color: Colors.white),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Veloura Premium',
+                      style: Theme.of(
+                        context,
+                      ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+                    ),
+                    Text(
+                      'Unlock all games, challenges and premium features.',
+                      style: TextStyle(color: colors.textSecondary),
+                    ),
                   ],
                 ),
               ),
             ],
           ),
-        ),
+          const SizedBox(height: 14),
+          SizedBox(
+            width: 168,
+            child: FilledButton.icon(
+              style: FilledButton.styleFrom(backgroundColor: colors.primary),
+              onPressed: () => context.push('/premium?source=profile'),
+              iconAlignment: IconAlignment.end,
+              icon: const Icon(Icons.chevron_right),
+              label: const Text('Go Premium'),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
-class _Overview extends StatelessWidget {
-  const _Overview({required this.state});
-  final ProfileState state;
+class _ProfileListRow extends StatelessWidget {
+  const _ProfileListRow({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+    this.trailingCount,
+  });
 
-  @override
-  Widget build(BuildContext context) => ListView(
-    padding: const EdgeInsets.fromLTRB(20, 20, 20, 120),
-    children: [
-      _ProfileHero(profile: state.profile),
-      const SizedBox(height: 20),
-      Text('Your connection', style: Theme.of(context).textTheme.titleLarge),
-      const SizedBox(height: 10),
-      GridView.count(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        crossAxisCount: 2,
-        childAspectRatio: 1.7,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-        children: [
-          _Metric(label: 'Dice rolls', value: state.stats.diceRolls),
-          _Metric(label: 'Truth / Dare', value: state.stats.truthDareCompleted),
-          _Metric(label: 'Challenges', value: state.stats.challengesCompleted),
-          _Metric(label: 'Conversations', value: state.stats.conversationsAnswered),
-          _Metric(label: 'Roleplays', value: state.stats.roleplaysCompleted),
-          _Metric(label: 'Daily', value: state.stats.dailyCompletions),
-        ],
-      ),
-      const SizedBox(height: 24),
-      Text('Achievements', style: Theme.of(context).textTheme.titleLarge),
-      const SizedBox(height: 8),
-      for (final item in state.achievements)
-        Card(
-          child: ListTile(
-            leading: Icon(
-              item.unlocked ? Icons.verified : Icons.lock_outline,
-              color: item.unlocked ? GameTokens.rose : null,
-            ),
-            title: Text(item.title),
-            subtitle: Text(item.description),
-          ),
-        ),
-    ],
-  );
-}
-
-class _ProfileHero extends StatelessWidget {
-  const _ProfileHero({required this.profile});
-  final CoupleProfile profile;
-
-  @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.all(22),
-    decoration: BoxDecoration(
-      gradient: const LinearGradient(colors: GameTokens.passionateRoleplay),
-      borderRadius: BorderRadius.circular(24),
-    ),
-    child: Column(
-      children: [
-        const Icon(Icons.favorite, size: 38),
-        const SizedBox(height: 10),
-        Text(
-          '${profile.nameA} & ${profile.nameB}',
-          style: Theme.of(context).textTheme.headlineSmall,
-        ),
-        if (profile.relationshipStart != null)
-          Text('${profile.togetherDays(DateTime.now())} days together'),
-      ],
-    ),
-  );
-}
-
-class _Metric extends StatelessWidget {
-  const _Metric({required this.label, required this.value});
+  final IconData icon;
   final String label;
-  final int value;
-
-  @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.all(14),
-    decoration: BoxDecoration(
-      color: GameTokens.glassStrong,
-      borderRadius: BorderRadius.circular(18),
-      border: Border.all(color: GameTokens.hairline),
-    ),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text('$value', style: Theme.of(context).textTheme.titleLarge),
-        Text(label, style: Theme.of(context).textTheme.bodySmall),
-      ],
-    ),
-  );
-}
-
-class _Activity extends StatelessWidget {
-  const _Activity({required this.entries});
-  final List<ActivityEntry> entries;
+  final VoidCallback onTap;
+  final int? trailingCount;
 
   @override
   Widget build(BuildContext context) {
-    if (entries.isEmpty) {
-      return const Center(child: Text('Play a game to start your activity.'));
-    }
-    return ListView.builder(
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 120),
-      itemCount: entries.length,
-      itemBuilder: (context, index) {
-        final item = entries[index];
-        return ListTile(
-          leading: const Icon(Icons.auto_awesome),
-          title: Text(item.label),
-          subtitle: Text('${item.gameId} · ${_date(item.timestamp)}'),
-        );
-      },
+    final colors = AppColors.of(context);
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(AppDesignTokens.cardRadius),
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        decoration: BoxDecoration(
+          color: colors.surface,
+          borderRadius: BorderRadius.circular(AppDesignTokens.cardRadius),
+          border: Border.all(color: colors.divider),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, color: colors.textSecondary),
+            const SizedBox(width: 14),
+            Expanded(child: Text(label, style: Theme.of(context).textTheme.bodyLarge)),
+            if (trailingCount != null) ...[
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
+                decoration: BoxDecoration(
+                  color: colors.primary,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  '$trailingCount',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+            ],
+            Icon(Icons.chevron_right, color: colors.textSecondary),
+          ],
+        ),
+      ),
     );
   }
 }
-
-class _Settings extends ConsumerWidget {
-  const _Settings({required this.state});
-  final ProfileState state;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final settings = state.settings;
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 120),
-      children: [
-        SwitchListTile.adaptive(
-          title: const Text('Haptics'),
-          value: settings.haptics,
-          onChanged: (value) => ref
-              .read(profileControllerProvider.notifier)
-              .updateSettings(settings.copyWith(haptics: value)),
-        ),
-        SwitchListTile.adaptive(
-          title: const Text('Sound'),
-          subtitle: const Text('Audio effects arrive in the release polish phase.'),
-          value: settings.sound,
-          onChanged: (value) => ref
-              .read(profileControllerProvider.notifier)
-              .updateSettings(settings.copyWith(sound: value)),
-        ),
-        SwitchListTile.adaptive(
-          title: const Text('Notifications'),
-          value: settings.notifications,
-          onChanged: (value) => ref
-              .read(profileControllerProvider.notifier)
-              .updateSettings(settings.copyWith(notifications: value)),
-        ),
-        const ListTile(
-          leading: Icon(Icons.language),
-          title: Text('Language'),
-          trailing: Text('English'),
-        ),
-        const Divider(),
-        ListTile(
-          leading: const Icon(Icons.privacy_tip_outlined),
-          title: const Text('Privacy policy'),
-          subtitle: Text(
-            'Legal URL required before release',
-            style: TextStyle(color: AppColors.of(context).textSecondary),
-          ),
-        ),
-        ListTile(
-          leading: const Icon(Icons.description_outlined),
-          title: const Text('Terms of service'),
-          subtitle: Text(
-            'Legal URL required before release',
-            style: TextStyle(color: AppColors.of(context).textSecondary),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-String _date(DateTime value) =>
-    '${value.year}-${value.month.toString().padLeft(2, '0')}-${value.day.toString().padLeft(2, '0')}';
