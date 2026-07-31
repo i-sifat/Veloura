@@ -25,6 +25,10 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('onboarding captures the couple and opens Home', (tester) async {
+    tester.view.physicalSize = const Size(430, 932);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
     SharedPreferences.setMockInitialValues({});
     final repository = _MemorySessionRepository();
     await tester.pumpWidget(
@@ -64,6 +68,8 @@ void main() {
     expect(repository.value?.b.name, 'Jamie');
     expect(find.text('Good evening'), findsOneWidget);
     expect(find.text('Angelina 💕'), findsOneWidget);
-    expect(find.byType(NavigationBar), findsOneWidget);
+    for (final label in ['Home', 'Games', 'Favorites', 'Profile']) {
+      expect(find.text(label), findsOneWidget);
+    }
   });
 }
