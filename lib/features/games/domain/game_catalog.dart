@@ -6,7 +6,7 @@ import 'package:veloura/theme/game_tokens.dart';
 const kGameCatalog = <GameCatalogEntry>[
   GameCatalogEntry(
     id: 'lustful_rolls',
-    title: 'Lustful Rolls',
+    title: 'Love Dice',
     route: '/games/lustful-rolls',
     art: 'assets/lustful_rolls.png',
     gradient: GameTokens.lustfulRolls,
@@ -14,7 +14,7 @@ const kGameCatalog = <GameCatalogEntry>[
   ),
   GameCatalogEntry(
     id: 'card_challenge',
-    title: 'Card Challenge',
+    title: 'Would You Rather',
     route: '/games/card-challenge',
     art: 'assets/card_challenge.png',
     gradient: GameTokens.cardChallenge,

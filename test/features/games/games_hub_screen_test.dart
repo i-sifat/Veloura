@@ -28,7 +28,10 @@ Widget _app() => ProviderScope(
   overrides: [
     sessionRepositoryProvider.overrideWith((ref) async => _MemoryRepository()),
   ],
-  child: MaterialApp(theme: AppTheme.dark, home: const GamesHubScreen()),
+  child: MaterialApp(
+    theme: AppTheme.dark,
+    home: const Scaffold(body: GamesHubScreen()),
+  ),
 );
 
 void main() {
@@ -38,20 +41,20 @@ void main() {
     SharedPreferences.setMockInitialValues({'session_players_configured': true});
   });
 
-  testWidgets('hub renders all six catalog tiles in a two-column grid', (
+  testWidgets('hub renders the full catalog as renovated list cards', (
     tester,
   ) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
 
     expect(kGameCatalog, hasLength(6));
-    expect(find.byKey(const ValueKey('games-grid')), findsOneWidget);
-    expect(find.text('SELECT A GAME'), findsOneWidget);
+    expect(find.text('Games'), findsOneWidget);
+    expect(find.text('All'), findsOneWidget);
     final scrollable = find.byType(Scrollable).last;
     for (final entry in kGameCatalog) {
-      final tile = find.byKey(ValueKey('game-tile-${entry.id}'));
-      await tester.scrollUntilVisible(tile, 180, scrollable: scrollable);
-      expect(tile, findsOneWidget);
+      final card = find.byKey(ValueKey('game-card-${entry.id}'));
+      await tester.scrollUntilVisible(card, 180, scrollable: scrollable);
+      expect(card, findsOneWidget);
     }
   });
 
