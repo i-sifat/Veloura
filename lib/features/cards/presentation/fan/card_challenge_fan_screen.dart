@@ -324,16 +324,17 @@ class _DeckSelector extends StatelessWidget {
                       : GameTokens.hairline,
                 ),
               ),
-              child: Column(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(deck.icon, size: 16),
-                  const SizedBox(height: 3),
+                  const SizedBox(width: 6),
                   Text(
                     deck.label,
                     maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 11,
+                      fontSize: 12,
                       fontWeight: FontWeight.w700,
                     ),
                   ),

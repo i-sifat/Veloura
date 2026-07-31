@@ -64,7 +64,7 @@ class ChallengeCardBack extends StatelessWidget {
           ),
         ),
         if (locked)
-          const Positioned(top: 8, right: 8, child: PremiumLockBadge()),
+          const Positioned(top: 8, left: 8, child: PremiumLockBadge()),
       ],
     ),
   );
