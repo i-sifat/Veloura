@@ -92,42 +92,36 @@ void main() {
     }),
   );
 
-  testWidgets('Veloura launches into the five-tab Home shell', (tester) async {
+  testWidgets('Veloura launches into the four-tab Home shell', (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
-    expect(find.text('Make time for each other'), findsOneWidget);
-    expect(find.byType(NavigationBar), findsOneWidget);
-    for (final label in ['Home', 'Games', 'Daily', 'Favorites', 'Profile']) {
+    expect(find.text('Angelina 💕'), findsOneWidget);
+    for (final label in ['Home', 'Games', 'Favorites', 'Profile']) {
       expect(find.text(label), findsOneWidget);
     }
+    expect(find.text('Daily'), findsNothing);
   });
 
-  testWidgets('Games exposes all Phase 4.5 catalog entries', (tester) async {
+  testWidgets('Games exposes all catalog entries in list cards', (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
-    await tester.tap(find.byIcon(Icons.casino_outlined).last);
+    await tester.tap(find.byIcon(Icons.grid_view_outlined));
     await tester.pumpAndSettle();
     expect(kGameCatalog, hasLength(6));
     final scrollable = find.byType(Scrollable).last;
     for (final entry in kGameCatalog) {
-      final tile = find.byKey(ValueKey('game-tile-${entry.id}'));
-      await tester.scrollUntilVisible(tile, 180, scrollable: scrollable);
-      expect(tile, findsOneWidget);
+      final card = find.byKey(ValueKey('game-card-${entry.id}'));
+      await tester.scrollUntilVisible(card, 180, scrollable: scrollable);
+      expect(card, findsOneWidget);
     }
   });
 
-  testWidgets('remaining navigation branches are reachable', (tester) async {
+  testWidgets('favorites and profile branches remain reachable', (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
-    await tester.tap(find.byIcon(Icons.calendar_today_outlined));
+    await tester.tap(find.byIcon(Icons.favorite_border));
     await tester.pumpAndSettle();
-    expect(find.text('DAILY CONNECTION'), findsOneWidget);
-    await tester.tap(find.byIcon(Icons.favorite_outline));
-    await tester.pumpAndSettle();
-    expect(
-      find.text('Your saved favorites will appear here.'),
-      findsOneWidget,
-    );
+    expect(find.text('Your saved favorites will appear here.'), findsOneWidget);
     await tester.tap(find.byIcon(Icons.person_outline));
     await tester.pumpAndSettle();
     expect(find.text('Your connection'), findsOneWidget);

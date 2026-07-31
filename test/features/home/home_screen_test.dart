@@ -6,17 +6,16 @@ import 'package:veloura/features/games/domain/game_catalog.dart';
 import 'package:veloura/features/home/presentation/home_screen.dart';
 
 void main() {
-  test('popular games rotate by day and never include Conversation', () {
+  test('popular games rotate by day and contain four unique entries', () {
     final first = popularGamesFor(DateTime(2026, 7, 30));
     final next = popularGamesFor(DateTime(2026, 7, 31));
 
-    expect(first, hasLength(3));
-    expect(first.map((game) => game.id).toSet(), hasLength(3));
-    expect(first.map((game) => game.title), isNot(contains('Conversation')));
+    expect(first, hasLength(4));
+    expect(first.map((game) => game.id).toSet(), hasLength(4));
     expect(next.first.id, isNot(first.first.id));
   });
 
-  testWidgets('every Popular tonight card opens its game route', (tester) async {
+  testWidgets('every Popular games card opens its existing route', (tester) async {
     final router = GoRouter(
       initialLocation: '/home',
       routes: [
@@ -24,10 +23,7 @@ void main() {
           path: '/home',
           builder: (_, _) => const Scaffold(body: HomeScreen()),
         ),
-        GoRoute(
-          path: '/home/conversation',
-          builder: (_, _) => const Scaffold(body: Text('Conversation')),
-        ),
+        GoRoute(path: '/games', builder: (_, _) => const Text('Games')),
         for (final game in kGameCatalog)
           GoRoute(
             path: game.route,
@@ -47,6 +43,5 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Opened ${first.id}'), findsOneWidget);
-    expect(find.text('Premium experiences are coming in Phase 6.'), findsNothing);
   });
 }
