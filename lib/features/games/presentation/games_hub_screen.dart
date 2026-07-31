@@ -70,7 +70,12 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   scrollDirection: Axis.horizontal,
                   children: [
-                    for (final category in const ['All', 'Spicy 🔥', 'Intimacy 💕', 'Fun 😈'])
+                    for (final category in const [
+                      'All',
+                      'Spicy 🔥',
+                      'Intimacy 💕',
+                      'Fun 😈',
+                    ])
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: ChoiceChip(
@@ -86,7 +91,10 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
                                 ? colors.textPrimary
                                 : colors.textSecondary,
                           ),
-                          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 14,
+                            vertical: 10,
+                          ),
                         ),
                       ),
                   ],
@@ -136,7 +144,7 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
   }
 
   Future<void> _showSearch() async {
-    final selected = await showSearch<GameCatalogEntry?>(
+    final selected = await showSearch<GameCatalogEntry>(
       context: context,
       delegate: _GameSearchDelegate(),
     );
@@ -158,10 +166,13 @@ class _GameListCard extends StatelessWidget {
       button: true,
       label: 'Open ${info.$1}',
       child: InkWell(
+        key: ValueKey('game-card-${entry.id}'),
         onTap: () {
           if (locked) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('${info.$1} unlocks with Veloura Premium.')),
+              SnackBar(
+                content: Text('${info.$1} unlocks with Veloura Premium.'),
+              ),
             );
           } else {
             context.push(entry.route);
@@ -203,9 +214,10 @@ class _GameListCard extends StatelessWidget {
                             info.$1,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.copyWith(fontWeight: FontWeight.w600),
                           ),
                         ),
                         if (entry.id == 'truth_or_dare') ...[
@@ -223,9 +235,16 @@ class _GameListCard extends StatelessWidget {
                     const SizedBox(height: 8),
                     Row(
                       children: [
-                        Icon(Icons.group_outlined, size: 18, color: colors.textSecondary),
+                        Icon(
+                          Icons.group_outlined,
+                          size: 18,
+                          color: colors.textSecondary,
+                        ),
                         const SizedBox(width: 5),
-                        Text(info.$3, style: TextStyle(color: colors.textSecondary)),
+                        Text(
+                          info.$3,
+                          style: TextStyle(color: colors.textSecondary),
+                        ),
                       ],
                     ),
                   ],
@@ -242,27 +261,43 @@ class _GameListCard extends StatelessWidget {
 
 class _Badge extends StatelessWidget {
   const _Badge({required this.label, required this.color});
+
   final String label;
   final Color color;
 
   @override
   Widget build(BuildContext context) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-    decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(6)),
-    child: Text(label, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700)),
+    decoration: BoxDecoration(
+      color: color,
+      borderRadius: BorderRadius.circular(6),
+    ),
+    child: Text(
+      label,
+      style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
+    ),
   );
 }
 
-(String, String, String) _displayFor(GameCatalogEntry entry) => switch (entry.id) {
-  'lustful_rolls' => ('Love Dice', 'Let fate decide.', '2 Players'),
-  'card_challenge' => ('Would You Rather', 'Reveal desires.', '2 Players'),
-  'truth_or_dare' => ('Truth or Dare', 'Classic. Bold. Fun.', '2 Players'),
-  'creative_connections' => ('Creative Positions', 'Try something new.', '2 Players'),
-  'follow_the_tempo' => ('Follow the Tempo', 'Move together.', '2 Players'),
-  _ => ('Passionate Roleplay', 'Become someone else.', '2+ Players'),
-};
+(String, String, String) _displayFor(GameCatalogEntry entry) =>
+    switch (entry.id) {
+      'lustful_rolls' => ('Love Dice', 'Let fate decide.', '2 Players'),
+      'card_challenge' => ('Would You Rather', 'Reveal desires.', '2 Players'),
+      'truth_or_dare' => ('Truth or Dare', 'Classic. Bold. Fun.', '2 Players'),
+      'creative_connections' => (
+        'Creative Positions',
+        'Try something new.',
+        '2 Players',
+      ),
+      'follow_the_tempo' => (
+        'Follow the Tempo',
+        'Move together.',
+        '2 Players',
+      ),
+      _ => ('Passionate Roleplay', 'Become someone else.', '2+ Players'),
+    };
 
-class _GameSearchDelegate extends SearchDelegate<GameCatalogEntry?> {
+class _GameSearchDelegate extends SearchDelegate<GameCatalogEntry> {
   @override
   List<Widget>? buildActions(BuildContext context) => [
     IconButton(onPressed: () => query = '', icon: const Icon(Icons.clear)),
@@ -275,12 +310,12 @@ class _GameSearchDelegate extends SearchDelegate<GameCatalogEntry?> {
   );
 
   @override
-  Widget buildResults(BuildContext context) => _results();
+  Widget buildResults(BuildContext context) => _results(context);
 
   @override
-  Widget buildSuggestions(BuildContext context) => _results();
+  Widget buildSuggestions(BuildContext context) => _results(context);
 
-  Widget _results() {
+  Widget _results(BuildContext context) {
     final matches = kGameCatalog.where((entry) {
       final display = _displayFor(entry);
       return display.$1.toLowerCase().contains(query.toLowerCase());
