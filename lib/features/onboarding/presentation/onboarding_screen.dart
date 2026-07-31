@@ -35,11 +35,15 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   Widget build(BuildContext context) => Scaffold(
     backgroundColor: OnboardingTokens.background,
     body: DecoratedBox(
-      decoration: const BoxDecoration(gradient: OnboardingTokens.backgroundGradient),
+      decoration: const BoxDecoration(
+        gradient: OnboardingTokens.backgroundGradient,
+      ),
       child: SafeArea(
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: OnboardingTokens.maxWidth),
+            constraints: const BoxConstraints(
+              maxWidth: OnboardingTokens.maxWidth,
+            ),
             child: Padding(
               padding: const EdgeInsets.fromLTRB(
                 OnboardingTokens.pagePadding,
@@ -84,12 +88,14 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       const OnboardingIntroPage(
         variant: 1,
         title: 'Deep conversations\nand playful moments',
-        body: 'From flirty questions to spicy challenges, every game is designed to spark connection.',
+        body:
+            'From flirty questions to spicy challenges, every game is designed to spark connection.',
       ),
       const OnboardingIntroPage(
         variant: 2,
         title: 'Track your journey\nand grow together',
-        body: 'Celebrate your progress, keep your streak alive and make memories as a couple.',
+        body:
+            'Celebrate your progress, keep your streak alive and make memories as a couple.',
       ),
       NamesPage(nameA: _nameA, nameB: _nameB),
       SexPage(
@@ -118,7 +124,9 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       if (!mounted) return;
       setState(() => _saving = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Could not finish setup. Please try again.')),
+        const SnackBar(
+          content: Text('Could not finish setup. Please try again.'),
+        ),
       );
     }
   }
@@ -135,7 +143,11 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 }
 
 class _OnboardingNav extends StatelessWidget {
-  const _OnboardingNav({required this.page, required this.onBack, required this.onSkip});
+  const _OnboardingNav({
+    required this.page,
+    required this.onBack,
+    required this.onSkip,
+  });
 
   final int page;
   final VoidCallback onBack;
@@ -146,7 +158,8 @@ class _OnboardingNav extends StatelessWidget {
     height: 48,
     child: Row(
       children: [
-        if (page >= OnboardingTokens.setupStartIndex && page < OnboardingTokens.pageCount - 1)
+        if (page >= OnboardingTokens.setupStartIndex &&
+            page < OnboardingTokens.pageCount - 1)
           IconButton(
             key: const ValueKey('onboarding-back'),
             onPressed: onBack,
@@ -167,7 +180,11 @@ class _OnboardingNav extends StatelessWidget {
 }
 
 class _OnboardingFooter extends StatelessWidget {
-  const _OnboardingFooter({required this.page, required this.saving, required this.onPressed});
+  const _OnboardingFooter({
+    required this.page,
+    required this.saving,
+    required this.onPressed,
+  });
 
   final int page;
   final bool saving;
@@ -176,18 +193,22 @@ class _OnboardingFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final intro = page < OnboardingTokens.setupStartIndex;
+    final iconOnly = intro && page < 2;
     return Row(
       children: [
         if (intro) _Dots(current: page),
-        if (intro) const Spacer(),
-        if (intro && page < 2)
+        if (iconOnly) const Spacer(),
+        if (intro && !iconOnly) const SizedBox(width: 16),
+        if (iconOnly)
           SizedBox.square(
             dimension: 54,
             child: IconButton.filled(
               key: const ValueKey('onboarding-next'),
               tooltip: 'Continue',
               onPressed: onPressed,
-              style: IconButton.styleFrom(backgroundColor: OnboardingTokens.pink),
+              style: IconButton.styleFrom(
+                backgroundColor: OnboardingTokens.pink,
+              ),
               icon: const Icon(Icons.arrow_forward_rounded),
             ),
           )
@@ -225,7 +246,9 @@ class _Dots extends StatelessWidget {
         margin: const EdgeInsets.only(right: 10),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: index == current ? OnboardingTokens.pink : OnboardingTokens.border,
+          color: index == current
+              ? OnboardingTokens.pink
+              : OnboardingTokens.border,
         ),
       ),
     ),
