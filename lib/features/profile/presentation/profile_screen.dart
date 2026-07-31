@@ -608,7 +608,7 @@ class _SettingsSwitch extends StatelessWidget {
         Switch.adaptive(
           value: value,
           onChanged: onChanged,
-          activeColor: colors.primary,
+          activeThumbColor: colors.primary,
         ),
       ],
     ),
