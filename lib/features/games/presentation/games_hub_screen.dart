@@ -163,10 +163,9 @@ class _GameListCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final colors = AppColors.of(context);
     final info = gameDisplayInfo(entry);
-    final favorited = ref
-        .watch(gameFavoritesControllerProvider)
-        .valueOrNull
-        ?.contains(entry.id) ?? false;
+    final favorited =
+        ref.watch(gameFavoritesControllerProvider).asData?.value.contains(entry.id) ??
+        false;
     return Semantics(
       button: true,
       label: 'Open ${info.$1}',

@@ -28,7 +28,7 @@ class _FavoritesScreenState extends ConsumerState<FavoritesScreen> {
   Widget build(BuildContext context) {
     final colors = AppColors.of(context);
     final favoriteGameIds =
-        ref.watch(gameFavoritesControllerProvider).valueOrNull ??
+        ref.watch(gameFavoritesControllerProvider).asData?.value ??
         const <String>{};
     final profile = ref.watch(profileControllerProvider);
 

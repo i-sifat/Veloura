@@ -42,7 +42,7 @@ class _ProfileBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final streak = ref.watch(dailyControllerProvider).valueOrNull?.streak ?? 0;
+    final streak = ref.watch(dailyControllerProvider).asData?.value.streak ?? 0;
     final isPremium = ref.watch(isPremiumProvider);
     return ListView(
       padding: const EdgeInsets.fromLTRB(24, 20, 24, 32),

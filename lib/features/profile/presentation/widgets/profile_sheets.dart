@@ -206,7 +206,7 @@ class _SettingsSheet extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final settings =
-        ref.watch(profileControllerProvider).valueOrNull?.settings ??
+        ref.watch(profileControllerProvider).asData?.value.settings ??
         const ProfileSettings();
     return SafeArea(
       child: ListView(
