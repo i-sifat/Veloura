@@ -121,7 +121,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byIcon(Icons.favorite_border));
     await tester.pumpAndSettle();
-    expect(find.text('Games'), findsOneWidget);
+    expect(find.text('Favorites'), findsOneWidget);
     expect(
       find.text('Star a game from the Games tab to see it here.'),
       findsOneWidget,
