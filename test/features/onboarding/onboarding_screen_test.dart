@@ -62,7 +62,8 @@ void main() {
 
     expect(repository.value?.a.name, 'Alex');
     expect(repository.value?.b.name, 'Jamie');
-    expect(find.text('Good evening, Alex & Jamie'), findsOneWidget);
+    expect(find.text('Good evening'), findsOneWidget);
+    expect(find.text('Angelina 💕'), findsOneWidget);
     expect(find.byType(NavigationBar), findsOneWidget);
   });
 }
