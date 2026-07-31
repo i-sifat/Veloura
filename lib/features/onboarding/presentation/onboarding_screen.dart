@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:veloura/features/onboarding/presentation/onboarding_controller.dart';
+import 'package:veloura/features/onboarding/presentation/onboarding_pages.dart';
+import 'package:veloura/features/onboarding/presentation/onboarding_tokens.dart';
 import 'package:veloura/shared/widgets/game/primary_cta.dart';
-import 'package:veloura/theme/app_colors.dart';
-import 'package:veloura/theme/game_tokens.dart';
 
-/// Four-step first-launch introduction and couple setup.
+/// Six-screen first-launch experience and couple setup.
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
 
@@ -15,13 +15,13 @@ class OnboardingScreen extends ConsumerStatefulWidget {
 }
 
 class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
-  static const _pageCount = 4;
-
   final _pages = PageController();
   final _nameA = TextEditingController();
   final _nameB = TextEditingController();
   var _page = 0;
   var _saving = false;
+  var _yourSex = 'female';
+  var _partnerSex = 'female';
 
   @override
   void dispose() {
@@ -32,199 +32,201 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final colors = AppColors.of(context);
-    final isLastPage = _page == _pageCount - 1;
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 20, 24, 28),
-          child: Column(
-            children: [
-              Row(
+  Widget build(BuildContext context) => Scaffold(
+    backgroundColor: OnboardingTokens.background,
+    body: DecoratedBox(
+      decoration: const BoxDecoration(gradient: OnboardingTokens.backgroundGradient),
+      child: SafeArea(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: OnboardingTokens.maxWidth),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(
+                OnboardingTokens.pagePadding,
+                4,
+                OnboardingTokens.pagePadding,
+                24,
+              ),
+              child: Column(
                 children: [
-                  Text(
-                    'VELOURA',
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      letterSpacing: 3,
-                      fontWeight: FontWeight.w800,
-                    ),
+                  _OnboardingNav(
+                    page: _page,
+                    onBack: _back,
+                    onSkip: () => _goTo(OnboardingTokens.setupStartIndex),
                   ),
-                  const Spacer(),
-                  Text(
-                    '${_page + 1} / $_pageCount',
-                    style: TextStyle(color: colors.textSecondary),
+                  Expanded(child: _pageView()),
+                  const SizedBox(height: 16),
+                  _OnboardingFooter(
+                    page: _page,
+                    saving: _saving,
+                    onPressed: _next,
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
-              LinearProgressIndicator(
-                value: (_page + 1) / _pageCount,
-              ),
-              Expanded(
-                child: PageView(
-                  controller: _pages,
-                  physics: const NeverScrollableScrollPhysics(),
-                  onPageChanged: (value) => setState(() => _page = value),
-                  children: [
-                    const _IntroPage(
-                      icon: Icons.favorite_rounded,
-                      title: 'Make space for each other',
-                      body:
-                          'Playful games, thoughtful questions, and small daily rituals designed for two.',
-                    ),
-                    const _IntroPage(
-                      icon: Icons.lock_outline,
-                      title: 'Private by default',
-                      body:
-                          'Your names, favorites, progress, and game history stay on this device unless you choose a connected service later.',
-                    ),
-                    const _IntroPage(
-                      icon: Icons.swap_horiz_rounded,
-                      title: 'Take turns, stay connected',
-                      body:
-                          'Veloura carries both of your names into every game and keeps track of whose turn comes next.',
-                    ),
-                    _PlayersPage(nameA: _nameA, nameB: _nameB),
-                  ],
-                ),
-              ),
-              PrimaryCta(
-                label: isLastPage ? 'Start connecting' : 'Continue',
-                icon: isLastPage ? Icons.favorite : Icons.arrow_forward,
-                busy: _saving,
-                onPressed: _saving ? null : _next,
-              ),
-            ],
+            ),
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+
+  Widget _pageView() => PageView(
+    controller: _pages,
+    physics: const NeverScrollableScrollPhysics(),
+    onPageChanged: (value) => setState(() => _page = value),
+    children: [
+      const OnboardingIntroPage(
+        variant: 0,
+        brand: true,
+        title: 'Stronger together',
+        body: 'Fun and intimate games that bring you closer, every day.',
+      ),
+      const OnboardingIntroPage(
+        variant: 1,
+        title: 'Deep conversations\nand playful moments',
+        body: 'From flirty questions to spicy challenges, every game is designed to spark connection.',
+      ),
+      const OnboardingIntroPage(
+        variant: 2,
+        title: 'Track your journey\nand grow together',
+        body: 'Celebrate your progress, keep your streak alive and make memories as a couple.',
+      ),
+      NamesPage(nameA: _nameA, nameB: _nameB),
+      SexPage(
+        yours: _yourSex,
+        partners: _partnerSex,
+        onYoursChanged: (value) => setState(() => _yourSex = value),
+        onPartnersChanged: (value) => setState(() => _partnerSex = value),
+      ),
+      const ReadyPage(),
+    ],
+  );
 
   Future<void> _next() async {
-    if (_page < _pageCount - 1) {
-      await _pages.nextPage(
-        duration: GameTokens.sheetDuration,
-        curve: Curves.easeOutCubic,
-      );
+    if (_page < OnboardingTokens.pageCount - 1) {
+      await _goTo(_page + 1);
       return;
     }
     setState(() => _saving = true);
     try {
-      await ref
-          .read(onboardingControllerProvider.notifier)
-          .finish(
-            nameA: _nameA.text.trim().isEmpty ? 'You' : _nameA.text,
-            nameB: _nameB.text.trim().isEmpty ? 'Partner' : _nameB.text,
-          );
+      await ref.read(onboardingControllerProvider.notifier).finish(
+        nameA: _nameA.text.trim().isEmpty ? 'You' : _nameA.text.trim(),
+        nameB: _nameB.text.trim().isEmpty ? 'Partner' : _nameB.text.trim(),
+      );
       if (mounted) context.go('/home');
     } on Object {
       if (!mounted) return;
       setState(() => _saving = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Could not finish setup. Please try again.'),
-        ),
+        const SnackBar(content: Text('Could not finish setup. Please try again.')),
       );
     }
   }
+
+  Future<void> _back() async {
+    if (_page > 0) await _goTo(_page - 1);
+  }
+
+  Future<void> _goTo(int page) => _pages.animateToPage(
+    page,
+    duration: const Duration(milliseconds: 320),
+    curve: Curves.easeOutCubic,
+  );
 }
 
-class _IntroPage extends StatelessWidget {
-  const _IntroPage({required this.icon, required this.title, required this.body});
-  final IconData icon;
-  final String title;
-  final String body;
+class _OnboardingNav extends StatelessWidget {
+  const _OnboardingNav({required this.page, required this.onBack, required this.onSkip});
+
+  final int page;
+  final VoidCallback onBack;
+  final VoidCallback onSkip;
 
   @override
-  Widget build(BuildContext context) => Center(
-    child: Column(
-      mainAxisSize: MainAxisSize.min,
+  Widget build(BuildContext context) => SizedBox(
+    height: 48,
+    child: Row(
       children: [
-        Container(
-          width: 112,
-          height: 112,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            gradient: LinearGradient(colors: GameTokens.passionateRoleplay),
-            boxShadow: [GameTokens.ctaShadow],
+        if (page >= OnboardingTokens.setupStartIndex && page < OnboardingTokens.pageCount - 1)
+          IconButton(
+            key: const ValueKey('onboarding-back'),
+            onPressed: onBack,
+            icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 20),
+          )
+        else
+          const SizedBox(width: 48),
+        const Spacer(),
+        if (page < OnboardingTokens.setupStartIndex)
+          TextButton(
+            key: const ValueKey('onboarding-skip'),
+            onPressed: onSkip,
+            child: const Text('Skip', style: TextStyle(color: Colors.white)),
           ),
-          child: Icon(icon, size: 48),
-        ),
-        const SizedBox(height: 32),
-        Text(
-          title,
-          textAlign: TextAlign.center,
-          style: Theme.of(
-            context,
-          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w800),
-        ),
-        const SizedBox(height: 14),
-        Text(
-          body,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            height: 1.5,
-            color: AppColors.of(context).textSecondary,
-          ),
-        ),
       ],
     ),
   );
 }
 
-class _PlayersPage extends StatelessWidget {
-  const _PlayersPage({required this.nameA, required this.nameB});
-  final TextEditingController nameA;
-  final TextEditingController nameB;
+class _OnboardingFooter extends StatelessWidget {
+  const _OnboardingFooter({required this.page, required this.saving, required this.onPressed});
+
+  final int page;
+  final bool saving;
+  final VoidCallback onPressed;
 
   @override
-  Widget build(BuildContext context) => Center(
-    child: SingleChildScrollView(
-      child: Column(
-        children: [
-          const Icon(
-            Icons.people_alt_outlined,
-            size: 64,
-            color: GameTokens.roseLight,
-          ),
-          const SizedBox(height: 18),
-          Text(
-            "Who's playing?",
-            style: Theme.of(
-              context,
-            ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w800),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            'Saved on this device. You can change these names later in Profile.',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: AppColors.of(context).textSecondary),
-          ),
-          const SizedBox(height: 24),
-          TextField(
-            controller: nameA,
-            maxLength: 12,
-            textCapitalization: TextCapitalization.words,
-            decoration: const InputDecoration(
-              labelText: 'Your name',
-              prefixIcon: Icon(Icons.person_outline),
-              counterText: '',
+  Widget build(BuildContext context) {
+    final intro = page < OnboardingTokens.setupStartIndex;
+    return Row(
+      children: [
+        if (intro) _Dots(current: page),
+        if (intro) const Spacer(),
+        if (intro && page < 2)
+          SizedBox.square(
+            dimension: 54,
+            child: IconButton.filled(
+              key: const ValueKey('onboarding-next'),
+              tooltip: 'Continue',
+              onPressed: onPressed,
+              style: IconButton.styleFrom(backgroundColor: OnboardingTokens.pink),
+              icon: const Icon(Icons.arrow_forward_rounded),
+            ),
+          )
+        else
+          Expanded(
+            child: PrimaryCta(
+              key: const ValueKey('onboarding-next'),
+              label: switch (page) {
+                2 => 'Get started',
+                5 => 'Go to Home',
+                _ => 'Continue',
+              },
+              busy: saving,
+              onPressed: saving ? null : onPressed,
             ),
           ),
-          const SizedBox(height: 12),
-          TextField(
-            controller: nameB,
-            maxLength: 12,
-            textCapitalization: TextCapitalization.words,
-            decoration: const InputDecoration(
-              labelText: "Partner's name",
-              prefixIcon: Icon(Icons.favorite_outline),
-              counterText: '',
-            ),
-          ),
-        ],
+      ],
+    );
+  }
+}
+
+class _Dots extends StatelessWidget {
+  const _Dots({required this.current});
+
+  final int current;
+
+  @override
+  Widget build(BuildContext context) => Row(
+    children: List.generate(
+      OnboardingTokens.setupStartIndex,
+      (index) => AnimatedContainer(
+        duration: const Duration(milliseconds: 180),
+        width: 8,
+        height: 8,
+        margin: const EdgeInsets.only(right: 10),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: index == current ? OnboardingTokens.pink : OnboardingTokens.border,
+        ),
       ),
     ),
   );
