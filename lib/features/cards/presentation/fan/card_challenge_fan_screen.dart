@@ -261,6 +261,8 @@ class _CardChallengeFanScreenState
                               onPick: (number) => _pick(number, state),
                             ),
                     ),
+                    if (locked) const _SuperhotLockBanner(),
+                    const SizedBox(height: 8),
                   ],
                 ),
               ),
@@ -270,6 +272,26 @@ class _CardChallengeFanScreenState
       },
     );
   }
+}
+
+/// Persistent notice shown while browsing the locked Superhot deck.
+class _SuperhotLockBanner extends StatelessWidget {
+  const _SuperhotLockBanner();
+
+  @override
+  Widget build(BuildContext context) => Container(
+    width: double.infinity,
+    padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+    decoration: BoxDecoration(
+      color: const Color(0xFFF7D9E6),
+      borderRadius: BorderRadius.circular(GameTokens.cardRadius),
+    ),
+    child: const Text(
+      'Superhot cards unlock with Premium.',
+      textAlign: TextAlign.center,
+      style: TextStyle(color: Color(0xFF7D123D), fontWeight: FontWeight.w600),
+    ),
+  );
 }
 
 class _DeckSelector extends StatelessWidget {
