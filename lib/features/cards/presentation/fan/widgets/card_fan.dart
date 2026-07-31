@@ -24,7 +24,7 @@ class CardFan extends StatelessWidget {
       crossAxisCount: 3,
       crossAxisSpacing: 14,
       mainAxisSpacing: 14,
-      childAspectRatio: 0.72,
+      childAspectRatio: 0.82,
     ),
     itemCount: 12,
     itemBuilder: (context, index) => Semantics(

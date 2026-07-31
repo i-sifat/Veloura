@@ -121,9 +121,17 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byIcon(Icons.favorite_border));
     await tester.pumpAndSettle();
-    expect(find.text('Your saved favorites will appear here.'), findsOneWidget);
+    expect(find.text('Challenges'), findsOneWidget);
+    expect(
+      find.text('Star a game from the Games tab to see it here.'),
+      findsOneWidget,
+    );
     await tester.tap(find.byIcon(Icons.person_outline));
     await tester.pumpAndSettle();
-    expect(find.text('Your connection'), findsOneWidget);
+    expect(find.text('You & Partner'), findsOneWidget);
+    final scrollable = find.byType(Scrollable).last;
+    final myPartnerRow = find.text('My Partner');
+    await tester.scrollUntilVisible(myPartnerRow, 200, scrollable: scrollable);
+    expect(myPartnerRow, findsOneWidget);
   });
 }
