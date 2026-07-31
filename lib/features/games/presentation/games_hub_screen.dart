@@ -305,7 +305,7 @@ class _GameSearchDelegate extends SearchDelegate<GameCatalogEntry> {
 
   @override
   Widget? buildLeading(BuildContext context) => IconButton(
-    onPressed: () => close(context, null),
+    onPressed: () => Navigator.of(context).maybePop(),
     icon: const Icon(Icons.arrow_back),
   );
 
