@@ -37,7 +37,7 @@ abstract final class AppTheme {
         elevation: 0,
         scrolledUnderElevation: 0,
         backgroundColor: Colors.transparent,
-        foregroundColor: colors.textPrimary,
+        foregroundColor: Color(0xFFF7F8FB),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
