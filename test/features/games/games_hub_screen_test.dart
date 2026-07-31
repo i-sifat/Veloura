@@ -28,7 +28,10 @@ Widget _app() => ProviderScope(
   overrides: [
     sessionRepositoryProvider.overrideWith((ref) async => _MemoryRepository()),
   ],
-  child: MaterialApp(theme: AppTheme.dark, home: const GamesHubScreen()),
+  child: MaterialApp(
+    theme: AppTheme.dark,
+    home: const Scaffold(body: GamesHubScreen()),
+  ),
 );
 
 void main() {
