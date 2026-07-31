@@ -10,8 +10,10 @@ import 'package:veloura/features/session/presentation/session_controller.dart';
 
 class _MemorySessionRepository implements SessionRepository {
   GameSession? value;
+
   @override
   Future<AppResult<GameSession?>> load() async => AppResult.success(value);
+
   @override
   Future<AppResult<void>> save(GameSession session) async {
     value = session;
@@ -55,7 +57,9 @@ void main() {
 
     expect(repository.value?.a.name, 'Alex');
     expect(repository.value?.b.name, 'Jamie');
-    expect(find.text('Make time for each other'), findsOneWidget);
-    expect(find.byType(NavigationBar), findsOneWidget);
+    expect(find.text('Angelina 💕'), findsOneWidget);
+    for (final label in ['Home', 'Games', 'Favorites', 'Profile']) {
+      expect(find.text(label), findsOneWidget);
+    }
   });
 }

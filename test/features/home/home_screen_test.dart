@@ -39,7 +39,9 @@ void main() {
     await tester.pumpAndSettle();
 
     final first = popularGamesFor(DateTime.now()).first;
-    await tester.tap(find.byKey(ValueKey('popular-${first.id}')));
+    final popularCard = find.byKey(ValueKey('popular-${first.id}'));
+    await tester.ensureVisible(popularCard);
+    await tester.tap(popularCard);
     await tester.pumpAndSettle();
 
     expect(find.text('Opened ${first.id}'), findsOneWidget);
