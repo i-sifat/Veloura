@@ -129,6 +129,9 @@ void main() {
     await tester.tap(find.byIcon(Icons.person_outline));
     await tester.pumpAndSettle();
     expect(find.text('You & Partner'), findsOneWidget);
-    expect(find.text('My Partner'), findsOneWidget);
+    final scrollable = find.byType(Scrollable).last;
+    final myPartnerRow = find.text('My Partner');
+    await tester.scrollUntilVisible(myPartnerRow, 200, scrollable: scrollable);
+    expect(myPartnerRow, findsOneWidget);
   });
 }
