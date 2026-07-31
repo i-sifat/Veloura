@@ -40,7 +40,13 @@ void main() {
 
     final first = popularGamesFor(DateTime.now()).first;
     final popularCard = find.byKey(ValueKey('popular-${first.id}'));
-    await tester.ensureVisible(popularCard);
+    await tester.scrollUntilVisible(
+      popularCard,
+      100,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.drag(find.byType(Scrollable).first, const Offset(0, -40));
+    await tester.pumpAndSettle();
     await tester.tap(popularCard);
     await tester.pumpAndSettle();
 
