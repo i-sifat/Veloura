@@ -25,10 +25,6 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('onboarding captures the couple and opens Home', (tester) async {
-    tester.view.physicalSize = const Size(430, 932);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
     SharedPreferences.setMockInitialValues({});
     final repository = _MemorySessionRepository();
     await tester.pumpWidget(
