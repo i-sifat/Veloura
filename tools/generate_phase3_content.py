@@ -140,74 +140,109 @@ def generate_challenges():
     return rows
 
 
-CONVERSATION_BASE = {
+# Curated, hand-written prompts (no shared templated suffixes). Each entry is
+# (prompt, difficulty). 15 unique prompts per category, short and easy to
+# read for non-native English speakers, with the "spicy" tier leaning
+# flirtier/bolder.
+CONVERSATION_CURATED = {
     'deep': [
-        'What belief have you changed your mind about in the last few years?',
-        'When do you feel most understood by another person?',
-        'What does a meaningful life look like to you right now?',
-        'Which fear has quietly shaped more choices than you expected?',
-        'What part of yourself are you learning to be gentler with?',
+        ("What's one secret that would surprise me?", 'spicy'),
+        ('When did you last feel truly desired?', 'spicy'),
+        ('What do you need more of from me?', 'romantic'),
+        ("What's a fear you've never told me?", 'cute'),
+        ('What makes you feel safest with me?', 'romantic'),
+        ("What's something you love about yourself?", 'cute'),
+        ('When do you feel most in love with me?', 'romantic'),
+        ("What's a memory of us you replay often?", 'romantic'),
+        ('What do you wish I noticed more?', 'spicy'),
+        ("What's the boldest thing you've dreamed about us doing?", 'spicy'),
+        ('What part of your day do you wish I was part of?', 'cute'),
+        ("What's something you're proud of but never said out loud?", 'cute'),
+        ('What do you crave from me right now?', 'spicy'),
+        ("What's a feeling you have but rarely share?", 'romantic'),
+        ('What would you want to know about my past?', 'cute'),
     ],
     'funny': [
-        'What harmless conspiracy theory could you invent about our household?',
-        'If our relationship had a mascot, what ridiculous creature would it be?',
-        'Which everyday task would you turn into an Olympic event?',
-        'What is the worst possible name for a restaurant we would open?',
-        'If we switched voices for a day, what would become funniest?',
+        ("What's the weirdest nickname you'd give me?", 'cute'),
+        ("If we were a movie, what's the title?", 'cute'),
+        ("What's my most annoying cute habit?", 'cute'),
+        ('What silly thing do I do that you secretly love?', 'romantic'),
+        ('If you could prank me right now, what would you do?', 'spicy'),
+        ("What's the funniest thing that's happened on a date with me?", 'cute'),
+        ('What superhero name fits me best?', 'cute'),
+        ("What's one thing I do that makes you laugh every time?", 'romantic'),
+        ("If our love story was a song, what's the title?", 'romantic'),
+        ("What's the boldest dare you'd give me tonight?", 'spicy'),
+        ("What's a silly rule our relationship secretly has?", 'cute'),
+        ("What's the most ridiculous thing you'd do to impress me?", 'spicy'),
+        ('What emoji describes me best right now?', 'cute'),
+        ("What's your favorite way to tease me?", 'spicy'),
+        ("If we swapped bodies for a day, what's the first thing you'd do?", 'spicy'),
     ],
     'romantic': [
-        'Which moment with me felt unexpectedly romantic?',
-        'What gesture makes you feel chosen rather than simply noticed?',
-        'What kind of affection helps you reconnect after a long day?',
-        'Which future tradition would you love us to create?',
-        'What do you hope we will still tease each other about years from now?',
+        ("What's your favorite place to be kissed?", 'spicy'),
+        ('What moment made you fall harder for me?', 'romantic'),
+        ("What's something you find irresistible about me?", 'spicy'),
+        ('How do you want tonight to end?', 'spicy'),
+        ("What's the most romantic thing I've done for you?", 'romantic'),
+        ('What do you love most about how I touch you?', 'spicy'),
+        ("What's a compliment you wish I gave more often?", 'cute'),
+        ('What makes you feel wanted by me?', 'spicy'),
+        ("What's your favorite way for me to hold you?", 'romantic'),
+        ('What do you think about right before we kiss?', 'spicy'),
+        ("What's the sexiest thing about our relationship?", 'spicy'),
+        ("What's one thing you'd love us to try together?", 'spicy'),
+        ("What's your love language, and am I speaking it enough?", 'cute'),
+        ("What's the best surprise I could give you tonight?", 'spicy'),
+        ('How do you want me to show love to you today?', 'romantic'),
     ],
     'future': [
-        'What would an ideal ordinary Tuesday look like for us in five years?',
-        'Which shared skill would be exciting for us to learn?',
-        'What place would you like us to know well rather than visit once?',
-        'What financial or lifestyle goal would feel meaningful to build together?',
-        'Which future version of us are you most curious to meet?',
+        ('Where do you picture us five years from now?', 'cute'),
+        ('What adventure do you want us to have together?', 'romantic'),
+        ("What's one thing you want to try with me before we're old?", 'spicy'),
+        ('What tradition should we start this year?', 'cute'),
+        ("What's your dream date we haven't done yet?", 'romantic'),
+        ("What's a goal you want us to chase together?", 'cute'),
+        ('Where would you love to travel with just the two of us?', 'romantic'),
+        ("What's something new you want us to try in bed?", 'spicy'),
+        ('What kind of home do you picture us building?', 'cute'),
+        ("What's a wild idea you have for our future?", 'spicy'),
+        ('What would our perfect anniversary look like?', 'romantic'),
+        ("What's one promise you want us to keep forever?", 'romantic'),
+        ("What's something you want us to be brave enough to try?", 'spicy'),
+        ('How do you want us to grow closer this year?', 'cute'),
+        ("What's a memory you want us to make together soon?", 'romantic'),
     ],
     'rediscover': [
-        'What recent interest of yours do you wish I asked about more?',
-        'What currently gives you energy that did not a year ago?',
-        'Which part of your daily life feels invisible to most people?',
-        'What small preference of yours may have changed lately?',
-        'What would you love me to understand about who you are becoming?',
+        ("What's something new about you I might not know?", 'cute'),
+        ("What's changed about what turns you on lately?", 'spicy'),
+        ("What's a new interest you've picked up recently?", 'cute'),
+        ("What do you need from me that's different now?", 'romantic'),
+        ("What's something you've been afraid to tell me?", 'spicy'),
+        ('How have your feelings for me changed lately?', 'romantic'),
+        ("What's a part of you I don't ask about enough?", 'cute'),
+        ("What's something you want me to understand about you now?", 'romantic'),
+        ("What's a new fantasy you've been curious about?", 'spicy'),
+        ("What's something small that made you happy this week?", 'cute'),
+        ('What do you wish we talked about more?', 'romantic'),
+        ("What's a version of you I haven't met yet?", 'cute'),
+        ("What's something you want to explore about us physically?", 'spicy'),
+        ("What's one way I could love you better right now?", 'romantic'),
+        ("What's a question you wish I'd ask you more?", 'cute'),
     ],
 }
 
 
 def generate_conversation():
-    counts = {'deep': 70, 'funny': 70, 'romantic': 60, 'future': 60, 'rediscover': 60}
     rows = []
     idx = 1
-    tails = [
-        'What makes that answer true for you?',
-        'Has your answer changed recently?',
-        'What story best explains your answer?',
-        'What would you like your partner to understand about that?',
-        'What is one small example from this month?',
-        'How could the two of you explore that together?',
-        'What surprised you while thinking about it?',
-        'Which detail matters most?',
-        'What might make your answer different next year?',
-        'What question would you ask back?',
-        'What feeling sits underneath that answer?',
-        'What would make this easier to talk about?',
-        'When did you first notice this?',
-        'What is the most playful version of your answer?',
-    ]
-    for category, count in counts.items():
-        for n in range(count):
-            base = CONVERSATION_BASE[category][n % 5]
-            tail = tails[(n // 5) % len(tails)]
+    for category in ['deep', 'funny', 'romantic', 'future', 'rediscover']:
+        for prompt, difficulty in CONVERSATION_CURATED[category]:
             rows.append({
                 'id': f'cv_{idx:04d}',
-                'prompt': f'{base} {tail}',
+                'prompt': prompt,
                 'conversationCategory': category,
-                'difficulty': ['cute', 'romantic', 'spicy'][n % 3],
+                'difficulty': difficulty,
                 'createdAt': CREATED,
             })
             idx += 1
@@ -224,10 +259,14 @@ def validate(td, challenges, conversation):
         assert len(Counter(row['category'] for row in tier_rows)) == 5
     assert len(challenges) == 256
     assert Counter(row['challengeCategory'] for row in challenges) == Counter({key: 32 for key in CHALLENGE_VERBS})
-    assert len(conversation) == 320
-    assert Counter(row['conversationCategory'] for row in conversation) == Counter({'deep': 70, 'funny': 70, 'romantic': 60, 'future': 60, 'rediscover': 60})
+    assert len(conversation) == 75
+    assert Counter(row['conversationCategory'] for row in conversation) == Counter({
+        'deep': 15, 'funny': 15, 'romantic': 15, 'future': 15, 'rediscover': 15,
+    })
     for values in [td, challenges, conversation]:
         assert len({row['id'] for row in values}) == len(values)
+    conversation_prompts = [row['prompt'] for row in conversation]
+    assert len(conversation_prompts) == len(set(conversation_prompts)), 'Conversation prompts must be unique'
 
 
 def qa_markdown(td, challenges, conversation):
@@ -239,7 +278,7 @@ def qa_markdown(td, challenges, conversation):
         '## Counts', '',
         '- Truth or Dare: **500** (cute 130, romantic 150, spicy 150, extreme 70; even truth/dare per tier; all five categories in every tier).',
         '- Challenge Cards: **256** (32 in each of exactly eight categories).',
-        '- Conversation Starters: **320** (Deep 70, Funny 70, Romantic 60, Future 60, Getting-to-Know-You-Again 60).',
+        '- Conversation Starters: **75** (15 per category: Deep, Funny, Romantic, Future, Getting-to-Know-You-Again). Hand-written, fully unique, short and easy-English prompts — no repeated template suffixes.',
         '- IDs are unique and all files are valid JSON.', '',
         '## Deterministic 20-item spot read', '',
     ]
@@ -260,7 +299,7 @@ def main():
     write('lib/features/conversation/data/conversation_seed.json', conversation)
     qa = ROOT / 'docs/planning/PHASE3_CONTENT_QA.md'
     qa.write_text(qa_markdown(td, challenges, conversation))
-    print('Generated and validated 500 TD, 256 challenge, and 320 conversation items.')
+    print('Generated and validated 500 TD, 256 challenge, and 75 conversation items.')
 
 
 if __name__ == '__main__':
