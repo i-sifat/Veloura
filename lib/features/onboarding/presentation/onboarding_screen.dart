@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:veloura/features/onboarding/presentation/onboarding_controller.dart';
 import 'package:veloura/features/onboarding/presentation/onboarding_pages.dart';
 import 'package:veloura/features/onboarding/presentation/onboarding_tokens.dart';
-import 'package:veloura/shared/widgets/game/primary_cta.dart';
+import 'package:veloura/theme/game_tokens.dart';
 
 /// Six-screen first-launch experience and couple setup.
 class OnboardingScreen extends ConsumerStatefulWidget {
@@ -21,8 +21,10 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   final _namesFormKey = GlobalKey<FormState>();
   var _page = 0;
   var _saving = false;
-  var _yourSex = 'female';
-  var _partnerSex = 'female';
+  // Both start unselected: the sex page must be answered before leaving it.
+  String? _yourSex;
+  String? _partnerSex;
+  var _showSexError = false;
 
   @override
   void dispose() {
@@ -102,8 +104,15 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       SexPage(
         yours: _yourSex,
         partners: _partnerSex,
-        onYoursChanged: (value) => setState(() => _yourSex = value),
-        onPartnersChanged: (value) => setState(() => _partnerSex = value),
+        showError: _showSexError,
+        onYoursChanged: (value) => setState(() {
+          _yourSex = value;
+          _showSexError = false;
+        }),
+        onPartnersChanged: (value) => setState(() {
+          _partnerSex = value;
+          _showSexError = false;
+        }),
       ),
       const ReadyPage(),
     ],
@@ -115,6 +124,12 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     // "You"/"Partner" placeholders later in `finish()`.
     if (_page == OnboardingTokens.setupStartIndex &&
         !(_namesFormKey.currentState?.validate() ?? true)) {
+      return;
+    }
+    // Both partners' sex must be chosen before leaving the sex page.
+    if (_page == OnboardingTokens.sexPageIndex &&
+        (_yourSex == null || _partnerSex == null)) {
+      setState(() => _showSexError = true);
       return;
     }
     if (_page < OnboardingTokens.pageCount - 1) {
@@ -187,6 +202,13 @@ class _OnboardingNav extends StatelessWidget {
   );
 }
 
+/// Footer action button plus the intro-page progress dots.
+///
+/// The button is a single [AnimatedContainer]: on the intro pages it is a
+/// compact circle (matching the first two pages), and on the setup pages it
+/// has stretched into the full-width Continue button. Because the same
+/// widget persists across page changes, the circle visibly stretches into
+/// the pill (and back) as the flow advances.
 class _OnboardingFooter extends StatelessWidget {
   const _OnboardingFooter({
     required this.page,
@@ -201,41 +223,106 @@ class _OnboardingFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final intro = page < OnboardingTokens.setupStartIndex;
-    final iconOnly = intro && page < 2;
-    return Row(
-      children: [
-        if (intro) _Dots(current: page),
-        if (iconOnly) const Spacer(),
-        if (intro && !iconOnly) const SizedBox(width: 16),
-        if (iconOnly)
-          SizedBox.square(
-            dimension: 54,
-            child: IconButton.filled(
-              key: const ValueKey('onboarding-next'),
-              tooltip: 'Continue',
-              onPressed: onPressed,
-              style: IconButton.styleFrom(
-                backgroundColor: OnboardingTokens.pink,
+    final expanded = !intro;
+    final label =
+        page == OnboardingTokens.pageCount - 1 ? 'Go to Home' : 'Continue';
+
+    return SizedBox(
+      height: 56,
+      child: LayoutBuilder(
+        builder: (context, constraints) => Stack(
+          children: [
+            if (intro)
+              Align(
+                alignment: Alignment.centerLeft,
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 200),
+                  opacity: expanded ? 0 : 1,
+                  child: _Dots(current: page),
+                ),
               ),
-              icon: const Icon(Icons.arrow_forward_rounded),
+            Align(
+              alignment: Alignment.centerRight,
+              child: _MorphingCta(
+                width: expanded ? constraints.maxWidth : 56,
+                expanded: expanded,
+                label: label,
+                saving: saving,
+                onPressed: onPressed,
+              ),
             ),
-          )
-        else
-          Expanded(
-            child: PrimaryCta(
-              key: const ValueKey('onboarding-next'),
-              label: switch (page) {
-                2 => 'Get started',
-                5 => 'Go to Home',
-                _ => 'Continue',
-              },
-              busy: saving,
-              onPressed: saving ? null : onPressed,
-            ),
-          ),
-      ],
+          ],
+        ),
+      ),
     );
   }
+}
+
+class _MorphingCta extends StatelessWidget {
+  const _MorphingCta({
+    required this.width,
+    required this.expanded,
+    required this.label,
+    required this.saving,
+    required this.onPressed,
+  });
+
+  final double width;
+  final bool expanded;
+  final String label;
+  final bool saving;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) => Semantics(
+    button: true,
+    enabled: !saving,
+    label: label,
+    child: GestureDetector(
+      key: const ValueKey('onboarding-next'),
+      onTap: saving ? null : onPressed,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 340),
+        curve: Curves.easeOutCubic,
+        width: width,
+        height: 56,
+        alignment: Alignment.center,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [GameTokens.ctaGradientStart, GameTokens.ctaGradientEnd],
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(28)),
+          boxShadow: [GameTokens.ctaShadow],
+        ),
+        child: saving
+            ? const SizedBox.square(
+                dimension: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                  color: Colors.white,
+                ),
+              )
+            : AnimatedSwitcher(
+                duration: const Duration(milliseconds: 200),
+                child: expanded
+                    ? Text(
+                        label,
+                        key: const ValueKey('cta-label'),
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.4,
+                        ),
+                      )
+                    : const Icon(
+                        Icons.arrow_forward_rounded,
+                        key: ValueKey('cta-icon'),
+                        color: Colors.white,
+                      ),
+              ),
+      ),
+    ),
+  );
 }
 
 class _Dots extends StatelessWidget {

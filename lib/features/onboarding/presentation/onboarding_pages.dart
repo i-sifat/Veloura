@@ -129,17 +129,23 @@ class _NameField extends StatelessWidget {
 }
 
 /// Inclusive two-person sex selection page from the reference flow.
+///
+/// Both [yours] and [partners] start `null` (nothing selected). The parent
+/// screen requires both to be chosen before advancing and flips [showError]
+/// on to surface the inline message when the user tries to leave early.
 class SexPage extends StatelessWidget {
   const SexPage({
     required this.yours,
     required this.partners,
+    required this.showError,
     required this.onYoursChanged,
     required this.onPartnersChanged,
     super.key,
   });
 
-  final String yours;
-  final String partners;
+  final String? yours;
+  final String? partners;
+  final bool showError;
   final ValueChanged<String> onYoursChanged;
   final ValueChanged<String> onPartnersChanged;
 
@@ -150,6 +156,8 @@ class SexPage extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const Text('Your sex', style: TextStyle(color: OnboardingTokens.muted)),
+        const SizedBox(height: 12),
         _ChoiceRow(value: yours, onChanged: onYoursChanged),
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 20),
@@ -158,6 +166,16 @@ class SexPage extends StatelessWidget {
         const Text("Your partner's sex", style: TextStyle(color: OnboardingTokens.muted)),
         const SizedBox(height: 12),
         _ChoiceRow(value: partners, onChanged: onPartnersChanged),
+        if (showError) ...[
+          const SizedBox(height: 18),
+          Text(
+            'Please select both partners\u2019 sex to continue.',
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.error,
+              fontSize: 13,
+            ),
+          ),
+        ],
       ],
     ),
   );
@@ -166,7 +184,7 @@ class SexPage extends StatelessWidget {
 class _ChoiceRow extends StatelessWidget {
   const _ChoiceRow({required this.value, required this.onChanged});
 
-  final String value;
+  final String? value;
   final ValueChanged<String> onChanged;
 
   @override
