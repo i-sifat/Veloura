@@ -48,20 +48,27 @@ class QuestionCard extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                height: 24,
+                // Intrinsic height (no fixed 24px) so a two-line category
+                // label like "GETTING TO KNOW YOU AGAIN" grows the pill
+                // instead of clipping its wrapped second line underneath a
+                // fixed-height box.
+                constraints: const BoxConstraints(minWidth: 0),
                 padding: const EdgeInsets.symmetric(
                   horizontal: AppDesignTokens.spaceMd,
+                  vertical: AppDesignTokens.spaceXs,
                 ),
-                alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: GameTokens.glassStrong,
                   borderRadius: BorderRadius.circular(999),
                 ),
                 child: Text(
                   categoryTitle(item.conversationCategory).toUpperCase(),
+                  maxLines: 2,
+                  textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
                     fontWeight: FontWeight.w700,
                     letterSpacing: 0.7,
+                    height: 1.25,
                   ),
                 ),
               ),
