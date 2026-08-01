@@ -10,6 +10,16 @@ abstract final class AppTheme {
     spreadRadius: 1,
   );
 
+  /// Builds the text theme layered onto [ThemeData.dark]'s base theme.
+  ///
+  /// Defaults to Inter via `google_fonts`, which fetches the font file over
+  /// the network on first use. Tests run with real HTTP calls blocked, so
+  /// `test/flutter_test_config.dart` overrides this with an offline-safe
+  /// builder instead - no production behavior change, just a seam that
+  /// keeps [dark] testable without bundling font bytes.
+  static TextTheme Function(TextTheme base) textThemeBuilder =
+      GoogleFonts.interTextTheme;
+
   static ThemeData get dark {
     const colors = AppColors.dark;
     final base = ThemeData.dark(useMaterial3: true);
@@ -19,7 +29,7 @@ abstract final class AppTheme {
     // styling is achieved through weight/letter-spacing/line-height tokens
     // at each call site instead (see AppDesignTokens.letterSpacingTight and
     // AppDesignTokens.lineHeightTight), which needs no network access.
-    final textTheme = GoogleFonts.interTextTheme(base.textTheme).apply(
+    final textTheme = textThemeBuilder(base.textTheme).apply(
       bodyColor: colors.textPrimary,
       displayColor: colors.textPrimary,
     );
