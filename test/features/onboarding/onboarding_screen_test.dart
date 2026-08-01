@@ -32,11 +32,19 @@ Future<void> _skipToNamesPage(WidgetTester tester) async {
   await tester.pumpAndSettle();
 }
 
+/// Scrolls the choice on screen before tapping: on the compact test surface
+/// the partner's row can sit below the fixed footer, so a raw tap() would
+/// land on the footer button instead of the choice.
+Future<void> _tapChoice(WidgetTester tester, Finder finder) async {
+  await tester.ensureVisible(finder);
+  await tester.pumpAndSettle();
+  await tester.tap(finder);
+  await tester.pumpAndSettle();
+}
+
 Future<void> _selectBothSexes(WidgetTester tester) async {
-  await tester.tap(find.text('Female').first);
-  await tester.pumpAndSettle();
-  await tester.tap(find.text('Male').last);
-  await tester.pumpAndSettle();
+  await _tapChoice(tester, find.text('Female').first);
+  await _tapChoice(tester, find.text('Male').last);
 }
 
 void main() {
@@ -154,15 +162,13 @@ void main() {
     expect(find.text("You're all set!"), findsNothing);
 
     // Selecting only one side still blocks navigation.
-    await tester.tap(find.text('Female').first);
-    await tester.pumpAndSettle();
+    await _tapChoice(tester, find.text('Female').first);
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(find.text('Select sex'), findsOneWidget);
 
     // Selecting both lets Continue proceed.
-    await tester.tap(find.text('Male').last);
-    await tester.pumpAndSettle();
+    await _tapChoice(tester, find.text('Male').last);
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(find.text("You're all set!"), findsOneWidget);
