@@ -16,6 +16,12 @@ abstract final class GameTokens {
   static const sheet = Color(0xF51D1423);
   static const scrim = Color(0x9908010C);
 
+  /// Primary CTA fill. Same hue family as [rose]/[roseDeep] but deep enough
+  /// that a white label clears WCAG AAA at both ends of the gradient
+  /// (7.3:1 and 11.4:1), unlike the lighter rose tones above.
+  static const ctaGradientStart = Color(0xFFB0002F);
+  static const ctaGradientEnd = Color(0xFF7A0021);
+
   static const screenPadH = 20.0;
   static const gridGutter = 12.0;
   static const cardRadius = 18.0;

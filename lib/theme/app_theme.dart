@@ -13,10 +13,11 @@ abstract final class AppTheme {
   static ThemeData get dark {
     const colors = AppColors.dark;
     final base = ThemeData.dark(useMaterial3: true);
-    final textTheme = GoogleFonts.interTextTheme(base.textTheme).apply(
+    final bodyTheme = GoogleFonts.interTextTheme(base.textTheme).apply(
       bodyColor: colors.textPrimary,
       displayColor: colors.textPrimary,
     );
+    final textTheme = _withDisplayFont(bodyTheme);
 
     return base.copyWith(
       scaffoldBackgroundColor: colors.background,
@@ -41,6 +42,10 @@ abstract final class AppTheme {
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
+          // `colorScheme.primary` stays vivid for icons/accents; buttons use
+          // the deeper `buttonFill` so white labels clear WCAG AAA (>= 7:1).
+          backgroundColor: colors.buttonFill,
+          foregroundColor: Colors.white,
           minimumSize: const Size.fromHeight(56),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
@@ -53,4 +58,26 @@ abstract final class AppTheme {
       extensions: const [AppColors.dark],
     );
   }
+
+  /// Layers a premium display serif onto headline-weight styles while
+  /// keeping Inter for body copy and UI chrome, so long-form/instructional
+  /// text stays easy to read for non-native English speakers.
+  static TextTheme _withDisplayFont(TextTheme base) => base.copyWith(
+    displayLarge: GoogleFonts.playfairDisplay(textStyle: base.displayLarge),
+    displayMedium: GoogleFonts.playfairDisplay(textStyle: base.displayMedium),
+    displaySmall: GoogleFonts.playfairDisplay(textStyle: base.displaySmall),
+    headlineLarge: GoogleFonts.playfairDisplay(textStyle: base.headlineLarge),
+    headlineMedium: GoogleFonts.playfairDisplay(
+      textStyle: base.headlineMedium,
+      fontWeight: FontWeight.w700,
+    ),
+    headlineSmall: GoogleFonts.playfairDisplay(
+      textStyle: base.headlineSmall,
+      fontWeight: FontWeight.w600,
+    ),
+    titleLarge: GoogleFonts.playfairDisplay(
+      textStyle: base.titleLarge,
+      fontWeight: FontWeight.w600,
+    ),
+  );
 }
