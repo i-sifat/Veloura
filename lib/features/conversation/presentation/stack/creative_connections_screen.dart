@@ -10,6 +10,7 @@ import 'package:veloura/shared/widgets/game/game_shell.dart';
 import 'package:veloura/shared/widgets/game/primary_cta.dart';
 import 'package:veloura/shared/widgets/game/step_progress_bar.dart';
 import 'package:veloura/theme/app_colors.dart';
+import 'package:veloura/theme/app_design_tokens.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
 /// Home-owned Conversation Starters hero experience.
@@ -32,9 +33,15 @@ class CreativeConnectionsScreen extends ConsumerWidget {
       data: (value) => GameShell(
         title: 'Creative connections',
         onInfo: () => _showInfo(context),
-        progress: StepProgressBar(
-          stepCount: ConversationStackController.roundLength,
-          activeStep: value.roundPosition,
+        progress: Column(
+          children: [
+            StepProgressBar(
+              stepCount: ConversationStackController.roundLength,
+              activeStep: value.roundPosition,
+            ),
+            const SizedBox(height: AppDesignTokens.spaceXs),
+            const _AskerIndicator(),
+          ],
         ),
         hero: value.queue.isEmpty
             ? const EmptyState(
@@ -50,7 +57,7 @@ class CreativeConnectionsScreen extends ConsumerWidget {
           duration: GameTokens.fadeDuration,
           opacity: value.hasAdvanced ? 0 : 1,
           child: Text(
-            'Swipe when you’ve answered',
+            'Swipe when you\u2019ve answered',
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
               color: AppColors.of(context).textSecondary,
             ),
@@ -102,6 +109,30 @@ class CreativeConnectionsScreen extends ConsumerWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Shows who is asking whom for the current question, directly under the
+/// step indicator. Sourced from the same shared session the turn chip bar
+/// reads from.
+class _AskerIndicator extends ConsumerWidget {
+  const _AskerIndicator();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final session = ref.watch(gameSessionStateProvider);
+    return session.when(
+      data: (value) => Text(
+        '${value.active.name} is asking ${value.passive.name}',
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+          color: AppColors.of(context).textSecondary,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      loading: () => const SizedBox.shrink(),
+      error: (_, _) => const SizedBox.shrink(),
     );
   }
 }

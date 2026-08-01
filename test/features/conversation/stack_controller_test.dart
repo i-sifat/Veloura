@@ -103,39 +103,40 @@ void main() {
     expect(advanced.hasAdvanced, isTrue);
   });
 
-  test('roundPosition is a decorative session position that cycles 1-2-3-1', () async {
-    final repository = _MemoryConversationRepository(items);
-    final container = ProviderContainer(
-      overrides: [
-        conversationRepositoryProvider.overrideWith((ref) async => repository),
-        conversationStackRandomProvider.overrideWith((ref) => Random(7)),
-      ],
-    );
-    addTearDown(container.dispose);
+  test(
+    'roundPosition is a decorative session position that cycles 1..roundLength and back to 1',
+    () async {
+      final repository = _MemoryConversationRepository(items);
+      final container = ProviderContainer(
+        overrides: [
+          conversationRepositoryProvider.overrideWith((ref) async => repository),
+          conversationStackRandomProvider.overrideWith((ref) => Random(7)),
+        ],
+      );
+      addTearDown(container.dispose);
 
-    final initial = await container.read(
-      conversationStackControllerProvider.future,
-    );
-    expect(initial.roundPosition, 1);
+      final initial = await container.read(
+        conversationStackControllerProvider.future,
+      );
+      expect(initial.roundPosition, 1);
 
-    final notifier = container.read(conversationStackControllerProvider.notifier);
+      final notifier = container.read(conversationStackControllerProvider.notifier);
+      const roundLength = ConversationStackController.roundLength;
 
-    await notifier.advance();
-    expect(
-      container.read(conversationStackControllerProvider).requireValue.roundPosition,
-      2,
-    );
+      for (var expected = 2; expected <= roundLength; expected++) {
+        await notifier.advance();
+        expect(
+          container.read(conversationStackControllerProvider).requireValue.roundPosition,
+          expected,
+        );
+      }
 
-    await notifier.advance();
-    expect(
-      container.read(conversationStackControllerProvider).requireValue.roundPosition,
-      3,
-    );
-
-    await notifier.advance();
-    expect(
-      container.read(conversationStackControllerProvider).requireValue.roundPosition,
-      1,
-    );
-  });
+      // One more advance past roundLength wraps back to 1.
+      await notifier.advance();
+      expect(
+        container.read(conversationStackControllerProvider).requireValue.roundPosition,
+        1,
+      );
+    },
+  );
 }

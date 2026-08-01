@@ -117,25 +117,30 @@ void main() {
     child: const MaterialApp(home: CreativeConnectionsScreen()),
   );
 
-  testWidgets('renders title, step progress, turn chips, and the current prompt', (
-    tester,
-  ) async {
-    final repository = _MemoryConversationRepository(items);
-    final sessionRepository = _SavedSessionRepository(_session());
+  testWidgets(
+    'renders title, step/asker progress, turn chips, and the current prompt',
+    (tester) async {
+      final repository = _MemoryConversationRepository(items);
+      final sessionRepository = _SavedSessionRepository(_session());
 
-    await tester.pumpWidget(
-      buildApp(repository: repository, sessionRepository: sessionRepository),
-    );
-    await tester.pumpAndSettle();
+      await tester.pumpWidget(
+        buildApp(repository: repository, sessionRepository: sessionRepository),
+      );
+      await tester.pumpAndSettle();
 
-    expect(find.text('Creative connections'), findsOneWidget);
-    expect(find.text('1'), findsOneWidget);
-    expect(find.text('2'), findsOneWidget);
-    expect(find.text('3'), findsOneWidget);
-    expect(find.text('You'), findsOneWidget);
-    expect(find.text('Partner'), findsOneWidget);
-    expect(find.text('Next question'), findsOneWidget);
-  });
+      expect(find.text('Creative connections'), findsOneWidget);
+      // 20-question session: too many steps for individual dots, so the
+      // progress indicator is the compact "Question X of N" form.
+      expect(
+        find.text('Question 1 of ${ConversationStackController.roundLength}'),
+        findsOneWidget,
+      );
+      expect(find.text('You is asking Partner'), findsOneWidget);
+      expect(find.text('You'), findsOneWidget);
+      expect(find.text('Partner'), findsOneWidget);
+      expect(find.text('Next question'), findsOneWidget);
+    },
+  );
 
   testWidgets('tapping Next question advances the queue and hands off the turn', (
     tester,
@@ -153,5 +158,7 @@ void main() {
 
     expect(repository.answered, isNotEmpty);
     expect(sessionRepository.value.activeIndex, 1);
+    // The turn handed off, so the asker indicator now reads the other way.
+    expect(find.text('Partner is asking You'), findsOneWidget);
   });
 }
