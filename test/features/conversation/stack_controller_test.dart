@@ -102,4 +102,40 @@ void main() {
     expect(advanced.current!.id, isNot(answeredId));
     expect(advanced.hasAdvanced, isTrue);
   });
+
+  test('roundPosition is a decorative session position that cycles 1-2-3-1', () async {
+    final repository = _MemoryConversationRepository(items);
+    final container = ProviderContainer(
+      overrides: [
+        conversationRepositoryProvider.overrideWith((ref) async => repository),
+        conversationStackRandomProvider.overrideWith((ref) => Random(7)),
+      ],
+    );
+    addTearDown(container.dispose);
+
+    final initial = await container.read(
+      conversationStackControllerProvider.future,
+    );
+    expect(initial.roundPosition, 1);
+
+    final notifier = container.read(conversationStackControllerProvider.notifier);
+
+    await notifier.advance();
+    expect(
+      container.read(conversationStackControllerProvider).requireValue.roundPosition,
+      2,
+    );
+
+    await notifier.advance();
+    expect(
+      container.read(conversationStackControllerProvider).requireValue.roundPosition,
+      3,
+    );
+
+    await notifier.advance();
+    expect(
+      container.read(conversationStackControllerProvider).requireValue.roundPosition,
+      1,
+    );
+  });
 }
