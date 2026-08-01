@@ -42,7 +42,8 @@ class _TruthOrDareWheelScreenState
     super.initState();
     _animation = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 3000),
+      // Longer throw so the decelerating tail is clearly visible.
+      duration: const Duration(milliseconds: 4200),
     )..addListener(_tickHaptic);
   }
 
@@ -189,19 +190,13 @@ class _TruthOrDareWheelScreenState
   }
 }
 
-/// Accelerates sharply, sustains speed, then eases into the selected segment.
+/// Launches at full speed and eases smoothly into the selected segment, like
+/// a real roulette that starts fast and gradually slows to a stop.
 class _RouletteSpinCurve extends Curve {
   const _RouletteSpinCurve();
 
   @override
-  double transformInternal(double t) {
-    if (t < 0.22) {
-      final local = t / 0.22;
-      return 0.16 * local * local * local;
-    }
-    final local = (t - 0.22) / 0.78;
-    return (0.16 + 0.84 * (1 - math.pow(1 - local, 4))).toDouble();
-  }
+  double transformInternal(double t) => 1 - math.pow(1 - t, 5).toDouble();
 }
 
 class _WheelResult extends ConsumerWidget {
@@ -220,7 +215,7 @@ class _WheelResult extends ConsumerWidget {
     final isTruth = item.kind == TruthDareKind.truth;
     final colors = AppColors.of(context);
     return SizedBox(
-      height: math.max(MediaQuery.sizeOf(context).height * 0.42, 320),
+      height: math.min(MediaQuery.sizeOf(context).height * 0.62, 480),
       child: Column(
         children: [
           Row(
@@ -228,7 +223,7 @@ class _WheelResult extends ConsumerWidget {
               Expanded(
                 child: Text(
                   'The wheel chose ${item.kind.name.toUpperCase()}',
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w800,
                   ),
                 ),
@@ -246,38 +241,17 @@ class _WheelResult extends ConsumerWidget {
             ],
           ),
           const SizedBox(height: 12),
-          Container(
-            height: 32,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: (isTruth ? const Color(0xFF4B2B8F) : GameTokens.rose)
-                  .withValues(alpha: 0.28),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Text(
-              item.kind.name.toUpperCase(),
-              style: TextStyle(
-                color: isTruth ? const Color(0xFFB39CFF) : GameTokens.roseLight,
-                fontWeight: FontWeight.w800,
-                letterSpacing: 1,
-              ),
-            ),
-          ),
-          const SizedBox(height: 14),
+          // Pink "spice up your connection"-style box carrying the prompt.
+          // The prompt scrolls within this fixed area so it can never spill
+          // under the Done button below.
           Expanded(
-            child: Center(
-              child: Text(
-                item.prompt,
-                textAlign: TextAlign.center,
-                maxLines: 5,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+            child: _PromptBox(
+              kind: item.kind.name,
+              prompt: item.prompt,
+              isTruth: isTruth,
             ),
           ),
+          const SizedBox(height: 16),
           PrimaryCta(
             label: 'Done',
             onPressed: () async {
@@ -290,6 +264,92 @@ class _WheelResult extends ConsumerWidget {
           SecondaryTextButton(
             label: 'Another ${item.kind.name}',
             onPressed: () => ref.read(wheelControllerProvider.notifier).skip(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The rich prompt surface, styled to match the Home "Spice up your
+/// connection" hero: the same background artwork, a red border, a kind chip
+/// and a centered, scrollable prompt.
+class _PromptBox extends StatelessWidget {
+  const _PromptBox({
+    required this.kind,
+    required this.prompt,
+    required this.isTruth,
+  });
+
+  final String kind;
+  final String prompt;
+  final bool isTruth;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+    return Container(
+      width: double.infinity,
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(GameTokens.cardRadius),
+        border: Border.all(color: colors.primary.withValues(alpha: 0.45)),
+      ),
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            'assets/homescreen/spice_up_your_connection_bg.png',
+            fit: BoxFit.cover,
+            errorBuilder: (_, _, _) =>
+                const ColoredBox(color: Color(0xFF371122)),
+          ),
+          // Darkening scrim for legible white prompt text over any artwork.
+          const DecoratedBox(
+            decoration: BoxDecoration(color: Color(0xCC1B0F1C)),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: (isTruth ? const Color(0xFF4B2B8F) : GameTokens.rose)
+                        .withValues(alpha: 0.32),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Text(
+                    kind.toUpperCase(),
+                    style: TextStyle(
+                      color: isTruth
+                          ? const Color(0xFFB39CFF)
+                          : GameTokens.roseLight,
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Flexible(
+                  child: SingleChildScrollView(
+                    child: Text(
+                      prompt,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        height: 1.3,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

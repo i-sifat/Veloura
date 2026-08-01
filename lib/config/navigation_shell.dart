@@ -10,6 +10,10 @@ bool shouldShowRootNavigation(String location) =>
     location != '/home/conversation' &&
     !location.startsWith('/home/conversation/');
 
+/// A single bottom-navigation destination: its icon asset, stable test key,
+/// a Material fallback icon, and its label.
+typedef _NavDestination = (String asset, String navKey, IconData fallback, String label);
+
 /// Four-tab application shell shown only at root-level destinations.
 class NavigationShell extends StatelessWidget {
   const NavigationShell({
@@ -30,11 +34,11 @@ class NavigationShell extends StatelessWidget {
     final colors = AppColors.of(context);
     final strings = AppLocalizations.of(context);
     final showNavigation = shouldShowRootNavigation(location);
-    final destinations = [
-      (Icons.home_outlined, Icons.home_rounded, strings.homeTab),
-      (Icons.grid_view_outlined, Icons.grid_view_rounded, strings.gamesTab),
-      (Icons.favorite_border, Icons.favorite, strings.favoritesTab),
-      (Icons.person_outline, Icons.person, strings.profileTab),
+    final destinations = <_NavDestination>[
+      ('assets/navbar_icons/nav_home.png', 'nav-home', Icons.home_rounded, strings.homeTab),
+      ('assets/navbar_icons/nav_games.png', 'nav-games', Icons.grid_view_rounded, strings.gamesTab),
+      ('assets/navbar_icons/nav_fav.png', 'nav-favorites', Icons.favorite, strings.favoritesTab),
+      ('assets/navbar_icons/nav_profile.png', 'nav-profile', Icons.person, strings.profileTab),
     ];
 
     return Scaffold(
@@ -59,9 +63,10 @@ class NavigationShell extends StatelessWidget {
                 children: [
                   for (var index = 0; index < destinations.length; index++)
                     _NavItem(
-                      icon: destinations[index].$1,
-                      selectedIcon: destinations[index].$2,
-                      label: destinations[index].$3,
+                      key: ValueKey(destinations[index].$2),
+                      asset: destinations[index].$1,
+                      fallback: destinations[index].$3,
+                      label: destinations[index].$4,
                       selected: shell.currentIndex == index,
                       onTap: () => _select(index),
                     ),
@@ -75,15 +80,16 @@ class NavigationShell extends StatelessWidget {
 
 class _NavItem extends StatelessWidget {
   const _NavItem({
-    required this.icon,
-    required this.selectedIcon,
+    required this.asset,
+    required this.fallback,
     required this.label,
     required this.selected,
     required this.onTap,
+    super.key,
   });
 
-  final IconData icon;
-  final IconData selectedIcon;
+  final String asset;
+  final IconData fallback;
   final String label;
   final bool selected;
   final VoidCallback onTap;
@@ -91,9 +97,8 @@ class _NavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = AppColors.of(context);
-    // `buttonFill` (deep, AAA-safe red) instead of the lighter `primary`
-    // pink, matching the red already used for the "Let's play" CTA and the
-    // Games hub category pills.
+    // `buttonFill` (deep, AAA-safe red) when selected, muted otherwise -
+    // matching the red used for the "Let's play" CTA and the Games hub pills.
     final color = selected ? colors.buttonFill : colors.textSecondary;
     return Expanded(
       child: Semantics(
@@ -106,7 +111,15 @@ class _NavItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(selected ? selectedIcon : icon, color: color, size: 27),
+              Image.asset(
+                asset,
+                width: 26,
+                height: 26,
+                // Tint the (monochrome) glyph to the current state color.
+                color: color,
+                colorBlendMode: BlendMode.srcIn,
+                errorBuilder: (_, _, _) => Icon(fallback, color: color, size: 27),
+              ),
               const SizedBox(height: 6),
               Text(
                 label,

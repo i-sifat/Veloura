@@ -51,6 +51,9 @@ flutter:
   uses-material-design: true
   assets:
     - assets/Positions/
+    - assets/homescreen/
+    - assets/navbar_icons/
+    - assets/onboarding/
     - assets/lustful_rolls.png
     - assets/card_challenge.png
     - assets/truth_dare.png

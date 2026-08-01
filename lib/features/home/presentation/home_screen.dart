@@ -132,42 +132,44 @@ class _TonightCard extends StatelessWidget {
     final colors = AppColors.of(context);
     return Container(
       height: 296,
-      padding: const EdgeInsets.all(AppDesignTokens.spaceXxl),
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppDesignTokens.radius),
         border: Border.all(color: colors.primary.withValues(alpha: .35)),
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xFF371122), Color(0xFF1B101C)],
-        ),
       ),
       child: Stack(
+        fit: StackFit.expand,
         children: [
-          Positioned(
-            right: -8,
-            bottom: AppDesignTokens.spaceXxl,
-            child: Icon(
-              Icons.favorite_border_rounded,
-              size: 150,
-              color: colors.primary.withValues(alpha: .8),
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('\u{1F525}  Tonight\'s pick', style: TextStyle(color: colors.textSecondary)),
-              const SizedBox(height: AppDesignTokens.spaceXxl),
-              Text(
-                'Spice up\nyour connection',
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  height: AppDesignTokens.lineHeightTight,
+          // Full-bleed hero artwork (carries its own "Spice up your
+          // connection" treatment). Falls back to the previous gradient.
+          Image.asset(
+            'assets/homescreen/spice_up_your_connection_bg.png',
+            fit: BoxFit.cover,
+            errorBuilder: (_, _, _) => const DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Color(0xFF371122), Color(0xFF1B101C)],
                 ),
               ),
-              const SizedBox(height: AppDesignTokens.spaceMd),
-              const Text('Fun & intimacy games for\na deeper bond.'),
-              const Spacer(),
-              SizedBox(
+            ),
+          ),
+          // Bottom-left scrim so the CTA stays legible over any artwork.
+          const DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+                colors: [Color(0xB3000000), Color(0x00000000)],
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(AppDesignTokens.spaceXxl),
+              child: SizedBox(
                 width: 168,
                 child: FilledButton.icon(
                   // Routes straight into the Creative Connections flow rather
@@ -179,7 +181,7 @@ class _TonightCard extends StatelessWidget {
                   label: const Text("Let's play"),
                 ),
               ),
-            ],
+            ),
           ),
         ],
       ),

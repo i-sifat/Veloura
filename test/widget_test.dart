@@ -107,7 +107,7 @@ void main() {
   testWidgets('Games exposes all catalog entries in list cards', (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
-    await tester.tap(find.byIcon(Icons.grid_view_outlined));
+    await tester.tap(find.byKey(const ValueKey('nav-games')));
     await tester.pumpAndSettle();
     expect(kGameCatalog, hasLength(6));
     final scrollable = find.byType(Scrollable).last;
@@ -121,14 +121,14 @@ void main() {
   testWidgets('favorites and profile branches remain reachable', (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
-    await tester.tap(find.byIcon(Icons.favorite_border));
+    await tester.tap(find.byKey(const ValueKey('nav-favorites')));
     await tester.pumpAndSettle();
     expect(find.text('Challenges'), findsOneWidget);
     expect(
       find.text('Star a game from the Games tab to see it here.'),
       findsOneWidget,
     );
-    await tester.tap(find.byIcon(Icons.person_outline));
+    await tester.tap(find.byKey(const ValueKey('nav-profile')));
     await tester.pumpAndSettle();
     expect(find.text('You & Partner'), findsOneWidget);
     final scrollable = find.byType(Scrollable).last;
