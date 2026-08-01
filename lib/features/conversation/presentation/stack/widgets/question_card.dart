@@ -91,19 +91,25 @@ class QuestionCard extends StatelessWidget {
             AnimatedOpacity(
               duration: GameTokens.fadeDuration,
               opacity: showSwipeHint ? 1 : 0,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'Swipe to reveal answer',
-                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                      color: Colors.white.withValues(alpha: 0.85),
-                      fontWeight: FontWeight.w600,
+              // Longer copy than the old "SWIPE" label, so it's wrapped in a
+              // FittedBox (same pattern as the prompt text above) instead of
+              // being sized to its natural, overflowing width.
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Swipe to reveal answer',
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                        color: Colors.white.withValues(alpha: 0.85),
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: AppDesignTokens.spaceXs),
-                  const Icon(Icons.chevron_right, size: 14, color: Colors.white),
-                ],
+                    const SizedBox(width: AppDesignTokens.spaceXs),
+                    const Icon(Icons.chevron_right, size: 14, color: Colors.white),
+                  ],
+                ),
               ),
             ),
           ],
