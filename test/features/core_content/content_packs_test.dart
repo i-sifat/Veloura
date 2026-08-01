@@ -48,7 +48,7 @@ void main() {
     }
   });
 
-  test('Conversation pack has 320 unique prompts in all categories', () async {
+  test('Conversation pack has 75 unique prompts, 15 per category', () async {
     final raw = await rootBundle.loadString(
       'lib/features/conversation/data/conversation_seed.json',
     );
@@ -57,13 +57,13 @@ void main() {
             ConversationItem.fromJson(value as Map<String, Object?>))
         .toList();
 
-    expect(items, hasLength(320));
-    expect(items.map((item) => item.id).toSet(), hasLength(320));
-    expect(items.map((item) => item.prompt).toSet(), hasLength(320));
+    expect(items, hasLength(75));
+    expect(items.map((item) => item.id).toSet(), hasLength(75));
+    expect(items.map((item) => item.prompt).toSet(), hasLength(75));
     for (final category in ConversationCategory.values) {
       expect(
         items.where((item) => item.conversationCategory == category),
-        isNotEmpty,
+        hasLength(15),
       );
     }
   });

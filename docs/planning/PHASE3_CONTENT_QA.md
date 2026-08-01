@@ -6,7 +6,7 @@ Generated deterministically and validated by `tools/generate_phase3_content.py`.
 
 - Truth or Dare: **500** (cute 130, romantic 150, spicy 150, extreme 70; even truth/dare per tier; all five categories in every tier).
 - Challenge Cards: **256** (32 in each of exactly eight categories).
-- Conversation Starters: **320** (Deep 70, Funny 70, Romantic 60, Future 60, Getting-to-Know-You-Again 60).
+- Conversation Starters: **75** (15 per category: Deep, Funny, Romantic, Future, Getting-to-Know-You-Again). Hand-written, fully unique, short and easy-English prompts — no repeated template suffixes.
 - IDs and all 500 Truth or Dare prompt strings are unique; all files are valid JSON.
 
 ## Deterministic 20-item spot read
@@ -25,12 +25,12 @@ Generated deterministically and validated by `tools/generate_phase3_content.py`.
 - `ch_0096` — Connection spark 32 — Name one way you can support each other and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.
 - `ch_0117` — Playful spark 21 — Invent a ridiculous contest together tonight. Keep the plan specific, mutual, and easy to complete.
 - `ch_0144` — Kindness spark 16 — Offer twenty minutes of practical help and finish by sharing what felt best. Keep the plan specific, mutual, and easy to complete.
-- `cv_0265` — What would you love me to understand about who you are becoming? What makes that answer true for you?
-- `cv_0068` — What does a meaningful life look like to you right now? What is the most playful version of your answer?
-- `cv_0235` — Which future version of us are you most curious to meet? What surprised you while thinking about it?
-- `cv_0164` — Which future tradition would you love us to create? What is one small example from this month?
-- `cv_0294` — What small preference of yours may have changed lately? What surprised you while thinking about it?
-- `cv_0166` — Which moment with me felt unexpectedly romantic? How could the two of you explore that together?
+- `cv_0067` — What's a part of you I don't ask about enough?
+- `cv_0017` — If we were a movie, what's the title?
+- `cv_0059` — How do you want us to grow closer this year?
+- `cv_0041` — What's the sexiest thing about our relationship?
+- `cv_0042` — What's one thing you'd love us to try together?
+- `cv_0045` — How do you want me to show love to you today?
 
 ## Editorial safeguards
 

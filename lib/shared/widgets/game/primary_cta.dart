@@ -53,8 +53,10 @@ class _PrimaryCtaState extends State<PrimaryCta> {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(GameTokens.ctaRadius),
+                // AAA-safe deep rose gradient: white label clears >= 7.3:1
+                // at both stops (was ~3.2:1 with the old rose/roseDeep pair).
                 gradient: const LinearGradient(
-                  colors: [GameTokens.rose, GameTokens.roseDeep],
+                  colors: [GameTokens.ctaGradientStart, GameTokens.ctaGradientEnd],
                 ),
                 boxShadow: enabled ? const [GameTokens.ctaShadow] : null,
               ),

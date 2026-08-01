@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:veloura/features/conversation/domain/conversation_item.dart';
+import 'package:veloura/theme/app_design_tokens.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
 /// Premium prompt card used by the Conversation Starters swipe stack.
@@ -17,7 +18,7 @@ class QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) => Container(
     width: 240,
     height: 340,
-    padding: const EdgeInsets.all(24),
+    padding: const EdgeInsets.all(AppDesignTokens.spaceXxl),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(22),
       gradient: const LinearGradient(
@@ -48,7 +49,9 @@ class QuestionCard extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Container(
                 height: 24,
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppDesignTokens.spaceMd,
+                ),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: GameTokens.glassStrong,
@@ -77,8 +80,7 @@ class QuestionCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        height: 1.25,
-                        fontWeight: FontWeight.w600,
+                        height: AppDesignTokens.lineHeightTight,
                       ),
                     ),
                   ),
@@ -89,13 +91,25 @@ class QuestionCard extends StatelessWidget {
             AnimatedOpacity(
               duration: GameTokens.fadeDuration,
               opacity: showSwipeHint ? 1 : 0,
-              child: const Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text('SWIPE', style: TextStyle(fontSize: 11, letterSpacing: 1)),
-                  SizedBox(width: 4),
-                  Icon(Icons.chevron_right, size: 12),
-                ],
+              // Longer copy than the old "SWIPE" label, so it's wrapped in a
+              // FittedBox (same pattern as the prompt text above) instead of
+              // being sized to its natural, overflowing width.
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Swipe to reveal answer',
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                        color: Colors.white.withValues(alpha: 0.85),
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(width: AppDesignTokens.spaceXs),
+                    const Icon(Icons.chevron_right, size: 14, color: Colors.white),
+                  ],
+                ),
               ),
             ),
           ],

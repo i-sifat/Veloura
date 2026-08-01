@@ -13,6 +13,12 @@ abstract final class AppTheme {
   static ThemeData get dark {
     const colors = AppColors.dark;
     final base = ThemeData.dark(useMaterial3: true);
+    // Inter only: a second Google Font (e.g. a display serif) fetches its
+    // font file over the network at runtime, which is unreliable offline
+    // and previously broke CI when the fetch failed. Premium headline
+    // styling is achieved through weight/letter-spacing/line-height tokens
+    // at each call site instead (see AppDesignTokens.letterSpacingTight and
+    // AppDesignTokens.lineHeightTight), which needs no network access.
     final textTheme = GoogleFonts.interTextTheme(base.textTheme).apply(
       bodyColor: colors.textPrimary,
       displayColor: colors.textPrimary,
@@ -41,6 +47,10 @@ abstract final class AppTheme {
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
+          // `colorScheme.primary` stays vivid for icons/accents; buttons use
+          // the deeper `buttonFill` so white labels clear WCAG AAA (>= 7:1).
+          backgroundColor: colors.buttonFill,
+          foregroundColor: Colors.white,
           minimumSize: const Size.fromHeight(56),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),

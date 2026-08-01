@@ -15,6 +15,7 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.textPrimary,
     required this.textSecondary,
     required this.divider,
+    required this.buttonFill,
   });
 
   static const dark = AppColors(
@@ -29,6 +30,10 @@ class AppColors extends ThemeExtension<AppColors> {
     textPrimary: Color(0xFFF7F8FB),
     textSecondary: Color(0xFFA7B0C0),
     divider: Color(0xFF252B3A),
+    // Same hue as `primary`, darkened until white text clears WCAG AAA
+    // (8.1:1). `primary` itself stays vivid for icons/accents/borders where
+    // no text sits directly on top.
+    buttonFill: Color(0xFFA3002C),
   );
 
   /// Reserved light-mode palette. Light mode is not exposed in v1.
@@ -44,6 +49,7 @@ class AppColors extends ThemeExtension<AppColors> {
     textPrimary: Color(0xFF21151F),
     textSecondary: Color(0xFF675B65),
     divider: Color(0xFFE6D7DF),
+    buttonFill: Color(0xFF9E1B37),
   );
 
   final Color background;
@@ -57,6 +63,10 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color textPrimary;
   final Color textSecondary;
   final Color divider;
+
+  /// Solid fill for primary CTA buttons. Deliberately deeper than [primary]
+  /// so white button labels clear WCAG AAA contrast (>= 7:1).
+  final Color buttonFill;
 
   static AppColors of(BuildContext context) =>
       Theme.of(context).extension<AppColors>() ?? dark;
@@ -74,6 +84,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? textPrimary,
     Color? textSecondary,
     Color? divider,
+    Color? buttonFill,
   }) {
     return AppColors(
       background: background ?? this.background,
@@ -87,6 +98,7 @@ class AppColors extends ThemeExtension<AppColors> {
       textPrimary: textPrimary ?? this.textPrimary,
       textSecondary: textSecondary ?? this.textSecondary,
       divider: divider ?? this.divider,
+      buttonFill: buttonFill ?? this.buttonFill,
     );
   }
 
@@ -105,6 +117,7 @@ class AppColors extends ThemeExtension<AppColors> {
       textPrimary: Color.lerp(textPrimary, other.textPrimary, t)!,
       textSecondary: Color.lerp(textSecondary, other.textSecondary, t)!,
       divider: Color.lerp(divider, other.divider, t)!,
+      buttonFill: Color.lerp(buttonFill, other.buttonFill, t)!,
     );
   }
 }

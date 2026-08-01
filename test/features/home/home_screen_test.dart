@@ -52,4 +52,61 @@ void main() {
 
     expect(find.text('Opened ${first.id}'), findsOneWidget);
   });
+
+  testWidgets('Popular games\' "See all" still opens the Games hub', (tester) async {
+    final router = GoRouter(
+      initialLocation: '/home',
+      routes: [
+        GoRoute(
+          path: '/home',
+          builder: (_, _) => const Scaffold(body: HomeScreen()),
+        ),
+        GoRoute(path: '/games', builder: (_, _) => const Text('Games')),
+        GoRoute(
+          path: '/home/conversation',
+          builder: (_, _) => const Text('Creative connections'),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpWidget(
+      ProviderScope(child: MaterialApp.router(routerConfig: router)),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Popular games'), findsOneWidget);
+    await tester.tap(find.text('See all'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Games'), findsOneWidget);
+  });
+
+  testWidgets("Let's play opens the Creative Connections flow", (tester) async {
+    final router = GoRouter(
+      initialLocation: '/home',
+      routes: [
+        GoRoute(
+          path: '/home',
+          builder: (_, _) => const Scaffold(body: HomeScreen()),
+        ),
+        GoRoute(path: '/games', builder: (_, _) => const Text('Games')),
+        GoRoute(
+          path: '/home/conversation',
+          builder: (_, _) => const Text('Creative connections'),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpWidget(
+      ProviderScope(child: MaterialApp.router(routerConfig: router)),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text("Let's play"));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Creative connections'), findsOneWidget);
+  });
 }

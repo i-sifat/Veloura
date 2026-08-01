@@ -13,6 +13,7 @@ class ConversationStackState {
     required this.queue,
     required this.recentIds,
     this.hasAdvanced = false,
+    this.roundPosition = 1,
   });
 
   final List<ConversationItem> items;
@@ -20,17 +21,23 @@ class ConversationStackState {
   final List<String> recentIds;
   final bool hasAdvanced;
 
+  /// Decorative 1-2-3 session position shown by [StepProgressBar]. Cycles
+  /// back to 1 after 3; it does not gate or limit the underlying queue.
+  final int roundPosition;
+
   ConversationItem? get current => queue.isEmpty ? null : queue.first;
 
   ConversationStackState copyWith({
     List<ConversationItem>? queue,
     List<String>? recentIds,
     bool? hasAdvanced,
+    int? roundPosition,
   }) => ConversationStackState(
     items: items,
     queue: queue ?? this.queue,
     recentIds: recentIds ?? this.recentIds,
     hasAdvanced: hasAdvanced ?? this.hasAdvanced,
+    roundPosition: roundPosition ?? this.roundPosition,
   );
 }
 
@@ -41,6 +48,7 @@ final conversationStackRandomProvider = Provider<Random>((ref) => Random());
 class ConversationStackController extends AsyncNotifier<ConversationStackState> {
   static const queueSize = 4;
   static const recentWindow = 20;
+  static const roundLength = 3;
 
   late ConversationRepository _repository;
   late Random _random;
@@ -87,11 +95,15 @@ class ConversationStackController extends AsyncNotifier<ConversationStackState> 
         recentIds: recentIds,
         existing: remaining,
       );
+      final nextPosition = current.roundPosition >= roundLength
+          ? 1
+          : current.roundPosition + 1;
       state = AsyncData(
         current.copyWith(
           queue: queue,
           recentIds: recentIds,
           hasAdvanced: true,
+          roundPosition: nextPosition,
         ),
       );
     } finally {

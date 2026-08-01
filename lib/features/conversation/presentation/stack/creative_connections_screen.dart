@@ -8,6 +8,7 @@ import 'package:veloura/shared/widgets/empty_state.dart';
 import 'package:veloura/shared/widgets/error_state.dart';
 import 'package:veloura/shared/widgets/game/game_shell.dart';
 import 'package:veloura/shared/widgets/game/primary_cta.dart';
+import 'package:veloura/shared/widgets/game/step_progress_bar.dart';
 import 'package:veloura/theme/app_colors.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
@@ -31,6 +32,10 @@ class CreativeConnectionsScreen extends ConsumerWidget {
       data: (value) => GameShell(
         title: 'Creative connections',
         onInfo: () => _showInfo(context),
+        progress: StepProgressBar(
+          stepCount: ConversationStackController.roundLength,
+          activeStep: value.roundPosition,
+        ),
         hero: value.queue.isEmpty
             ? const EmptyState(
                 title: 'No prompts available',
