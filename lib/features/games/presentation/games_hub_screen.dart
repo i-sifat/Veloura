@@ -44,7 +44,12 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
         child: CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(24, 24, 24, 16),
+              padding: const EdgeInsets.fromLTRB(
+                AppDesignTokens.spaceXxl,
+                AppDesignTokens.spaceXxl,
+                AppDesignTokens.spaceXxl,
+                AppDesignTokens.spaceLg,
+              ),
               sliver: SliverToBoxAdapter(
                 child: Row(
                   children: [
@@ -52,13 +57,14 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
                       'Games',
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontWeight: FontWeight.w700,
+                        letterSpacing: AppDesignTokens.letterSpacingTight,
                       ),
                     ),
                     const Spacer(),
                     IconButton(
                       tooltip: 'Search games',
                       onPressed: _showSearch,
-                      icon: const Icon(Icons.search, size: 30),
+                      icon: const Icon(Icons.search),
                     ),
                   ],
                 ),
@@ -68,7 +74,9 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
               child: SizedBox(
                 height: 48,
                 child: ListView(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: AppDesignTokens.spaceXxl,
+                  ),
                   scrollDirection: Axis.horizontal,
                   children: [
                     for (final category in const [
@@ -78,23 +86,33 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
                       'Fun 😈',
                     ])
                       Padding(
-                        padding: const EdgeInsets.only(right: 10),
+                        padding: const EdgeInsets.only(
+                          right: AppDesignTokens.spaceSm,
+                        ),
                         child: ChoiceChip(
                           label: Text(category),
                           selected: _category == category,
                           showCheckmark: false,
                           onSelected: (_) => setState(() => _category = category),
-                          selectedColor: colors.primary,
+                          shape: const StadiumBorder(),
+                          // Deep, AAA-safe fill (matches FilledButtonTheme's
+                          // buttonFill) so the selected pill's white label
+                          // reads clearly instead of the lighter, low-contrast
+                          // `primary` accent.
+                          selectedColor: colors.buttonFill,
                           backgroundColor: colors.surface,
                           side: BorderSide(color: colors.divider),
                           labelStyle: TextStyle(
                             color: _category == category
                                 ? colors.textPrimary
                                 : colors.textSecondary,
+                            fontWeight: _category == category
+                                ? FontWeight.w600
+                                : FontWeight.w500,
                           ),
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 14,
-                            vertical: 10,
+                            horizontal: AppDesignTokens.spaceLg,
+                            vertical: AppDesignTokens.spaceSm,
                           ),
                         ),
                       ),
@@ -103,10 +121,16 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(24, 20, 24, 32),
+              padding: const EdgeInsets.fromLTRB(
+                AppDesignTokens.spaceXxl,
+                AppDesignTokens.spaceXl,
+                AppDesignTokens.spaceXxl,
+                AppDesignTokens.spaceXxxl,
+              ),
               sliver: SliverList.separated(
                 itemCount: entries.length,
-                separatorBuilder: (_, _) => const SizedBox(height: 12),
+                separatorBuilder: (_, _) =>
+                    const SizedBox(height: AppDesignTokens.spaceMd),
                 itemBuilder: (_, index) {
                   final entry = entries[index];
                   return _GameListCard(
@@ -185,7 +209,7 @@ class _GameListCard extends ConsumerWidget {
         borderRadius: BorderRadius.circular(AppDesignTokens.cardRadius),
         child: Container(
           height: 124,
-          padding: const EdgeInsets.all(12),
+          padding: const EdgeInsets.all(AppDesignTokens.spaceMd),
           decoration: BoxDecoration(
             color: colors.surface,
             borderRadius: BorderRadius.circular(AppDesignTokens.cardRadius),
@@ -205,7 +229,7 @@ class _GameListCard extends ConsumerWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: AppDesignTokens.spaceMd),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -221,22 +245,26 @@ class _GameListCard extends ConsumerWidget {
                             style: Theme.of(context)
                                 .textTheme
                                 .titleLarge
-                                ?.copyWith(fontWeight: FontWeight.w600),
+                                ?.copyWith(fontWeight: FontWeight.w700),
                           ),
                         ),
                         if (entry.id == 'truth_or_dare') ...[
-                          const SizedBox(width: 8),
-                          _Badge(label: 'HOT', color: colors.primary),
+                          const SizedBox(width: AppDesignTokens.spaceSm),
+                          _Badge(label: 'HOT', color: colors.buttonFill),
                         ],
                         if (locked) ...[
-                          const SizedBox(width: 8),
-                          const Icon(Icons.lock_outline, size: 16),
+                          const SizedBox(width: AppDesignTokens.spaceSm),
+                          Icon(
+                            Icons.lock_outline,
+                            size: 16,
+                            color: colors.textSecondary,
+                          ),
                         ],
                       ],
                     ),
-                    const SizedBox(height: 5),
+                    const SizedBox(height: AppDesignTokens.spaceXs),
                     Text(info.$2, style: TextStyle(color: colors.textSecondary)),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: AppDesignTokens.spaceSm),
                     Row(
                       children: [
                         Icon(
@@ -244,7 +272,7 @@ class _GameListCard extends ConsumerWidget {
                           size: 18,
                           color: colors.textSecondary,
                         ),
-                        const SizedBox(width: 5),
+                        const SizedBox(width: AppDesignTokens.spaceXs),
                         Text(
                           info.$3,
                           style: TextStyle(color: colors.textSecondary),
@@ -284,14 +312,22 @@ class _Badge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
     decoration: BoxDecoration(
       color: color,
-      borderRadius: BorderRadius.circular(6),
+      borderRadius: BorderRadius.circular(8),
     ),
     child: Text(
       label,
-      style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w700),
+      // Fixed white: this pill always sits on `buttonFill`, a deliberately
+      // deep, AAA-safe fill, so the label doesn't depend on ambient text
+      // color to stay legible.
+      style: const TextStyle(
+        fontSize: 11,
+        fontWeight: FontWeight.w700,
+        color: Colors.white,
+        letterSpacing: 0.2,
+      ),
     ),
   );
 }
