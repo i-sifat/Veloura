@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:veloura/features/games/domain/game_catalog.dart';
 import 'package:veloura/features/games/domain/game_catalog_entry.dart';
 import 'package:veloura/features/home/presentation/home_controller.dart';
+import 'package:veloura/shared/widgets/section_header.dart';
 import 'package:veloura/theme/app_colors.dart';
 import 'package:veloura/theme/app_design_tokens.dart';
 
@@ -34,30 +35,24 @@ class HomeScreen extends ConsumerWidget {
       child: SafeArea(
         bottom: false,
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(24, 24, 24, 32),
+          padding: const EdgeInsets.fromLTRB(
+            AppDesignTokens.spaceXxl,
+            AppDesignTokens.spaceXxl,
+            AppDesignTokens.spaceXxl,
+            AppDesignTokens.spaceXxxl,
+          ),
           children: [
             _Greeting(greeting: state.greeting, streak: state.streakDays),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppDesignTokens.spaceXxl),
             const _TonightCard(),
-            const SizedBox(height: 28),
-            Row(
-              children: [
-                Text(
-                  'Popular games',
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const Spacer(),
-                TextButton(
-                  onPressed: () => context.go('/games'),
-                  child: const Text('See all'),
-                ),
-              ],
+            const SizedBox(height: AppDesignTokens.spaceXxl),
+            SectionHeader(
+              title: 'Popular games',
+              onSeeAll: () => context.go('/games'),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: AppDesignTokens.spaceSm),
             _PopularRow(games: games),
-            const SizedBox(height: 24),
+            const SizedBox(height: AppDesignTokens.spaceXxl),
             _ScienceCard(quote: state.quote),
           ],
         ),
@@ -83,12 +78,11 @@ class _Greeting extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Good evening', style: Theme.of(context).textTheme.bodyLarge),
-              const SizedBox(height: 4),
+              const SizedBox(height: AppDesignTokens.spaceXs),
               Text(
                 greeting,
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: -0.5,
+                  letterSpacing: AppDesignTokens.letterSpacingTight,
                 ),
               ),
             ],
@@ -112,7 +106,7 @@ class _Greeting extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: AppDesignTokens.spaceSm),
               Text('Day streak', style: TextStyle(color: colors.textSecondary)),
             ],
           ),
@@ -130,7 +124,7 @@ class _TonightCard extends StatelessWidget {
     final colors = AppColors.of(context);
     return Container(
       height: 296,
-      padding: const EdgeInsets.all(22),
+      padding: const EdgeInsets.all(AppDesignTokens.spaceXxl),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppDesignTokens.radius),
         border: Border.all(color: colors.primary.withValues(alpha: .35)),
@@ -144,7 +138,7 @@ class _TonightCard extends StatelessWidget {
         children: [
           Positioned(
             right: -8,
-            bottom: 22,
+            bottom: AppDesignTokens.spaceXxl,
             child: Icon(
               Icons.favorite_border_rounded,
               size: 150,
@@ -155,21 +149,23 @@ class _TonightCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('🔥  Tonight\'s pick', style: TextStyle(color: colors.textSecondary)),
-              const SizedBox(height: 22),
+              const SizedBox(height: AppDesignTokens.spaceXxl),
               Text(
                 'Spice up\nyour connection',
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  height: 1.12,
-                  fontWeight: FontWeight.w700,
+                  height: AppDesignTokens.lineHeightTight,
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: AppDesignTokens.spaceMd),
               const Text('Fun & intimacy games for\na deeper bond.'),
               const Spacer(),
               SizedBox(
                 width: 168,
                 child: FilledButton.icon(
-                  onPressed: () => context.go('/games'),
+                  // Routes straight into the Creative Connections flow rather
+                  // than the generic Games hub, matching what this card
+                  // actually promises ("spice up your connection").
+                  onPressed: () => context.push('/home/conversation'),
                   iconAlignment: IconAlignment.end,
                   icon: const Icon(Icons.arrow_forward),
                   label: const Text("Let's play"),
@@ -194,7 +190,7 @@ class _PopularRow extends StatelessWidget {
     child: ListView.separated(
       scrollDirection: Axis.horizontal,
       itemCount: games.length,
-      separatorBuilder: (_, _) => const SizedBox(width: 12),
+      separatorBuilder: (_, _) => const SizedBox(width: AppDesignTokens.spaceMd),
       itemBuilder: (_, index) => _PopularTile(game: games[index]),
     ),
   );
@@ -218,7 +214,12 @@ class _PopularTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: Container(
           width: 118,
-          padding: const EdgeInsets.fromLTRB(10, 10, 10, 12),
+          padding: const EdgeInsets.fromLTRB(
+            AppDesignTokens.spaceSm,
+            AppDesignTokens.spaceSm,
+            AppDesignTokens.spaceSm,
+            AppDesignTokens.spaceMd,
+          ),
           decoration: BoxDecoration(
             color: colors.surface,
             borderRadius: BorderRadius.circular(16),
@@ -237,7 +238,7 @@ class _PopularTile extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: AppDesignTokens.spaceSm),
               Text(title, textAlign: TextAlign.center, maxLines: 2),
             ],
           ),
@@ -256,7 +257,7 @@ class _ScienceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = AppColors.of(context);
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(AppDesignTokens.spaceXl),
       decoration: BoxDecoration(
         color: colors.surface,
         borderRadius: BorderRadius.circular(16),
@@ -265,7 +266,7 @@ class _ScienceCard extends StatelessWidget {
       child: Row(
         children: [
           Icon(Icons.psychology_outlined, color: colors.primary, size: 40),
-          const SizedBox(width: 16),
+          const SizedBox(width: AppDesignTokens.spaceLg),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -276,7 +277,7 @@ class _ScienceCard extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: AppDesignTokens.spaceXs),
                 Text(quote, style: TextStyle(color: colors.textSecondary)),
               ],
             ),
