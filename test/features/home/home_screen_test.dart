@@ -24,12 +24,6 @@ class _MemorySessionRepository implements SessionRepository {
   }
 }
 
-List<Override> _sessionOverrides() => [
-  sessionRepositoryProvider.overrideWith(
-    (ref) async => _MemorySessionRepository(),
-  ),
-];
-
 void main() {
   test('popular games rotate by day and contain four unique entries', () {
     final first = popularGamesFor(DateTime(2026, 7, 30));
@@ -60,7 +54,11 @@ void main() {
 
     await tester.pumpWidget(
       ProviderScope(
-        overrides: _sessionOverrides(),
+        overrides: [
+          sessionRepositoryProvider.overrideWith(
+            (ref) async => _MemorySessionRepository(),
+          ),
+        ],
         child: MaterialApp.router(routerConfig: router),
       ),
     );
@@ -100,7 +98,11 @@ void main() {
 
     await tester.pumpWidget(
       ProviderScope(
-        overrides: _sessionOverrides(),
+        overrides: [
+          sessionRepositoryProvider.overrideWith(
+            (ref) async => _MemorySessionRepository(),
+          ),
+        ],
         child: MaterialApp.router(routerConfig: router),
       ),
     );
@@ -132,7 +134,11 @@ void main() {
 
     await tester.pumpWidget(
       ProviderScope(
-        overrides: _sessionOverrides(),
+        overrides: [
+          sessionRepositoryProvider.overrideWith(
+            (ref) async => _MemorySessionRepository(),
+          ),
+        ],
         child: MaterialApp.router(routerConfig: router),
       ),
     );
