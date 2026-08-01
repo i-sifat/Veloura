@@ -14,7 +14,7 @@ const kGameCatalog = <GameCatalogEntry>[
   ),
   GameCatalogEntry(
     id: 'card_challenge',
-    title: 'Would You Rather',
+    title: 'Card Challenge',
     route: '/games/card-challenge',
     art: 'assets/card_challenge.png',
     gradient: GameTokens.cardChallenge,
@@ -60,7 +60,7 @@ typedef GameDisplayInfo = (String title, String tagline, String players);
 /// Shared display copy reused by the Games hub and Favorites screens.
 GameDisplayInfo gameDisplayInfo(GameCatalogEntry entry) => switch (entry.id) {
   'lustful_rolls' => ('Love Dice', 'Let fate decide.', '2 Players'),
-  'card_challenge' => ('Would You Rather', 'Reveal desires.', '2 Players'),
+  'card_challenge' => ('Card Challenge', 'Reveal desires.', '2 Players'),
   'truth_or_dare' => ('Truth or Dare', 'Classic. Bold. Fun.', '2 Players'),
   'creative_connections' => (
     'Creative Positions',
