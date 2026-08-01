@@ -95,7 +95,9 @@ void main() {
   testWidgets('Veloura launches into the four-tab Home shell', (tester) async {
     await tester.pumpWidget(_app());
     await tester.pumpAndSettle();
-    expect(find.text('Angelina 💕'), findsOneWidget);
+    // The greeting now uses the real session name; the in-memory session
+    // repository yields the default "You" player until onboarding sets one.
+    expect(find.text('You \u{1F495}'), findsOneWidget);
     for (final label in ['Home', 'Games', 'Favorites', 'Profile']) {
       expect(find.text(label), findsOneWidget);
     }
