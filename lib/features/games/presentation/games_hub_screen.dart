@@ -81,9 +81,9 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
                   children: [
                     for (final category in const [
                       'All',
-                      'Spicy 🔥',
-                      'Intimacy 💕',
-                      'Fun 😈',
+                      'Spicy \u{1F525}',
+                      'Intimacy \u{1F495}',
+                      'Fun \u{1F608}',
                     ])
                       Padding(
                         padding: const EdgeInsets.only(
@@ -208,7 +208,9 @@ class _GameListCard extends ConsumerWidget {
         },
         borderRadius: BorderRadius.circular(AppDesignTokens.cardRadius),
         child: Container(
-          height: 124,
+          // Minimum, not fixed: longer titles/taglines are allowed to push the
+          // card slightly taller instead of overflowing or getting clipped.
+          constraints: const BoxConstraints(minHeight: 124),
           padding: const EdgeInsets.all(AppDesignTokens.spaceMd),
           decoration: BoxDecoration(
             color: colors.surface,
@@ -234,6 +236,7 @@ class _GameListCard extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Row(
                       children: [
@@ -242,9 +245,13 @@ class _GameListCard extends ConsumerWidget {
                             info.$1,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
+                            // titleMedium (not titleLarge): the longer catalog
+                            // titles ("Creative Positions", "Passionate
+                            // Roleplay") now fit on one line instead of
+                            // truncating against the badge/lock icons.
                             style: Theme.of(context)
                                 .textTheme
-                                .titleLarge
+                                .titleMedium
                                 ?.copyWith(fontWeight: FontWeight.w700),
                           ),
                         ),
@@ -263,7 +270,12 @@ class _GameListCard extends ConsumerWidget {
                       ],
                     ),
                     const SizedBox(height: AppDesignTokens.spaceXs),
-                    Text(info.$2, style: TextStyle(color: colors.textSecondary)),
+                    Text(
+                      info.$2,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(color: colors.textSecondary),
+                    ),
                     const SizedBox(height: AppDesignTokens.spaceSm),
                     Row(
                       children: [
@@ -275,6 +287,8 @@ class _GameListCard extends ConsumerWidget {
                         const SizedBox(width: AppDesignTokens.spaceXs),
                         Text(
                           info.$3,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(color: colors.textSecondary),
                         ),
                       ],

@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:veloura/features/games/domain/game_catalog.dart';
 import 'package:veloura/features/games/domain/game_catalog_entry.dart';
 import 'package:veloura/features/home/presentation/home_controller.dart';
+import 'package:veloura/shared/widgets/error_state.dart';
 import 'package:veloura/shared/widgets/section_header.dart';
 import 'package:veloura/theme/app_colors.dart';
 import 'package:veloura/theme/app_design_tokens.dart';
@@ -26,7 +27,7 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(homeControllerProvider);
+    final homeState = ref.watch(homeControllerProvider);
     final colors = AppColors.of(context);
     final games = popularGamesFor(DateTime.now());
 
@@ -34,27 +35,34 @@ class HomeScreen extends ConsumerWidget {
       color: colors.background,
       child: SafeArea(
         bottom: false,
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(
-            AppDesignTokens.spaceXxl,
-            AppDesignTokens.spaceXxl,
-            AppDesignTokens.spaceXxl,
-            AppDesignTokens.spaceXxxl,
+        child: homeState.when(
+          loading: () => const Center(child: CircularProgressIndicator()),
+          error: (error, _) => ErrorState(
+            message: '$error',
+            onRetry: () => ref.invalidate(homeControllerProvider),
           ),
-          children: [
-            _Greeting(greeting: state.greeting, streak: state.streakDays),
-            const SizedBox(height: AppDesignTokens.spaceXxl),
-            const _TonightCard(),
-            const SizedBox(height: AppDesignTokens.spaceXxl),
-            SectionHeader(
-              title: 'Popular games',
-              onSeeAll: () => context.go('/games'),
+          data: (state) => ListView(
+            padding: const EdgeInsets.fromLTRB(
+              AppDesignTokens.spaceXxl,
+              AppDesignTokens.spaceXxl,
+              AppDesignTokens.spaceXxl,
+              AppDesignTokens.spaceXxxl,
             ),
-            const SizedBox(height: AppDesignTokens.spaceSm),
-            _PopularRow(games: games),
-            const SizedBox(height: AppDesignTokens.spaceXxl),
-            _ScienceCard(quote: state.quote),
-          ],
+            children: [
+              _Greeting(greeting: state.greeting, streak: state.streakDays),
+              const SizedBox(height: AppDesignTokens.spaceXxl),
+              const _TonightCard(),
+              const SizedBox(height: AppDesignTokens.spaceXxl),
+              SectionHeader(
+                title: 'Popular games',
+                onSeeAll: () => context.go('/games'),
+              ),
+              const SizedBox(height: AppDesignTokens.spaceSm),
+              _PopularRow(games: games),
+              const SizedBox(height: AppDesignTokens.spaceXxl),
+              _ScienceCard(quote: state.quote),
+            ],
+          ),
         ),
       ),
     );
@@ -102,7 +110,7 @@ class _Greeting extends StatelessWidget {
                   border: Border.all(color: colors.primary.withValues(alpha: .55)),
                 ),
                 child: Text(
-                  '🔥 $streak',
+                  '\u{1F525} $streak',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
@@ -148,7 +156,7 @@ class _TonightCard extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('🔥  Tonight\'s pick', style: TextStyle(color: colors.textSecondary)),
+              Text('\u{1F525}  Tonight\'s pick', style: TextStyle(color: colors.textSecondary)),
               const SizedBox(height: AppDesignTokens.spaceXxl),
               Text(
                 'Spice up\nyour connection',

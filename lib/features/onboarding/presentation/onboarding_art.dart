@@ -171,7 +171,7 @@ class _GlowOrb extends StatelessWidget {
     height: size,
     decoration: const BoxDecoration(
       shape: BoxShape.circle,
-      gradient: RadialGradient(colors: [Color(0x40FF1F68), Colors.transparent]),
+      gradient: RadialGradient(colors: [Color(0x40E11D2E), Colors.transparent]),
     ),
   );
 }

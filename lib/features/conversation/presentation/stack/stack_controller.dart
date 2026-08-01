@@ -21,8 +21,10 @@ class ConversationStackState {
   final List<String> recentIds;
   final bool hasAdvanced;
 
-  /// Decorative 1-2-3 session position shown by [StepProgressBar]. Cycles
-  /// back to 1 after 3; it does not gate or limit the underlying queue.
+  /// Decorative 1..[ConversationStackController.roundLength] session
+  /// position shown by [StepProgressBar]. Cycles back to 1 after reaching
+  /// the round length; it does not gate or limit the underlying (random,
+  /// non-repeating) content queue.
   final int roundPosition;
 
   ConversationItem? get current => queue.isEmpty ? null : queue.first;
@@ -48,7 +50,13 @@ final conversationStackRandomProvider = Provider<Random>((ref) => Random());
 class ConversationStackController extends AsyncNotifier<ConversationStackState> {
   static const queueSize = 4;
   static const recentWindow = 20;
-  static const roundLength = 3;
+
+  /// Total questions per session. [advance] already hands the shared turn
+  /// off to the other player every question (see
+  /// `SessionController.nextTurn`), so across a full session of
+  /// [roundLength] questions each of the two players ends up asking exactly
+  /// half of them - e.g. 10 questions each way at the current length.
+  static const roundLength = 20;
 
   late ConversationRepository _repository;
   late Random _random;

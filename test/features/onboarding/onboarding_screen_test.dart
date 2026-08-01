@@ -21,6 +21,32 @@ class _MemorySessionRepository implements SessionRepository {
   }
 }
 
+Future<void> _skipToNamesPage(WidgetTester tester) async {
+  // The intro action button is now an icon-only circle on all three intro
+  // pages, so tap it by key rather than by the removed "Get started" label.
+  await tester.tap(find.byKey(const ValueKey('onboarding-next')));
+  await tester.pumpAndSettle();
+  await tester.tap(find.byKey(const ValueKey('onboarding-next')));
+  await tester.pumpAndSettle();
+  await tester.tap(find.byKey(const ValueKey('onboarding-next')));
+  await tester.pumpAndSettle();
+}
+
+/// Scrolls the choice on screen before tapping: on the compact test surface
+/// the partner's row can sit below the fixed footer, so a raw tap() would
+/// land on the footer button instead of the choice.
+Future<void> _tapChoice(WidgetTester tester, Finder finder) async {
+  await tester.ensureVisible(finder);
+  await tester.pumpAndSettle();
+  await tester.tap(finder);
+  await tester.pumpAndSettle();
+}
+
+Future<void> _selectBothSexes(WidgetTester tester) async {
+  await _tapChoice(tester, find.text('Female').first);
+  await _tapChoice(tester, find.text('Male').last);
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -38,22 +64,16 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Stronger together'), findsOneWidget);
-    await tester.tap(find.byKey(const ValueKey('onboarding-next')));
-    await tester.pumpAndSettle();
-    expect(find.textContaining('Deep conversations'), findsOneWidget);
-    await tester.tap(find.byKey(const ValueKey('onboarding-next')));
-    await tester.pumpAndSettle();
-    expect(find.textContaining('Track your journey'), findsOneWidget);
-    await tester.tap(find.text('Get started'));
-    await tester.pumpAndSettle();
+    await _skipToNamesPage(tester);
 
     expect(find.text('What are your names?'), findsOneWidget);
-    await tester.enterText(find.byType(TextField).first, 'Alex');
-    await tester.enterText(find.byType(TextField).last, 'Jamie');
+    await tester.enterText(find.byType(TextFormField).first, 'Alex');
+    await tester.enterText(find.byType(TextFormField).last, 'Jamie');
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
 
     expect(find.text('Select sex'), findsOneWidget);
+    await _selectBothSexes(tester);
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     expect(find.text("You're all set!"), findsOneWidget);
@@ -63,9 +83,94 @@ void main() {
     expect(repository.value?.a.name, 'Alex');
     expect(repository.value?.b.name, 'Jamie');
     expect(find.text('Good evening'), findsOneWidget);
-    expect(find.text('Angelina 💕'), findsOneWidget);
+    // The greeting now uses the couple's real captured name, not a
+    // hardcoded placeholder.
+    expect(find.text('Alex \u{1F495}'), findsOneWidget);
     for (final label in ['Home', 'Games', 'Favorites', 'Profile']) {
       expect(find.text(label), findsOneWidget);
     }
+  });
+
+  testWidgets('names page rejects blank names and blocks navigation', (
+    tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({});
+    final repository = _MemorySessionRepository();
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          sessionRepositoryProvider.overrideWith((ref) async => repository),
+        ],
+        child: const VelouraApp(),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await _skipToNamesPage(tester);
+    expect(find.text('What are your names?'), findsOneWidget);
+
+    // Neither field has been touched - tapping Continue must not advance.
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('What are your names?'), findsOneWidget);
+    expect(find.text('Select sex'), findsNothing);
+    expect(find.text('Please enter a name'), findsNWidgets(2));
+
+    // Filling only one field still blocks navigation.
+    await tester.enterText(find.byType(TextFormField).first, 'Alex');
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('What are your names?'), findsOneWidget);
+    expect(find.text('Please enter a name'), findsNWidgets(1));
+
+    // Filling both fields lets Continue proceed.
+    await tester.enterText(find.byType(TextFormField).last, 'Jamie');
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Select sex'), findsOneWidget);
+  });
+
+  testWidgets('sex page requires both selections before continuing', (
+    tester,
+  ) async {
+    SharedPreferences.setMockInitialValues({});
+    final repository = _MemorySessionRepository();
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          sessionRepositoryProvider.overrideWith((ref) async => repository),
+        ],
+        child: const VelouraApp(),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    await _skipToNamesPage(tester);
+    await tester.enterText(find.byType(TextFormField).first, 'Alex');
+    await tester.enterText(find.byType(TextFormField).last, 'Jamie');
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(find.text('Select sex'), findsOneWidget);
+
+    // Nothing selected yet - Continue must not advance.
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(find.text('Select sex'), findsOneWidget);
+    expect(find.text("You're all set!"), findsNothing);
+
+    // Selecting only one side still blocks navigation.
+    await _tapChoice(tester, find.text('Female').first);
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(find.text('Select sex'), findsOneWidget);
+
+    // Selecting both lets Continue proceed.
+    await _tapChoice(tester, find.text('Male').last);
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(find.text("You're all set!"), findsOneWidget);
   });
 }

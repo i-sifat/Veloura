@@ -5,6 +5,10 @@ import 'package:veloura/theme/app_design_tokens.dart';
 abstract final class OnboardingTokens {
   static const pageCount = 6;
   static const setupStartIndex = 3;
+
+  /// Index of the sex-selection page (immediately after the names page).
+  static const sexPageIndex = setupStartIndex + 1;
+
   static const maxWidth = 430.0;
   static const visualHeight = 300.0;
   static const fieldHeight = 72.0;
@@ -17,11 +21,15 @@ abstract final class OnboardingTokens {
   static const border = Color(0xFF28283D);
   static const muted = Color(0xFFAAA8B5);
   static const violet = Color(0xFF8A75A8);
-  static const pink = Color(0xFFFF1F68);
-  static const pinkLight = Color(0xFFFF5791);
+
+  // Brand accent. Historically pink; the palette moved to red to match the
+  // app-wide red CTA/nav accent. The `pink`/`pinkLight` names are kept
+  // stable so the onboarding widgets that reference them don't need to churn.
+  static const pink = Color(0xFFE11D2E);
+  static const pinkLight = Color(0xFFFF5A6E);
 
   static const glow = BoxShadow(
-    color: Color(0x66FF1F68),
+    color: Color(0x66E11D2E),
     blurRadius: 34,
     spreadRadius: 2,
   );

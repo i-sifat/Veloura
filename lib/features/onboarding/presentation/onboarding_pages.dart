@@ -55,29 +55,43 @@ class OnboardingIntroPage extends StatelessWidget {
 }
 
 /// Name capture matching the elevated fields in the supplied design.
+///
+/// Both names are required: [formKey] lets the parent screen call
+/// `validate()` before advancing past this page, so a blank name blocks
+/// navigation instead of silently falling back to a placeholder.
 class NamesPage extends StatelessWidget {
-  const NamesPage({required this.nameA, required this.nameB, super.key});
+  const NamesPage({
+    required this.nameA,
+    required this.nameB,
+    required this.formKey,
+    super.key,
+  });
 
   final TextEditingController nameA;
   final TextEditingController nameB;
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) => _SetupLayout(
     title: 'What are your names?',
     subtitle: 'This helps us make the experience\nfeel more personal.',
-    child: Column(
-      children: [
-        _NameField(controller: nameA, label: 'Your name', hint: 'You'),
-        const SizedBox(height: 14),
-        _NameField(controller: nameB, label: "Partner's name", hint: 'Partner'),
-        const SizedBox(height: 42),
-        const Icon(
-          Icons.favorite_border_rounded,
-          color: OnboardingTokens.pink,
-          size: 104,
-          shadows: [OnboardingTokens.glow],
-        ),
-      ],
+    child: Form(
+      key: formKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      child: Column(
+        children: [
+          _NameField(controller: nameA, label: 'Your name', hint: 'You'),
+          const SizedBox(height: 14),
+          _NameField(controller: nameB, label: "Partner's name", hint: 'Partner'),
+          const SizedBox(height: 42),
+          const Icon(
+            Icons.favorite_border_rounded,
+            color: OnboardingTokens.pink,
+            size: 104,
+            shadows: [OnboardingTokens.glow],
+          ),
+        ],
+      ),
     ),
   );
 }
@@ -90,41 +104,48 @@ class _NameField extends StatelessWidget {
   final String hint;
 
   @override
-  Widget build(BuildContext context) => SizedBox(
-    height: OnboardingTokens.fieldHeight,
-    child: TextField(
-      controller: controller,
-      maxLength: 16,
-      textCapitalization: TextCapitalization.words,
-      decoration: InputDecoration(
-        labelText: label,
-        hintText: hint,
-        counterText: '',
-        suffixIcon: const Icon(Icons.favorite_border, color: OnboardingTokens.pink),
-        filled: true,
-        fillColor: OnboardingTokens.elevated,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(18)),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(18),
-          borderSide: const BorderSide(color: OnboardingTokens.border),
-        ),
+  Widget build(BuildContext context) => TextFormField(
+    controller: controller,
+    maxLength: 16,
+    textCapitalization: TextCapitalization.words,
+    // Required: a blank name (including whitespace-only input) fails
+    // validation, which OnboardingScreen checks before advancing.
+    validator: (value) =>
+        (value == null || value.trim().isEmpty) ? 'Please enter a name' : null,
+    decoration: InputDecoration(
+      labelText: label,
+      hintText: hint,
+      counterText: '',
+      suffixIcon: const Icon(Icons.favorite_border, color: OnboardingTokens.pink),
+      filled: true,
+      fillColor: OnboardingTokens.elevated,
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(18)),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(18),
+        borderSide: const BorderSide(color: OnboardingTokens.border),
       ),
     ),
   );
 }
 
 /// Inclusive two-person sex selection page from the reference flow.
+///
+/// Both [yours] and [partners] start `null` (nothing selected). The parent
+/// screen requires both to be chosen before advancing and flips [showError]
+/// on to surface the inline message when the user tries to leave early.
 class SexPage extends StatelessWidget {
   const SexPage({
     required this.yours,
     required this.partners,
+    required this.showError,
     required this.onYoursChanged,
     required this.onPartnersChanged,
     super.key,
   });
 
-  final String yours;
-  final String partners;
+  final String? yours;
+  final String? partners;
+  final bool showError;
   final ValueChanged<String> onYoursChanged;
   final ValueChanged<String> onPartnersChanged;
 
@@ -135,6 +156,8 @@ class SexPage extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const Text('Your sex', style: TextStyle(color: OnboardingTokens.muted)),
+        const SizedBox(height: 12),
         _ChoiceRow(value: yours, onChanged: onYoursChanged),
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 20),
@@ -143,6 +166,16 @@ class SexPage extends StatelessWidget {
         const Text("Your partner's sex", style: TextStyle(color: OnboardingTokens.muted)),
         const SizedBox(height: 12),
         _ChoiceRow(value: partners, onChanged: onPartnersChanged),
+        if (showError) ...[
+          const SizedBox(height: 18),
+          Text(
+            'Please select both partners\u2019 sex to continue.',
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.error,
+              fontSize: 13,
+            ),
+          ),
+        ],
       ],
     ),
   );
@@ -151,7 +184,7 @@ class SexPage extends StatelessWidget {
 class _ChoiceRow extends StatelessWidget {
   const _ChoiceRow({required this.value, required this.onChanged});
 
-  final String value;
+  final String? value;
   final ValueChanged<String> onChanged;
 
   @override
@@ -160,7 +193,7 @@ class _ChoiceRow extends StatelessWidget {
       Expanded(
         child: _SexChoice(
           label: 'Female',
-          symbol: '♀',
+          symbol: '\u2640',
           selected: value == 'female',
           onTap: () => onChanged('female'),
         ),
@@ -169,7 +202,7 @@ class _ChoiceRow extends StatelessWidget {
       Expanded(
         child: _SexChoice(
           label: 'Male',
-          symbol: '♂',
+          symbol: '\u2642',
           selected: value == 'male',
           onTap: () => onChanged('male'),
         ),
