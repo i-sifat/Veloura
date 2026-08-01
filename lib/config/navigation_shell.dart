@@ -91,7 +91,10 @@ class _NavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = AppColors.of(context);
-    final color = selected ? colors.primary : colors.textSecondary;
+    // `buttonFill` (deep, AAA-safe red) instead of the lighter `primary`
+    // pink, matching the red already used for the "Let's play" CTA and the
+    // Games hub category pills.
+    final color = selected ? colors.buttonFill : colors.textSecondary;
     return Expanded(
       child: Semantics(
         selected: selected,
