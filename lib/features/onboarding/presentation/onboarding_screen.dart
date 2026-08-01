@@ -18,6 +18,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   final _pages = PageController();
   final _nameA = TextEditingController();
   final _nameB = TextEditingController();
+  final _namesFormKey = GlobalKey<FormState>();
   var _page = 0;
   var _saving = false;
   var _yourSex = 'female';
@@ -97,7 +98,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         body:
             'Celebrate your progress, keep your streak alive and make memories as a couple.',
       ),
-      NamesPage(nameA: _nameA, nameB: _nameB),
+      NamesPage(nameA: _nameA, nameB: _nameB, formKey: _namesFormKey),
       SexPage(
         yours: _yourSex,
         partners: _partnerSex,
@@ -109,6 +110,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   );
 
   Future<void> _next() async {
+    // Both names are required: block leaving the names page until the form
+    // validates, instead of silently advancing and falling back to
+    // "You"/"Partner" placeholders later in `finish()`.
+    if (_page == OnboardingTokens.setupStartIndex &&
+        !(_namesFormKey.currentState?.validate() ?? true)) {
+      return;
+    }
     if (_page < OnboardingTokens.pageCount - 1) {
       await _goTo(_page + 1);
       return;

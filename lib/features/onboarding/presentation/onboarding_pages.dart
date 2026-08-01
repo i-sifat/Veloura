@@ -55,29 +55,43 @@ class OnboardingIntroPage extends StatelessWidget {
 }
 
 /// Name capture matching the elevated fields in the supplied design.
+///
+/// Both names are required: [formKey] lets the parent screen call
+/// `validate()` before advancing past this page, so a blank name blocks
+/// navigation instead of silently falling back to a placeholder.
 class NamesPage extends StatelessWidget {
-  const NamesPage({required this.nameA, required this.nameB, super.key});
+  const NamesPage({
+    required this.nameA,
+    required this.nameB,
+    required this.formKey,
+    super.key,
+  });
 
   final TextEditingController nameA;
   final TextEditingController nameB;
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) => _SetupLayout(
     title: 'What are your names?',
     subtitle: 'This helps us make the experience\nfeel more personal.',
-    child: Column(
-      children: [
-        _NameField(controller: nameA, label: 'Your name', hint: 'You'),
-        const SizedBox(height: 14),
-        _NameField(controller: nameB, label: "Partner's name", hint: 'Partner'),
-        const SizedBox(height: 42),
-        const Icon(
-          Icons.favorite_border_rounded,
-          color: OnboardingTokens.pink,
-          size: 104,
-          shadows: [OnboardingTokens.glow],
-        ),
-      ],
+    child: Form(
+      key: formKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      child: Column(
+        children: [
+          _NameField(controller: nameA, label: 'Your name', hint: 'You'),
+          const SizedBox(height: 14),
+          _NameField(controller: nameB, label: "Partner's name", hint: 'Partner'),
+          const SizedBox(height: 42),
+          const Icon(
+            Icons.favorite_border_rounded,
+            color: OnboardingTokens.pink,
+            size: 104,
+            shadows: [OnboardingTokens.glow],
+          ),
+        ],
+      ),
     ),
   );
 }
@@ -90,24 +104,25 @@ class _NameField extends StatelessWidget {
   final String hint;
 
   @override
-  Widget build(BuildContext context) => SizedBox(
-    height: OnboardingTokens.fieldHeight,
-    child: TextField(
-      controller: controller,
-      maxLength: 16,
-      textCapitalization: TextCapitalization.words,
-      decoration: InputDecoration(
-        labelText: label,
-        hintText: hint,
-        counterText: '',
-        suffixIcon: const Icon(Icons.favorite_border, color: OnboardingTokens.pink),
-        filled: true,
-        fillColor: OnboardingTokens.elevated,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(18)),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(18),
-          borderSide: const BorderSide(color: OnboardingTokens.border),
-        ),
+  Widget build(BuildContext context) => TextFormField(
+    controller: controller,
+    maxLength: 16,
+    textCapitalization: TextCapitalization.words,
+    // Required: a blank name (including whitespace-only input) fails
+    // validation, which OnboardingScreen checks before advancing.
+    validator: (value) =>
+        (value == null || value.trim().isEmpty) ? 'Please enter a name' : null,
+    decoration: InputDecoration(
+      labelText: label,
+      hintText: hint,
+      counterText: '',
+      suffixIcon: const Icon(Icons.favorite_border, color: OnboardingTokens.pink),
+      filled: true,
+      fillColor: OnboardingTokens.elevated,
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(18)),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(18),
+        borderSide: const BorderSide(color: OnboardingTokens.border),
       ),
     ),
   );
@@ -160,7 +175,7 @@ class _ChoiceRow extends StatelessWidget {
       Expanded(
         child: _SexChoice(
           label: 'Female',
-          symbol: '♀',
+          symbol: '\u2640',
           selected: value == 'female',
           onTap: () => onChanged('female'),
         ),
@@ -169,7 +184,7 @@ class _ChoiceRow extends StatelessWidget {
       Expanded(
         child: _SexChoice(
           label: 'Male',
-          symbol: '♂',
+          symbol: '\u2642',
           selected: value == 'male',
           onTap: () => onChanged('male'),
         ),
