@@ -12,7 +12,6 @@ import 'package:veloura/features/cards/presentation/fan/fan_controller.dart';
 import 'package:veloura/features/cards/presentation/fan/widgets/card_fan.dart';
 import 'package:veloura/features/cards/presentation/fan/widgets/challenge_card_front.dart';
 import 'package:veloura/features/cards/presentation/fan/widgets/consent_sheet.dart';
-import 'package:veloura/features/premium/provider.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
 import 'package:veloura/shared/widgets/error_state.dart';
 import 'package:veloura/shared/widgets/game/game_app_bar.dart';
@@ -38,13 +37,8 @@ class _CardChallengeFanScreenState
   var _superhotConsentShown = false;
 
   Future<void> _pick(int number, CardFanState state) async {
-    final premium = ref.read(isPremiumProvider);
-    if (state.deck == IntensityDeck.superhot && !premium) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Superhot cards unlock with Premium.')),
-      );
-      return;
-    }
+    // Superhot still asks for a one-time content consent (an age/intensity
+    // warning, not a payment gate) before its first reveal.
     if (state.deck == IntensityDeck.superhot && !_superhotConsentShown) {
       final accepted = await ConsentSheet.show(context);
       if (!mounted || accepted == null) return;
@@ -194,8 +188,6 @@ class _CardChallengeFanScreenState
         ),
       ),
       data: (state) {
-        final premium = ref.watch(isPremiumProvider);
-        final locked = state.deck == IntensityDeck.superhot && !premium;
         return Scaffold(
           body: GameBackdrop(
             child: SafeArea(
@@ -257,11 +249,10 @@ class _CardChallengeFanScreenState
                             )
                           : CardFan(
                               deck: state.deck,
-                              locked: locked,
+                              locked: false,
                               onPick: (number) => _pick(number, state),
                             ),
                     ),
-                    if (locked) const _SuperhotLockBanner(),
                     const SizedBox(height: 8),
                   ],
                 ),
@@ -272,26 +263,6 @@ class _CardChallengeFanScreenState
       },
     );
   }
-}
-
-/// Persistent notice shown while browsing the locked Superhot deck.
-class _SuperhotLockBanner extends StatelessWidget {
-  const _SuperhotLockBanner();
-
-  @override
-  Widget build(BuildContext context) => Container(
-    width: double.infinity,
-    padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
-    decoration: BoxDecoration(
-      color: const Color(0xFFF7D9E6),
-      borderRadius: BorderRadius.circular(GameTokens.cardRadius),
-    ),
-    child: const Text(
-      'Superhot cards unlock with Premium.',
-      textAlign: TextAlign.center,
-      style: TextStyle(color: Color(0xFF7D123D), fontWeight: FontWeight.w600),
-    ),
-  );
 }
 
 class _DeckSelector extends StatelessWidget {
