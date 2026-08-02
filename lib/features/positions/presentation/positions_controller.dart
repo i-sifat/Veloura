@@ -2,8 +2,6 @@ import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:veloura/core/app_result.dart';
-import 'package:veloura/core/spin/spin_solution.dart';
-import 'package:veloura/core/spin/spin_solver.dart';
 import 'package:veloura/features/positions/data/position_repository_asset.dart';
 import 'package:veloura/features/positions/domain/heat_ladder.dart';
 import 'package:veloura/features/positions/domain/intimacy_position.dart';
@@ -22,12 +20,64 @@ final positionRepositoryProvider = Provider<PositionRepository>(
   (ref) => PositionRepositoryAsset(),
 );
 
+/// Pure landing calculations for the zone wheel, inherited 1:1 from the
+/// Truth or Dare `WheelMath` (see
+/// `features/truth_dare/presentation/wheel/wheel_controller.dart`), just
+/// parameterized by [zoneCount] instead of a fixed 10 segments.
+abstract final class PositionWheelMath {
+  static double segmentDegrees(int zoneCount) => 360 / zoneCount;
+
+  /// Landing angle measured from zero. Kept for parity with the Truth or
+  /// Dare math and for direct unit testing; the screen uses
+  /// [nextEndDegrees] to animate.
+  static double endDegrees({
+    required int target,
+    required int turns,
+    required int zoneCount,
+  }) {
+    assert(target >= 0 && target < zoneCount);
+    final segment = segmentDegrees(zoneCount);
+    final centre = target * segment + segment / 2;
+    return turns * 360 + (360 - centre);
+  }
+
+  /// Like [endDegrees], but always measured forward from [currentDegrees]
+  /// instead of from zero. Guarantees the result is strictly greater than
+  /// [currentDegrees] (plus at least [turns] full revolutions), so
+  /// animating from `currentDegrees` to this value can only ever spin
+  /// clockwise - never backward or in place - no matter how many spins
+  /// came before it.
+  static double nextEndDegrees({
+    required double currentDegrees,
+    required int target,
+    required int turns,
+    required int zoneCount,
+  }) {
+    assert(target >= 0 && target < zoneCount);
+    assert(turns >= 1);
+    final segment = segmentDegrees(zoneCount);
+    final centre = target * segment + segment / 2;
+    final targetMod = (360 - centre) % 360;
+    final currentMod = currentDegrees % 360;
+    var forwardDelta = targetMod - currentMod;
+    if (forwardDelta <= 0) forwardDelta += 360;
+    return currentDegrees + forwardDelta + turns * 360;
+  }
+
+  static int targetForEndDegrees(double degrees, int zoneCount) {
+    final segment = segmentDegrees(zoneCount);
+    final normalized = degrees % 360;
+    final clockwiseFromPointer = (360 - normalized) % 360;
+    return (clockwiseFromPointer / segment).floor() % zoneCount;
+  }
+}
+
 /// Immutable round state rendered by the dynamic card surface.
 class PositionsRoundState {
   const PositionsRoundState({
     required this.catalog,
     required this.stage,
-    required this.dialDegrees,
+    required this.turns,
     required this.completedRounds,
     required this.heat,
     required this.beats,
@@ -39,7 +89,9 @@ class PositionsRoundState {
 
   final List<IntimacyPosition> catalog;
   final RoundStage stage;
-  final double dialDegrees;
+
+  /// Number of full revolutions the current/last spin travels.
+  final int turns;
   final int completedRounds;
   final int heat;
   final List<TempoBeat> beats;
@@ -52,7 +104,7 @@ class PositionsRoundState {
 
   PositionsRoundState copyWith({
     RoundStage? stage,
-    double? dialDegrees,
+    int? turns,
     int? completedRounds,
     int? heat,
     List<TempoBeat>? beats,
@@ -63,7 +115,7 @@ class PositionsRoundState {
   }) => PositionsRoundState(
     catalog: catalog,
     stage: stage ?? this.stage,
-    dialDegrees: dialDegrees ?? this.dialDegrees,
+    turns: turns ?? this.turns,
     completedRounds: completedRounds ?? this.completedRounds,
     heat: heat ?? this.heat,
     beats: beats ?? this.beats,
@@ -95,7 +147,7 @@ class PositionsController extends AsyncNotifier<PositionsRoundState> {
     return PositionsRoundState(
       catalog: catalog,
       stage: RoundStage.invite,
-      dialDegrees: 0,
+      turns: 0,
       completedRounds: 0,
       heat: 1,
       beats: const [],
@@ -103,27 +155,26 @@ class PositionsController extends AsyncNotifier<PositionsRoundState> {
     );
   }
 
-  /// Resolves a fair landing; flick velocity only changes turns/direction.
-  SpinSolution beginSpin({double omega = 4.8}) {
+  /// Picks a fair landing zone and a random turn count, inherited 1:1 from
+  /// Truth or Dare's `WheelController.prepareSpin()`. The screen reads
+  /// [PositionsRoundState.zone] and [PositionsRoundState.turns] straight
+  /// back off state to drive its own [PositionWheelMath.nextEndDegrees]
+  /// animation, exactly like the Truth or Dare wheel screen does.
+  void beginSpin() {
     final current = state.requireValue;
+    if (current.stage == RoundStage.spinning) return;
     final premium = ref.read(isPremiumProvider);
     final zoneCount = premium ? 6 : 5;
-    final turns = (omega.abs() / 3.2).round().clamp(2, 6);
-    final solution = SpinSolver.solve(
-      random: _random,
-      zoneCount: zoneCount,
-      turns: turns,
-      direction: omega < 0 ? -1 : 1,
-    );
+    final turns = 3 + _random.nextInt(3);
+    final target = _random.nextInt(zoneCount);
     state = AsyncData(
       current.copyWith(
         stage: RoundStage.spinning,
-        dialDegrees: solution.endDegrees,
-        zone: () => PositionZone.values[solution.target],
+        turns: turns,
+        zone: () => PositionZone.values[target],
         position: () => null,
       ),
     );
-    return solution;
   }
 
   /// Moves from the settled dial to the face-down card.

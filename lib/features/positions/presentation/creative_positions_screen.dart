@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,7 +20,11 @@ import 'package:veloura/shared/widgets/loading_shimmer.dart';
 import 'package:veloura/theme/app_colors.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
-/// Dial-to-card-to-beats Creative Positions game.
+/// Dial-to-card-to-beats Creative Positions game. The dial itself is
+/// inherited 1:1 from the Truth or Dare wheel screen: an explicit
+/// [AnimationController]-driven tween spins forward-only to a fairly
+/// chosen zone, mirroring `TruthOrDareWheelScreen` down to the easing
+/// curve, just with position zones instead of Truth/Dare segments.
 class CreativePositionsScreen extends ConsumerStatefulWidget {
   const CreativePositionsScreen({super.key});
 
@@ -29,26 +34,60 @@ class CreativePositionsScreen extends ConsumerStatefulWidget {
 }
 
 class _CreativePositionsScreenState
-    extends ConsumerState<CreativePositionsScreen> {
-  Timer? _spinTimer;
+    extends ConsumerState<CreativePositionsScreen>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _animation;
+  Animation<double> _rotation = const AlwaysStoppedAnimation(0);
+  double _settledRotation = 0;
   Timer? _cooldownTimer;
   DateTime? _beatShownAt;
 
-  void _spin([double omega = 4.8]) {
-    ref.read(positionsControllerProvider.notifier).beginSpin(omega: omega);
-    _spinTimer?.cancel();
-    final reduceMotion = MediaQuery.disableAnimationsOf(context);
-    _spinTimer = Timer(
-      reduceMotion
-          ? GameTokens.fadeDuration
-          : const Duration(milliseconds: 4500),
-      () {
-        if (mounted) {
-          ref.read(positionsControllerProvider.notifier).finishSpin();
-          unawaited(HapticFeedback.heavyImpact());
-        }
-      },
+  @override
+  void initState() {
+    super.initState();
+    _animation = AnimationController(
+      vsync: this,
+      // Same fixed 5s throw as the Truth or Dare wheel.
+      duration: const Duration(seconds: 5),
     );
+  }
+
+  Future<void> _spin() async {
+    final current = ref.read(positionsControllerProvider).asData?.value;
+    if (current == null || current.stage == RoundStage.spinning) return;
+    final premium = ref.read(isPremiumProvider);
+    final zoneCount = premium ? 6 : 5;
+    ref.read(positionsControllerProvider.notifier).beginSpin();
+    final prepared = ref.read(positionsControllerProvider).requireValue;
+    final target = prepared.zone!.index;
+    // Always continue forward (clockwise) from wherever the wheel
+    // currently sits, so a repeated spin never has to wind backward to
+    // reach its landing zone.
+    final endDegrees = PositionWheelMath.nextEndDegrees(
+      currentDegrees: _settledRotation * 180 / math.pi,
+      target: target,
+      turns: prepared.turns,
+      zoneCount: zoneCount,
+    );
+    final end = endDegrees * math.pi / 180;
+    final reduceMotion = MediaQuery.disableAnimationsOf(context);
+
+    if (reduceMotion) {
+      _settledRotation = end;
+      _rotation = AlwaysStoppedAnimation(end);
+      setState(() {});
+      await Future<void>.delayed(GameTokens.fadeDuration);
+    } else {
+      _rotation = Tween<double>(begin: _settledRotation, end: end).animate(
+        CurvedAnimation(parent: _animation, curve: const _DialSpinCurve()),
+      );
+      await _animation.forward(from: 0);
+      _settledRotation = end;
+      await HapticFeedback.heavyImpact();
+    }
+
+    if (!mounted) return;
+    ref.read(positionsControllerProvider.notifier).finishSpin();
   }
 
   void _advanceBeat() {
@@ -84,7 +123,7 @@ class _CreativePositionsScreenState
               Text('Creative Positions', style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(height: 10),
               const Text(
-                'Flick the dial, hold to reveal, then follow each beat together.',
+                'Spin the wheel to choose a zone, hold to reveal, then follow each beat together.',
                 textAlign: TextAlign.center,
               ),
             ],
@@ -96,7 +135,7 @@ class _CreativePositionsScreenState
 
   @override
   void dispose() {
-    _spinTimer?.cancel();
+    _animation.dispose();
     _cooldownTimer?.cancel();
     super.dispose();
   }
@@ -132,7 +171,7 @@ class _CreativePositionsScreenState
           headline: _headline(context, state, leader),
           hero: AnimatedSwitcher(
             duration: GameTokens.sheetDuration,
-            child: _hero(state, premium),
+            child: _hero(context, state, premium),
           ),
           footnote: _footnote(context, state),
           cta: _actions(state),
@@ -152,7 +191,7 @@ class _CreativePositionsScreenState
     return Align(
       alignment: Alignment.centerLeft,
       child: Text(
-        '${leader.toUpperCase()},\nFLICK TO CHOOSE',
+        '${leader.toUpperCase()},\nSPIN TO CHOOSE',
         style: Theme.of(context).textTheme.headlineMedium?.copyWith(
           fontWeight: FontWeight.w800,
           height: 1.02,
@@ -161,36 +200,53 @@ class _CreativePositionsScreenState
     );
   }
 
-  Widget _hero(PositionsRoundState state, bool premium) => switch (state.stage) {
-    RoundStage.invite || RoundStage.spinning || RoundStage.cooldown =>
-      PositionWheel(
-        key: const ValueKey('position-wheel'),
-        degrees: state.dialDegrees,
-        zoneCount: premium ? 6 : 5,
-        spinning: state.stage == RoundStage.spinning,
-        onFlick: state.stage == RoundStage.invite ? _spin : null,
+  Widget _hero(BuildContext context, PositionsRoundState state, bool premium) =>
+      switch (state.stage) {
+        RoundStage.invite || RoundStage.spinning || RoundStage.cooldown => _wheel(
+          context,
+          state,
+          premium,
+        ),
+        RoundStage.held => HeldCard(
+          key: const ValueKey('held-card'),
+          zone: state.zone!,
+          onReveal: () => ref.read(positionsControllerProvider.notifier).reveal(),
+        ),
+        RoundStage.revealed => PositionCard(
+          key: ValueKey(state.position!.id),
+          position: state.position!,
+        ),
+        RoundStage.tempo => BeatRail(
+          key: ValueKey('beat-${state.beatIndex}'),
+          beats: state.beats,
+          index: state.beatIndex,
+          onAdvance: _advanceBeat,
+        ),
+      };
+
+  Widget _wheel(BuildContext context, PositionsRoundState state, bool premium) {
+    final zoneCount = premium ? 6 : 5;
+    final diameter = math.min(MediaQuery.sizeOf(context).width - 72, 320.0);
+    return SizedBox.square(
+      key: const ValueKey('position-wheel'),
+      dimension: diameter,
+      child: AnimatedBuilder(
+        animation: _rotation,
+        builder: (context, _) => PositionWheel(
+          rotation: _rotation.value,
+          zoneCount: zoneCount,
+          winningZoneIndex: state.stage == RoundStage.spinning || state.zone == null
+              ? null
+              : state.zone!.index,
+        ),
       ),
-    RoundStage.held => HeldCard(
-      key: const ValueKey('held-card'),
-      zone: state.zone!,
-      onReveal: () => ref.read(positionsControllerProvider.notifier).reveal(),
-    ),
-    RoundStage.revealed => PositionCard(
-      key: ValueKey(state.position!.id),
-      position: state.position!,
-    ),
-    RoundStage.tempo => BeatRail(
-      key: ValueKey('beat-${state.beatIndex}'),
-      beats: state.beats,
-      index: state.beatIndex,
-      onAdvance: _advanceBeat,
-    ),
-  };
+    );
+  }
 
   Widget? _footnote(BuildContext context, PositionsRoundState state) {
     final colors = AppColors.of(context);
     final text = switch (state.stage) {
-      RoundStage.invite => 'Flick it, or use the button',
+      RoundStage.invite => 'The landed zone chooses your position',
       RoundStage.held => 'Press and hold to reveal',
       RoundStage.cooldown => 'Stay close.',
       _ => null,
@@ -202,9 +258,9 @@ class _CreativePositionsScreenState
 
   Widget _actions(PositionsRoundState state) => switch (state.stage) {
     RoundStage.invite => PrimaryCta(
-      label: 'Spin the dial',
-      icon: Icons.rotate_right,
-      onPressed: _spin,
+      label: 'Spin the wheel',
+      icon: Icons.refresh,
+      onPressed: () => unawaited(_spin()),
     ),
     RoundStage.spinning => const PrimaryCta(
       label: 'Spinning…',
@@ -236,4 +292,13 @@ class _CreativePositionsScreenState
       onPressed: null,
     ),
   };
+}
+
+/// Launches at full speed and eases smoothly into the selected zone -
+/// identical curve to the Truth or Dare wheel's `_RouletteSpinCurve`.
+class _DialSpinCurve extends Curve {
+  const _DialSpinCurve();
+
+  @override
+  double transformInternal(double t) => 1 - math.pow(1 - t, 5).toDouble();
 }
