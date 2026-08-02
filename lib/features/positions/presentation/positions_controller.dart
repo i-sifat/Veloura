@@ -2,8 +2,6 @@ import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:veloura/core/app_result.dart';
-import 'package:veloura/core/spin/spin_solution.dart';
-import 'package:veloura/core/spin/spin_solver.dart';
 import 'package:veloura/features/positions/data/position_repository_asset.dart';
 import 'package:veloura/features/positions/domain/heat_ladder.dart';
 import 'package:veloura/features/positions/domain/intimacy_position.dart';
@@ -27,7 +25,6 @@ class PositionsRoundState {
   const PositionsRoundState({
     required this.catalog,
     required this.stage,
-    required this.dialDegrees,
     required this.completedRounds,
     required this.heat,
     required this.beats,
@@ -39,7 +36,6 @@ class PositionsRoundState {
 
   final List<IntimacyPosition> catalog;
   final RoundStage stage;
-  final double dialDegrees;
   final int completedRounds;
   final int heat;
   final List<TempoBeat> beats;
@@ -52,7 +48,6 @@ class PositionsRoundState {
 
   PositionsRoundState copyWith({
     RoundStage? stage,
-    double? dialDegrees,
     int? completedRounds,
     int? heat,
     List<TempoBeat>? beats,
@@ -63,7 +58,6 @@ class PositionsRoundState {
   }) => PositionsRoundState(
     catalog: catalog,
     stage: stage ?? this.stage,
-    dialDegrees: dialDegrees ?? this.dialDegrees,
     completedRounds: completedRounds ?? this.completedRounds,
     heat: heat ?? this.heat,
     beats: beats ?? this.beats,
@@ -76,7 +70,7 @@ class PositionsRoundState {
   );
 }
 
-/// Coordinates the dial, held reveal, dynamic image card and beat rail.
+/// Coordinates the wheel, held reveal, dynamic image card and beat rail.
 class PositionsController extends AsyncNotifier<PositionsRoundState> {
   late Random _random;
   final Map<PositionZone, Set<String>> _used = {
@@ -95,7 +89,6 @@ class PositionsController extends AsyncNotifier<PositionsRoundState> {
     return PositionsRoundState(
       catalog: catalog,
       stage: RoundStage.invite,
-      dialDegrees: 0,
       completedRounds: 0,
       heat: 1,
       beats: const [],
@@ -103,35 +96,26 @@ class PositionsController extends AsyncNotifier<PositionsRoundState> {
     );
   }
 
-  /// Resolves a fair landing; flick velocity only changes turns/direction.
-  SpinSolution beginSpin({double omega = 4.8}) {
-    final current = state.requireValue;
-    final premium = ref.read(isPremiumProvider);
-    final zoneCount = premium ? 6 : 5;
-    final turns = (omega.abs() / 3.2).round().clamp(2, 6);
-    final solution = SpinSolver.solve(
-      random: _random,
-      zoneCount: zoneCount,
-      turns: turns,
-      direction: omega < 0 ? -1 : 1,
-    );
+  /// Marks that the player has started physically flicking the wheel.
+  /// The wheel widget itself owns the spin physics and fair-ish landing
+  /// (package:spinning_wheel); this only flips the round stage so the rest
+  /// of the screen (headline, CTA) reacts while it's in motion.
+  void beginSpin() {
+    final current = state.asData?.value;
+    if (current == null || current.stage != RoundStage.invite) return;
     state = AsyncData(
-      current.copyWith(
-        stage: RoundStage.spinning,
-        dialDegrees: solution.endDegrees,
-        zone: () => PositionZone.values[solution.target],
-        position: () => null,
-      ),
+      current.copyWith(stage: RoundStage.spinning, zone: () => null, position: () => null),
     );
-    return solution;
   }
 
-  /// Moves from the settled dial to the face-down card.
-  void finishSpin() {
-    final current = state.requireValue;
-    if (current.stage == RoundStage.spinning) {
-      state = AsyncData(current.copyWith(stage: RoundStage.held));
-    }
+  /// Records the zone the wheel physically settled on and moves to the
+  /// face-down card.
+  void landOnZone(PositionZone zone) {
+    final current = state.asData?.value;
+    if (current == null) return;
+    state = AsyncData(
+      current.copyWith(stage: RoundStage.held, zone: () => zone),
+    );
   }
 
   /// Draws an unused image-backed position in the landed zone.
