@@ -44,7 +44,7 @@ class HomeScreen extends ConsumerWidget {
             onRetry: () => ref.invalidate(homeControllerProvider),
           ),
           data: (state) => ListView(
-            // A generous cacheExtent keeps every section (including
+            // A generous scrollCacheExtent keeps every section (including
             // "Popular games" and everything below it) built and
             // present in the element tree from the first frame, even
             // while _TonightCard's hero grows into its real, taller
@@ -52,7 +52,7 @@ class HomeScreen extends ConsumerWidget {
             // cache window can leave later children un-built until
             // scrolled deep into view, which is brittle for such a
             // short, bounded list of sections.
-            cacheExtent: 4000,
+            scrollCacheExtent: 4000,
             padding: const EdgeInsets.fromLTRB(
               AppDesignTokens.spaceXxl,
               AppDesignTokens.spaceXxl,
