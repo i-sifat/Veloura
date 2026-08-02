@@ -42,8 +42,9 @@ class _TruthOrDareWheelScreenState
     super.initState();
     _animation = AnimationController(
       vsync: this,
-      // Longer throw so the decelerating tail is clearly visible.
-      duration: const Duration(milliseconds: 4200),
+      // Fixed 5s throw every spin, per spec: full speed out of the gate,
+      // then a long decelerating tail via the ease-out curve below.
+      duration: const Duration(seconds: 5),
     )..addListener(_tickHaptic);
   }
 
@@ -64,7 +65,15 @@ class _TruthOrDareWheelScreenState
     if (current == null || current.spinning) return;
     ref.read(wheelControllerProvider.notifier).prepareSpin();
     final prepared = ref.read(wheelControllerProvider).requireValue;
-    final end = prepared.endDegrees * math.pi / 180;
+    // Always continue forward (clockwise) from wherever the wheel currently
+    // sits, so a repeated spin never has to wind backward to reach its
+    // landing segment.
+    final endDegrees = WheelMath.nextEndDegrees(
+      currentDegrees: _settledRotation * 180 / math.pi,
+      target: prepared.target,
+      turns: prepared.turns,
+    );
+    final end = endDegrees * math.pi / 180;
     final reduceMotion = MediaQuery.disableAnimationsOf(context);
 
     if (reduceMotion) {
@@ -220,9 +229,14 @@ class _WheelResult extends ConsumerWidget {
         children: [
           Row(
             children: [
+              // Balances the trailing favorite button's width so the
+              // headline below reads as centered in the row, not just
+              // center-aligned text squeezed to the left of the icon.
+              const SizedBox(width: 48),
               Expanded(
                 child: Text(
                   'The wheel chose ${item.kind.name.toUpperCase()}',
+                  textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w800,
                   ),
@@ -241,7 +255,7 @@ class _WheelResult extends ConsumerWidget {
             ],
           ),
           const SizedBox(height: 12),
-          // Pink "spice up your connection"-style box carrying the prompt.
+          // Solid, on-brand card carrying the prompt (no photo background).
           // The prompt scrolls within this fixed area so it can never spill
           // under the Done button below.
           Expanded(
@@ -271,9 +285,8 @@ class _WheelResult extends ConsumerWidget {
   }
 }
 
-/// The rich prompt surface, styled to match the Home "Spice up your
-/// connection" hero: the same background artwork, a red border, a kind chip
-/// and a centered, scrollable prompt.
+/// The rich prompt surface: a solid, on-brand gradient (no photo) with a red
+/// border, a high-contrast kind chip and a centered, scrollable prompt.
 class _PromptBox extends StatelessWidget {
   const _PromptBox({
     required this.kind,
@@ -293,20 +306,29 @@ class _PromptBox extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(GameTokens.cardRadius),
+        // Solid, premium gradient instead of the old hero photo: always
+        // contrasts cleanly with the TRUTH/DARE pill, regardless of device
+        // or content.
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: GameTokens.truthOrDare,
+        ),
         border: Border.all(color: colors.primary.withValues(alpha: 0.45)),
       ),
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset(
-            'assets/homescreen/spice_up_your_connection_bg.png',
-            fit: BoxFit.cover,
-            errorBuilder: (_, _, _) =>
-                const ColoredBox(color: Color(0xFF371122)),
-          ),
-          // Darkening scrim for legible white prompt text over any artwork.
+          // Soft top sheen for depth now that there's no photo to add it.
           const DecoratedBox(
-            decoration: BoxDecoration(color: Color(0xCC1B0F1C)),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(0x33FFFFFF), Colors.transparent],
+                stops: [0, 0.55],
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(20),
@@ -319,16 +341,17 @@ class _PromptBox extends StatelessWidget {
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
+                    // Bumped alpha + a white hairline so the pill stays
+                    // clearly readable against the new solid background.
                     color: (isTruth ? const Color(0xFF4B2B8F) : GameTokens.rose)
-                        .withValues(alpha: 0.32),
+                        .withValues(alpha: 0.55),
                     borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: Colors.white.withValues(alpha: 0.4)),
                   ),
                   child: Text(
                     kind.toUpperCase(),
                     style: TextStyle(
-                      color: isTruth
-                          ? const Color(0xFFB39CFF)
-                          : GameTokens.roseLight,
+                      color: isTruth ? const Color(0xFFE6DBFF) : Colors.white,
                       fontWeight: FontWeight.w800,
                       letterSpacing: 1,
                     ),
