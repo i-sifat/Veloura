@@ -69,17 +69,22 @@ class WordDieState extends State<WordDie>
     return faces;
   }
 
-  /// Rolls the die: picks a random result word, tumbles forward through a
-  /// decelerating 5-segment sequence, then eases onto the chosen face.
-  /// Returns the resulting word once the roll settles.
-  Future<String> roll() async {
+  /// Rolls the die: tumbles forward through a decelerating 5-segment
+  /// sequence, then eases onto a randomly-chosen face, and returns the
+  /// word that lands there.
+  ///
+  /// Pass [result] to force a specific landing word (e.g. to match a
+  /// persisted roll record shared with another die); otherwise a random
+  /// word is sampled from [WordDie.wordPool].
+  Future<String> roll({String? result}) async {
     if (isRolling) return _faceWords[kDieFaceDefinitions.length - 1];
     final plan = planRoll(
       random: _random,
       currentRotationX: _restRotationX,
       currentRotationY: _restRotationY,
     );
-    final resultWord = widget.wordPool[_random.nextInt(widget.wordPool.length)];
+    final resultWord =
+        result ?? widget.wordPool[_random.nextInt(widget.wordPool.length)];
     setState(() => _faceWords = _buildFaces(resultWord, plan.landingFaceIndex));
 
     final startX = _restRotationX;
