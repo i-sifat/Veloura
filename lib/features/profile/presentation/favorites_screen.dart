@@ -138,7 +138,7 @@ class _Header extends StatelessWidget {
               child: Text(
                 'Clear all favorites',
                 style: TextStyle(
-                  color: onClearAll != null ? colors.primary : colors.textSecondary,
+                  color: onClearAll != null ? colors.buttonFill : colors.textSecondary,
                 ),
               ),
             ),
@@ -204,7 +204,7 @@ class _TabSegment extends StatelessWidget {
           duration: const Duration(milliseconds: 180),
           padding: const EdgeInsets.symmetric(vertical: 12),
           decoration: BoxDecoration(
-            color: selected ? colors.primary : Colors.transparent,
+            color: selected ? colors.buttonFill : Colors.transparent,
             borderRadius: BorderRadius.circular(999),
           ),
           alignment: Alignment.center,
@@ -301,7 +301,7 @@ class _GameFavoriteRow extends ConsumerWidget {
             child: Image.asset(
               entry.art,
               fit: BoxFit.contain,
-              errorBuilder: (_, _, _) => Icon(entry.fallbackIcon, color: colors.primary),
+              errorBuilder: (_, _, _) => Icon(entry.fallbackIcon, color: colors.buttonFill),
             ),
           ),
           const SizedBox(width: 14),
@@ -334,7 +334,7 @@ class _GameFavoriteRow extends ConsumerWidget {
             tooltip: 'Remove from favorites',
             onPressed: () =>
                 ref.read(gameFavoritesControllerProvider.notifier).toggle(entry.id),
-            icon: Icon(Icons.favorite, color: colors.primary),
+            icon: Icon(Icons.favorite, color: colors.buttonFill),
           ),
         ],
       ),
@@ -362,7 +362,7 @@ class _FavoritesTipCard extends StatelessWidget {
             height: 44,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: colors.primary,
+              color: colors.buttonFill,
               borderRadius: BorderRadius.circular(14),
             ),
             child: const Icon(Icons.bookmark, color: Colors.white),
@@ -450,7 +450,7 @@ class _ChallengeFavoriteRow extends StatelessWidget {
               color: colors.card,
               borderRadius: BorderRadius.circular(14),
             ),
-            child: Icon(_iconForSource(entry.source), color: colors.primary),
+            child: Icon(_iconForSource(entry.source), color: colors.buttonFill),
           ),
           const SizedBox(width: 14),
           Expanded(
@@ -469,7 +469,7 @@ class _ChallengeFavoriteRow extends StatelessWidget {
               ],
             ),
           ),
-          Icon(Icons.favorite, color: colors.primary),
+          Icon(Icons.favorite, color: colors.buttonFill),
         ],
       ),
     );
