@@ -19,6 +19,7 @@ class QuestionCard extends StatelessWidget {
     width: 240,
     height: 340,
     padding: const EdgeInsets.all(AppDesignTokens.spaceXxl),
+    clipBehavior: Clip.antiAlias,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(22),
       gradient: const LinearGradient(
@@ -31,22 +32,11 @@ class QuestionCard extends StatelessWidget {
     ),
     child: Stack(
       children: [
-        const Positioned.fill(
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Color(0x24FFFFFF), Colors.transparent],
-                stops: [0, 0.45],
-              ),
-            ),
-          ),
-        ),
+        const _PeelAccent(),
         Column(
           children: [
             Align(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.center,
               child: Container(
                 // Intrinsic height (no fixed 24px) so a two-line category
                 // label like "GETTING TO KNOW YOU AGAIN" grows the pill
@@ -122,6 +112,44 @@ class QuestionCard extends StatelessWidget {
           ],
         ),
       ],
+    ),
+  );
+}
+
+/// Sticker-style "peeled corner" accent tinted from the card's own gradient
+/// (instead of a flat white sheen), so it reads as an intentional lifted
+/// edge that belongs to this card rather than a generic highlight.
+class _PeelAccent extends StatelessWidget {
+  const _PeelAccent();
+
+  @override
+  Widget build(BuildContext context) => Positioned(
+    top: -6,
+    right: -6,
+    child: Transform.rotate(
+      angle: -0.5,
+      child: Container(
+        width: 72,
+        height: 72,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.white.withValues(alpha: 0.32),
+              GameTokens.creativeConnections.last.withValues(alpha: 0),
+            ],
+          ),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0x33000000),
+              blurRadius: 10,
+              offset: Offset(-3, 5),
+            ),
+          ],
+        ),
+      ),
     ),
   );
 }
