@@ -33,6 +33,7 @@ dependencies:
   sensors_plus: ^6.1.2
   share_plus: ^13.3.0
   shared_preferences: ^2.5.5
+  spinning_wheel: ^0.0.7
   timezone: ^0.10.1
 
 dev_dependencies:
