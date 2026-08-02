@@ -124,66 +124,126 @@ class _Greeting extends StatelessWidget {
   }
 }
 
-class _TonightCard extends StatelessWidget {
+/// Full-bleed "Spice up your connection" hero. Sizes itself to the
+/// artwork's own aspect ratio (instead of a fixed height) so the image is
+/// never stretched or cropped on any side: whatever the artwork's real
+/// proportions are, the card's height follows them exactly.
+class _TonightCard extends StatefulWidget {
   const _TonightCard();
+
+  @override
+  State<_TonightCard> createState() => _TonightCardState();
+}
+
+class _TonightCardState extends State<_TonightCard> {
+  static const _heroAsset = 'assets/homescreen/spice_up_your_connection_bg.png';
+
+  // Placeholder ratio matching the card's previous footprint, used only
+  // until the artwork's real dimensions resolve (avoids a layout jump).
+  double _aspectRatio = 328 / 296;
+  ImageStream? _stream;
+  late final ImageStreamListener _listener;
+
+  @override
+  void initState() {
+    super.initState();
+    _listener = ImageStreamListener(_onImage);
+  }
+
+  void _onImage(ImageInfo info, bool _) {
+    final height = info.image.height;
+    if (height == 0 || !mounted) return;
+    setState(() => _aspectRatio = info.image.width / height);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final stream = const AssetImage(_heroAsset).resolve(
+      createLocalImageConfiguration(context),
+    );
+    if (stream.key != _stream?.key) {
+      _stream?.removeListener(_listener);
+      _stream = stream..addListener(_listener);
+    }
+  }
+
+  @override
+  void dispose() {
+    _stream?.removeListener(_listener);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final colors = AppColors.of(context);
-    return Container(
-      height: 296,
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppDesignTokens.radius),
-        border: Border.all(color: colors.primary.withValues(alpha: .35)),
-      ),
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          // Full-bleed hero artwork (carries its own "Spice up your
-          // connection" treatment). Falls back to the previous gradient.
-          Image.asset(
-            'assets/homescreen/spice_up_your_connection_bg.png',
-            fit: BoxFit.cover,
-            errorBuilder: (_, _, _) => const DecoratedBox(
+    return AspectRatio(
+      // The box's shape now always matches the artwork's native shape, so
+      // BoxFit.cover below never has to crop anything to fill it — every
+      // edge of the image stays fully visible, edge to edge.
+      aspectRatio: _aspectRatio,
+      child: Container(
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(AppDesignTokens.radius),
+          border: Border.all(color: colors.primary.withValues(alpha: .35)),
+        ),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.asset(
+              _heroAsset,
+              fit: BoxFit.cover,
+              errorBuilder: (_, _, _) => const DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF371122), Color(0xFF1B101C)],
+                  ),
+                ),
+              ),
+            ),
+            // Bottom-left scrim so the CTA stays legible over any artwork.
+            const DecoratedBox(
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Color(0xFF371122), Color(0xFF1B101C)],
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                  colors: [Color(0xB3000000), Color(0x00000000)],
                 ),
               ),
             ),
-          ),
-          // Bottom-left scrim so the CTA stays legible over any artwork.
-          const DecoratedBox(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.bottomLeft,
-                end: Alignment.topRight,
-                colors: [Color(0xB3000000), Color(0x00000000)],
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Padding(
-              padding: const EdgeInsets.all(AppDesignTokens.spaceXxl),
-              child: SizedBox(
-                width: 168,
-                child: FilledButton.icon(
-                  // Routes straight into the Creative Connections flow rather
-                  // than the generic Games hub, matching what this card
-                  // actually promises ("spice up your connection").
-                  onPressed: () => context.push('/home/conversation'),
-                  iconAlignment: IconAlignment.end,
-                  icon: const Icon(Icons.arrow_forward),
-                  label: const Text("Let's play"),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(AppDesignTokens.spaceXxl),
+                child: SizedBox(
+                  // ~18% smaller than the previous 168px CTA, scaled to
+                  // match the artwork's own proportions now that the card
+                  // is no longer force-cropped to a fixed height.
+                  width: 138,
+                  child: FilledButton.icon(
+                    // Routes straight into the Creative Connections flow
+                    // rather than the generic Games hub, matching what this
+                    // card actually promises ("spice up your connection").
+                    onPressed: () => context.push('/home/conversation'),
+                    style: FilledButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: AppDesignTokens.spaceMd,
+                        vertical: AppDesignTokens.spaceSm,
+                      ),
+                      textStyle: Theme.of(context).textTheme.labelLarge,
+                    ),
+                    iconAlignment: IconAlignment.end,
+                    icon: const Icon(Icons.arrow_forward, size: 18),
+                    label: const Text("Let's play"),
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
