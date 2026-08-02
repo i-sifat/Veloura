@@ -108,6 +108,17 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    // The hero card above this section now sizes itself to the artwork's
+    // real (taller-than-placeholder) aspect ratio, so "Popular games" can
+    // land below the default test viewport + sliver cache extent. Scroll
+    // it into view first, exactly like the sibling test above already
+    // does for the popular game cards.
+    await tester.scrollUntilVisible(
+      find.text('Popular games'),
+      100,
+      scrollable: find.byType(Scrollable).first,
+    );
+
     expect(find.text('Popular games'), findsOneWidget);
     await tester.tap(find.text('See all'));
     await tester.pumpAndSettle();
