@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:veloura/features/cards/domain/challenge_item.dart';
 import 'package:veloura/features/cards/domain/intensity_deck.dart';
-import 'package:veloura/theme/app_colors.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
 /// Revealed card face using the existing challenge title and description.
@@ -19,7 +18,6 @@ class ChallengeCardFront extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = AppColors.of(context);
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -65,25 +63,17 @@ class ChallengeCardFront extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          Text(
-            item.title,
-            maxLines: 2,
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-          const SizedBox(height: 10),
           Flexible(
             child: Text(
               item.description,
-              maxLines: 5,
+              maxLines: 7,
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: colors.textSecondary,
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontSize: 28,
                 height: 1.35,
+                color: Theme.of(context).colorScheme.onSurface,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
