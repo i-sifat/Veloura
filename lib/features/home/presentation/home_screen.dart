@@ -43,36 +43,39 @@ class HomeScreen extends ConsumerWidget {
             message: '$error',
             onRetry: () => ref.invalidate(homeControllerProvider),
           ),
-          data: (state) => ListView(
-            // A generous scrollCacheExtent keeps every section (including
-            // "Popular games" and everything below it) built and
-            // present in the element tree from the first frame, even
-            // while _TonightCard's hero grows into its real, taller
-            // aspect ratio. Without this, Flutter's default sliver
-            // cache window can leave later children un-built until
-            // scrolled deep into view, which is brittle for such a
-            // short, bounded list of sections.
-            scrollCacheExtent: const ScrollCacheExtent.pixels(4000),
+          data: (state) => SingleChildScrollView(
+            // This screen is a short, bounded stack of sections (greeting,
+            // hero, popular games header/row, science card) - never a long
+            // feed - so a plain eagerly-built Column costs nothing and
+            // guarantees every section (including "Popular games" and
+            // everything below it) is always present in the element tree
+            // from the first frame. A lazy ListView/sliver here previously
+            // let _TonightCard's hero (which grows into its real, taller
+            // aspect ratio via a deferred setState) leave later children
+            // un-built until scrolled deep into view, which was brittle.
             padding: const EdgeInsets.fromLTRB(
               AppDesignTokens.spaceXxl,
               AppDesignTokens.spaceXxl,
               AppDesignTokens.spaceXxl,
               AppDesignTokens.spaceXxxl,
             ),
-            children: [
-              _Greeting(greeting: state.greeting, streak: state.streakDays),
-              const SizedBox(height: AppDesignTokens.spaceXxl),
-              const _TonightCard(),
-              const SizedBox(height: AppDesignTokens.spaceXxl),
-              SectionHeader(
-                title: 'Popular games',
-                onSeeAll: () => context.go('/games'),
-              ),
-              const SizedBox(height: AppDesignTokens.spaceSm),
-              _PopularRow(games: games),
-              const SizedBox(height: AppDesignTokens.spaceXxl),
-              _ScienceCard(quote: state.quote),
-            ],
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _Greeting(greeting: state.greeting, streak: state.streakDays),
+                const SizedBox(height: AppDesignTokens.spaceXxl),
+                const _TonightCard(),
+                const SizedBox(height: AppDesignTokens.spaceXxl),
+                SectionHeader(
+                  title: 'Popular games',
+                  onSeeAll: () => context.go('/games'),
+                ),
+                const SizedBox(height: AppDesignTokens.spaceSm),
+                _PopularRow(games: games),
+                const SizedBox(height: AppDesignTokens.spaceXxl),
+                _ScienceCard(quote: state.quote),
+              ],
+            ),
           ),
         ),
       ),
