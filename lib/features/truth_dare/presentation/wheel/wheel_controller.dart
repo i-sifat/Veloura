@@ -22,6 +22,26 @@ abstract final class WheelMath {
     return turns * 360 + (360 - centre);
   }
 
+  /// Like [endDegrees], but always measured forward from [currentDegrees]
+  /// instead of from zero. Guarantees the result is strictly greater than
+  /// [currentDegrees] (plus at least [turns] full revolutions), so animating
+  /// from `currentDegrees` to this value can only ever spin clockwise -
+  /// never backward - no matter how many spins came before it.
+  static double nextEndDegrees({
+    required double currentDegrees,
+    required int target,
+    required int turns,
+  }) {
+    assert(target >= 0 && target < segmentCount);
+    assert(turns >= 1);
+    final centre = target * segmentDegrees + segmentDegrees / 2;
+    final targetMod = (360 - centre) % 360;
+    final currentMod = currentDegrees % 360;
+    var forwardDelta = targetMod - currentMod;
+    if (forwardDelta <= 0) forwardDelta += 360;
+    return currentDegrees + forwardDelta + turns * 360;
+  }
+
   static int targetForEndDegrees(double degrees) {
     final normalized = degrees % 360;
     final clockwiseFromPointer = (360 - normalized) % 360;
