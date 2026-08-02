@@ -150,10 +150,11 @@ class _ChallengeTile extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   child: Text(
-                    item.title,
+                    item.description,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ),
@@ -166,8 +167,7 @@ class _ChallengeTile extends ConsumerWidget {
                 ),
               ],
             ),
-            Text(item.description),
-            const SizedBox(height: 10),
+            const SizedBox(height: 6),
             Text(item.difficulty.name),
             const SizedBox(height: 12),
             Wrap(
@@ -176,7 +176,7 @@ class _ChallengeTile extends ConsumerWidget {
                 OutlinedButton.icon(
                   onPressed: () => SharePlus.instance.share(
                     ShareParams(
-                      text: 'Veloura challenge: ${item.title}\n${item.description}',
+                      text: 'Veloura challenge:\n${item.description}',
                     ),
                   ),
                   icon: const Icon(Icons.share_outlined),

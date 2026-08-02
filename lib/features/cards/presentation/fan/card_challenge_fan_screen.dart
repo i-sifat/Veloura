@@ -389,7 +389,7 @@ class _RevealCardDialogState extends ConsumerState<_RevealCardDialog>
                     onPressed: () => SharePlus.instance.share(
                       ShareParams(
                         text:
-                            'Veloura challenge: ${liveItem.title}\n${liveItem.description}',
+                            'Veloura challenge:\n${liveItem.description}',
                       ),
                     ),
                     icon: const Icon(Icons.share_outlined),
