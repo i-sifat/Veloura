@@ -21,8 +21,8 @@ class _PositionCardState extends State<PositionCard> {
     final position = widget.position;
     final colors = AppColors.of(context);
     return Container(
-      width: 252,
-      height: 360,
+      width: 276,
+      height: 340,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: GameTokens.sheet,
