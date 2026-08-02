@@ -107,29 +107,166 @@ def generate_td():
     return rows
 
 
-CHALLENGE_VERBS = {
-    'romance': ['plan a candlelit snack', 'write a tiny love note', 'recreate a favorite date moment', 'build a shared playlist'],
-    'adventure': ['take a new walking route', 'visit a place neither of you has explored', 'try a new café', 'choose a spontaneous mini outing'],
-    'connection': ['trade three thoughtful questions', 'share one current worry and one hope', 'listen without interrupting for five minutes', 'name one way you can support each other'],
-    'playful': ['invent a ridiculous contest', 'play a two-person scavenger hunt', 'create a secret handshake', 'act out a funny movie scene'],
-    'kindness': ['do one unnoticed chore for each other', 'prepare a small comfort surprise', 'leave an encouraging message', 'offer twenty minutes of practical help'],
-    'creativity': ['draw a future memory together', 'write a six-line story starring both of you', 'build something from household objects', 'take themed photos around your home'],
-    'wellness': ['take a screen-free walk', 'stretch together for ten minutes', 'prepare a colorful snack', 'create a calming bedtime ritual'],
-    'surprise': ['swap mystery date envelopes', 'choose a surprise song and explain why', 'hide a tiny clue trail', 'prepare an unexpected five-minute celebration'],
+# Brief, spicy/suggestive one-liners (16 unique per category), replacing the
+# old templated verb-phrase generator. Cycled twice across each category's
+# 32 cards (n % 16) instead of the old four phrases repeated eight times.
+CHALLENGE_LINES = {
+    'romance': [
+        'Trace your name on their back — make them guess it.',
+        'Kiss them somewhere you never have. Right now.',
+        'Whisper the exact moment you fell for them.',
+        'Hold their gaze for one full minute. No words.',
+        'Slow dance, no music. Just heartbeats.',
+        'Trace "I want you" on their palm.',
+        'Confess the one thing you still crave from them.',
+        "Kiss slowly. Count to five. Don't stop early.",
+        "Whisper what you'd do if no one was watching.",
+        'Stare at their lips for five seconds. Then act.',
+        'Confess the memory that still makes you blush.',
+        'Pull them close. Say nothing. Just breathe together.',
+        'Tell them exactly how they make your heart race.',
+        'Kiss the one spot that always melts them.',
+        "Say the words you're scared to say out loud.",
+        'Look them dead in the eye and say "I still want you."',
+    ],
+    'adventure': [
+        'Sneak a kiss somewhere risky. Right now.',
+        "Send a text you'd never normally send — send it now.",
+        'Do something reckless together before the timer hits zero.',
+        'Go somewhere dark, blindfolded, and trust them to lead.',
+        'Say yes to whatever they suggest next. No questions.',
+        'Break one small rule together. Right now.',
+        "Take a photo you'd never post — just for you two.",
+        'Do the thing you keep saying "next time" to.',
+        'Swap one item of clothing for the next hour.',
+        "Whisper a secret fantasy you've never said aloud.",
+        'Knock on a random door and see what happens.',
+        "Steal a kiss mid-sentence. Don't warn them.",
+        'Sneak away together for five minutes. Tell no one.',
+        'Try something new tonight — no explanation, just yes.',
+        "Pick a stranger's name. Be them for the next hour.",
+        'Dare them to guess your biggest secret fantasy.',
+    ],
+    'connection': [
+        "Say the thing you've been holding back all week.",
+        'Admit what scares you most about loving them.',
+        "Tell them the truth you've been avoiding.",
+        "Confess one thing you've never told anyone else.",
+        'Look them in the eyes and say what you need.',
+        'Tell them the moment you knew they were the one.',
+        "Say what you're most afraid to lose.",
+        'Say "I need you" — and mean it.',
+        'Admit the last time you cried over them.',
+        "Tell them one fear you've never said out loud.",
+        "Whisper a truth you're scared will change everything.",
+        'Confess what you think about late at night.',
+        'Say what you wish they knew but never said.',
+        'Tell them exactly how safe they make you feel.',
+        "Admit one thing you'd change about how you love them.",
+        "Say the vow you'd make right now. No ring needed.",
+    ],
+    'playful': [
+        'Do your best sexy walk across the room. No laughing.',
+        'Give them a nickname only used in bed. Right now.',
+        'Whisper something ridiculous in your flirtiest voice.',
+        'Send the cringiest flirty text you can think of.',
+        'Do an impression of them flirting with you.',
+        'Invent a secret code word for "later."',
+        'Give your best wink — make it weird on purpose.',
+        'Try to make them blush in under 10 seconds.',
+        'Use a pickup line like you just met.',
+        'Play footsie under the table. Right now.',
+        'Whisper a joke only the two of you get.',
+        'Do your most dramatic bedroom-eyes stare.',
+        'Text them like a stranger flirting for the first time.',
+        'Invent one silly rule for tonight. No breaking it.',
+        'Give them a look that says "later." Hold it.',
+        'Act out your most dramatic "come here" face.',
+    ],
+    'kindness': [
+        'Do one thing for them, no reason. Right now.',
+        'Give them your full attention for five minutes. Phone away.',
+        "Tell them one way they've made your life easier.",
+        'Surprise them with a favor before they ask.',
+        'Hold them for one full minute. No talking.',
+        'Give them the last bite. Mean it.',
+        'Thank them for something they never get thanked for.',
+        'Do the chore they hate most. No complaints.',
+        "Leave a note somewhere they'll find it by surprise.",
+        'Ask what they need tonight — then give it.',
+        "Give a slow hug. Don't let go first.",
+        'Offer to carry their worry for the next hour.',
+        "Say one thing you're grateful they put up with.",
+        'Rub their shoulders for two minutes. No talking.',
+        'Say "I\'ve got you" — and follow through tonight.',
+        'Do something small that says "I see you."',
+    ],
+    'creativity': [
+        'Describe them as a movie scene. Make it steamy.',
+        'Invent a secret handshake that ends in a kiss.',
+        'Draw them from memory. Eyes closed.',
+        'Write one line of a love scene starring you two.',
+        'Title tonight like a movie. Then live up to it.',
+        'Describe your perfect night in five words. Then start it.',
+        'Invent a nickname that only makes sense after tonight.',
+        'Make one rule for the night. Break it together.',
+        'Write the first line of your story. Let them guess the rest.',
+        'Turn one ordinary moment into something unforgettable. Right now.',
+        'Describe them using only touch. No words.',
+        'Create a secret signal for "come closer."',
+        'Pick a song that\'s now "yours." Dance close to it.',
+        "Write a fantasy in one line. Don't explain it.",
+        "Design tonight's plot twist. Then make it happen.",
+        "Give this moment a name you'll both remember.",
+    ],
+    'wellness': [
+        'Breathe together for one minute, forehead to forehead.',
+        'Give a slow massage for two minutes. No rushing.',
+        'Sit in silence together until it feels good, not awkward.',
+        'Trade one worry for one comfort — out loud.',
+        'Hold hands and just breathe for sixty seconds.',
+        'Say one thing your body needs tonight.',
+        'Stretch together, slowly, eyes on each other.',
+        'Share a warm moment — no phones, no rush.',
+        'Whisper "relax" — and mean it.',
+        'Trade a two-minute back rub. Switch halfway.',
+        'Sit close enough to feel their heartbeat.',
+        'Let them undo one stress for you. Right now.',
+        'Match your breathing to theirs for one minute.',
+        'Ask "what do you need from me right now?" Then do it.',
+        'Give them permission to be still. Join them.',
+        'Hold each other until the tension actually leaves.',
+    ],
+    'surprise': [
+        "Do something they'll never expect — in the next 60 seconds.",
+        "Hide a bold note somewhere they'll find it.",
+        'Whisper "guess what happens next." Then deliver.',
+        "Surprise them with a kiss they didn't see coming.",
+        'Do the opposite of what they expect. Right now.',
+        "Text them something mysterious. Don't explain.",
+        'Plan a five-minute surprise. Execute immediately.',
+        'Say "close your eyes" — and make it worth it.',
+        'Switch the mood without warning. See what happens.',
+        'Leave a clue that leads somewhere bold.',
+        'Break the routine with one bold move tonight.',
+        'Whisper a secret plan for later. No details yet.',
+        'Surprise them mid-conversation with a kiss.',
+        'Flip the script — be the one who initiates tonight.',
+        'Hide something for them to discover tonight.',
+        'Say "trust me" — and lead them somewhere unexpected.',
+    ],
 }
 
 
 def generate_challenges():
     rows = []
     idx = 1
-    for category, verbs in CHALLENGE_VERBS.items():
+    for category, lines in CHALLENGE_LINES.items():
         for n in range(32):
-            action = verbs[n % len(verbs)]
-            partner = ['together tonight', 'before the weekend ends', 'using only what you already have', 'and finish by sharing what felt best'][n % 4]
             rows.append({
                 'id': f'ch_{idx:04d}',
                 'title': f'{category.title()} spark {n + 1}',
-                'description': f'{action.capitalize()} {partner}. Keep the plan specific, mutual, and easy to complete.',
+                'description': lines[n % len(lines)],
                 'challengeCategory': category,
                 'difficulty': ['cute', 'romantic', 'spicy', 'cute'][n % 4],
                 'estimatedMinutes': [10, 20, 30, 45][n % 4],
@@ -258,7 +395,7 @@ def validate(td, challenges, conversation):
         assert Counter(row['kind'] for row in tier_rows)['truth'] == len(tier_rows) // 2
         assert len(Counter(row['category'] for row in tier_rows)) == 5
     assert len(challenges) == 256
-    assert Counter(row['challengeCategory'] for row in challenges) == Counter({key: 32 for key in CHALLENGE_VERBS})
+    assert Counter(row['challengeCategory'] for row in challenges) == Counter({key: 32 for key in CHALLENGE_LINES})
     assert len(conversation) == 75
     assert Counter(row['conversationCategory'] for row in conversation) == Counter({
         'deep': 15, 'funny': 15, 'romantic': 15, 'future': 15, 'rediscover': 15,
