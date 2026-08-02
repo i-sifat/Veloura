@@ -168,7 +168,7 @@ class _ChallengeTile extends ConsumerWidget {
             ),
             Text(item.description),
             const SizedBox(height: 10),
-            Text('${item.estimatedMinutes} min · ${item.difficulty.name}'),
+            Text(item.difficulty.name),
             const SizedBox(height: 12),
             Wrap(
               spacing: 8,

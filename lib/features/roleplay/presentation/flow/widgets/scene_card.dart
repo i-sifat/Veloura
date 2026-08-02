@@ -61,8 +61,6 @@ class SceneCard extends StatelessWidget {
                   color: Colors.white70,
                 ),
               ),
-              const SizedBox(height: 10),
-              Chip(label: Text(story.estimatedDuration)),
             ],
           ),
         ),

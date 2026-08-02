@@ -23,6 +23,13 @@ class GamesHubScreen extends ConsumerStatefulWidget {
 class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
   var _checkedFirstRun = false;
   var _category = 'All';
+  // Guards against a fast double-tap on a catalog card queuing two pushes of
+  // the same game route - without this, a second tap while the first push is
+  // still settling can stack a duplicate screen, so popping one lands right
+  // back on what looks like the same card's game (e.g. Love Dice's "Start
+  // game" screen appearing to loop). Mirrors the guard already used on Love
+  // Dice's own Start game button.
+  var _navigating = false;
 
   @override
   Widget build(BuildContext context) {
@@ -136,6 +143,8 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
                   return _GameListCard(
                     entry: entry,
                     locked: entry.isPremium && !isPremium,
+                    navigating: _navigating,
+                    onOpen: () => _openGame(entry),
                   );
                 },
               ),
@@ -158,6 +167,18 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
     return {'follow_the_tempo', 'truth_or_dare'}.contains(entry.id);
   }
 
+  Future<void> _openGame(GameCatalogEntry entry) async {
+    if (_navigating) return;
+    setState(() => _navigating = true);
+    try {
+      await context.push(entry.route);
+    } finally {
+      // The pushed route may have been popped back to this screen, so
+      // re-arm every card for another tap.
+      if (mounted) setState(() => _navigating = false);
+    }
+  }
+
   Future<void> _showFirstRun(GameSession session) async {
     final preferences = await SharedPreferences.getInstance();
     if (!mounted ||
@@ -173,15 +194,22 @@ class _GamesHubScreenState extends ConsumerState<GamesHubScreen> {
       context: context,
       delegate: _GameSearchDelegate(),
     );
-    if (selected != null && mounted) context.push(selected.route);
+    if (selected != null && mounted) _openGame(selected);
   }
 }
 
 class _GameListCard extends ConsumerWidget {
-  const _GameListCard({required this.entry, required this.locked});
+  const _GameListCard({
+    required this.entry,
+    required this.locked,
+    required this.navigating,
+    required this.onOpen,
+  });
 
   final GameCatalogEntry entry;
   final bool locked;
+  final bool navigating;
+  final VoidCallback onOpen;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -195,17 +223,19 @@ class _GameListCard extends ConsumerWidget {
       label: 'Open ${info.$1}',
       child: InkWell(
         key: ValueKey('game-card-${entry.id}'),
-        onTap: () {
-          if (locked) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('${info.$1} unlocks with Veloura Premium.'),
-              ),
-            );
-          } else {
-            context.push(entry.route);
-          }
-        },
+        onTap: navigating
+            ? null
+            : () {
+                if (locked) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('${info.$1} unlocks with Veloura Premium.'),
+                    ),
+                  );
+                } else {
+                  onOpen();
+                }
+              },
         borderRadius: BorderRadius.circular(AppDesignTokens.cardRadius),
         child: Container(
           // Minimum, not fixed: longer titles/taglines are allowed to push the

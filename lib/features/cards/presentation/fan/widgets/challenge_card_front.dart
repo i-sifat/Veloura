@@ -88,16 +88,6 @@ class ChallengeCardFront extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Container(
-            height: 28,
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: GameTokens.glassStrong,
-              borderRadius: BorderRadius.circular(14),
-            ),
-            child: Text('${item.estimatedMinutes} min'),
-          ),
         ],
       ),
     );
