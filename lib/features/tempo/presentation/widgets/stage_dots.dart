@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
-/// Three-dot progress marker for the timed stages.
+/// Dot progress marker for a round of short tasks.
 class StageDots extends StatelessWidget {
-  const StageDots({required this.activeIndex, super.key});
+  const StageDots({
+    required this.total,
+    required this.activeIndex,
+    super.key,
+  });
 
+  final int total;
   final int activeIndex;
 
   @override
   Widget build(BuildContext context) => Row(
     mainAxisSize: MainAxisSize.min,
     children: [
-      for (var index = 0; index < 3; index++) ...[
+      for (var index = 0; index < total; index++) ...[
         AnimatedContainer(
           key: ValueKey('tempo-stage-$index'),
           duration: GameTokens.fadeDuration,
@@ -24,7 +29,7 @@ class StageDots extends StatelessWidget {
                 : Colors.white.withValues(alpha: 0.24),
           ),
         ),
-        if (index != 2) const SizedBox(width: 8),
+        if (index != total - 1) const SizedBox(width: 8),
       ],
     ],
   );

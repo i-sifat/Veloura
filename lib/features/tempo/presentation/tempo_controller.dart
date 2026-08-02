@@ -1,33 +1,63 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:veloura/features/tempo/domain/tempo_round.dart';
 
 enum TempoStatus { idle, running, paused, complete }
 
-/// Immutable in-memory state for one pacing round.
+/// Immutable state for one Follow the Tempo round of short tasks.
 class TempoState {
   const TempoState({
     this.status = TempoStatus.idle,
-    this.elapsed = Duration.zero,
-    this.stageIndex = 0,
-    this.beatCount = 0,
-    this.instruction = 'SLOW',
+    this.round = const [],
+    this.taskIndex = 0,
+    this.elapsedInTask = Duration.zero,
   });
 
   final TempoStatus status;
-  final Duration elapsed;
-  final int stageIndex;
-  final int beatCount;
-  final String instruction;
 
-  bool get isFinale => stageIndex == kDefaultRound.length;
+  /// The tasks for the current round, built when the round starts.
+  final List<TempoTask> round;
+
+  /// Index of the active task in [round].
+  final int taskIndex;
+
+  /// Time spent inside the current task.
+  final Duration elapsedInTask;
+
+  TempoTask? get currentTask =>
+      taskIndex < round.length ? round[taskIndex] : null;
+
+  bool get isFinale => taskIndex >= round.length;
+
+  /// 0..1 how full the ring should be for the active task. Fills clockwise
+  /// as time elapses and returns to zero when the next task begins.
+  double get progress {
+    final task = currentTask;
+    if (task == null || task.duration <= Duration.zero) return 0;
+    return (elapsedInTask.inMilliseconds / task.duration.inMilliseconds)
+        .clamp(0.0, 1.0);
+  }
+
+  /// Whole seconds remaining in the active task, for the ring center.
+  int get secondsLeft {
+    final task = currentTask;
+    if (task == null) return 0;
+    final remaining = task.duration - elapsedInTask;
+    final seconds = (remaining.inMilliseconds / 1000).ceil();
+    return seconds < 0 ? 0 : seconds;
+  }
+
+  /// The tempo word shown on screen.
+  String get instruction => currentTask?.label ?? 'SLOW';
 }
 
 /// Owns the round clock and exposes deterministic elapsed-time progression.
 class TempoController extends Notifier<TempoState> {
   Timer? _timer;
   DateTime? _lastTick;
+  Random? _random;
 
   @override
   TempoState build() {
@@ -35,9 +65,16 @@ class TempoController extends Notifier<TempoState> {
     return const TempoState();
   }
 
+  /// Injects the RNG used to pick task durations. Public for deterministic
+  /// unit tests.
+  void setRandom(Random random) => _random = random;
+
   void start() {
     _cancelClock();
-    state = _stateFor(Duration.zero, TempoStatus.running);
+    state = TempoState(
+      status: TempoStatus.running,
+      round: buildTempoRound(random: _random),
+    );
     _startClock();
   }
 
@@ -49,32 +86,62 @@ class TempoController extends Notifier<TempoState> {
   void pause() {
     if (state.status != TempoStatus.running) return;
     _cancelClock();
-    state = _stateFor(state.elapsed, TempoStatus.paused);
+    state = TempoState(
+      status: TempoStatus.paused,
+      round: state.round,
+      taskIndex: state.taskIndex,
+      elapsedInTask: state.elapsedInTask,
+    );
   }
 
   void resume() {
     if (state.status != TempoStatus.paused) return;
-    state = _stateFor(state.elapsed, TempoStatus.running);
+    state = TempoState(
+      status: TempoStatus.running,
+      round: state.round,
+      taskIndex: state.taskIndex,
+      elapsedInTask: state.elapsedInTask,
+    );
     _startClock();
   }
 
   /// Advances the round by [delta]. Public for deterministic unit tests.
   void advance(Duration delta) {
     if (state.status != TempoStatus.running || delta <= Duration.zero) return;
-    final total = _roundLength + kTempoFinaleLength;
-    final elapsed = state.elapsed + delta;
-    if (elapsed >= total) {
+    final round = state.round;
+    var taskIndex = state.taskIndex;
+    var elapsed = state.elapsedInTask;
+    var remaining = delta;
+
+    while (taskIndex < round.length) {
+      final task = round[taskIndex];
+      final left = task.duration - elapsed;
+      if (remaining < left) {
+        elapsed += remaining;
+        break;
+      }
+      remaining -= left;
+      taskIndex += 1;
+      elapsed = Duration.zero;
+    }
+
+    if (taskIndex >= round.length) {
       _cancelClock();
-      state = _stateFor(total, TempoStatus.complete);
+      state = TempoState(
+        status: TempoStatus.complete,
+        round: round,
+        taskIndex: round.length,
+      );
       return;
     }
-    state = _stateFor(elapsed, TempoStatus.running);
-  }
 
-  Duration get _roundLength => kDefaultRound.fold(
-    Duration.zero,
-    (total, stage) => total + stage.length,
-  );
+    state = TempoState(
+      status: TempoStatus.running,
+      round: round,
+      taskIndex: taskIndex,
+      elapsedInTask: elapsed,
+    );
+  }
 
   void _startClock() {
     _lastTick = DateTime.now();
@@ -90,40 +157,6 @@ class TempoController extends Notifier<TempoState> {
     _timer?.cancel();
     _timer = null;
     _lastTick = null;
-  }
-
-  TempoState _stateFor(Duration elapsed, TempoStatus status) {
-    var cursor = Duration.zero;
-    var completedBeats = 0;
-    for (var index = 0; index < kDefaultRound.length; index++) {
-      final stage = kDefaultRound[index];
-      final end = cursor + stage.length;
-      if (elapsed < end) {
-        final local = elapsed - cursor;
-        final beats = local.inMicroseconds * stage.bpm ~/
-            Duration.microsecondsPerMinute;
-        final instruction = local < kTempoFocusLength
-            ? kTempoFocusWords[index % kTempoFocusWords.length]
-            : stage.label;
-        return TempoState(
-          status: status,
-          elapsed: elapsed,
-          stageIndex: index,
-          beatCount: completedBeats + beats,
-          instruction: instruction,
-        );
-      }
-      completedBeats += stage.length.inMicroseconds * stage.bpm ~/
-          Duration.microsecondsPerMinute;
-      cursor = end;
-    }
-    return TempoState(
-      status: status,
-      elapsed: elapsed,
-      stageIndex: kDefaultRound.length,
-      beatCount: completedBeats,
-      instruction: 'HOLD',
-    );
   }
 }
 
