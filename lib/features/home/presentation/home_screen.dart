@@ -1,1 +1,396 @@
-aW1wb3J0ICdkYXJ0OmFzeW5jJzsKCmltcG9ydCAncGFja2FnZTpmbHV0dGVyL21hdGVyaWFsLmRhcnQnOwppbXBvcnQgJ3BhY2thZ2U6Zmx1dHRlcl9yaXZlcnBvZC9mbHV0dGVyX3JpdmVycG9kLmRhcnQnOwppbXBvcnQgJ3BhY2thZ2U6Z29fcm91dGVyL2dvX3JvdXRlci5kYXJ0JzsKaW1wb3J0ICdwYWNrYWdlOnZlbG91cmEvZmVhdHVyZXMvZ2FtZXMvZG9tYWluL2dhbWVfY2F0YWxvZy5kYXJ0JzsKaW1wb3J0ICdwYWNrYWdlOnZlbG91cmEvZmVhdHVyZXMvZ2FtZXMvZG9tYWluL2dhbWVfY2F0YWxvZ19lbnRyeS5kYXJ0JzsKaW1wb3J0ICdwYWNrYWdlOnZlbG91cmEvZmVhdHVyZXMvaG9tZS9wcmVzZW50YXRpb24vaG9tZV9jb250cm9sbGVyLmRhcnQnOwppbXBvcnQgJ3BhY2thZ2U6dmVsb3VyYS9zaGFyZWQvd2lkZ2V0cy9lcnJvcl9zdGF0ZS5kYXJ0JzsKaW1wb3J0ICdwYWNrYWdlOnZlbG91cmEvc2hhcmVkL3dpZGdldHMvc2VjdGlvbl9oZWFkZXIuZGFydCc7CmltcG9ydCAncGFja2FnZTp2ZWxvdXJhL3RoZW1lL2FwcF9jb2xvcnMuZGFydCc7CmltcG9ydCAncGFja2FnZTp2ZWxvdXJhL3RoZW1lL2FwcF9kZXNpZ25fdG9rZW5zLmRhcnQnOwoKLy8vIFJldHVybnMgYSByb3RhdGluZywgZGV0ZXJtaW5pc3RpYyBzZXQgb2YgZm91ciBnYW1lcyBmb3IgdGhlIGN1cnJlbnQgZGF5LgpMaXN0PEdhbWVDYXRhbG9nRW50cnk+IHBvcHVsYXJHYW1lc0ZvcihEYXRlVGltZSBkYXRlKSB7CiAgZmluYWwgZGF5ID0gRGF0ZVRpbWUoZGF0ZS55ZWFyLCBkYXRlLm1vbnRoLCBkYXRlLmRheSkKICAgICAgLmRpZmZlcmVuY2UoRGF0ZVRpbWUoZGF0ZS55ZWFyKSkKICAgICAgLmluRGF5czsKICByZXR1cm4gTGlzdC5nZW5lcmF0ZSgKICAgIDQsCiAgICAoaW5kZXgpID0+IGtHYW1lQ2F0YWxvZ1soZGF5ICsgaW5kZXgpICUga0dhbWVDYXRhbG9nLmxlbmd0aF0sCiAgICBncm93YWJsZTogZmFsc2UsCiAgKTsKfQoKLy8vIEhvbWUgZGlzY292ZXJ5IHNoZWxsIHJlbm92YXRlZCBmcm9tIHRoZSBhcHByb3ZlZCB2aXN1YWwgZGlyZWN0aW9uLgpjbGFzcyBIb21lU2NyZWVuIGV4dGVuZHMgQ29uc3VtZXJXaWRnZXQgewogIGNvbnN0IEhvbWVTY3JlZW4oe3N1cGVyLmtleX0pOwoKICBAb3ZlcnJpZGUKICBXaWRnZXQgYnVpbGQoQnVpbGRDb250ZXh0IGNvbnRleHQsIFdpZGdldFJlZiByZWYpIHsKICAgIGZpbmFsIGhvbWVTdGF0ZSA9IHJlZi53YXRjaChob21lQ29udHJvbGxlclByb3ZpZGVyKTsKICAgIGZpbmFsIGNvbG9ycyA9IEFwcENvbG9ycy5vZihjb250ZXh0KTsKICAgIGZpbmFsIGdhbWVzID0gcG9wdWxhckdhbWVzRm9yKERhdGVUaW1lLm5vdygpKTsKCiAgICByZXR1cm4gQ29sb3JlZEJveCgKICAgICAgY29sb3I6IGNvbG9ycy5iYWNrZ3JvdW5kLAogICAgICBjaGlsZDogU2FmZUFyZWEoCiAgICAgICAgYm90dG9tOiBmYWxzZSwKICAgICAgICBjaGlsZDogaG9tZVN0YXRlLndoZW4oCiAgICAgICAgICBsb2FkaW5nOiAoKSA9PiBjb25zdCBDZW50ZXIoY2hpbGQ6IENpcmN1bGFyUHJvZ3Jlc3NJbmRpY2F0b3IoKSksCiAgICAgICAgICBlcnJvcjogKGVycm9yLCBfKSA9PiBFcnJvclN0YXRlKAogICAgICAgICAgICBtZXNzYWdlOiAnJGVycm9yJywKICAgICAgICAgICAgb25SZXRyeTogKCkgPT4gcmVmLmludmFsaWRhdGUoaG9tZUNvbnRyb2xsZXJQcm92aWRlciksCiAgICAgICAgICApLAogICAgICAgICAgZGF0YTogKHN0YXRlKSA9PiBMaXN0VmlldygKICAgICAgICAgICAgcGFkZGluZzogY29uc3QgRWRnZUluc2V0cy5mcm9tTFRSQigKICAgICAgICAgICAgICBBcHBEZXNpZ25Ub2tlbnMuc3BhY2VYeGwsCiAgICAgICAgICAgICAgQXBwRGVzaWduVG9rZW5zLnNwYWNlWHhsLAogICAgICAgICAgICAgIEFwcERlc2lnblRva2Vucy5zcGFjZVh4bCwKICAgICAgICAgICAgICBBcHBEZXNpZ25Ub2tlbnMuc3BhY2VYeHhsLAogICAgICAgICAgICApLAogICAgICAgICAgICBjaGlsZHJlbjogWwogICAgICAgICAgICAgIF9HcmVldGluZyhncmVldGluZzogc3RhdGUuZ3JlZXRpbmcsIHN0cmVhazogc3RhdGUuc3RyZWFrRGF5cyksCiAgICAgICAgICAgICAgY29uc3QgU2l6ZWRCb3goaGVpZ2h0OiBBcHBEZXNpZ25Ub2tlbnMuc3BhY2VYeGwpLAogICAgICAgICAgICAgIGNvbnN0IF9Ub25pZ2h0Q2FyZCgpLAogICAgICAgICAgICAgIGNvbnN0IFNpemVkQm94KGhlaWdodDogQXBwRGVzaWduVG9rZW5zLnNwYWNlWHhsKSwKICAgICAgICAgICAgICBTZWN0aW9uSGVhZGVyKAogICAgICAgICAgICAgICAgdGl0bGU6ICdQb3B1bGFyIGdhbWVzJywKICAgICAgICAgICAgICAgIG9uU2VlQWxsOiAoKSA9PiBjb250ZXh0LmdvKCcvZ2FtZXMnKSwKICAgICAgICAgICAgICApLAogICAgICAgICAgICAgIGNvbnN0IFNpemVkQm94KGhlaWdodDogQXBwRGVzaWduVG9rZW5zLnNwYWNlU20pLAogICAgICAgICAgICAgIF9Qb3B1bGFyUm93KGdhbWVzOiBnYW1lcyksCiAgICAgICAgICAgICAgY29uc3QgU2l6ZWRCb3goaGVpZ2h0OiBBcHBEZXNpZ25Ub2tlbnMuc3BhY2VYeGwpLAogICAgICAgICAgICAgIF9TY2llbmNlQ2FyZChxdW90ZTogc3RhdGUucXVvdGUpLAogICAgICAgICAgICBdLAogICAgICAgICAgKSwKICAgICAgICApLAogICAgICApLAogICAgKTsKICB9Cn0KCmNsYXNzIF9HcmVldGluZyBleHRlbmRzIFN0YXRlbGVzc1dpZGdldCB7CiAgY29uc3QgX0dyZWV0aW5nKHtyZXF1aXJlZCB0aGlzLmdyZWV0aW5nLCByZXF1aXJlZCB0aGlzLnN0cmVha30pOwoKICBmaW5hbCBTdHJpbmcgZ3JlZXRpbmc7CiAgZmluYWwgaW50IHN0cmVhazsKCiAgQG92ZXJyaWRlCiAgV2lkZ2V0IGJ1aWxkKEJ1aWxkQ29udGV4dCBjb250ZXh0KSB7CiAgICBmaW5hbCBjb2xvcnMgPSBBcHBDb2xvcnMub2YoY29udGV4dCk7CiAgICByZXR1cm4gUm93KAogICAgICBjcm9zc0F4aXNBbGlnbm1lbnQ6IENyb3NzQXhpc0FsaWdubWVudC5jZW50ZXIsCiAgICAgIGNoaWxkcmVuOiBbCiAgICAgICAgRXhwYW5kZWQoCiAgICAgICAgICBjaGlsZDogQ29sdW1uKAogICAgICAgICAgICBjcm9zc0F4aXNBbGlnbm1lbnQ6IENyb3NzQXhpc0FsaWdubWVudC5zdGFydCwKICAgICAgICAgICAgY2hpbGRyZW46IFsKICAgICAgICAgICAgICBUZXh0KCdHb29kIGV2ZW5pbmcnLCBzdHlsZTogVGhlbWUub2YoY29udGV4dCkudGV4dFRoZW1lLmJvZHlMYXJnZSksCiAgICAgICAgICAgICAgY29uc3QgU2l6ZWRCb3goaGVpZ2h0OiBBcHBEZXNpZ25Ub2tlbnMuc3BhY2VYcyksCiAgICAgICAgICAgICAgVGV4dCgKICAgICAgICAgICAgICAgIGdyZWV0aW5nLAogICAgICAgICAgICAgICAgc3R5bGU6IFRoZW1lLm9mKGNvbnRleHQpLnRleHRUaGVtZS5oZWFkbGluZU1lZGl1bT8uY29weVdpdGgoCiAgICAgICAgICAgICAgICAgIGxldHRlclNwYWNpbmc6IEFwcERlc2lnblRva2Vucy5sZXR0ZXJTcGFjaW5nVGlnaHQsCiAgICAgICAgICAgICAgICApLAogICAgICAgICAgICAgICksCiAgICAgICAgICAgIF0sCiAgICAgICAgICApLAogICAgICAgICksCiAgICAgICAgU2VtYW50aWNzKAogICAgICAgICAgbGFiZWw6ICckc3RyZWFrIGRheSBzdHJlYWsnLAogICAgICAgICAgY2hpbGQ6IENvbHVtbigKICAgICAgICAgICAgY2hpbGRyZW46IFsKICAgICAgICAgICAgICBDb250YWluZXIoCiAgICAgICAgICAgICAgICB3aWR0aDogNjQsCiAgICAgICAgICAgICAgICBoZWlnaHQ6IDY0LAogICAgICAgICAgICAgICAgYWxpZ25tZW50OiBBbGlnbm1lbnQuY2VudGVyLAogICAgICAgICAgICAgICAgZGVjb3JhdGlvbjogQm94RGVjb3JhdGlvbigKICAgICAgICAgICAgICAgICAgc2hhcGU6IEJveFNoYXBlLmNpcmNsZSwKICAgICAgICAgICAgICAgICAgY29sb3I6IGNvbG9ycy5zdXJmYWNlLAogICAgICAgICAgICAgICAgICBib3JkZXI6IEJvcmRlci5hbGwoY29sb3I6IGNvbG9ycy5wcmltYXJ5LndpdGhWYWx1ZXMoYWxwaGE6IC41NSkpLAogICAgICAgICAgICAgICAgKSwKICAgICAgICAgICAgICAgIGNoaWxkOiBUZXh0KAogICAgICAgICAgICAgICAgICAnXHV7MUY1MjV9ICRzdHJlYWsnLAogICAgICAgICAgICAgICAgICBzdHlsZTogVGhlbWUub2YoY29udGV4dCkudGV4dFRoZW1lLnRpdGxlTWVkaXVtLAogICAgICAgICAgICAgICAgKSwKICAgICAgICAgICAgICApLAogICAgICAgICAgICAgIGNvbnN0IFNpemVkQm94KGhlaWdodDogQXBwRGVzaWduVG9rZW5zLnNwYWNlU20pLAogICAgICAgICAgICAgIFRleHQoJ0RheSBzdHJlYWsnLCBzdHlsZTogVGV4dFN0eWxlKGNvbG9yOiBjb2xvcnMudGV4dFNlY29uZGFyeSkpLAogICAgICAgICAgICBdLAogICAgICAgICAgKSwKICAgICAgICApLAogICAgICBdLAogICAgKTsKICB9Cn0KCi8vLyBGdWxsLWJsZWVkICJTcGljZSB1cCB5b3VyIGNvbm5lY3Rpb24iIGhlcm8uIFNpemVzIGl0c2VsZiB0byB0aGUKLy8vIGFydHdvcmsncyBvd24gYXNwZWN0IHJhdGlvIChpbnN0ZWFkIG9mIGEgZml4ZWQgaGVpZ2h0KSBzbyB0aGUgaW1hZ2UgaXMKLy8vIG5ldmVyIHN0cmV0Y2hlZCBvciBjcm9wcGVkIG9uIGFueSBzaWRlOiB3aGF0ZXZlciB0aGUgYXJ0d29yaydzIHJlYWwKLy8vIHByb3BvcnRpb25zIGFyZSwgdGhlIGNhcmQncyBoZWlnaHQgZm9sbG93cyB0aGVtIC0gd2l0aGluIGEgY2xhbXBlZAovLy8gcmFuZ2Ugc28gYW4gdW51c3VhbGx5IHRhbGwvbmFycm93IHNvdXJjZSBpbWFnZSBjYW4ndCBiYWxsb29uIHRoZSBjYXJkCi8vLyBwYXN0IGEgc2FuZSBmcmFjdGlvbiBvZiB0aGUgc2NyZWVuIGFuZCBwdXNoIGV2ZXJ5dGhpbmcgYmVsb3cgaXQgb2ZmCi8vLyBhIG5vcm1hbCBwaG9uZSB2aWV3cG9ydC4KY2xhc3MgX1RvbmlnaHRDYXJkIGV4dGVuZHMgU3RhdGVmdWxXaWRnZXQgewogIGNvbnN0IF9Ub25pZ2h0Q2FyZCgpOwoKICBAb3ZlcnJpZGUKICBTdGF0ZTxfVG9uaWdodENhcmQ+IGNyZWF0ZVN0YXRlKCkgPT4gX1RvbmlnaHRDYXJkU3RhdGUoKTsKfQoKY2xhc3MgX1RvbmlnaHRDYXJkU3RhdGUgZXh0ZW5kcyBTdGF0ZTxfVG9uaWdodENhcmQ+IHsKICBzdGF0aWMgY29uc3QgX2hlcm9Bc3NldCA9ICdhc3NldHMvaG9tZXNjcmVlbi9zcGljZV91cF95b3VyX2Nvbm5lY3Rpb25fYmcucG5nJzsKCiAgLy8gQ2xhbXAgYm91bmRzICh3aWR0aCAvIGhlaWdodCkgZm9yIHRoZSByZXNvbHZlZCBhc3BlY3QgcmF0aW86IG5ldmVyCiAgLy8gc2hvcnRlci93aWRlciB0aGFuIDMyODoyMzAgbm9yIHRhbGxlci9uYXJyb3dlciB0aGFuIDMyODozODAuIFRoYXQncwogIC8vIHJvdWdobHkgYSAtMjIlLysyOCUgYmFuZCBhcm91bmQgdGhlIG9yaWdpbmFsIGZpeGVkIDI5NnB4IGZvb3RwcmludCAtCiAgLy8gZW5vdWdoIGZvciB0aGUgcmVhbCBhcnR3b3JrJ3MgcHJvcG9ydGlvbnMgdG8gcmVhZCBhcyAiZml0dGVkIiB3aXRob3V0CiAgLy8gZXZlciB0YWtpbmcgb3ZlciB0aGUgc2NyZWVuLgogIHN0YXRpYyBjb25zdCBfbWluUmF0aW8gPSAzMjggLyAzODA7CiAgc3RhdGljIGNvbnN0IF9tYXhSYXRpbyA9IDMyOCAvIDIzMDsKCiAgLy8gUGxhY2Vob2xkZXIgcmF0aW8gbWF0Y2hpbmcgdGhlIGNhcmQncyBwcmV2aW91cyBmb290cHJpbnQsIHVzZWQgb25seQogIC8vIHVudGlsIHRoZSBhcnR3b3JrJ3MgcmVhbCBkaW1lbnNpb25zIHJlc29sdmUgKGF2b2lkcyBhIGxheW91dCBqdW1wKS4KICBkb3VibGUgX2FzcGVjdFJhdGlvID0gMzI4IC8gMjk2OwogIEltYWdlU3RyZWFtPyBfc3RyZWFtOwogIGxhdGUgZmluYWwgSW1hZ2VTdHJlYW1MaXN0ZW5lciBfbGlzdGVuZXI7CgogIEBvdmVycmlkZQogIHZvaWQgaW5pdFN0YXRlKCkgewogICAgc3VwZXIuaW5pdFN0YXRlKCk7CiAgICBfbGlzdGVuZXIgPSBJbWFnZVN0cmVhbUxpc3RlbmVyKF9vbkltYWdlLCBvbkVycm9yOiBfb25JbWFnZUVycm9yKTsKICB9CgogIHZvaWQgX29uSW1hZ2UoSW1hZ2VJbmZvIGluZm8sIGJvb2wgXykgewogICAgZmluYWwgaGVpZ2h0ID0gaW5mby5pbWFnZS5oZWlnaHQ7CiAgICBpZiAoaGVpZ2h0ID09IDApIHJldHVybjsKICAgIGZpbmFsIHJhdGlvID0gKGluZm8uaW1hZ2Uud2lkdGggLyBoZWlnaHQpLmNsYW1wKF9taW5SYXRpbywgX21heFJhdGlvKTsKICAgIC8vIEltYWdlU3RyZWFtLmFkZExpc3RlbmVyKCkgY2FsbHMgdGhpcyAqc3luY2hyb25vdXNseSogd2hlbiB0aGUgaW1hZ2UKICAgIC8vIGlzIGFscmVhZHkgaW4gdGhlIGdsb2JhbCBpbWFnZUNhY2hlIChlLmcuIGV2ZXJ5IHdpZGdldCB0ZXN0IGFmdGVyCiAgICAvLyB0aGUgZmlyc3Qgb25lIHRoYXQgcmVzb2x2ZXMgdGhpcyBhc3NldCkuIERlZmVycmluZyB0byBhIG1pY3JvdGFzawogICAgLy8gZ3VhcmFudGVlcyBzZXRTdGF0ZSBhbHdheXMgcnVucyBhZnRlciB0aGUgY3VycmVudAogICAgLy8gYnVpbGQvZGlkQ2hhbmdlRGVwZW5kZW5jaWVzIHBhc3MgZmluaXNoZXMsIGluc3RlYWQgb2Ygcmlza2luZwogICAgLy8gInNldFN0YXRlKCkgY2FsbGVkIGR1cmluZyBidWlsZCIgd2hlbiB0aGlzIGZpcmVzIHN5bmNocm9ub3VzbHkuCiAgICBzY2hlZHVsZU1pY3JvdGFzaygoKSB7CiAgICAgIGlmICghbW91bnRlZCB8fCByYXRpbyA9PSBfYXNwZWN0UmF0aW8pIHJldHVybjsKICAgICAgc2V0U3RhdGUoKCkgPT4gX2FzcGVjdFJhdGlvID0gcmF0aW8pOwogICAgfSk7CiAgfQoKICAvLyBGYWxscyBiYWNrIHRvIHRoZSBwbGFjZWhvbGRlciByYXRpbyAoYW5kIHRoZSBJbWFnZS5hc3NldCBlcnJvckJ1aWxkZXIncwogIC8vIGdyYWRpZW50KSBpbnN0ZWFkIG9mIGxldHRpbmcgYSBkZWNvZGUgZmFpbHVyZSBzdXJmYWNlIGFzIGFuIHVuaGFuZGxlZAogIC8vIEZsdXR0ZXJFcnJvci4KICB2b2lkIF9vbkltYWdlRXJyb3IoT2JqZWN0IGV4Y2VwdGlvbiwgU3RhY2tUcmFjZT8gc3RhY2tUcmFjZSkge30KCiAgQG92ZXJyaWRlCiAgdm9pZCBkaWRDaGFuZ2VEZXBlbmRlbmNpZXMoKSB7CiAgICBzdXBlci5kaWRDaGFuZ2VEZXBlbmRlbmNpZXMoKTsKICAgIGZpbmFsIHN0cmVhbSA9IGNvbnN0IEFzc2V0SW1hZ2UoX2hlcm9Bc3NldCkucmVzb2x2ZSgKICAgICAgY3JlYXRlTG9jYWxJbWFnZUNvbmZpZ3VyYXRpb24oY29udGV4dCksCiAgICApOwogICAgaWYgKHN0cmVhbS5rZXkgIT0gX3N0cmVhbT8ua2V5KSB7CiAgICAgIF9zdHJlYW0/LnJlbW92ZUxpc3RlbmVyKF9saXN0ZW5lcik7CiAgICAgIF9zdHJlYW0gPSBzdHJlYW0uLmFkZExpc3RlbmVyKF9saXN0ZW5lcik7CiAgICB9CiAgfQoKICBAb3ZlcnJpZGUKICB2b2lkIGRpc3Bvc2UoKSB7CiAgICBfc3RyZWFtPy5yZW1vdmVMaXN0ZW5lcihfbGlzdGVuZXIpOwogICAgc3VwZXIuZGlzcG9zZSgpOwogIH0KCiAgQG92ZXJyaWRlCiAgV2lkZ2V0IGJ1aWxkKEJ1aWxkQ29udGV4dCBjb250ZXh0KSB7CiAgICBmaW5hbCBjb2xvcnMgPSBBcHBDb2xvcnMub2YoY29udGV4dCk7CiAgICByZXR1cm4gQXNwZWN0UmF0aW8oCiAgICAgIC8vIFRoZSBib3gncyBzaGFwZSBub3cgYWx3YXlzIG1hdGNoZXMgdGhlIGFydHdvcmsncyBuYXRpdmUgc2hhcGUKICAgICAgLy8gKHdpdGhpbiB0aGUgY2xhbXAgYWJvdmUpLCBzbyBCb3hGaXQuY292ZXIgYmVsb3cgbmV2ZXIgaGFzIHRvIGNyb3AKICAgICAgLy8gYW55dGhpbmcgdG8gZmlsbCBpdCAtIGV2ZXJ5IGVkZ2Ugb2YgdGhlIGltYWdlIHN0YXlzIGZ1bGx5IHZpc2libGUuCiAgICAgIGFzcGVjdFJhdGlvOiBfYXNwZWN0UmF0aW8sCiAgICAgIGNoaWxkOiBDb250YWluZXIoCiAgICAgICAgY2xpcEJlaGF2aW9yOiBDbGlwLmFudGlBbGlhcywKICAgICAgICBkZWNvcmF0aW9uOiBCb3hEZWNvcmF0aW9uKAogICAgICAgICAgYm9yZGVyUmFkaXVzOiBCb3JkZXJSYWRpdXMuY2lyY3VsYXIoQXBwRGVzaWduVG9rZW5zLnJhZGl1cyksCiAgICAgICAgICBib3JkZXI6IEJvcmRlci5hbGwoY29sb3I6IGNvbG9ycy5wcmltYXJ5LndpdGhWYWx1ZXMoYWxwaGE6IC4zNSkpLAogICAgICAgICksCiAgICAgICAgY2hpbGQ6IFN0YWNrKAogICAgICAgICAgZml0OiBTdGFja0ZpdC5leHBhbmQsCiAgICAgICAgICBjaGlsZHJlbjogWwogICAgICAgICAgICBJbWFnZS5hc3NldCgKICAgICAgICAgICAgICBfaGVyb0Fzc2V0LAogICAgICAgICAgICAgIGZpdDogQm94Rml0LmNvdmVyLAogICAgICAgICAgICAgIGVycm9yQnVpbGRlcjogKF8sIF8sIF8pID0+IGNvbnN0IERlY29yYXRlZEJveCgKICAgICAgICAgICAgICAgIGRlY29yYXRpb246IEJveERlY29yYXRpb24oCiAgICAgICAgICAgICAgICAgIGdyYWRpZW50OiBMaW5lYXJHcmFkaWVudCgKICAgICAgICAgICAgICAgICAgICBiZWdpbjogQWxpZ25tZW50LnRvcExlZnQsCiAgICAgICAgICAgICAgICAgICAgZW5kOiBBbGlnbm1lbnQuYm90dG9tUmlnaHQsCiAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBbQ29sb3IoMHhGRjM3MTEyMiksIENvbG9yKDB4RkYxQjEwMUMpXSwKICAgICAgICAgICAgICAgICAgKSwKICAgICAgICAgICAgICAgICksCiAgICAgICAgICAgICAgKSwKICAgICAgICAgICAgKSwKICAgICAgICAgICAgLy8gQm90dG9tLWxlZnQgc2NyaW0gc28gdGhlIENUQSBzdGF5cyBsZWdpYmxlIG92ZXIgYW55IGFydHdvcmsuCiAgICAgICAgICAgIGNvbnN0IERlY29yYXRlZEJveCgKICAgICAgICAgICAgICBkZWNvcmF0aW9uOiBCb3hEZWNvcmF0aW9uKAogICAgICAgICAgICAgICAgZ3JhZGllbnQ6IExpbmVhckdyYWRpZW50KAogICAgICAgICAgICAgICAgICBiZWdpbjogQWxpZ25tZW50LmJvdHRvbUxlZnQsCiAgICAgICAgICAgICAgICAgIGVuZDogQWxpZ25tZW50LnRvcFJpZ2h0LAogICAgICAgICAgICAgICAgICBjb2xvcnM6IFtDb2xvcigweEIzMDAwMDAwKSwgQ29sb3IoMHgwMDAwMDAwMCldLAogICAgICAgICAgICAgICAgKSwKICAgICAgICAgICAgICApLAogICAgICAgICAgICApLAogICAgICAgICAgICBBbGlnbigKICAgICAgICAgICAgICBhbGlnbm1lbnQ6IEFsaWdubWVudC5ib3R0b21MZWZ0LAogICAgICAgICAgICAgIGNoaWxkOiBQYWRkaW5nKAogICAgICAgICAgICAgICAgcGFkZGluZzogY29uc3QgRWRnZUluc2V0cy5hbGwoQXBwRGVzaWduVG9rZW5zLnNwYWNlWHhsKSwKICAgICAgICAgICAgICAgIC8vIE5vIGZpeGVkIHdpZHRoIGhlcmU6IEZpbGxlZEJ1dHRvbi5pY29uJ3Mgcm93IGFscmVhZHkKICAgICAgICAgICAgICAgIC8vIHNpemVzIHRvIE1haW5BeGlzU2l6ZS5taW4sIHNvIHRoZSBzbWFsbGVyIHBhZGRpbmcvaWNvbgogICAgICAgICAgICAgICAgLy8gYmVsb3cgYXJlIHdoYXQgc2hyaW5rIGl0ICh+MTglIHZzLiB0aGUgb2xkIDE2OHB4LXdpZGUKICAgICAgICAgICAgICAgIC8vIGJ1dHRvbikgd2l0aG91dCByaXNraW5nIGEgUmVuZGVyRmxleCBvdmVyZmxvdyBhdCB3aWRlcgogICAgICAgICAgICAgICAgLy8gdGV4dCBzY2FsZXMuCiAgICAgICAgICAgICAgICBjaGlsZDogRmlsbGVkQnV0dG9uLmljb24oCiAgICAgICAgICAgICAgICAgIC8vIFJvdXRlcyBzdHJhaWdodCBpbnRvIHRoZSBDcmVhdGl2ZSBDb25uZWN0aW9ucyBmbG93CiAgICAgICAgICAgICAgICAgIC8vIHJhdGhlciB0aGFuIHRoZSBnZW5lcmljIEdhbWVzIGh1YiwgbWF0Y2hpbmcgd2hhdCB0aGlzCiAgICAgICAgICAgICAgICAgIC8vIGNhcmQgYWN0dWFsbHkgcHJvbWlzZXMgKCJzcGljZSB1cCB5b3VyIGNvbm5lY3Rpb24iKS4KICAgICAgICAgICAgICAgICAgb25QcmVzc2VkOiAoKSA9PiBjb250ZXh0LnB1c2goJy9ob21lL2NvbnZlcnNhdGlvbicpLAogICAgICAgICAgICAgICAgICBzdHlsZTogRmlsbGVkQnV0dG9uLnN0eWxlRnJvbSgKICAgICAgICAgICAgICAgICAgICBwYWRkaW5nOiBjb25zdCBFZGdlSW5zZXRzLnN5bW1ldHJpYygKICAgICAgICAgICAgICAgICAgICAgIGhvcml6b250YWw6IEFwcERlc2lnblRva2Vucy5zcGFjZU1kLAogICAgICAgICAgICAgICAgICAgICAgdmVydGljYWw6IEFwcERlc2lnblRva2Vucy5zcGFjZVNtLAogICAgICAgICAgICAgICAgICAgICksCiAgICAgICAgICAgICAgICAgICAgdGV4dFN0eWxlOiBUaGVtZS5vZihjb250ZXh0KS50ZXh0VGhlbWUubGFiZWxMYXJnZSwKICAgICAgICAgICAgICAgICAgKSwKICAgICAgICAgICAgICAgICAgaWNvbkFsaWdubWVudDogSWNvbkFsaWdubWVudC5lbmQsCiAgICAgICAgICAgICAgICAgIGljb246IGNvbnN0IEljb24oSWNvbnMuYXJyb3dfZm9yd2FyZCwgc2l6ZTogMTgpLAogICAgICAgICAgICAgICAgICBsYWJlbDogY29uc3QgVGV4dCgiTGV0J3MgcGxheSIpLAogICAgICAgICAgICAgICAgKSwKICAgICAgICAgICAgICApLAogICAgICAgICAgICApLAogICAgICAgICAgXSwKICAgICAgICApLAogICAgICApLAogICAgKTsKICB9Cn0KCmNsYXNzIF9Qb3B1bGFyUm93IGV4dGVuZHMgU3RhdGVsZXNzV2lkZ2V0IHsKICBjb25zdCBfUG9wdWxhclJvdyh7cmVxdWlyZWQgdGhpcy5nYW1lc30pOwoKICBmaW5hbCBMaXN0PEdhbWVDYXRhbG9nRW50cnk+IGdhbWVzOwoKICBAb3ZlcnJpZGUKICBXaWRnZXQgYnVpbGQoQnVpbGRDb250ZXh0IGNvbnRleHQpID0+IFNpemVkQm94KAogICAgaGVpZ2h0OiAxNzQsCiAgICBjaGlsZDogTGlzdFZpZXcuc2VwYXJhdGVkKAogICAgICBzY3JvbGxEaXJlY3Rpb246IEF4aXMuaG9yaXpvbnRhbCwKICAgICAgaXRlbUNvdW50OiBnYW1lcy5sZW5ndGgsCiAgICAgIHNlcGFyYXRvckJ1aWxkZXI6IChfLCBfKSA9PiBjb25zdCBTaXplZEJveCh3aWR0aDogQXBwRGVzaWduVG9rZW5zLnNwYWNlTWQpLAogICAgICBpdGVtQnVpbGRlcjogKF8sIGluZGV4KSA9PiBfUG9wdWxhclRpbGUoZ2FtZTogZ2FtZXNbaW5kZXhdKSwKICAgICksCiAgKTsKfQoKY2xhc3MgX1BvcHVsYXJUaWxlIGV4dGVuZHMgU3RhdGVsZXNzV2lkZ2V0IHsKICBjb25zdCBfUG9wdWxhclRpbGUoe3JlcXVpcmVkIHRoaXMuZ2FtZX0pOwoKICBmaW5hbCBHYW1lQ2F0YWxvZ0VudHJ5IGdhbWU7CgogIEBvdmVycmlkZQogIFdpZGdldCBidWlsZChCdWlsZENvbnRleHQgY29udGV4dCkgewogICAgZmluYWwgY29sb3JzID0gQXBwQ29sb3JzLm9mKGNvbnRleHQpOwogICAgZmluYWwgdGl0bGUgPSBnYW1lLmlkID09ICdsdXN0ZnVsX3JvbGxzJyA/ICdMb3ZlIERpY2UnIDogZ2FtZS50aXRsZTsKICAgIHJldHVybiBTZW1hbnRpY3MoCiAgICAgIGJ1dHRvbjogdHJ1ZSwKICAgICAgbGFiZWw6ICdPcGVuICR0aXRsZScsCiAgICAgIGNoaWxkOiBJbmtXZWxsKAogICAgICAgIGtleTogVmFsdWVLZXkoJ3BvcHVsYXItJHtnYW1lLmlkfScpLAogICAgICAgIG9uVGFwOiAoKSA9PiBjb250ZXh0LnB1c2goZ2FtZS5yb3V0ZSksCiAgICAgICAgYm9yZGVyUmFkaXVzOiBCb3JkZXJSYWRpdXMuY2lyY3VsYXIoMTYpLAogICAgICAgIGNoaWxkOiBDb250YWluZXIoCiAgICAgICAgICB3aWR0aDogMTE4LAogICAgICAgICAgcGFkZGluZzogY29uc3QgRWRnZUluc2V0cy5mcm9tTFRSQigKICAgICAgICAgICAgQXBwRGVzaWduVG9rZW5zLnNwYWNlU20sCiAgICAgICAgICAgIEFwcERlc2lnblRva2Vucy5zcGFjZVNtLAogICAgICAgICAgICBBcHBEZXNpZ25Ub2tlbnMuc3BhY2VTbSwKICAgICAgICAgICAgQXBwRGVzaWduVG9rZW5zLnNwYWNlTWQsCiAgICAgICAgICApLAogICAgICAgICAgZGVjb3JhdGlvbjogQm94RGVjb3JhdGlvbigKICAgICAgICAgICAgY29sb3I6IGNvbG9ycy5zdXJmYWNlLAogICAgICAgICAgICBib3JkZXJSYWRpdXM6IEJvcmRlclJhZGl1cy5jaXJjdWxhcigxNiksCiAgICAgICAgICAgIGJvcmRlcjogQm9yZGVyLmFsbChjb2xvcjogY29sb3JzLmRpdmlkZXIpLAogICAgICAgICAgKSwKICAgICAgICAgIGNoaWxkOiBDb2x1bW4oCiAgICAgICAgICAgIGNoaWxkcmVuOiBbCiAgICAgICAgICAgICAgRXhwYW5kZWQoCiAgICAgICAgICAgICAgICBjaGlsZDogSW1hZ2UuYXNzZXQoCiAgICAgICAgICAgICAgICAgIGdhbWUuYXJ0LAogICAgICAgICAgICAgICAgICBmaXQ6IEJveEZpdC5jb250YWluLAogICAgICAgICAgICAgICAgICBlcnJvckJ1aWxkZXI6IChfLCBfLCBfKSA9PiBJY29uKAogICAgICAgICAgICAgICAgICAgIGdhbWUuZmFsbGJhY2tJY29uLAogICAgICAgICAgICAgICAgICAgIHNpemU6IDU4LAogICAgICAgICAgICAgICAgICAgIGNvbG9yOiBjb2xvcnMucHJpbWFyeSwKICAgICAgICAgICAgICAgICAgKSwKICAgICAgICAgICAgICAgICksCiAgICAgICAgICAgICAgKSwKICAgICAgICAgICAgICBjb25zdCBTaXplZEJveChoZWlnaHQ6IEFwcERlc2lnblRva2Vucy5zcGFjZVNtKSwKICAgICAgICAgICAgICBUZXh0KHRpdGxlLCB0ZXh0QWxpZ246IFRleHRBbGlnbi5jZW50ZXIsIG1heExpbmVzOiAyKSwKICAgICAgICAgICAgXSwKICAgICAgICAgICksCiAgICAgICAgKSwKICAgICAgKSwKICAgICk7CiAgfQp9CgpjbGFzcyBfU2NpZW5jZUNhcmQgZXh0ZW5kcyBTdGF0ZWxlc3NXaWRnZXQgewogIGNvbnN0IF9TY2llbmNlQ2FyZCh7cmVxdWlyZWQgdGhpcy5xdW90ZX0pOwoKICBmaW5hbCBTdHJpbmcgcXVvdGU7CgogIEBvdmVycmlkZQogIFdpZGdldCBidWlsZChCdWlsZENvbnRleHQgY29udGV4dCkgewogICAgZmluYWwgY29sb3JzID0gQXBwQ29sb3JzLm9mKGNvbnRleHQpOwogICAgcmV0dXJuIENvbnRhaW5lcigKICAgICAgcGFkZGluZzogY29uc3QgRWRnZUluc2V0cy5hbGwoQXBwRGVzaWduVG9rZW5zLnNwYWNlWGwpLAogICAgICBkZWNvcmF0aW9uOiBCb3hEZWNvcmF0aW9uKAogICAgICAgIGNvbG9yOiBjb2xvcnMuc3VyZmFjZSwKICAgICAgICBib3JkZXJSYWRpdXM6IEJvcmRlclJhZGl1cy5jaXJjdWxhcigxNiksCiAgICAgICAgYm9yZGVyOiBCb3JkZXIuYWxsKGNvbG9yOiBjb2xvcnMuZGl2aWRlciksCiAgICAgICksCiAgICAgIGNoaWxkOiBSb3coCiAgICAgICAgY2hpbGRyZW46IFsKICAgICAgICAgIEljb24oSWNvbnMucHN5Y2hvbG9neV9vdXRsaW5lZCwgY29sb3I6IGNvbG9ycy5wcmltYXJ5LCBzaXplOiA0MCksCiAgICAgICAgICBjb25zdCBTaXplZEJveCh3aWR0aDogQXBwRGVzaWduVG9rZW5zLnNwYWNlTGcpLAogICAgICAgICAgRXhwYW5kZWQoCiAgICAgICAgICAgIGNoaWxkOiBDb2x1bW4oCiAgICAgICAgICAgICAgY3Jvc3NBeGlzQWxpZ25tZW50OiBDcm9zc0F4aXNBbGlnbm1lbnQuc3RhcnQsCiAgICAgICAgICAgICAgY2hpbGRyZW46IFsKICAgICAgICAgICAgICAgIFRleHQoCiAgICAgICAgICAgICAgICAgICdTY2llbmNlIHNheXMnLAogICAgICAgICAgICAgICAgICBzdHlsZTogVGhlbWUub2YoY29udGV4dCkudGV4dFRoZW1lLnRpdGxlTWVkaXVtPy5jb3B5V2l0aCgKICAgICAgICAgICAgICAgICAgICBmb250V2VpZ2h0OiBGb250V2VpZ2h0Lnc2MDAsCiAgICAgICAgICAgICAgICAgICksCiAgICAgICAgICAgICAgICApLAogICAgICAgICAgICAgICAgY29uc3QgU2l6ZWRCb3goaGVpZ2h0OiBBcHBEZXNpZ25Ub2tlbnMuc3BhY2VYcyksCiAgICAgICAgICAgICAgICBUZXh0KHF1b3RlLCBzdHlsZTogVGV4dFN0eWxlKGNvbG9yOiBjb2xvcnMudGV4dFNlY29uZGFyeSkpLAogICAgICAgICAgICAgIF0sCiAgICAgICAgICAgICksCiAgICAgICAgICApLAogICAgICAgICAgSWNvbihJY29ucy5jaGV2cm9uX3JpZ2h0LCBjb2xvcjogY29sb3JzLnRleHRTZWNvbmRhcnkpLAogICAgICAgIF0sCiAgICAgICksCiAgICApOwogIH0KfQo=
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:veloura/features/games/domain/game_catalog.dart';
+import 'package:veloura/features/games/domain/game_catalog_entry.dart';
+import 'package:veloura/features/home/presentation/home_controller.dart';
+import 'package:veloura/shared/widgets/error_state.dart';
+import 'package:veloura/shared/widgets/section_header.dart';
+import 'package:veloura/theme/app_colors.dart';
+import 'package:veloura/theme/app_design_tokens.dart';
+
+/// Returns a rotating, deterministic set of four games for the current day.
+List<GameCatalogEntry> popularGamesFor(DateTime date) {
+  final day = DateTime(date.year, date.month, date.day)
+      .difference(DateTime(date.year))
+      .inDays;
+  return List.generate(
+    4,
+    (index) => kGameCatalog[(day + index) % kGameCatalog.length],
+    growable: false,
+  );
+}
+
+/// Home discovery shell renovated from the approved visual direction.
+class HomeScreen extends ConsumerWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final homeState = ref.watch(homeControllerProvider);
+    final colors = AppColors.of(context);
+    final games = popularGamesFor(DateTime.now());
+
+    return ColoredBox(
+      color: colors.background,
+      child: SafeArea(
+        bottom: false,
+        child: homeState.when(
+          loading: () => const Center(child: CircularProgressIndicator()),
+          error: (error, _) => ErrorState(
+            message: '$error',
+            onRetry: () => ref.invalidate(homeControllerProvider),
+          ),
+          data: (state) => ListView(
+            // A generous cacheExtent keeps every section (including
+            // "Popular games" and everything below it) built and
+            // present in the element tree from the first frame, even
+            // while _TonightCard's hero grows into its real, taller
+            // aspect ratio. Without this, Flutter's default sliver
+            // cache window can leave later children un-built until
+            // scrolled deep into view, which is brittle for such a
+            // short, bounded list of sections.
+            cacheExtent: 4000,
+            padding: const EdgeInsets.fromLTRB(
+              AppDesignTokens.spaceXxl,
+              AppDesignTokens.spaceXxl,
+              AppDesignTokens.spaceXxl,
+              AppDesignTokens.spaceXxxl,
+            ),
+            children: [
+              _Greeting(greeting: state.greeting, streak: state.streakDays),
+              const SizedBox(height: AppDesignTokens.spaceXxl),
+              const _TonightCard(),
+              const SizedBox(height: AppDesignTokens.spaceXxl),
+              SectionHeader(
+                title: 'Popular games',
+                onSeeAll: () => context.go('/games'),
+              ),
+              const SizedBox(height: AppDesignTokens.spaceSm),
+              _PopularRow(games: games),
+              const SizedBox(height: AppDesignTokens.spaceXxl),
+              _ScienceCard(quote: state.quote),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _Greeting extends StatelessWidget {
+  const _Greeting({required this.greeting, required this.streak});
+
+  final String greeting;
+  final int streak;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Good evening', style: Theme.of(context).textTheme.bodyLarge),
+              const SizedBox(height: AppDesignTokens.spaceXs),
+              Text(
+                greeting,
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                  letterSpacing: AppDesignTokens.letterSpacingTight,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Semantics(
+          label: '$streak day streak',
+          child: Column(
+            children: [
+              Container(
+                width: 64,
+                height: 64,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: colors.surface,
+                  border: Border.all(color: colors.primary.withValues(alpha: .55)),
+                ),
+                child: Text(
+                  '\u{1F525} $streak',
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+              ),
+              const SizedBox(height: AppDesignTokens.spaceSm),
+              Text('Day streak', style: TextStyle(color: colors.textSecondary)),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// Full-bleed "Spice up your connection" hero. Sizes itself to the
+/// artwork's own aspect ratio (instead of a fixed height) so the image is
+/// never stretched or cropped on any side: whatever the artwork's real
+/// proportions are, the card's height follows them - within a clamped
+/// range so an unusually tall/narrow source image can't balloon the card
+/// past a sane fraction of the screen and push everything below it off
+/// a normal phone viewport.
+class _TonightCard extends StatefulWidget {
+  const _TonightCard();
+
+  @override
+  State<_TonightCard> createState() => _TonightCardState();
+}
+
+class _TonightCardState extends State<_TonightCard> {
+  static const _heroAsset = 'assets/homescreen/spice_up_your_connection_bg.png';
+
+  // Clamp bounds (width / height) for the resolved aspect ratio: never
+  // shorter/wider than 328:230 nor taller/narrower than 328:380. That's
+  // roughly a -22%/+28% band around the original fixed 296px footprint -
+  // enough for the real artwork's proportions to read as "fitted" without
+  // ever taking over the screen.
+  static const _minRatio = 328 / 380;
+  static const _maxRatio = 328 / 230;
+
+  // Placeholder ratio matching the card's previous footprint, used only
+  // until the artwork's real dimensions resolve (avoids a layout jump).
+  double _aspectRatio = 328 / 296;
+  ImageStream? _stream;
+  late final ImageStreamListener _listener;
+
+  @override
+  void initState() {
+    super.initState();
+    _listener = ImageStreamListener(_onImage, onError: _onImageError);
+  }
+
+  void _onImage(ImageInfo info, bool _) {
+    final height = info.image.height;
+    if (height == 0) return;
+    final ratio = (info.image.width / height).clamp(_minRatio, _maxRatio);
+    // ImageStream.addListener() calls this *synchronously* when the image
+    // is already in the global imageCache (e.g. every widget test after
+    // the first one that resolves this asset). Deferring to a microtask
+    // guarantees setState always runs after the current
+    // build/didChangeDependencies pass finishes, instead of risking
+    // "setState() called during build" when this fires synchronously.
+    scheduleMicrotask(() {
+      if (!mounted || ratio == _aspectRatio) return;
+      setState(() => _aspectRatio = ratio);
+    });
+  }
+
+  // Falls back to the placeholder ratio (and the Image.asset errorBuilder's
+  // gradient) instead of letting a decode failure surface as an unhandled
+  // FlutterError.
+  void _onImageError(Object exception, StackTrace? stackTrace) {}
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final stream = const AssetImage(_heroAsset).resolve(
+      createLocalImageConfiguration(context),
+    );
+    if (stream.key != _stream?.key) {
+      _stream?.removeListener(_listener);
+      _stream = stream..addListener(_listener);
+    }
+  }
+
+  @override
+  void dispose() {
+    _stream?.removeListener(_listener);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+    return AspectRatio(
+      // The box's shape now always matches the artwork's native shape
+      // (within the clamp above), so BoxFit.cover below never has to crop
+      // anything to fill it - every edge of the image stays fully visible.
+      aspectRatio: _aspectRatio,
+      child: Container(
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(AppDesignTokens.radius),
+          border: Border.all(color: colors.primary.withValues(alpha: .35)),
+        ),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.asset(
+              _heroAsset,
+              fit: BoxFit.cover,
+              errorBuilder: (_, _, _) => const DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Color(0xFF371122), Color(0xFF1B101C)],
+                  ),
+                ),
+              ),
+            ),
+            // Bottom-left scrim so the CTA stays legible over any artwork.
+            const DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                  colors: [Color(0xB3000000), Color(0x00000000)],
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(AppDesignTokens.spaceXxl),
+                // No fixed width here: FilledButton.icon's row already
+                // sizes to MainAxisSize.min, so the smaller padding/icon
+                // below are what shrink it (~18% vs. the old 168px-wide
+                // button) without risking a RenderFlex overflow at wider
+                // text scales.
+                child: FilledButton.icon(
+                  // Routes straight into the Creative Connections flow
+                  // rather than the generic Games hub, matching what this
+                  // card actually promises ("spice up your connection").
+                  onPressed: () => context.push('/home/conversation'),
+                  style: FilledButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: AppDesignTokens.spaceMd,
+                      vertical: AppDesignTokens.spaceSm,
+                    ),
+                    textStyle: Theme.of(context).textTheme.labelLarge,
+                  ),
+                  iconAlignment: IconAlignment.end,
+                  icon: const Icon(Icons.arrow_forward, size: 18),
+                  label: const Text("Let's play"),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _PopularRow extends StatelessWidget {
+  const _PopularRow({required this.games});
+
+  final List<GameCatalogEntry> games;
+
+  @override
+  Widget build(BuildContext context) => SizedBox(
+    height: 174,
+    child: ListView.separated(
+      scrollDirection: Axis.horizontal,
+      itemCount: games.length,
+      separatorBuilder: (_, _) => const SizedBox(width: AppDesignTokens.spaceMd),
+      itemBuilder: (_, index) => _PopularTile(game: games[index]),
+    ),
+  );
+}
+
+class _PopularTile extends StatelessWidget {
+  const _PopularTile({required this.game});
+
+  final GameCatalogEntry game;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+    final title = game.id == 'lustful_rolls' ? 'Love Dice' : game.title;
+    return Semantics(
+      button: true,
+      label: 'Open $title',
+      child: InkWell(
+        key: ValueKey('popular-${game.id}'),
+        onTap: () => context.push(game.route),
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+          width: 118,
+          padding: const EdgeInsets.fromLTRB(
+            AppDesignTokens.spaceSm,
+            AppDesignTokens.spaceSm,
+            AppDesignTokens.spaceSm,
+            AppDesignTokens.spaceMd,
+          ),
+          decoration: BoxDecoration(
+            color: colors.surface,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: colors.divider),
+          ),
+          child: Column(
+            children: [
+              Expanded(
+                child: Image.asset(
+                  game.art,
+                  fit: BoxFit.contain,
+                  errorBuilder: (_, _, _) => Icon(
+                    game.fallbackIcon,
+                    size: 58,
+                    color: colors.primary,
+                  ),
+                ),
+              ),
+              const SizedBox(height: AppDesignTokens.spaceSm),
+              Text(title, textAlign: TextAlign.center, maxLines: 2),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ScienceCard extends StatelessWidget {
+  const _ScienceCard({required this.quote});
+
+  final String quote;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = AppColors.of(context);
+    return Container(
+      padding: const EdgeInsets.all(AppDesignTokens.spaceXl),
+      decoration: BoxDecoration(
+        color: colors.surface,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: colors.divider),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.psychology_outlined, color: colors.primary, size: 40),
+          const SizedBox(width: AppDesignTokens.spaceLg),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Science says',
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const SizedBox(height: AppDesignTokens.spaceXs),
+                Text(quote, style: TextStyle(color: colors.textSecondary)),
+              ],
+            ),
+          ),
+          Icon(Icons.chevron_right, color: colors.textSecondary),
+        ],
+      ),
+    );
+  }
+}
