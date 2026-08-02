@@ -147,7 +147,7 @@ class _TonightCardState extends State<_TonightCard> {
   @override
   void initState() {
     super.initState();
-    _listener = ImageStreamListener(_onImage);
+    _listener = ImageStreamListener(_onImage, onError: _onImageError);
   }
 
   void _onImage(ImageInfo info, bool _) {
@@ -155,6 +155,11 @@ class _TonightCardState extends State<_TonightCard> {
     if (height == 0 || !mounted) return;
     setState(() => _aspectRatio = info.image.width / height);
   }
+
+  // Falls back to the placeholder ratio (and the Image.asset errorBuilder's
+  // gradient) instead of letting a decode failure surface as an unhandled
+  // FlutterError.
+  void _onImageError(Object exception, StackTrace? stackTrace) {}
 
   @override
   void didChangeDependencies() {
@@ -218,27 +223,26 @@ class _TonightCardState extends State<_TonightCard> {
               alignment: Alignment.bottomLeft,
               child: Padding(
                 padding: const EdgeInsets.all(AppDesignTokens.spaceXxl),
-                child: SizedBox(
-                  // ~18% smaller than the previous 168px CTA, scaled to
-                  // match the artwork's own proportions now that the card
-                  // is no longer force-cropped to a fixed height.
-                  width: 138,
-                  child: FilledButton.icon(
-                    // Routes straight into the Creative Connections flow
-                    // rather than the generic Games hub, matching what this
-                    // card actually promises ("spice up your connection").
-                    onPressed: () => context.push('/home/conversation'),
-                    style: FilledButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: AppDesignTokens.spaceMd,
-                        vertical: AppDesignTokens.spaceSm,
-                      ),
-                      textStyle: Theme.of(context).textTheme.labelLarge,
+                // No fixed width here: FilledButton.icon's row already
+                // sizes to MainAxisSize.min, so the smaller padding/icon
+                // below are what shrink it (~18% vs. the old 168px-wide
+                // button) without risking a RenderFlex overflow at wider
+                // text scales.
+                child: FilledButton.icon(
+                  // Routes straight into the Creative Connections flow
+                  // rather than the generic Games hub, matching what this
+                  // card actually promises ("spice up your connection").
+                  onPressed: () => context.push('/home/conversation'),
+                  style: FilledButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: AppDesignTokens.spaceMd,
+                      vertical: AppDesignTokens.spaceSm,
                     ),
-                    iconAlignment: IconAlignment.end,
-                    icon: const Icon(Icons.arrow_forward, size: 18),
-                    label: const Text("Let's play"),
+                    textStyle: Theme.of(context).textTheme.labelLarge,
                   ),
+                  iconAlignment: IconAlignment.end,
+                  icon: const Icon(Icons.arrow_forward, size: 18),
+                  label: const Text("Let's play"),
                 ),
               ),
             ),
