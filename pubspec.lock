@@ -1170,14 +1170,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.2"
-  spinning_wheel:
-    dependency: "direct main"
-    description:
-      name: spinning_wheel
-      sha256: cbecdd493f2c780e6ad56bc7278cbec26ea2fc37f309921f2d6e7cf52649bcd6
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.7"
   sqflite:
     dependency: transitive
     description:
