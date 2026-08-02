@@ -408,7 +408,7 @@ class _RevealCardDialogState extends ConsumerState<_RevealCardDialog>
                       ..setEntry(3, 2, 0.0012)
                       ..rotateY(angle),
                     child: SizedBox(
-                      width: 230,
+                      width: 276,
                       height: 340,
                       child: showFront
                           ? Transform(

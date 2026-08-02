@@ -66,10 +66,13 @@ class ChallengeCardFront extends StatelessWidget {
           Flexible(
             child: Text(
               item.description,
-              maxLines: 8,
+              maxLines: 7,
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontSize: 28,
+                height: 1.35,
+                color: Theme.of(context).colorScheme.onSurface,
                 fontWeight: FontWeight.w700,
               ),
             ),
