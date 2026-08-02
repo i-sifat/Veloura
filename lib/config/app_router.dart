@@ -18,7 +18,7 @@ import 'package:veloura/features/positions/presentation/creative_positions_scree
 import 'package:veloura/features/premium/presentation/premium_paywall_screen.dart';
 import 'package:veloura/features/profile/presentation/favorites_screen.dart';
 import 'package:veloura/features/profile/presentation/profile_screen.dart';
-import 'package:veloura/features/roleplay/presentation/flow/roleplay_flow_screen.dart';
+import 'package:veloura/features/roleplay/presentation/wheel/roleplay_spin_screen.dart';
 import 'package:veloura/features/tempo/presentation/follow_the_tempo_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/truth_dare_screen.dart';
 import 'package:veloura/features/truth_dare/presentation/wheel/truth_or_dare_wheel_screen.dart';
@@ -145,7 +145,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                     parentNavigatorKey: _rootNavigatorKey,
                     path: 'passionate-roleplay',
                     builder: (_, _) =>
-                        _protectedGame(const RoleplayFlowScreen()),
+                        _protectedGame(const RoleplaySpinScreen()),
                   ),
                   GoRoute(
                     path: 'dice',
