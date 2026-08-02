@@ -4,8 +4,31 @@ import 'package:veloura/theme/app_colors.dart';
 import 'package:veloura/theme/app_design_tokens.dart';
 
 /// Pre-start presentation for Love Dice; gameplay remains in [DiceScreen].
-class LoveDiceIntroScreen extends StatelessWidget {
+class LoveDiceIntroScreen extends StatefulWidget {
   const LoveDiceIntroScreen({super.key});
+
+  @override
+  State<LoveDiceIntroScreen> createState() => _LoveDiceIntroScreenState();
+}
+
+class _LoveDiceIntroScreenState extends State<LoveDiceIntroScreen> {
+  // Guards against a fast double-tap queuing two pushes of '/play' - without
+  // this, a second tap while the first push is still settling can stack a
+  // second DiceScreen on top; popping either one then lands back on this
+  // intro, which reads as "Start game keeps leading back to Start game".
+  var _navigating = false;
+
+  Future<void> _startGame() async {
+    if (_navigating) return;
+    setState(() => _navigating = true);
+    try {
+      await context.push('/games/lustful-rolls/play');
+    } finally {
+      // The pushed route may have been popped back to this screen (e.g. the
+      // player left the game), so re-arm the button for another round.
+      if (mounted) setState(() => _navigating = false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,10 +113,18 @@ class LoveDiceIntroScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: FilledButton.icon(
-                    onPressed: () => context.push('/games/lustful-rolls/play'),
+                    onPressed: _navigating ? null : _startGame,
                     iconAlignment: IconAlignment.end,
-                    icon: const Icon(Icons.arrow_forward),
-                    label: const Text('Start game'),
+                    icon: _navigating
+                        ? const SizedBox.square(
+                            dimension: 18,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Colors.white,
+                            ),
+                          )
+                        : const Icon(Icons.arrow_forward),
+                    label: Text(_navigating ? 'Starting…' : 'Start game'),
                   ),
                 ),
                 const SizedBox(height: 14),
