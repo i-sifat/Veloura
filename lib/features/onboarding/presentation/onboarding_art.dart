@@ -27,15 +27,22 @@ class OnboardingBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final asset = _assets[variant.clamp(0, _assets.length - 1)];
+    // The brand page's illustration sits a bit lower so the hands read as
+    // centered artwork rather than pinned to the very top of the screen, and
+    // the second page's illustration is vertically centered.
+    final drop = variant == 0 ? MediaQuery.sizeOf(context).height * 0.13 : 0.0;
+    final imageAlignment = variant == 1 ? Alignment.center : Alignment.topCenter;
     return Align(
-      alignment: Alignment.topCenter,
-      child: Stack(
-        children: [
+      alignment: imageAlignment,
+      child: Transform.translate(
+        offset: Offset(0, drop),
+        child: Stack(
+          children: [
           Image.asset(
             asset,
             width: double.infinity,
             fit: BoxFit.fitWidth,
-            alignment: Alignment.topCenter,
+            alignment: imageAlignment,
             errorBuilder: (_, _, _) => const SizedBox.expand(),
           ),
           // Soft bottom scrim so the page title/body copy stays legible where
@@ -58,7 +65,8 @@ class OnboardingBackground extends StatelessWidget {
                 child: _BrandWordmark(),
               ),
             ),
-        ],
+          ],
+        ),
       ),
     );
   }

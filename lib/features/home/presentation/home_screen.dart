@@ -115,12 +115,14 @@ class _Greeting extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                width: 64,
-                height: 64,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppDesignTokens.spaceLg,
+                  vertical: AppDesignTokens.spaceMd,
+                ),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
                   color: colors.surface,
+                  borderRadius: BorderRadius.circular(AppDesignTokens.radius),
                   border: Border.all(color: colors.primary.withValues(alpha: .55)),
                 ),
                 child: Text(

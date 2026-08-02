@@ -178,11 +178,15 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     if (_page > 0) await _goTo(_page - 1);
   }
 
-  Future<void> _goTo(int page) => _pages.animateToPage(
-    page,
-    duration: const Duration(milliseconds: 320),
-    curve: Curves.easeOutCubic,
-  );
+  Future<void> _goTo(int page) {
+    // Dismiss the keyboard so it doesn't linger on the incoming page.
+    FocusManager.instance.primaryFocus?.unfocus();
+    return _pages.animateToPage(
+      page,
+      duration: const Duration(milliseconds: 320),
+      curve: Curves.easeOutCubic,
+    );
+  }
 }
 
 class _OnboardingNav extends StatelessWidget {

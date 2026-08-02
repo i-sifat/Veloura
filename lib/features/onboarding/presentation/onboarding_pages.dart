@@ -69,13 +69,6 @@ class NamesPage extends StatelessWidget {
           _NameField(controller: nameA, label: 'Your name', hint: 'You'),
           const SizedBox(height: 14),
           _NameField(controller: nameB, label: "Partner's name", hint: 'Partner'),
-          const SizedBox(height: 42),
-          const Icon(
-            Icons.favorite_border_rounded,
-            color: OnboardingTokens.pink,
-            size: 104,
-            shadows: [OnboardingTokens.glow],
-          ),
         ],
       ),
     ),
