@@ -1,44 +1,2026 @@
 [
-{"id":"rp_0001","title":"The Moonlit Masquerade","category":"fantasy","tier":"cute","characterA":{"name":"The Hidden Host","description":"Protects the ball's sweetest secret."},"characterB":{"name":"The Curious Guest","description":"Follows clues behind a borrowed mask."},"setting":"A candlelit ballroom where every guest has a secret name.","goal":"Discover why your invitations carry matching silver moons.","twists":["The orchestra plays a melody only you recognize.","A sealed note says one mask must come off before midnight."],"estimatedDuration":"15 min","packId":"enchanted_evenings","packTitle":"Enchanted Evenings","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0002","title":"The Dragon's Tea Room","category":"fantasy","tier":"cute","characterA":{"name":"The Tea Keeper","description":"Serves brews that reveal tiny truths."},"characterB":{"name":"The Wandering Knight","description":"Needs courage for an unusual quest."},"setting":"A hidden tea room beneath a peacefully sleeping dragon.","goal":"Choose the right enchanted tea without waking your host.","twists":["One cup begins answering questions in rhyme.","The dragon wakes only to request a story."],"estimatedDuration":"10 min","packId":"enchanted_evenings","packTitle":"Enchanted Evenings","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0003","title":"Borrowed Magic","category":"fantasy","tier":"romantic","characterA":{"name":"The Spell Librarian","description":"Guards magic that cannot leave the shelves."},"characterB":{"name":"The Charming Thief","description":"Claims to need one impossible spell."},"setting":"A midnight library where books whisper to the right reader.","goal":"Trade a true memory for a spell that lasts one evening.","twists":["The requested spell has already chosen both of you.","A book opens to a future neither expected."],"estimatedDuration":"15 min","packId":"enchanted_evenings","packTitle":"Enchanted Evenings","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0004","title":"The Star Cartographer","category":"fantasy","tier":"romantic","characterA":{"name":"The Sky Mapper","description":"Charts constellations that appear once."},"characterB":{"name":"The Night Traveler","description":"Carries a star with no recorded name."},"setting":"A rooftop observatory above a sleeping kingdom.","goal":"Name a new constellation before dawn erases it.","twists":["The stars rearrange into a shared memory.","The final star responds only to a promise."],"estimatedDuration":"20 min","packId":"enchanted_evenings","packTitle":"Enchanted Evenings","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0005","title":"The Wishmaker's Apprentice","category":"fantasy","tier":"spicy","characterA":{"name":"The Wishmaker","description":"Tests whether wishes are spoken honestly."},"characterB":{"name":"The Bold Apprentice","description":"Believes every rule has an exception."},"setting":"A workshop filled with bottled wishes and warm golden light.","goal":"Create one wish together without saying what either wants directly.","twists":["A bottle repeats the last unspoken thought.","The workshop grants only a wish phrased as an invitation."],"estimatedDuration":"20 min","packId":"velvet_magic","packTitle":"Velvet Magic","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0006","title":"Throne of Two","category":"fantasy","tier":"spicy","characterA":{"name":"The Returning Royal","description":"Has one night to reclaim the court."},"characterB":{"name":"The Trusted Rival","description":"Controls the secret path to the throne."},"setting":"An empty throne room during a storm-lit coronation eve.","goal":"Negotiate an alliance convincing enough to change the kingdom.","twists":["The crown recognizes both of you.","A rival court demands proof of your trust."],"estimatedDuration":"20 min","packId":"velvet_magic","packTitle":"Velvet Magic","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0007","title":"Keeper of Dreams","category":"fantasy","tier":"romantic","characterA":{"name":"The Dream Keeper","description":"Repairs stories before sleepers wake."},"characterB":{"name":"The Lucid Visitor","description":"Can change one detail in any dream."},"setting":"A quiet city assembled from half-remembered dreams.","goal":"Repair a shared dream by finding its missing ending.","twists":["A doorway opens onto your first meeting.","The missing ending asks what should happen next."],"estimatedDuration":"15 min","packId":"enchanted_evenings","packTitle":"Enchanted Evenings","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0008","title":"The Secret Garden Gate","category":"fantasy","tier":"cute","characterA":{"name":"The Garden Guardian","description":"Allows entry only for a worthy reason."},"characterB":{"name":"The Lost Botanist","description":"Carries a seed thought extinct."},"setting":"A moonlit garden that changes paths whenever someone laughs.","goal":"Plant the final seed in the garden's hidden center.","twists":["The seed blooms into a question.","The garden offers one path home and one deeper inside."],"estimatedDuration":"10 min","packId":"enchanted_evenings","packTitle":"Enchanted Evenings","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0009","title":"The Oracle's Last Question","category":"fantasy","tier":"extreme","characterA":{"name":"The Oracle","description":"Knows every answer except one."},"characterB":{"name":"The Fearless Seeker","description":"Refuses to accept a rehearsed destiny."},"setting":"A mirrored temple at the edge of a vanished city.","goal":"Ask and answer the one question that can rewrite the prophecy.","twists":["Every mirror shows a different choice.","The prophecy can change only if both risk an honest answer."],"estimatedDuration":"25 min","packId":"velvet_magic","packTitle":"Velvet Magic","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0010","title":"The Clockwork Waltz","category":"fantasy","tier":"romantic","characterA":{"name":"The Clockmaker","description":"Built a ballroom that stops time."},"characterB":{"name":"The Unexpected Dancer","description":"Entered one minute before midnight."},"setting":"A mechanical ballroom where each dance preserves one minute.","goal":"Choose which moment deserves to last until morning.","twists":["The clock begins counting backward.","One final dance requires a shared confession."],"estimatedDuration":"15 min","packId":"enchanted_evenings","packTitle":"Enchanted Evenings","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0011","title":"The Phoenix Letter","category":"fantasy","tier":"spicy","characterA":{"name":"The Ember Courier","description":"Delivers letters that burn after reading."},"characterB":{"name":"The Intended Recipient","description":"Has waited years for this message."},"setting":"A warm tower room while a phoenix circles outside.","goal":"Decide whether to read, rewrite, or return a dangerous invitation.","twists":["The blank page fills when held together.","The phoenix will carry only a reply spoken aloud."],"estimatedDuration":"20 min","packId":"velvet_magic","packTitle":"Velvet Magic","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0012","title":"Under the Glass Mountain","category":"fantasy","tier":"extreme","characterA":{"name":"The Mountain Guide","description":"Knows the path but hides its cost."},"characterB":{"name":"The Crownless Heir","description":"Must retrieve a promise from the summit."},"setting":"A crystal cavern reflecting every possible route.","goal":"Reach the summit by agreeing which truth to leave behind.","twists":["The safest path disappears.","The mountain asks each traveler to trust the other's direction."],"estimatedDuration":"25 min","packId":"velvet_magic","packTitle":"Velvet Magic","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0013","title":"The Forest Remembers","category":"fantasy","tier":"romantic","characterA":{"name":"The Forest Warden","description":"Recognizes every returning traveler."},"characterB":{"name":"The Forgotten Friend","description":"Returns with a ribbon and no explanation."},"setting":"An ancient forest where paths replay old conversations.","goal":"Find the clearing that remembers why you promised to return.","twists":["A tree repeats a sentence differently than remembered.","The clearing asks you to make a new promise."],"estimatedDuration":"15 min","packId":"enchanted_evenings","packTitle":"Enchanted Evenings","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0014","title":"The Midnight Potion","category":"fantasy","tier":"spicy","characterA":{"name":"The Careful Alchemist","description":"Measures every ingredient except courage."},"characterB":{"name":"The Daring Patron","description":"Requests a potion with unpredictable effects."},"setting":"A tiny apothecary locked after midnight.","goal":"Invent a potion whose effect you both agree to name.","twists":["The potion reveals which ingredient each secretly added.","Its effect lasts only while you maintain the scene."],"estimatedDuration":"20 min","packId":"velvet_magic","packTitle":"Velvet Magic","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0015","title":"The Lighthouse Letter","category":"romance","tier":"cute","characterA":{"name":"The Lighthouse Keeper","description":"Collects letters washed in by the tide."},"characterB":{"name":"The Returning Sailor","description":"Recognizes the handwriting on one envelope."},"setting":"A quiet lighthouse during a gentle summer storm.","goal":"Decide whether to open a letter written before you met.","twists":["The letter contains a map to a nearby cove.","A second envelope is addressed to both of you."],"estimatedDuration":"10 min","packId":"little_love_stories","packTitle":"Little Love Stories","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0016","title":"Table for Two, Again","category":"romance","tier":"cute","characterA":{"name":"The Familiar Stranger","description":"Pretends this is your first meeting."},"characterB":{"name":"The Playful Regular","description":"Knows the cafe's secret menu."},"setting":"A corner cafe where you agree to meet as strangers.","goal":"Win a second first date without using any old stories.","twists":["The server delivers a dessert neither ordered.","A nearby song reveals something familiar."],"estimatedDuration":"10 min","packId":"little_love_stories","packTitle":"Little Love Stories","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0017","title":"The Last Train Home","category":"romance","tier":"romantic","characterA":{"name":"The Quiet Commuter","description":"Has noticed the other passenger for weeks."},"characterB":{"name":"The Ticket Collector","description":"Knows this train is taking a detour."},"setting":"An almost-empty night train crossing a glowing city.","goal":"Turn an unexpected delay into a memorable journey.","twists":["The train stops at a station not on the map.","An announcement invites two passengers to the observation car."],"estimatedDuration":"15 min","packId":"little_love_stories","packTitle":"Little Love Stories","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0018","title":"Room 214","category":"romance","tier":"spicy","characterA":{"name":"The Hotel Guest","description":"Booked a room for a mysterious celebration."},"characterB":{"name":"The Discreet Concierge","description":"Has been asked to deliver one unusual request."},"setting":"A boutique hotel during a citywide blackout.","goal":"Create an unforgettable evening using only what the hotel can provide.","twists":["A candlelit note arrives from an unknown admirer.","The rooftop has been reserved under both names."],"estimatedDuration":"20 min","packId":"after_dark","packTitle":"After Dark","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0019","title":"The Anniversary Mix-Up","category":"romance","tier":"cute","characterA":{"name":"The Event Planner","description":"Prepared the wrong couple's perfect evening."},"characterB":{"name":"The Surprised Partner","description":"Decides to play along with every detail."},"setting":"A decorated apartment filled with clues meant for someone else.","goal":"Turn the mistaken celebration into one that fits you better.","twists":["A clue accidentally describes your real first date.","The final gift has no name on it."],"estimatedDuration":"10 min","packId":"little_love_stories","packTitle":"Little Love Stories","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0020","title":"Letters from Tomorrow","category":"romance","tier":"romantic","characterA":{"name":"The Future Correspondent","description":"Claims to be writing from ten years ahead."},"characterB":{"name":"The Present-Day Skeptic","description":"Tests every detail in the letters."},"setting":"A rainy apartment where tomorrow's post arrives early.","goal":"Write one reply together that your future selves would treasure.","twists":["A letter predicts the next sentence spoken.","The final page is blank except for today's date."],"estimatedDuration":"15 min","packId":"little_love_stories","packTitle":"Little Love Stories","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0021","title":"The Photographer's Muse","category":"romance","tier":"spicy","characterA":{"name":"The Portrait Artist","description":"Looks for the story behind every expression."},"characterB":{"name":"The Reluctant Muse","description":"Agrees to one unconventional portrait session."},"setting":"A private studio with music, fabric, and warm window light.","goal":"Create a portrait concept that captures how you see each other.","twists":["The camera contains one undeveloped photograph.","The muse becomes the director for the final frame."],"estimatedDuration":"20 min","packId":"after_dark","packTitle":"After Dark","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0022","title":"The Rooftop Reservation","category":"romance","tier":"romantic","characterA":{"name":"The Secret Organizer","description":"Planned an evening with one missing detail."},"characterB":{"name":"The Honored Guest","description":"Must guess why tonight matters."},"setting":"A rooftop garden overlooking a quiet midnight skyline.","goal":"Reveal the occasion through three meaningful clues.","twists":["One clue points to a memory you remember differently.","The final clue asks for a new tradition."],"estimatedDuration":"15 min","packId":"little_love_stories","packTitle":"Little Love Stories","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0023","title":"The Velvet Interview","category":"romance","tier":"extreme","characterA":{"name":"The Selective Host","description":"Asks questions nobody rehearsed for."},"characterB":{"name":"The Confident Candidate","description":"Plans to reverse the interview."},"setting":"An exclusive lounge after closing time.","goal":"Earn an invitation by trading increasingly honest questions.","twists":["The candidate takes control of the interview.","The final question must be answered by both."],"estimatedDuration":"25 min","packId":"after_dark","packTitle":"After Dark","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0024","title":"Second Chance Bookshop","category":"romance","tier":"cute","characterA":{"name":"The Bookseller","description":"Pairs customers with stories they need."},"characterB":{"name":"The Last Customer","description":"Searches for a book remembered only by feeling."},"setting":"A cozy bookshop five minutes before closing.","goal":"Find the story that explains why neither wants to leave.","twists":["A margin note is written in familiar handwriting.","The bookseller offers a blank journal instead."],"estimatedDuration":"10 min","packId":"little_love_stories","packTitle":"Little Love Stories","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0025","title":"The Private Tasting","category":"romance","tier":"spicy","characterA":{"name":"The Flavor Curator","description":"Designs tastes around moods and memories."},"characterB":{"name":"The Adventurous Guest","description":"Agrees to a menu with no descriptions."},"setting":"A closed restaurant prepared for one private tasting.","goal":"Guess the memory behind each course and invent the final one.","twists":["One course was chosen by the guest long ago.","The final taste must be described without naming it."],"estimatedDuration":"20 min","packId":"after_dark","packTitle":"After Dark","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0026","title":"The Dance Lesson","category":"romance","tier":"romantic","characterA":{"name":"The Patient Instructor","description":"Teaches connection before choreography."},"characterB":{"name":"The Determined Beginner","description":"Has a surprise reason for learning."},"setting":"An empty dance studio after the evening classes end.","goal":"Learn a short dance and discover what it is for.","twists":["The music changes to a song you both know.","The beginner reveals the dance is an invitation."],"estimatedDuration":"15 min","packId":"little_love_stories","packTitle":"Little Love Stories","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0027","title":"The Unsent Voicemail","category":"romance","tier":"extreme","characterA":{"name":"The Message Keeper","description":"Saved words never meant to be heard."},"characterB":{"name":"The Intended Listener","description":"Gets one chance to ask why."},"setting":"A quiet room with an old phone and one unsent message.","goal":"Recreate the conversation that should have happened.","twists":["The recording ends before the important sentence.","The listener may record a new ending."],"estimatedDuration":"25 min","packId":"after_dark","packTitle":"After Dark","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0028","title":"Midnight Radio","category":"romance","tier":"spicy","characterA":{"name":"The Late-Night Host","description":"Takes anonymous requests after midnight."},"characterB":{"name":"The Mystery Caller","description":"Dedicates songs through coded clues."},"setting":"A tiny radio studio during the final hour on air.","goal":"Identify the caller before the last song ends.","twists":["The next request is already your shared favorite.","The caller is invited into the studio for the finale."],"estimatedDuration":"20 min","packId":"after_dark","packTitle":"After Dark","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0029","title":"The Island Map","category":"adventure","tier":"cute","characterA":{"name":"The Careful Navigator","description":"Trusts maps more than legends."},"characterB":{"name":"The Cheerful Castaway","description":"Knows the island by its sounds."},"setting":"A bright island after your small boat drifts ashore.","goal":"Find the signal point before the evening tide.","twists":["The map leads to a picnic left for two.","A second boat appears with no one aboard."],"estimatedDuration":"10 min","packId":"weekend_quests","packTitle":"Weekend Quests","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0030","title":"Agents at the Gala","category":"adventure","tier":"romantic","characterA":{"name":"Agent Rose","description":"Blends into any room except this one."},"characterB":{"name":"Agent North","description":"Carries the key to the mission."},"setting":"A glittering embassy gala where the target knows your faces.","goal":"Exchange a coded message and leave without breaking character.","twists":["Your cover story is announced as the evening's entertainment.","The target offers to help for a personal favor."],"estimatedDuration":"15 min","packId":"weekend_quests","packTitle":"Weekend Quests","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0031","title":"The Museum Heist","category":"adventure","tier":"spicy","characterA":{"name":"The Master Planner","description":"Designed a flawless route through the museum."},"characterB":{"name":"The Elegant Distraction","description":"Improvises when the plan gets interesting."},"setting":"A modern museum during a private midnight exhibition.","goal":"Recover a keepsake that was never meant to be displayed.","twists":["The exhibit label names one of you.","The security system asks a personal verification question."],"estimatedDuration":"20 min","packId":"dangerous_detours","packTitle":"Dangerous Detours","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0032","title":"Stormbound Cabin","category":"adventure","tier":"romantic","characterA":{"name":"The Mountain Guide","description":"Knows storms and avoids personal questions."},"characterB":{"name":"The Stranded Traveler","description":"Carries a destination worth hiding."},"setting":"A remote cabin while snow closes every road.","goal":"Pass the night by trading stories and planning a safe route home.","twists":["The radio reports the road may stay closed for days.","A hidden guestbook contains both your names."],"estimatedDuration":"15 min","packId":"weekend_quests","packTitle":"Weekend Quests","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0033","title":"The Sunken Observatory","category":"adventure","tier":"extreme","characterA":{"name":"The Deep-Sea Pilot","description":"Keeps calm when the instruments disagree."},"characterB":{"name":"The Ocean Researcher","description":"Believes the lost station still has power."},"setting":"A small submersible descending toward a forgotten observatory.","goal":"Retrieve its final recording before your return window closes.","twists":["A light switches on inside the empty station.","The recording includes a message addressed to your call signs."],"estimatedDuration":"25 min","packId":"dangerous_detours","packTitle":"Dangerous Detours","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0034","title":"Desert Compass","category":"adventure","tier":"cute","characterA":{"name":"The Caravan Scout","description":"Reads dunes like pages in a book."},"characterB":{"name":"The Traveling Inventor","description":"Built a compass that points toward wishes."},"setting":"A desert camp beneath a sky full of falling stars.","goal":"Test the impossible compass and choose whether to follow it.","twists":["The compass points to the other traveler.","A distant lantern answers your signal."],"estimatedDuration":"10 min","packId":"weekend_quests","packTitle":"Weekend Quests","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0035","title":"The Alpine Express","category":"adventure","tier":"spicy","characterA":{"name":"The Runaway Diplomat","description":"Carries a case everyone wants."},"characterB":{"name":"The Charming Pursuer","description":"May be an ally or an excellent liar."},"setting":"A luxury train winding through moonlit mountains.","goal":"Decide whether to share the case before the border crossing.","twists":["The case contains two matching passports.","The train conductor offers a private escape route."],"estimatedDuration":"20 min","packId":"dangerous_detours","packTitle":"Dangerous Detours","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0036","title":"Treasure at Low Tide","category":"adventure","tier":"cute","characterA":{"name":"The Local Historian","description":"Knows where the old stories exaggerate."},"characterB":{"name":"The Weekend Explorer","description":"Found a key inside a seashell."},"setting":"A rocky beach where ruins appear only at low tide.","goal":"Use the key before the sea covers the path again.","twists":["The locked chest contains a recent photograph.","The tide reveals a second doorway farther out."],"estimatedDuration":"10 min","packId":"weekend_quests","packTitle":"Weekend Quests","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0037","title":"The Rooftop Chase","category":"adventure","tier":"spicy","characterA":{"name":"The Courier","description":"Protects a message without knowing its meaning."},"characterB":{"name":"The Reluctant Bodyguard","description":"Was hired by someone neither trusts."},"setting":"Rainy city rooftops while searchlights sweep the streets.","goal":"Reach the clock tower and decode the message together.","twists":["The message is an invitation, not a warning.","The pursuer removes their mask and offers a truce."],"estimatedDuration":"20 min","packId":"dangerous_detours","packTitle":"Dangerous Detours","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0038","title":"The Hidden Speakeasy","category":"adventure","tier":"romantic","characterA":{"name":"The Password Keeper","description":"Changes the password for every guest."},"characterB":{"name":"The Determined Detective","description":"Needs entry before the band stops playing."},"setting":"A secret jazz club behind an ordinary flower shop.","goal":"Earn entry by inventing a convincing shared history.","twists":["The band dedicates a song to your cover names.","The real person you impersonated walks in."],"estimatedDuration":"15 min","packId":"weekend_quests","packTitle":"Weekend Quests","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0039","title":"Mission: Northern Lights","category":"adventure","tier":"romantic","characterA":{"name":"The Field Scientist","description":"Has waited years for tonight's sky."},"characterB":{"name":"The Resourceful Pilot","description":"Can land anywhere except on schedule."},"setting":"A tiny research station under a bright arctic sky.","goal":"Repair the camera before the rare lights disappear.","twists":["The camera has one frame left.","The lights form a pattern matching your route home."],"estimatedDuration":"15 min","packId":"weekend_quests","packTitle":"Weekend Quests","premium":false,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0040","title":"The Volcano Archive","category":"adventure","tier":"extreme","characterA":{"name":"The Archive Guardian","description":"Refuses to abandon the final record."},"characterB":{"name":"The Rescue Captain","description":"Has minutes to change the guardian's mind."},"setting":"An underground archive beneath a rumbling volcanic island.","goal":"Choose one record to save and escape before the last ferry.","twists":["The record contains evidence about the captain.","A second exit opens but only one knows the route."],"estimatedDuration":"25 min","packId":"dangerous_detours","packTitle":"Dangerous Detours","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0041","title":"The Midnight Airship","category":"adventure","tier":"spicy","characterA":{"name":"The Airship Captain","description":"Never takes passengers without a secret."},"characterB":{"name":"The Last-Minute Stowaway","description":"Offers a map in exchange for passage."},"setting":"A velvet-lined airship above a sleeping capital.","goal":"Reach the floating market before the map changes.","twists":["The map marks the captain's private cabin.","A rival airship sends an invitation to negotiate."],"estimatedDuration":"20 min","packId":"dangerous_detours","packTitle":"Dangerous Detours","premium":true,"createdAt":"2026-07-29T00:00:00Z"},
-{"id":"rp_0042","title":"Cave of Echoes","category":"adventure","tier":"cute","characterA":{"name":"The Cave Guide","description":"Navigates by listening instead of looking."},"characterB":{"name":"The Curious Musician","description":"Hears a melody beneath every echo."},"setting":"A glowing cave reached by a hidden forest trail.","goal":"Follow the echo that leads to the legendary chamber.","twists":["The cave repeats your words in the other's voice.","The final chamber asks you to finish the melody together."],"estimatedDuration":"10 min","packId":"weekend_quests","packTitle":"Weekend Quests","premium":false,"createdAt":"2026-07-29T00:00:00Z"}
+  {
+    "id": "rp_0043",
+    "title": "Police & Thief",
+    "category": "adventure",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Police",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Thief",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Police notices the mini-bar bottles clinking in Thief's bag. The confrontation starts with genuine authority—badge out, stern questions. Thief stammers, hands shaking, caught between fear and something else when Police steps closer. The pat-down begins at the ankles, professional, but lingers at the hips. Thief holds their breath. When hands slide under the shirt, supposedly checking for weapons, Police's thumb brushes a nipple. Both freeze. Thief whispers \"I didn't take anything\" but doesn't step away. The grind from behind happens gradually—Police \"securing\" Thief's wrists with one hand while the other explores, waiting for resistance that never comes. Thief's head falls back, eyes closing. The blowjob starts with Police unzipping slowly, giving Thief time to pull away, but Thief sinks to their knees instead, mouth opening tentatively before committing. The standing missionary against the wall comes after minutes of pinned wrists and teasing, Thief's legs wrapping with hesitation, then tightening.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "dangerous_games",
+    "packTitle": "Dangerous Games",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0044",
+    "title": "House Owner & Robber",
+    "category": "adventure",
+    "tier": "spicy",
+    "characterA": {
+      "name": "House Owner",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Robber",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "House Owner finds Robber in the suite, clutching a keycard that clearly doesn't work. Instead of calling security immediately, House Owner blocks the door, studying them. Robber's story about the wrong room unravels—they're shaking, clearly desperate. House Owner moves closer, robe loosening from the humidity of the bathroom, letting the fabric gap. Robber tries to look away but keeps glancing back. \"You have two options,\" House Owner says, voice low, never touching the phone. \"I make the call, or you make this right.\" The threat hangs in the air. Robber doesn't run. When House Owner lifts their chin, Robber's lips part, breath hitching. The blowjob happens on the bed edge with House Owner sitting back, watching Robber's internal battle—shame versus need—before they lean forward. The missionary comes with legs pushed to chest slowly, House Owner entering inch by inch while Robber whispers \"please,\" not sure if they're begging for it to stop or continue.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "dangerous_games",
+    "packTitle": "Dangerous Games",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0045",
+    "title": "Delivery Boy & House Owner",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Delivery Boy",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "House Owner",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Delivery Boy stands in the doorway with the bag, polite, eyes down. House Owner opens the door wider, claiming they need to check the order. The \"accidental\" brush happens when House Owner reaches past Delivery Boy's shoulder for the bag, hip grazing against the obvious bulge in Delivery Boy's uniform pants. Both freeze. Delivery Boy stammers \"I should—\" but doesn't finish, doesn't leave. House Owner takes the bag slowly, setting it down while keeping eye contact. \"You look warm,\" House Owner says, and reaches for Delivery Boy's zipper. The protest dies in Delivery Boy's throat. The blowjob starts with House Owner kneeling right there in the entryway, Delivery Boy's hands hovering uncertainly before finally gripping House Owner's hair. The bent-over-the-chair position comes after House Owner stands, lifts their own skirt, and walks to the chair, placing hands on the back and looking over their shoulder—an invitation that requires no words.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0046",
+    "title": "Plumber & Homeowner",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Plumber",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Homeowner",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Plumber is actually fixing the sink, hands dirty with grease, focused on the pipes. Homeowner holds the flashlight, standing close, watching the muscles in Plumber's forearms work. The first touch is accidental—Plumber's shoulder brushing Homeowner's thigh while reaching for a wrench. The second is less so: Plumber \"needs\" Homeowner to hold the pipe steady, positioning them between their own legs. Homeowner says \"be careful\" when Plumber's hand rests on their knee for balance. The hand stays. Moves higher. Homeowner doesn't spread their legs immediately; they stay closed, then relax, then open just slightly. Plumber notices, looks up, makes eye contact. The counter lift happens after Plumber wipes their hands, stands slowly, and lifts Homeowner by the hips—testing weight, testing willingness. Homeowner's legs go to Plumber's shoulders gradually, not immediately, with Plumber asking \"this okay?\" before each new inch.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0047",
+    "title": "Electrician & Homeowner",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "Electrician",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Homeowner",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Electrician works on the bedroom switch with the breaker off, the room dim. Homeowner stands close, supposedly handing tools, but really just standing in Electrician's space. When Electrician turns to ask for the screwdriver, their lips nearly touch. Both pull back, but not far. Electrician flips the switch—nothing happens, still dark. \"Must be the wrong breaker,\" they say, but doesn't move to fix it. In the darkness, Homeowner's hand finds Electrician's chest. Electrician presses forward, pinning Homeowner against the dresser. The hand finds heat through fabric, Homeowner gasping but not stepping away—instead, arching into the touch. The blowjob happens in the shadows, Homeowner sinking down, using the darkness as cover for their boldness. The bent-over-the-dresser position follows naturally, one leg lifted as Electrician finds the angle, both of them breathing hard in the blackness where faces can't be seen, only felt.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0048",
+    "title": "Doctor & Patient",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Doctor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Patient",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Doctor arrives with the bag, professional but tired. Patient is draped in a silk robe, \"feverish,\" dramatic. The stethoscope is cold against the chest, Doctor listening seriously, then moving it to the stomach at Patient's complaint of \"pain.\" The move to the inner thigh comes with a raised eyebrow, a question. \"That's not where the heart is,\" Doctor says, but doesn't remove the stethoscope. Patient's breath catches. \"Check everything,\" Patient whispers. The examination with fingers starts clinically, then lingers, then explores. Patient watches Doctor's face, looking for judgment, finding only desire. The blowjob comes when Patient sits up, pulls at Doctor's belt with shaking hands, looking up for permission before taking it into their mouth. The prone bone on the bed happens after Doctor strips off the white coat, revealing they're human too, grinding hard into Patient's whimpers.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0049",
+    "title": "Nurse & Patient",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Nurse",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Patient",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Nurse prepares the sponge bath with clinical detachment, water warm, cloth soft. Patient lies back, \"grumpy,\" arms crossed, trying to maintain dignity. The cloth circles the chest, stomach, then hesitates at the groin. \"I should clean thoroughly,\" Nurse says, not a statement but a question. Patient grunts \"fine,\" but when the cloth moves over their growing arousal, their hips lift involuntarily. Nurse notices, sets the cloth aside. \"Better?\" they ask, using bare hands with lotion. The stroke is slow, watching Patient's face for signs to stop. Patient grips the sheets, eyes squeezed shut, saying \"that's enough\" but meaning the opposite. The cowgirl riding comes after Nurse keeps the uniform on—Patient straddling them, lowering themselves slowly, inch by inch, the power dynamic shifting as Nurse's hands grip the sheets.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0050",
+    "title": "Boss & Assistant",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "Boss",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Assistant",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Boss works late at the desk, sleeves rolled up, annoyed at errors. Assistant stands beside the chair, nervous, holding the document. \"Look at this,\" Boss says, pulling Assistant down by the arm to lean over the desk. Standing behind, Boss points out mistakes, chest pressed against Assistant's back, groin accidentally at shoulder level. Assistant notices, goes still. \"Fix this,\" Boss commands, but doesn't move away. Assistant turns their head, finds the bulge inches from their face. The hesitation is visible—glancing at the door, at Boss's face, back at the bulge—before they reach out, press their palm against it, then begin unzipping. The blowjob happens with Boss leaning against the desk, maintaining dominance through posture. The bent-over-desk comes after Boss lifts Assistant by the arm, spins them, pushes them face-down with one hand while pulling hips back with the other, entering with slow, deliberate thrusts while holding Assistant's hair.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0051",
+    "title": "Teacher & Student",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Teacher",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Student",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Teacher sits on the bed with papers, glasses low on the nose, correcting Student's posture for the \"spinal alignment\" exercise. Hands start at shoulders, firm, professional. They move to the hips, adjusting angle. Then to the inner thighs, spreading legs slightly. Student grinds back deliberately, failing the next question on purpose. \"You need discipline,\" Teacher says, voice dropping. The punishment dynamic builds—Student made to kneel between Teacher's legs, looking up with defiance that melts into submission. The blowjob happens with Teacher sitting authoritative, hand on Student's head, guiding the rhythm. The reverse cowgirl follows, Student facing away, Teacher's hands on their hips controlling the pace, \"teaching\" them how to move, the lesson in submission complete.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0052",
+    "title": "Hotel Manager & Guest",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Hotel Manager",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Guest",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Hotel Manager arrives at the door with smooth apologies, handling Guest's complaint about the noise. Standing close to \"inspect\" the wall, hand on waist to guide them toward the chair, then sliding higher to the ribcage. Guest says \"this doesn't solve my issue\" but leans into the touch, testing. Hotel Manager reads the signal, pushes them against the mini-bar—not lifting them onto it, but bending them over it, face pressed against the cool surface. The mirror reflects Guest's expression as Hotel Manager lifts the robe from behind, entering standing, the complaint forgotten in the rhythm of hips against the bar.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0053",
+    "title": "Room Service Waiter & Guest",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Room Service Waiter",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Guest",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Room Service Waiter arrives at 2 AM, hair messy, tired, pushing the cart. Guest opens the door in underwear, no pretense, taking the tray. The napkin drops—deliberately or not, both know. Guest bends slowly, back arched, taking time to retrieve it. Room Service Waiter stares, adjusts their pants, caught. Guest notices the bulge, stands, reaches out, grabs it through the fabric without asking. \"I can't,\" Room Service Waiter says, but doesn't move away, doesn't push the hand off. Guest unzips them right there, kneeling in the doorway where anyone could walk by, the risk making it hotter. The push onto the bed comes after, Room Service Waiter finally breaking, lifting Guest's ankles to shoulders, entering deep and hard, the food forgotten.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0054",
+    "title": "Photographer & Model",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Photographer",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Model",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Photographer moves around the bed with the camera, giving directions—\"arch more,\" \"chin up.\" Hands adjust Model's hips, then slide to inner thighs to \"adjust the pose.\" Model gets goosebumps, nipples hardening. Photographer notices through the lens, keeps shooting, the shutter clicking rapidly. \"Perfect, now natural,\" they say, but keeps the camera up, hiding behind it, using it as permission to look. Model spreads legs slightly, posing. Photographer finally puts the camera down—not immediately, but after several minutes of this tease—and climbs on, kissing down the body. The blowjob has eye contact, Model watching Photographer watch them. The spooning sex comes after, from behind, one hand on breast, one on throat, gentle but firm, the camera forgotten on the nightstand.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0055",
+    "title": "Blind Date, First Meeting",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "The Hopeful Dater",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "The Enigmatic Date",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "The Hopeful Dater waits at the bar, checking their phone, awkward. The Enigmatic Date arrives, lip biter, flirty smile. Drinks help, but the tension stays—awkward pauses, laughter too loud, knees touching under the table. The Hopeful Dater walks The Enigmatic Date to the room, \"for safety.\" At the door, the \"goodnight kiss\" becomes tongue, The Enigmatic Date pulling back, breathless. \"Too fast,\" they say, but leaves the door open, walking inside, not closing it. The Hopeful Dater stands in the hallway for ten seconds, then enters. The gentleness turns to passion against the wall, clothes staying on too long because of nerves. The blowjob happens with The Enigmatic Date kneeling, looking up with big eyes, The Hopeful Dater's hand in their hair, both trembling slightly. The lift onto the bed comes after, legs over shoulders, grinding deep while whispering \"is this okay?\" between thrusts.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0056",
+    "title": "Interviewer & Job Candidate",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Interviewer",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Job Candidate",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Interviewer sits on the sofa in the power suit, legs crossed, intimidating. Job Candidate sweats, clutching the resume. Questions start professional, then get personal—\"How badly do you want this?\" The hand on the knee comes under the guise of comfort, but stays, thumb rubbing circles. Job Candidate shivers, doesn't move the hand. \"Show me,\" Interviewer says, not specifying what. Job Candidate understands, sinks to their knees, desperation in their eyes, tears forming from the humiliation and need. The bent-over-table happens with Interviewer reading the resume aloud, commenting on \"qualifications\" with each thrust from behind, the power abuse feeling dangerously real.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0057",
+    "title": "Personal Trainer & Client",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "Personal Trainer",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Client",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Personal Trainer spots Client on the bench press, standing over head, legitimate concern for safety. The bulge in athletic shorts is unavoidable from this angle, near Client's face. \"One more rep,\" Personal Trainer commands. Client stares at the outline, loses grip on the bar. Personal Trainer catches it, leans down, \"focus,\" but grinds slightly against Client's shoulder—maybe accidental, maybe not. Client reaches up, grabs the bulge, testing. Personal Trainer doesn't stop them. The standing sex against the mirror happens in the gym, watching their reflections, then missionary on the bench with legs pushed to ears, Personal Trainer's muscles bulging as they hold the position.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0058",
+    "title": "Tailor & Customer",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Tailor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Customer",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Tailor measures with tape, gentle, precise. The inseam measurement requires hand to go high, brushing against Customer's privates \"for accuracy.\" Customer doesn't flinch, maintains eye contact. \"Waist now,\" Customer says, voice steady. Tailor pulls them close with the tape, bodies pressing. The blowjob happens standing, Customer's mouth working while Tailor keeps hands in their hair, not using the tape as a prop but simply holding on. The bent-over-sewing-table comes after, doggy style with the sound of skin against skin echoing in the fitting room.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0059",
+    "title": "Flight Attendant & Passenger",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Flight Attendant",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Passenger",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Flight Attendant sits at the hotel bar in the tight uniform, tired, hair coming loose. Passenger approaches, nervous, buying drinks, thanking them for the blanket on the flight. Sitting close, knee touching. \"The crew hotel is quiet,\" Flight Attendant mentions, testing. Passenger asks to see the room \"for future reference,\" the excuse transparent. In the room, Flight Attendant pushes Passenger onto the bed without words, gives slow blowjob with the hat still on, maintaining the uniform fantasy. Then cowgirl riding, Passenger looking up at the professional still partially dressed, then reverse cowgirl for the view of the wings pin on the back of the jacket.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0060",
+    "title": "Pilot & Nervous Flyer",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Pilot",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Nervous Flyer",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Pilot finds Nervous Flyer shaking in the room, post-flight anxiety. Holds their face, \"trust me, I'm your captain,\" using the authority genuinely to calm. Nervous Flyer nods, trusts, melts when kissed. Laid back on the bed, Pilot eats them out slowly, patiently, until the shaking stops, replaced by other tremors. Enters missionary, holding hands above head, \"turbulence is normal,\" thrusting while maintaining eye contact. The butterfly position comes with hips lifted, pounding while giving commands—\"breathe,\" \"look at me\"—the authority figure providing safety through control.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0061",
+    "title": "Manager & New Employee",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Manager",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "New Employee",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Manager trains New Employee on the computer in the suite, friendly at first. Correcting posture means standing behind, guiding hands on the keyboard, pressing close. New Employee \"accidentally\" pushes back into the groin, feeling it harden. \"Pay attention,\" Manager says, voice strict now. New Employee turns, kisses them, breaking the professional barrier. Pushed onto the desk, legs lifted for missionary, then simply bent over the desk from behind, hair pulled, the spin removed for simplicity—just raw, bent-over taking.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0062",
+    "title": "Coach & Player",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "Coach",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Player",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Coach blows the whistle in the hotel gym, athletic, commanding. Corrects Player's squat form with hands on hips, then lower, \"deeper!\" Player goes down, feels the bulge against their back, does another rep, grinding on it deliberately. Coach blows the whistle sharp. \"My office. Now.\" In the room, Player sucks while Coach sits in the chair, authoritative, whistle around their neck. Then bent over the exercise ball, doggy style with spanking, then missionary on the ball with hips elevated, the athletic dynamic maintained through commands and physical correction.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0063",
+    "title": "Librarian & Student",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Librarian",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Student",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Librarian helps Student reach a high shelf in the hotel library, body pressing from behind, book in hand. Student makes noise on purpose, dropping a book. Librarian covers their mouth, \"quiet,\" but Student licks the palm. Pinned against the bookshelf, the blowjob happens silent, Student's eyes watering from the effort to stay quiet. Then one leg lifted for standing side-entry, thrusting while Librarian covers Student's mouth with one hand, the other holding the lifted leg, the silence amplifying every sensation.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0064",
+    "title": "Painter & Model",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Painter",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Model",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Painter sets up the canvas, paint on hands already. Model poses with the sheet, shy. \"Remove it for the truth of the form,\" Painter says, artistic but intense. Model hesitates, drops it. Painter paints, approaches, \"I need to feel the texture to paint it,\" hands on body, paint marking skin. Shivers, painted hands marking privates. The blowjob has paint on Model's face, artistic and messy. Then missionary on the drop cloth, thrusting while kissing paint off, the creative session turning into creation of a different kind.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0065",
+    "title": "Yoga Instructor & Student",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "Yoga Instructor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Student",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Yoga Instructor adjusts Student in downward dog, hands on hips pushing back, then slides up inner thighs \"to align the spine.\" Student moans, can't help it. \"Release the tension,\" Yoga Instructor says, grinding against the ass, both in yoga pants. Student collapses to knees, takes the pants down, sucks in child's pose, submission complete. Then standing split against the wall, one leg high for standing missionary, then butterfly on the mat, the flexibility allowing positions impossible for others, the yoga becoming something else entirely.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0066",
+    "title": "Dance Instructor & Beginner",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Dance Instructor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Beginner",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Dance Instructor leads Beginner in salsa in the room, hips touching, grinding with the rhythm. \"Feel the beat,\" they command, hardness obvious against Beginner's stomach. Beginner feels it, blushes, doesn't pull away. The dip comes low, Dance Instructor holding Beginner arched back, neck exposed, kissing the throat while dipped. Stays there, Beginner suspended, submitting to the hold. Blowjob while Dance Instructor stands at the bed edge, Beginner on knees. Then missionary on the bed, then spooning, dancing while fucking, hips moving in rhythm, the dance becoming the sex becoming the dance.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0067",
+    "title": "Beautician & Client",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Beautician",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Client",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Beautician gives the facial on the bed, fingers massaging face, then neck, then chest \"for circulation.\" Client purrs. Lower to stomach, then thighs, then center, \"complete relaxation.\" The mask stays on during the approach, but comes off before the blowjob—Beautician removes it gently, \"better to see you,\" then goes down. Then cowgirl riding while applying cream to Client's chest, the nurturing touch continuing through the sex, then reverse cowgirl grinding, the spa session becoming something more intimate.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0068",
+    "title": "Astrologer & Client",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Astrologer",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Client",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Astrologer reads Client's palm in the dim room, tracing the passion line up the arm to the elbow, the shoulder, the neck. \"The stars say you need release,\" they whisper, kissing palm to wrist to neck. Client believes, lays back on the floor among pillows. Blowjob under the projected stars, then missionary with legs pushed to chest, thrusting while reading the horoscope aloud in a whisper, then doggy for \"planetary alignment,\" the mysticism making the carnal feel fated, inevitable.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0069",
+    "title": "Neighbor & Neighbor",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "Neighbor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Neighbor",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Neighbor knocks on the connecting door with tea, friendly, helpful. Neighbor is new, lost, unpacking. Sitting on the small sofa, knees touch, neither adjusts. Reaching for sugar, hands brush, linger. Neighbor doesn't pull away, covers Neighbor's hand with their own. The kiss is gentle, questioning, then passionate. Laid back on the sofa, legs lifted for missionary with the armrest supporting, then standing against the window, the exhibitionist thrill real because the curtains are open, the connecting door still ajar, anyone could see, which makes Neighbor come harder.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0070",
+    "title": "Ex-Lovers, Chance Meeting",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Character A",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Character B",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Character A at the bar, bitter, drinking. Character B enters, sees them, freezes. \"You ruined me,\" Character A says, not looking up. \"Take it out on me,\" Character B whispers, sitting down. In the room, it's rough against the wall immediately, clothes half-removed, Character B submitting to the anger, wanting the punishment. On knees for the blowjob, tears real, mascara running. Taken hard from behind standing, hair pulled, then thrown onto the bed for missionary with hands around the throat—gentle, reclaiming what was lost, the anger turning to grief turning to slow cowgirl with Character B crying, riding, healing through the fucking.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0071",
+    "title": "Detective & Suspect",
+    "category": "adventure",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Detective",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Suspect",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Detective circles the chair, interrogating, Suspect sweating, lying. \"Where were you?\" Standing behind, hands on shoulders, sliding to chest, \"searching for the truth.\" Finds the arousal, \"knew you were hiding this.\" Suspect confesses on knees, the blowjob a confession of sorts. Bent over the chair, wrists held (not handcuffed—too corny), taken from behind while Detective whispers questions, answers coming in gasps, then missionary on the table with legs spread wide, the interrogation complete.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "dangerous_games",
+    "packTitle": "Dangerous Games",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0072",
+    "title": "Lawyer & Client",
+    "category": "adventure",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Lawyer",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Client",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Lawyer in the expensive suit on the sofa, explaining the case while touching Client's knee \"for reassurance.\" Leans in close. \"I need full disclosure,\" they say, meaning everything. Client provides \"oral argument,\" sucking while Lawyer leans back, maintaining eye contact. Stands, \"let's seal the deal,\" bends Client over the briefcase for doggy, then missionary on the desk with legs on shoulders, promising to \"get you off\"—the case, obviously, but the double meaning clear with each thrust.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "dangerous_games",
+    "packTitle": "Dangerous Games",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0073",
+    "title": "Bank Manager & Customer",
+    "category": "adventure",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Bank Manager",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Customer",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Bank Manager reviews assets in the suite, professional, calculating. Suggests \"private services,\" unbuttoning slowly, showing what's on offer without banking metaphors during the act. Customer examines the \"portfolio\" with blowjob, thorough, detailed. Approves the transaction with bent-over-the-table from behind, then chair cowgirl, the power dynamic of money and sex intertwined without the cheesy dialogue interrupting the rhythm.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "dangerous_games",
+    "packTitle": "Dangerous Games",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0074",
+    "title": "Property Dealer & House Buyer",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Property Dealer",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "House Buyer",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Property Dealer shows the penthouse, smooth but not pushy. Highlights the bed's sturdiness by sitting on it, close to House Buyer. Legs touch, both pretending to test the mattress. The tension builds through proximity, House Buyer not moving away, leaning back on elbows. Property Dealer leans over them, pauses, asking permission with a look. The kiss happens, then the blowjob sitting on the bed edge, then missionary with legs wrapped, testing the bed's durability properly, the sale made through physical chemistry rather than sales tactics.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0075",
+    "title": "Pizza Delivery Guy & Customer",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Pizza Delivery Guy",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Customer",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Pizza Delivery Guy young, hungry-looking, holding the box. Customer opens in a towel, drops it, \"oops.\" Pizza Delivery Guy stares, box shaking in hands. Customer takes the box, sets it down, grabs the belt. \"I ordered extra sausage,\" they say, cringe-worthy but effective. Pizza Delivery Guy is nervous but hard, looking down the hall. Blowjob at the doorway, risky, anyone could see from the elevator. Lifted to the couch, entered from behind while kneeling, then missionary with legs over shoulders, the pizza getting cold on the table, forgotten.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0076",
+    "title": "Massager & Customer",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "Massager",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Customer",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Massager's strong hands work Customer's back on the bed, professional, oiled. Moves to lower back, then ass \"for the muscle tension.\" Customer lifts hips slightly, invitation. Inner thighs, brushing privates \"accidentally\" each pass, going deeper, closer. \"Turn over,\" Massager commands, voice thick. Customer turns, revealing hard/wet arousal. Massager massages the chest, then goes down for \"full service\" blowjob, maintaining the massage rhythm. Then climbs on for cowgirl, riding while massaging Customer's chest, then reverse cowgirl with hands free to spank, the professional boundary completely dissolved in oil and skin.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0077",
+    "title": "Tutor & University Student",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Tutor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "University Student",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Tutor (grad student, broke, intense) teaches University Student (privileged, distracted) in their bedroom. The lesson drags; University Student keeps \"accidentally\" brushing knees. Tutor snaps the book shut, \"Focus.\" University Student leans forward, \"Make me.\" The kiss starts with Tutor grabbing the back of the neck, frustrated. Hands under the kameez, skin hot. The blowjob happens with University Student under the desk, Tutor trying to continue explaining calculus but failing. Bent over the study table, salwar pulled down, entering while whispering \"you're not paying attention.\"",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0078",
+    "title": "Imam & Worshipper",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Imam",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Worshipper",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Imam (young, bearded, conflicted) counsels Worshipper (married, guilty, seeking guidance) after hours in the mosque office. The door locked. Worshipper cries about sin; Imam comforts, hand on shoulder, then cheek. \"Even holy men feel,\" he whispers. The kiss is desperate, forbidden. Worshipper sucks him while he sits in the prayer chair, turbans still on, guilt mixing with desire. Taken from behind against the bookshelf, Quran verses muffled by Worshipper's palm, the transgression making it hotter.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0079",
+    "title": "Rickshaw Puller & Passenger",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Rickshaw Puller",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Passenger",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Rickshaw Puller (muscled, sweat-soaked, poor) pulls Passenger (rich, bored, sheltered) through the rain. The sheet breaks; they stop in an abandoned garage to fix it. Passenger watches the muscles work, offers water. Their hands touch when passing the bottle. Rickshaw Puller notices the staring, steps close, \"Madam?\" Passenger doesn't step back. Against the rickshaw seat, legs lifted, Rickshaw Puller rough but careful, the class gap bridged temporarily by sweat and skin.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0080",
+    "title": "Tailor & Bride",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Tailor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Bride",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Tailor (precise, middle-aged, expert) fits Bride's (nervous, engaged, virgin) wedding dress in the back room. Pins in mouth, hands measuring the waist, then hips. \"For the fall of the fabric,\" he explains, touching the inner thigh. Bride trembles, \"My fiancé...\" but doesn't stop him. The measuring tape becomes bondage, wrists tied while he tests the \"durability\" of the blouse from behind, the white fabric pushed aside.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0081",
+    "title": "Pharmacy Worker & Customer",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Pharmacy Worker",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Customer",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Pharmacy Worker (night shift, tired, curious) serves Customer (embarrassed, buying pregnancy tests). \"Need help?\" Pharmacy Worker asks, locking the door, flipping the sign. In the back among the shelves, Pharmacy Worker checks Customer's pulse, then lower, \"Testing accuracy.\" Against the counter, then on the floor among boxes, the irony of preventing pregnancy while risking it.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0082",
+    "title": "Office Colleagues (Late Night)",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Character A",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Character B",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Character A (married, boss, authoritative) and Character B (single, ambitious, eager) alone at 11 PM. The AC hums. Character B brings coffee, spills it on Character A's shirt. \"Help me,\" Character A commands. Unbuttoning in the boss's office, Character B's hands shaking. The desk clears with one arm. Bent over it, skirt hiked, Character A taking while reviewing Character B's promotion file, the power explicit.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0083",
+    "title": "Bus Conductor & Passenger",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Bus Conductor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Passenger",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Bus Conductor (rough, loud, in charge) collects fares on the night coach. Passenger (lost, no change) offers \"something else.\" In the back seat, empty bus, Bus Conductor stands over Passenger, swaying with the vehicle's motion. The rhythm of the road matches the thrusting, risky, anyone could walk to the back, which keeps them quiet and urgent.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0084",
+    "title": "Security Guard & Resident",
+    "category": "adventure",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Security Guard",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Resident",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Security Guard (night watch, alone, observant) sees Resident (divorced, drunk, coming home late) via CCTV. Meets them at the elevator. \"You shouldn't be alone.\" In the guard booth, chair squeaking, Resident sitting on Security Guard's lap, grinding while he monitors the screens, the voyeurism and protection mixing. Against the glass where anyone in the lobby could see, if they looked.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "dangerous_games",
+    "packTitle": "Dangerous Games",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0085",
+    "title": "Shopkeeper & Customer",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Shopkeeper",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Customer",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Shopkeeper (small shop owner, bored, leering) watches Customer (regular, flirty, buying rice) bend for the lower shelf. \"Need help carrying?\" In the storage room, back among the sacks, Shopkeeper presses Customer face-first into the grain, lifting the saree. The smell of basmati and dust. Quick, because the shop bell might ring, the secrecy forcing silence.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0086",
+    "title": "Chef & Waitstaff",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Chef",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Waitstaff",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Chef (aggressive, talented, hot kitchen) yells at Waitstaff (new server, clumsy) for dropping a plate. \"Clean it.\" Waitstaff kneels; Chef stands close, apron hiding the bulge. In the walk-in freezer, cold air steaming breath, Chef warms Waitstaff with hands and mouth, the contrast of temperatures making skin hypersensitive. Against the metal shelves, hard and fast before the next order.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0087",
+    "title": "Barber & Client",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Barber",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Client",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Barber (straight razor, confident, male) shaves Client (nervous, married, male). The towel covers the lap, but Barber's hand \"accidentally\" brushes the tent forming underneath. \"Relax,\" Barber says, applying shaving cream lower, to the neck, then chest. The chair reclines; the towel falls. Barber uses the warm towels on the erection, then mouth, the straight razor still within reach, danger adding edge.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0088",
+    "title": "Wedding Photographer & Bride",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Wedding Photographer",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Bride",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Wedding Photographer (artistic, demanding, controlling) poses Bride (beautiful, stressed, ignored by groom) for bridal portraits. \"Arch your back more.\" Hands adjust the lehenga, then slip under. \"For the lighting,\" he says, though it's clearly not. In the hotel room booked for \"getting ready shots,\" Bride still in makeup and jewelry, Wedding Photographer taking her before the wedding night, the groom downstairs.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0089",
+    "title": "Driver & Employer",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Driver",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Employer",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Driver (uniformed, silent, strong) drives Employer (wealthy, lonely, demanding) in the back seat of the BMW. Employer drops an earring, asks Driver to retrieve it. While he's bent, she touches his shoulder, then lower. In the parked car, tinted windows, Driver tries to remain professional but fails, Employer riding him in the back seat, the partition up, the driver becoming the driven.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0090",
+    "title": "Building Supervisor & Tenant",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Building Supervisor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Tenant",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Building Supervisor (handyman, rough, familiar with every unit) fixes Tenant's (single woman, new, scared) shower at 9 PM. The water sprays them both; clothes stick. \"Need to change,\" Building Supervisor says, but doesn't leave. Tenant hands him a towel, their hands wet. Against the wet tiles, Building Supervisor lifting Tenant, water running over both, the maintenance becoming intimate.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0091",
+    "title": "Gym Trainer & Member",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Gym Trainer",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Member",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Gym Trainer (certified, touchy, correcting form) spots Member on the bench, hands guiding the bar, then the hips. \"Squeeze your glutes.\" In the empty gym at closing, Gym Trainer stretches Member on the mat, \"helping with flexibility,\" pushing legs apart, then leaning down. The mirrors reflect every angle, Member watching themselves being taken, the narcissism and submission mixing.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0092",
+    "title": "Music Teacher & Student",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Music Teacher",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Student",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Music Teacher (strict, metronome, traditional) holds Student's (eager, talented, young) wrists to teach piano fingering. \"Softly,\" he whispers, but his hands are hard. The lesson continues with Student's hand on Music Teacher's lap, feeling the rhythm. On the piano bench, keys pressing into Student's back, discordant notes playing as Music Teacher thrusts, the music becoming moans.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0093",
+    "title": "Doctor & Nurse",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Doctor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Nurse",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Doctor (consultant, arrogant, exhausted) and Nurse (junior, admiring, trapped in on-call room). The examination bed crinkles. \"Check my pulse,\" Doctor commands, pulling Nurse close. The white coats stay on, stethoscope swinging as Nurse rides, the professional hierarchy maintained even while breaking every rule. Against the medicine cabinet, pills rattling with each thrust.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0094",
+    "title": "Lawyer & Witness",
+    "category": "adventure",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Lawyer",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Witness",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Lawyer (defense, manipulative, charming) preps Witness (scared, vulnerable, key testimony) in the office. \"You need to convince the jury.\" Roleplay becomes real, Lawyer playing the judge, Witness proving their dedication on knees under the desk. Bent over the case files, confidentiality forgotten, the legal briefs pushed aside for briefs removed.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "dangerous_games",
+    "packTitle": "Dangerous Games",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0095",
+    "title": "Bank Teller & Client",
+    "category": "adventure",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Bank Teller",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Client",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Bank Teller (behind glass, professional, numbers) counts cash for Client (desperate for loan, offering collateral). After hours, in the vault, among the money, Bank Teller shows Client what real security feels like. The steel door closed, time locks engaged, Client pressed against the safety deposit boxes, the wealth around them contrasting with raw need.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "dangerous_games",
+    "packTitle": "Dangerous Games",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0096",
+    "title": "University Professor & Research Assistant",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "University Professor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Research Assistant",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "University Professor (tenured, brilliant, predatory) reviews Research Assistant's (undergrad, eager to please) thesis in the office. \"This section needs... deeper analysis.\" University Professor stands behind, guiding Research Assistant's hand to the \"primary source\" in his trousers. The desk clears, Research Assistant bent over it, grades not discussed but implied, the academic power absolute and corrupting.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0097",
+    "title": "Carpenter & Homeowner",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Carpenter",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Homeowner",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Carpenter (sawdust, manual, skilled) builds shelves for Homeowner (housewife, neglected, watching). The hammering stops; Carpenter notices the staring. \"Like what you see?\" Sawdust on the floor, Homeowner on hands and knees among the wood shavings, Carpenter taking from behind, the smell of pine and sweat, the craftsmanship rough but effective.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0098",
+    "title": "IT Technician & User",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "IT Technician",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "User",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "IT Technician (nerd, knows everything, socially awkward) fixes User's (attractive, clueless, grateful) computer. \"You have a virus.\" In the home office, IT Technician shows User where to click, guiding the mouse, then guiding hands lower. The chair spins, User facing the screen showing loading bars while IT Technician enters from behind, the digital and physical merging.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0099",
+    "title": "Marriage Broker & Client",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Marriage Broker",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Client",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Marriage Broker (matchmaker, knows everyone's secrets, manipulative) interviews Client (desperate to marry, aging, pressured by family). \"I can find you a match, but...\" The condition unspoken but clear. On the sofa among the biodatas, Client proving their suitability, Marriage Broker testing \"compatibility\" with thorough examination, the irony of arranging marriages while defiling the client.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0100",
+    "title": "Domestic Help & Employer",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Domestic Help",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Employer",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Domestic Help (servant, poor, strong) cleans for Employer (rich, lonely, ignored by husband). The husband travels. Employer drops a glass; Domestic Help cleans it, kneeling, looking up. The power dynamic shifts in the bedroom, Domestic Help taking what he's seen desired, Employer finally feeling something against the imported mattress, the class lines crossed in secret.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0101",
+    "title": "Newspaper Delivery & Subscriber",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Newspaper Delivery",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Subscriber",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Newspaper Delivery (early morning, 5 AM, bicycle) wakes Subscriber (insomniac, in robe, waiting). \"You're early,\" Subscriber says, inviting in for tea. The dawn breaking through the window, Newspaper Delivery's hands rough from the paper route on Subscriber's soft skin. On the kitchen floor, still in the bicycle helmet, quick because the route must be finished, the morning light exposing everything.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0102",
+    "title": "Mosque Caretaker & Visitor",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Mosque Caretaker",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Visitor",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Mosque Caretaker (elderly-looking but strong, keeper of keys, pious facade) finds Visitor (praying, crying, vulnerable) in the women's section after hours. \"You haven't left?\" The locking of the main gate echoes. In the ablution area, water running, Mosque Caretaker \"helps\" Visitor wash properly, hands going where they shouldn't, the sacrilege intense, Visitor's hijab still half-on during the act.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0103",
+    "title": "Restaurant Owner & Food Inspector",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Restaurant Owner",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Food Inspector",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Restaurant Owner (nervous, bribes ready, cornered) faces Food Inspector (strict, finding violations, threatening closure). \"There must be something we can arrange.\" In the kitchen after inspection, Food Inspector sitting on the stainless steel counter, legs spread, Restaurant Owner kneeling to \"inspect\" the goods, the violation of health codes becoming physical violation, the permit approved in exchange.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0104",
+    "title": "Wedding Planner & Groom",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Wedding Planner",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Groom",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Wedding Planner (flamboyant, detail-oriented, controlling) adjusts Groom's (nervous groom, cold feet) sherwani before the ceremony. \"The bride is waiting.\" Hands linger on the chest, then lower. \"One last freedom,\" Wedding Planner whispers, locking the dressing room. Groom takes the planner against the mirror, still in wedding clothes, the reflection showing the betrayal, the marriage starting with infidelity.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0105",
+    "title": "Elder Care Nurse & Patient's Relative",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Elder Care Nurse",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Patient's Relative",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Elder Care Nurse (compassionate, overworked, gentle) comforts Patient's Relative (guilty, visiting rarely, stressed) in the patient's room while the elder sleeps in the next bed. The curtain drawn. \"You're doing your best,\" Elder Care Nurse says, hugging, then the hug lingers, hands going to the waist. On the visitor's cot, quiet so as not to wake the patient, the intimacy of death and care creating a desperate need for life and sex.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0106",
+    "title": "Real Estate Agent & Buyer",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Real Estate Agent",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Buyer",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Real Estate Agent (smooth, commission-hungry, desperate) shows Buyer (skeptical, wealthy, teasing) the apartment. \"The bedroom gets great light.\" Testing the mattress together, \"for quality.\" Buyer lies back, spreads arms, \"Convince me.\" Real Estate Agent does, thoroughly, the sale contingent on the performance, the contract signed after, the bed now broken in.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0107",
+    "title": "Imam & Newlywed Wife",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Imam",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Newlywed Wife",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Imam (village imam, bearded, respected) gives \"marital counseling\" to Newlywed Wife (18, scared, virgin) while her husband travels. In the mosque back room, he demonstrates \"wifely duties\" using Quranic verses twisted. She wears her bridal red, he keeps his tupi on. The betrayal of trust and religion simultaneous; she submits thinking it's God's will.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0108",
+    "title": "Quran Teacher & Student",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "Quran Teacher",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Student",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Quran Teacher (madrasa huzur, strict, cane-wielding) teaches Student (college girl, home for summer) tajweed. The mistakes are intentional; the punishment is \"extra lessons\" after Maghrib when the house empties. He strikes her palm with the stick, then kisses the welt. On the prayer mat, facing Qibla, entering from behind while she recites—desecration as devotion.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0109",
+    "title": "Stepfather & Stepdaughter",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Stepfather",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Stepdaughter",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Stepfather (mother's new husband, 45, watching for years) finds Stepdaughter (20, home from university) in the shower. The mother sleeps next door. He enters silently, covers her mouth with his hand smelling of tobacco and attar. Bent over the bathroom sink, mirror fogging, the biological sin hidden by the legal relation.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0110",
+    "title": "Husband's Brother (Devar) & Bhabhi",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "Husband's Brother (Devar)",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Bhabhi",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Husband's Brother (Devar) (younger brother, unmarried, lives in joint family) watches Bhabhi (his brother's wife, neglected, fertile) through the courtyard crack. During Friday when elders pray, he corners her in the kitchen. The saree pallu pulled down, standing against the stove, the *haram* of in-law relations making her wetter—she's forbidden fruit in her own home.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0111",
+    "title": "Father-in-Law (Shashur) & Daughter-in-Law",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Father-in-Law (Shashur)",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Daughter-in-Law",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Father-in-Law (Shashur) (elderly but powerful, patriarch) summons Daughter-in-Law (new bride, submissive, trying to prove worth) to his room while his son works abroad. The \"blessing\" requires her to kneel; the \"gift\" is taken on his four-poster bed, wedding bangles still on, the generational betrayal absolute.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0112",
+    "title": "Cousin (Mejo Bhai) & Cousin",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Cousin (Mejo Bhai)",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Cousin",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Cousin (Mejo Bhai) (paternal cousin, 28, family golden boy) and Cousin (maternal cousin, 24, visiting for wedding) in the rooftop room during *holud* ceremony. Music below covers sounds. They grew up playing here; now he takes her virginity on the same mattress, the cousin-marriage halal but the premarital *zina* forbidden, the confusion heightening arousal.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0113",
+    "title": "Mosque Caretaker (Khadim) & Worshipper",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Mosque Caretaker (Khadim)",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Worshipper",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Mosque Caretaker (Khadim) (old, keys to all doors, invisible to society) finds Worshipper (married, praying for fertility) crying after Fajr. He locks the women's gate. In the ablution chamber, water running over both, he \"blesses\" her with his seed, the religious authority making compliance automatic, the dawn light exposing the sin.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0114",
+    "title": "Madrasa Warden & Female Teacher",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Madrasa Warden",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Female Teacher",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Madrasa Warden (conservative, enforces purdah) inspects Female Teacher (new English teacher, modern, alone) for \"inappropriate dress\" in his office. The inspection becomes stripping; the cane becomes caress. She wears the burqa he demands while he takes her on the desk, the fabric bunched around her waist, hypocrisy complete.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0115",
+    "title": "Ramadan - Breaking Fast With Sex",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Character A",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Character B",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Character A (pious by day, hungry by night) and Character B (spouse, or forbidden partner) wait until the *sehri* darkness. They eat dates first, sweet on tongues, then violate the fast before dawn with bodies instead of food. The spiritual high of fasting crashes into physical need; the sin of breaking Ramadan rules adds shame that fuels intensity.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0116",
+    "title": "Burqa/Hijab Partially Worn",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Character A",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Character B",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Character A (stranger, or known man) lifts Character B's black burqa in the market alley or home entrance. Only the face veil stays; the rest opens for standing entry, the garment of piety becoming convenience, the identity hidden but genitals exposed, the ultimate fetishization of modesty.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0117",
+    "title": "Polygamy - Co-Wife Jealousy",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Character A",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Character B",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Character A (husband, 50, rotating nights) finds Character B (second wife, 22, competitive) seducing him when he should be with first wife. The betrayal of the other wife excites both; he takes her roughly knowing the other waits, the Islamic permission for four wives twisted into cruelty and illicit thrill.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0118",
+    "title": "Divorced Woman (Talaq) & Religious Man",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Divorced Woman (Talaq)",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Religious Man",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Divorced Woman (Talaq) (divorced by husband, considered \"used goods,\" vulnerable) seeks counseling from Religious Man (alim, scholar). He explains her *iddat* waiting period requires no touch; then touches anyway. The prohibition on divorced women during waiting period makes the transgression specific and sharp.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0119",
+    "title": "Circumcision Ceremony (Khatna) Attendee",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Character A",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Character B",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Character A (barber who performs the cut, respected) and Character B (aunt of the boy, present for ritual) in the celebration chaos. The blood of the child ritual mixes with adult sexuality; the barber's steady hand on the knife now on her body, the surgical precision applied to pleasure.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0120",
+    "title": "Pir/Fakir (Sufi \"Saint\") & Female Devotee",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Pir/Fakir (Sufi \"Saint\")",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Female Devotee",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Pir/Fakir (Sufi \"Saint\") (charismatic, claims spiritual power, manipulative) \"heals\" Female Devotee (infertile, desperate, believer) in the *dargah* private chamber. The *barkat* (blessing) requires intercourse; the spiritual fraud becomes physical rape-by-consent, her faith making her complicit in her own exploitation.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0121",
+    "title": "Bengali Babu & Muslim Maid",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "Bengali Babu",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Muslim Maid",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Bengali Babu (Hindu employer, upper caste, rich) and Muslim Maid (Muslim servant, poor, needs job) in the servant's quarter. The religious divide, the class gap, the power of salary over faith—he makes her remove her *orna* (scarf) while keeping her *shalwar kameez* on, the colonization complete.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0122",
+    "title": "Rohingya Refugee & Aid Worker",
+    "category": "adventure",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Rohingya Refugee",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Aid Worker",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Rohingya Refugee (UN worker, power, passport) controls rations for Aid Worker (stateless, hungry, beautiful). The camp office, paperwork \"processing,\" the desperate exchange of sex for survival documents, the post-colonial dynamic brutal and explicit.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "dangerous_games",
+    "packTitle": "Dangerous Games",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0123",
+    "title": "Stepbrother & Stepsister",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Stepbrother",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Stepsister",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Stepbrother (father's new wife's son, 25, resentful) shares the Dhaka apartment with Stepsister (mother's new husband's daughter, 19). The forced proximity, the bathroom schedule conflicts, the \"accidental\" walking in. The bed creaks; they pretend it's sleep talking, the parental marriage making them siblings by law, strangers by blood, lovers by night.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0124",
+    "title": "Teacher & Student (HSC Exam)",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Teacher",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Student (HSC Exam)",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Teacher (exam invigilator, 40, power over results) catches Student (HSC Exam) (18, cheating, desperate for GPA). The empty classroom during tiffin break; the gradebook open; the offer implicit. Bent over the teacher's desk, uniform skirt lifted, *hijab* still pinned, the academic corruption literal.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0125",
+    "title": "Doctor & Patient (Gynecologist)",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Doctor",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Patient (Gynecologist)",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Doctor (male gynecologist in a country where women hide from male doctors) examines Patient (Gynecologist) (married, infertile, husband waiting outside). The stirrups, the speculum, the \"fertility test\" that requires his semen sample inside her. Medical authority used for impregnation fantasy, the white coat staying on.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "20 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0126",
+    "title": "Uncle (Mama/Chacha) & Niece",
+    "category": "romance",
+    "tier": "extreme",
+    "characterA": {
+      "name": "Uncle (Mama/Chacha)",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Niece",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Uncle (Mama/Chacha) (maternal uncle, 45, trusted family elder) visits Niece (niece, 20, home alone) \"to check on her.\" The paternal affection turns; he tucks her hair behind ears, then hand stays on neck. On the family sofa where she played as child, the blood relation close but not immediate, the betrayal of trust total.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "25 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0127",
+    "title": "Married Woman & Ex-Lover (Haram Reunion)",
+    "category": "romance",
+    "tier": "spicy",
+    "characterA": {
+      "name": "Married Woman",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Ex-Lover (Haram Reunion)",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Married Woman (college ex, still unmarried) meets Ex-Lover (Haram Reunion) (now married, mother, respectable) at a Dhaka cafe. The old flame; the comparison to her husband; the hotel room afternoon while she claims to be at *parlor*. The *zina* of adultery specific and heavy, the wedding ring visible throughout.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "15 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0128",
+    "title": "Widower & Son's Wife",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Widower",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Son's Wife",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Widower (husband died, 35, in white saree, isolated by society) lives with son and Son's Wife (daughter-in-law, 22, caretaker). The *shashuri* (mother-in-law) power dynamic twisted into lesbian or forced intimacy, the shared grief becoming shared sin, the white widow clothes pushed aside.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0129",
+    "title": "Construction Foreman & Female Architect",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Construction Foreman",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Female Architect",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Construction Foreman (illiterate, muscular, controls the *bostis*) and Female Architect (educated, helmet, clipboard) on the high-rise unfinished floor. The class and education gap; he shows her real power; she submits on the concrete rebar, hardhat still on, the blueprint spread under her back.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0130",
+    "title": "Police (DB) & Suspect's Wife",
+    "category": "adventure",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Police (DB)",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Suspect's Wife",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Police (DB) (Detective Branch, plainclothes, can make people disappear) visits Suspect's Wife (wife of opposition party member, 25, alone) at 3 AM. The \"interrogation\" in her bedroom; the fear of disappearance; the compliance total; the uniform half-removed while *hijab* stays on, state violence becoming sexual violence.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "dangerous_games",
+    "packTitle": "Dangerous Games",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0131",
+    "title": "Imam's Wife (Pirani) & Student",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Imam's Wife (Pirani)",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Student",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Imam's Wife (Pirani) (imam's young wife, neglected, locked in compound) seduces Student (teenage talib, 18, studying at madrasa). The *huzur* sleeping upstairs; the *pirani* taking revenge with his student; the mosque compound the setting; the betrayal of the sheikh through his wife and disciple.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0132",
+    "title": "Stepmother & Stepson",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Stepmother",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Stepson",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Stepmother (second wife, 28, former beauty, trapped in joint family) finds Stepson (stepson, 20, from first wife, muscular) watching her bathe through the crack. She doesn't cover; she opens the door. The Oedipal triangle with the father sleeping in the next room; the *haram* of step-relation in Islam; the power of the mother figure submitting to the son.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0133",
+    "title": "Female Quran Reciter (Qari) & Male Student",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Female Quran Reciter (Qari)",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Male Student",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Female Quran Reciter (Qari) (rare female religious scholar, voice beautiful, strict) teaches Male Student (adult student, 25, attracted) tajweed. Her voice reciting holy verses while his hand slips under her abaya; the contradiction of sacred sound and profane touch; the *mihrab* as backdrop.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rp_0134",
+    "title": "Brother-in-Law (Shali) & Sister-in-Law (Salhoka)",
+    "category": "romance",
+    "tier": "romantic",
+    "characterA": {
+      "name": "Brother-in-Law (Shali)",
+      "description": "One half of this forbidden encounter."
+    },
+    "characterB": {
+      "name": "Sister-in-Law (Salhoka)",
+      "description": "The other half of this forbidden encounter."
+    },
+    "setting": "Brother-in-Law (Shali) (sister's husband, frequent visitor, \"brother\" by marriage) and Sister-in-Law (Salhoka) (wife's sister, 19, living with them for studies). The *halal* proximity; the forbidden desire; the \"accidental\" touches in the kitchen; the taking while wife/sister shops, the bed shared by marriage defiled by in-law lust.",
+    "goal": "Act out this scene together, staying true to your roles until it reaches a natural end.",
+    "twists": [],
+    "estimatedDuration": "10 min",
+    "packId": "forbidden_encounters",
+    "packTitle": "Forbidden Encounters",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  }
 ]
