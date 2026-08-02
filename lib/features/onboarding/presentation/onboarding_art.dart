@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:veloura/features/onboarding/presentation/onboarding_tokens.dart';
 
-/// Branded artwork for the three introduction pages, backed by the supplied
-/// onboarding illustrations.
-class OnboardingArt extends StatelessWidget {
-  const OnboardingArt({required this.variant, super.key});
+/// Full-bleed onboarding illustration used as the page background for the
+/// three intro screens.
+///
+/// The artwork fills the full screen width edge to edge with [BoxFit.fitWidth]
+/// (never stretched or distorted) and is pinned to the top, so it reads as the
+/// whole-screen backdrop rather than a small centered graphic. On the brand
+/// page ([variant] 0) the Veloura wordmark is overlaid onto the upper part of
+/// the illustration's hands; its vertical position is driven by
+/// [OnboardingTokens.brandOverlayAlignmentY] and locked to the image box, so
+/// it tracks the artwork across screen sizes.
+class OnboardingBackground extends StatelessWidget {
+  const OnboardingBackground({required this.variant, super.key});
 
   final int variant;
 
@@ -19,20 +27,72 @@ class OnboardingArt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final asset = _assets[variant.clamp(0, _assets.length - 1)];
-    return SizedBox(
-      height: OnboardingTokens.visualHeight,
-      child: Center(
-        child: Image.asset(
-          asset,
-          fit: BoxFit.contain,
-          errorBuilder: (_, _, _) => const Icon(
-            Icons.favorite_border_rounded,
-            size: 140,
-            color: OnboardingTokens.pinkLight,
-            shadows: [OnboardingTokens.glow],
+    return Align(
+      alignment: Alignment.topCenter,
+      child: Stack(
+        children: [
+          Image.asset(
+            asset,
+            width: double.infinity,
+            fit: BoxFit.fitWidth,
+            alignment: Alignment.topCenter,
+            errorBuilder: (_, _, _) => const SizedBox.expand(),
           ),
-        ),
+          // Soft bottom scrim so the page title/body copy stays legible where
+          // it overlaps the lower part of the illustration.
+          const Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.center,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.transparent, OnboardingTokens.background],
+                ),
+              ),
+            ),
+          ),
+          if (variant == 0)
+            const Positioned.fill(
+              child: Align(
+                alignment: Alignment(0, OnboardingTokens.brandOverlayAlignmentY),
+                child: _BrandWordmark(),
+              ),
+            ),
+        ],
       ),
     );
   }
+}
+
+/// The Veloura brand lockup overlaid on the first intro illustration.
+class _BrandWordmark extends StatelessWidget {
+  const _BrandWordmark();
+
+  @override
+  Widget build(BuildContext context) => const Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Text(
+        'Veloura',
+        style: TextStyle(
+          fontSize: 38,
+          fontWeight: FontWeight.w700,
+          color: Colors.white,
+          shadows: [
+            Shadow(color: Colors.black54, blurRadius: 12, offset: Offset(0, 2)),
+          ],
+        ),
+      ),
+      Text(
+        'Play. Connect. Grow together.',
+        style: TextStyle(
+          color: OnboardingTokens.pinkLight,
+          fontSize: 13,
+          shadows: [
+            Shadow(color: Colors.black54, blurRadius: 10, offset: Offset(0, 1)),
+          ],
+        ),
+      ),
+    ],
+  );
 }

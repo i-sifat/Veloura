@@ -132,7 +132,7 @@ class _HeroCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          _AvatarRing(color: colors.primary),
+          _AvatarRing(color: colors.buttonFill),
           const SizedBox(width: 14),
           Expanded(
             child: Column(
@@ -164,11 +164,11 @@ class _HeroCard extends StatelessWidget {
                 const SizedBox(height: 4),
                 Row(
                   children: [
-                    Icon(Icons.calendar_today, size: 14, color: colors.primary),
+                    Icon(Icons.calendar_today, size: 14, color: colors.buttonFill),
                     const SizedBox(width: 6),
                     Text(
                       'Together since ${profile.togetherDays(DateTime.now())} days',
-                      style: TextStyle(color: colors.primary, fontWeight: FontWeight.w600),
+                      style: TextStyle(color: colors.buttonFill, fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -236,7 +236,7 @@ class _StatsRow extends StatelessWidget {
             icon: Icons.favorite,
             value: '$gamesPlayed',
             label: 'Games played',
-            color: colors.primary,
+            color: colors.buttonFill,
           ),
           SizedBox(height: 40, child: VerticalDivider(color: colors.divider)),
           _StatItem(
@@ -297,7 +297,7 @@ class _PremiumCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: colors.surface,
         borderRadius: BorderRadius.circular(AppDesignTokens.cardRadius),
-        border: Border.all(color: colors.primary.withValues(alpha: .35)),
+        border: Border.all(color: colors.buttonFill.withValues(alpha: .35)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -309,7 +309,7 @@ class _PremiumCard extends StatelessWidget {
                 height: 44,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: colors.primary,
+                  color: colors.buttonFill,
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: const Icon(Icons.diamond_outlined, color: Colors.white),
@@ -338,7 +338,7 @@ class _PremiumCard extends StatelessWidget {
           SizedBox(
             width: 168,
             child: FilledButton.icon(
-              style: FilledButton.styleFrom(backgroundColor: colors.primary),
+              style: FilledButton.styleFrom(backgroundColor: colors.buttonFill),
               onPressed: () => context.push('/premium?source=profile'),
               iconAlignment: IconAlignment.end,
               icon: const Icon(Icons.chevron_right),
@@ -387,7 +387,7 @@ class _ProfileListRow extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
                 decoration: BoxDecoration(
-                  color: colors.primary,
+                  color: colors.buttonFill,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
