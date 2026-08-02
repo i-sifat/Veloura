@@ -1,1 +1,0 @@
-redesign each die as a realistic rounded 3D cube with visible depth, perspective, shadows, and a convincing tumble. Do it as a small Dice polish PR before Phase 3, rather than leaving it to the broad Phase 9 polish pass.

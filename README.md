@@ -15,7 +15,3 @@ flutter run
 ```
 
 Generated `*.g.dart` and `*.freezed.dart` files are committed to source control so local builds and CI use the same generated output. Build products and tool caches remain ignored.
-
-## Planning
-
-Implementation order, architecture decisions, dependency gates, and release criteria live in [`docs/planning/`](docs/planning/). Start with [`VELOURA_BUILD_PLAN.md`](docs/planning/VELOURA_BUILD_PLAN.md).
