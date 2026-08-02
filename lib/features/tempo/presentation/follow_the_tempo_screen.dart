@@ -5,15 +5,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
 import 'package:veloura/features/tempo/domain/tempo_round.dart';
 import 'package:veloura/features/tempo/presentation/tempo_controller.dart';
-import 'package:veloura/features/tempo/presentation/widgets/pulse_ring.dart';
 import 'package:veloura/features/tempo/presentation/widgets/stage_dots.dart';
+import 'package:veloura/features/tempo/presentation/widgets/tempo_ring.dart';
 import 'package:veloura/shared/widgets/game/game_shell.dart';
 import 'package:veloura/shared/widgets/game/primary_cta.dart';
 import 'package:veloura/shared/widgets/game/result_sheet.dart';
 import 'package:veloura/shared/widgets/game/secondary_text_button.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
-/// A no-reading pacing game built around a single visual pulse.
+/// A heartbeat-pacing game built around short tease tasks.
+///
+/// Each task runs for a short window (around 20 seconds) while the ring fills
+/// clockwise and the center shows the tempo word plus the seconds remaining.
+/// The ring resets for every task and pulses like a heartbeat along the way.
 class FollowTheTempoScreen extends ConsumerStatefulWidget {
   const FollowTheTempoScreen({super.key});
 
@@ -25,7 +29,6 @@ class FollowTheTempoScreen extends ConsumerStatefulWidget {
 class _FollowTheTempoScreenState extends ConsumerState<FollowTheTempoScreen>
     with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   late final AnimationController _pulse;
-  DateTime? _lastHaptic;
   var _vibration = true;
   var _wasRunningBeforePause = false;
   var _resultOpen = false;
@@ -34,7 +37,10 @@ class _FollowTheTempoScreenState extends ConsumerState<FollowTheTempoScreen>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    _pulse = AnimationController(vsync: this, duration: kDefaultRound.first.beatPeriod);
+    _pulse = AnimationController(
+      vsync: this,
+      duration: tempoBeatPeriod(kTempoTaskLabels.first),
+    );
     _loadPreferences();
   }
 
@@ -66,27 +72,33 @@ class _FollowTheTempoScreenState extends ConsumerState<FollowTheTempoScreen>
     final state = ref.watch(tempoControllerProvider);
     ref.listen(tempoControllerProvider, _onTempoChanged);
     final running = state.status == TempoStatus.running;
-    final activeDot = state.stageIndex.clamp(0, 2);
+    final inRound = state.round.isNotEmpty;
     return GameShell(
       title: 'Follow the Tempo',
       onInfo: _showInfo,
       hero: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          PulseRing(
+          TempoRing(
             animation: _pulse,
             label: state.instruction,
+            secondsLeft: state.secondsLeft,
+            progress: state.progress,
             running: running,
             finale: state.isFinale,
             reduceMotion: MediaQuery.disableAnimationsOf(context),
           ),
           const SizedBox(height: 16),
-          StageDots(activeIndex: activeDot),
+          if (inRound)
+            StageDots(
+              total: state.round.length,
+              activeIndex: state.taskIndex.clamp(0, state.round.length - 1),
+            ),
         ],
       ),
-      footnote: state.stageIndex == 0
+      footnote: inRound
           ? Text(
-              'Match the pulse',
+              'Task ${(state.taskIndex + 1).clamp(1, state.round.length)} of ${state.round.length}',
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 color: Colors.white70,
               ),
@@ -99,20 +111,14 @@ class _FollowTheTempoScreenState extends ConsumerState<FollowTheTempoScreen>
   }
 
   void _onTempoChanged(TempoState? previous, TempoState next) {
-    if (previous?.stageIndex != next.stageIndex ||
+    if (previous?.taskIndex != next.taskIndex ||
         previous?.status != next.status) {
       _syncPulse(next);
     }
-    if (next.beatCount != previous?.beatCount &&
+    if (next.taskIndex != previous?.taskIndex &&
         next.status == TempoStatus.running &&
-        !next.isFinale) {
-      final now = DateTime.now();
-      if (_vibration &&
-          (_lastHaptic == null ||
-              now.difference(_lastHaptic!) >= const Duration(milliseconds: 500))) {
-        _lastHaptic = now;
-        HapticFeedback.lightImpact();
-      }
+        _vibration) {
+      HapticFeedback.lightImpact();
     }
     if (next.isFinale && previous?.isFinale != true && _vibration) {
       HapticFeedback.heavyImpact();
@@ -125,12 +131,13 @@ class _FollowTheTempoScreenState extends ConsumerState<FollowTheTempoScreen>
   }
 
   void _syncPulse(TempoState state) {
-    if (state.status != TempoStatus.running || state.isFinale) {
+    final task = state.currentTask;
+    if (state.status != TempoStatus.running || task == null) {
       _pulse.stop();
       if (state.isFinale) _pulse.value = 1;
       return;
     }
-    _pulse.duration = kDefaultRound[state.stageIndex].beatPeriod;
+    _pulse.duration = task.beatPeriod;
     _pulse.repeat();
   }
 
@@ -181,7 +188,9 @@ class _FollowTheTempoScreenState extends ConsumerState<FollowTheTempoScreen>
         padding: EdgeInsets.all(24),
         child: SafeArea(
           top: false,
-          child: Text('Match the pulse together. The pace builds across three stages.'),
+          child: Text(
+            'Take turns setting the pace. Each short task tells you how fast to move — slow and teasing, or fast and urgent. Follow the heartbeat ring and count down together.',
+          ),
         ),
       ),
     );
