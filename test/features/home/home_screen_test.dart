@@ -155,6 +155,14 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    // The hero card sizes itself to the artwork's real aspect ratio, which
+    // can push "Let's play" (near the card's bottom edge) right to, or
+    // just past, the default test viewport's fold. Ensure it's actually
+    // on-screen before tapping, same as the sibling tests above already
+    // do for content further down the page.
+    await tester.ensureVisible(find.text("Let's play"));
+    await tester.pumpAndSettle();
+
     await tester.tap(find.text("Let's play"));
     await tester.pumpAndSettle();
 
