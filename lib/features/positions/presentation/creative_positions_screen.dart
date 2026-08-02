@@ -8,7 +8,7 @@ import 'package:veloura/features/positions/presentation/positions_controller.dar
 import 'package:veloura/features/positions/presentation/widgets/beat_rail.dart';
 import 'package:veloura/features/positions/presentation/widgets/held_card.dart';
 import 'package:veloura/features/positions/presentation/widgets/position_card.dart';
-import 'package:veloura/features/positions/presentation/widgets/position_dial.dart';
+import 'package:veloura/features/positions/presentation/widgets/position_wheel.dart';
 import 'package:veloura/features/premium/provider.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
 import 'package:veloura/shared/widgets/error_state.dart';
@@ -163,8 +163,8 @@ class _CreativePositionsScreenState
 
   Widget _hero(PositionsRoundState state, bool premium) => switch (state.stage) {
     RoundStage.invite || RoundStage.spinning || RoundStage.cooldown =>
-      PositionDial(
-        key: const ValueKey('position-dial'),
+      PositionWheel(
+        key: const ValueKey('position-wheel'),
         degrees: state.dialDegrees,
         zoneCount: premium ? 6 : 5,
         spinning: state.stage == RoundStage.spinning,

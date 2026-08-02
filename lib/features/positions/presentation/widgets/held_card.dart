@@ -15,6 +15,8 @@ class HeldCard extends StatefulWidget {
 
 class _HeldCardState extends State<HeldCard>
     with SingleTickerProviderStateMixin {
+  static const _cardRadius = 22.0;
+
   late final AnimationController _hold;
 
   @override
@@ -40,9 +42,10 @@ class _HeldCardState extends State<HeldCard>
     onLongPressEnd: (_) {
       if (!_hold.isCompleted) _hold.reverse();
     },
+    // +20% over the original 232x320 footprint.
     child: SizedBox(
-      width: 232,
-      height: 320,
+      width: 278,
+      height: 384,
       child: AnimatedBuilder(
         animation: _hold,
         builder: (context, child) => CustomPaint(
@@ -52,7 +55,7 @@ class _HeldCardState extends State<HeldCard>
         child: Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(_cardRadius),
             gradient: const LinearGradient(
               colors: GameTokens.creativeConnections,
             ),
@@ -97,26 +100,30 @@ class _ZoneChip extends StatelessWidget {
   );
 }
 
+/// Traces the card's own rounded-rect edge (matching its 22px corner
+/// radius exactly) as [progress] climbs from 0 to 1, rather than drawing a
+/// separate shape around it.
 class _HoldProgressPainter extends CustomPainter {
   const _HoldProgressPainter(this.progress);
   final double progress;
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawArc(
-      Rect.fromCenter(
-        center: size.center(Offset.zero),
-        width: size.width + 12,
-        height: size.height + 12,
-      ),
-      -1.5708,
-      6.2832 * progress,
-      false,
-      Paint()
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 3
-        ..color = GameTokens.rose,
+    if (progress <= 0) return;
+    final rrect = RRect.fromRectAndRadius(
+      Offset.zero & size,
+      const Radius.circular(_HeldCardState._cardRadius),
     );
+    final paint = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 3.5
+      ..strokeCap = StrokeCap.round
+      ..color = GameTokens.rose;
+    for (final metric in (Path()..addRRect(rrect)).computeMetrics()) {
+      final length = metric.length * progress;
+      if (length <= 0) continue;
+      canvas.drawPath(metric.extractPath(0, length), paint);
+    }
   }
 
   @override
