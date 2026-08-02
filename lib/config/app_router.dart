@@ -50,6 +50,51 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           source: state.uri.queryParameters['source'] ?? 'unknown',
         ),
       ),
+      // Flat, top-level routes for every screen that gets `push()`-ed from a
+      // screen that itself already lives on the root navigator (via
+      // `parentNavigatorKey`). These must NOT be declared as nested child
+      // `routes:` under that screen's GoRoute.
+      //
+      // Why: go_router's `push()` resolves a location by matching the
+      // *entire* route chain down to the target and building a Page for
+      // every matched segment bound to a given Navigator. If the target is
+      // a child of a route that's already on the root navigator (e.g.
+      // 'play' under 'lustful-rolls'), every push to the child re-matches
+      // and re-builds a brand-new Page for the parent too, stacking a
+      // second copy of it underneath the child on the root navigator -
+      // even though a page for that parent is already there from the
+      // earlier navigation that opened it. Popping the child then lands on
+      // that fresh duplicate parent, not the real previous screen, which
+      // reads as navigation being stuck in a loop (this was the actual
+      // cause of Love Dice's "Start game" screen reappearing after leaving
+      // the dice game - see the flattened '/games/lustful-rolls/play'
+      // below). Declaring the target as its own flat, absolute-path route
+      // instead means push() only ever matches and builds that one page.
+      GoRoute(
+        path: '/games/lustful-rolls/play',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => _protectedGame(const DiceScreen()),
+      ),
+      GoRoute(
+        path: '/games/card-challenge/browse',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => _protectedGame(const ChallengeScreen()),
+      ),
+      GoRoute(
+        path: '/games/truth-or-dare/browse',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => _protectedGame(const TruthDareScreen()),
+      ),
+      GoRoute(
+        path: '/games/creative-connections/browse',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => _protectedGame(const ConversationScreen()),
+      ),
+      GoRoute(
+        path: '/home/conversation/browse',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (_, _) => _protectedGame(const ConversationScreen()),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, shell) => NavigationShell(
           shell: shell,
@@ -67,13 +112,6 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                     path: 'conversation',
                     builder: (_, _) =>
                         _protectedGame(const CreativeConnectionsScreen()),
-                    routes: [
-                      GoRoute(
-                        path: 'browse',
-                        builder: (_, _) =>
-                            _protectedGame(const ConversationScreen()),
-                      ),
-                    ],
                   ),
                 ],
               ),
@@ -89,51 +127,24 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                     parentNavigatorKey: _rootNavigatorKey,
                     path: 'lustful-rolls',
                     builder: (_, _) => const LoveDiceIntroScreen(),
-                    routes: [
-                      GoRoute(
-                        path: 'play',
-                        builder: (_, _) => _protectedGame(const DiceScreen()),
-                      ),
-                    ],
                   ),
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,
                     path: 'card-challenge',
                     builder: (_, _) =>
                         _protectedGame(const CardChallengeFanScreen()),
-                    routes: [
-                      GoRoute(
-                        path: 'browse',
-                        builder: (_, _) =>
-                            _protectedGame(const ChallengeScreen()),
-                      ),
-                    ],
                   ),
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,
                     path: 'truth-or-dare',
                     builder: (_, _) =>
                         _protectedGame(const TruthOrDareWheelScreen()),
-                    routes: [
-                      GoRoute(
-                        path: 'browse',
-                        builder: (_, _) =>
-                            _protectedGame(const TruthDareScreen()),
-                      ),
-                    ],
                   ),
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,
                     path: 'creative-connections',
                     builder: (_, _) =>
                         _protectedGame(const CreativePositionsScreen()),
-                    routes: [
-                      GoRoute(
-                        path: 'browse',
-                        builder: (_, _) =>
-                            _protectedGame(const ConversationScreen()),
-                      ),
-                    ],
                   ),
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,
