@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:veloura/features/daily/presentation/daily_controller.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
 
 /// Read model for the Home discovery shell.
@@ -23,9 +24,13 @@ class HomeController extends AsyncNotifier<HomeState> {
   @override
   Future<HomeState> build() async {
     final session = await ref.watch(sessionControllerProvider.future);
+    // Real consecutive-days streak from the daily challenge, computed live
+    // from the completion history (not install/open days, not hardcoded).
+    // Falls back to 0 if the daily source isn't ready yet.
+    final daily = ref.watch(dailyControllerProvider);
     return HomeState(
       greeting: '${session.a.name} \u{1F495}',
-      streakDays: 7,
+      streakDays: daily.asData?.value.streak ?? 0,
       featuredTitle: 'Spice up\nyour connection',
       quote: 'Couples who play together, stay together.',
     );
