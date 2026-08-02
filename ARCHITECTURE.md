@@ -20,7 +20,7 @@ Dependencies point inward: presentation → domain ← data. Widgets never acces
 - `lib/models/` — stable cross-feature domain contracts.
 - `lib/services/` — storage, adapter registration, and SDK-neutral service boundaries.
 - `lib/shared/widgets/` — reusable UI primitives.
-- `lib/features/` — isolated product modules, each with a `provider.dart` barrel.
+- `lib/features/` — isolated product modules with presentation, domain, and data layers.
 
 ## State management
 
@@ -38,11 +38,11 @@ Use `Notifier` for synchronous initial state and `AsyncNotifier` when initializa
 
 ## Persistence
 
-Hive CE is wrapped by `StorageService`. Every module owns its box, adapter registration, and type IDs. Claim IDs in `docs/planning/HIVE_TYPEIDS.md` before adding an adapter. Repositories convert storage failures into `AppResult`; exceptions do not cross into presentation.
+Hive CE is wrapped by `StorageService`. Every module owns its box, adapter registration, and type IDs. Repositories convert storage failures into `AppResult`; exceptions do not cross into presentation.
 
 ## Content contract
 
-All playable content implements `ContentItem` and is accessed through `ContentRepository<T extends ContentItem>`. The contract of record is copied in `docs/planning/CONTRACT_SNAPSHOT.md`. Changing it requires updating that snapshot and reviewing every downstream feature.
+All playable content implements `ContentItem` and is accessed through `ContentRepository<T extends ContentItem>`. Repositories convert storage failures into `AppResult`; exceptions do not cross into presentation.
 
 ## Design system
 
