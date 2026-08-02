@@ -52,7 +52,7 @@ class HomeScreen extends ConsumerWidget {
             // cache window can leave later children un-built until
             // scrolled deep into view, which is brittle for such a
             // short, bounded list of sections.
-            scrollCacheExtent: 4000,
+            scrollCacheExtent: const ScrollCacheExtent.pixels(4000),
             padding: const EdgeInsets.fromLTRB(
               AppDesignTokens.spaceXxl,
               AppDesignTokens.spaceXxl,
