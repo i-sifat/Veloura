@@ -10,7 +10,7 @@ void main() {
 
   setUp(() => SharedPreferences.setMockInitialValues({}));
 
-  test('loads the balanced 42-story content pack', () async {
+  test('loads the roleplay content pack', () async {
     final repository = AssetRoleplayRepository(
       await SharedPreferences.getInstance(),
     );
@@ -21,15 +21,17 @@ void main() {
       AppFailure<List<RoleplayStory>>(:final message) => fail(message),
     };
 
-    expect(stories, hasLength(42));
-    for (final category in RoleplayCategory.values) {
-      expect(
-        stories.where((story) => story.roleplayCategory == category),
-        hasLength(14),
-      );
-    }
-    expect(stories.every((story) => story.twists.length >= 2), isTrue);
-    expect(stories.where((story) => story.premium), hasLength(18));
+    expect(stories, hasLength(92));
+    expect(
+      stories.where((story) => story.roleplayCategory == RoleplayCategory.romance),
+      hasLength(82),
+    );
+    expect(
+      stories.where((story) => story.roleplayCategory == RoleplayCategory.adventure),
+      hasLength(10),
+    );
+    expect(stories.every((story) => story.setting.isNotEmpty), isTrue);
+    expect(stories.where((story) => story.premium), hasLength(44));
   });
 
   test('filters category, tier, and premium access together', () async {
@@ -38,26 +40,26 @@ void main() {
     );
 
     final stories = await repository.getFiltered(
-      category: RoleplayCategory.fantasy,
+      category: RoleplayCategory.romance,
       difficulty: Difficulty.spicy,
       includePremium: false,
     );
     final premiumStories = await repository.getFiltered(
-      category: RoleplayCategory.fantasy,
+      category: RoleplayCategory.romance,
       difficulty: Difficulty.spicy,
       includePremium: true,
     );
 
-    expect(stories, isEmpty);
-    expect(premiumStories, hasLength(4));
+    expect(stories, isNotEmpty);
+    expect(premiumStories, hasLength(greaterThan(stories.length)));
   });
 
   test('persists favorite story ids', () async {
     final preferences = await SharedPreferences.getInstance();
     final repository = AssetRoleplayRepository(preferences);
 
-    final result = await repository.toggleFavorite('rp_0001');
+    final result = await repository.toggleFavorite('rp_0043');
     expect(result, isA<AppSuccess<RoleplayStory>>());
-    expect(preferences.getStringList('roleplay_favorites'), ['rp_0001']);
+    expect(preferences.getStringList('roleplay_favorites'), ['rp_0043']);
   });
 }

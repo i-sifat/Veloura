@@ -18,20 +18,35 @@ void main() {
         ),
       ),
     );
+    await tester.runAsync(
+      () => Future<void>.delayed(const Duration(milliseconds: 200)),
+    );
     await tester.pumpAndSettle();
 
     expect(find.text('Roleplay Stories'), findsOneWidget);
     expect(find.text('Story packs'), findsOneWidget);
 
-    await tester.tap(find.text('The Moonlit Masquerade'));
+    await tester.scrollUntilVisible(
+      find.text('House Owner & Robber'),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.text('House Owner & Robber'));
     await tester.pumpAndSettle();
-    final assignRoles = find.text('Assign roles');
-    await tester.ensureVisible(assignRoles);
-    await tester.pumpAndSettle();
-    await tester.tap(assignRoles);
+    await tester.scrollUntilVisible(
+      find.text('Assign roles'),
+      -200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.text('Assign roles'));
     await tester.pumpAndSettle();
 
     expect(find.text('Partner one'), findsOneWidget);
-    expect(find.text('Reveal next twist'), findsOneWidget);
+    await tester.scrollUntilVisible(
+      find.text('Finish story'),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text('Finish story'), findsOneWidget);
   });
 }
