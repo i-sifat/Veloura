@@ -51,21 +51,17 @@ double forwardDelta(double current, double target) {
 }
 
 /// Stepping-down angular rates for the five tumble segments (fast to slow),
-/// per the design spec.
+/// per the design spec. Used only as *relative weights* between segments
+/// (see [TumbleSchedule.buildProgressCurve]), not as absolute speeds.
 const List<double> kTumbleRates = [0.95, 0.80, 0.62, 0.44, 0.27];
 
-/// Authored reference speed: how many full turns a rate of 1.0 covers per
-/// second. There is no external spec for this exact number - it's a
-/// deliberate authored choice to make the tumble read as "fast", matched
-/// against extraTurns below so the final ease phase always has forward
-/// distance left to cover.
-const double kReferenceTurnsPerSecond = 3.0;
+/// Fraction of the total 0..1 roll progress claimed by the five tumble
+/// segments together; the rest (to 1.0) is the final easing segment.
+const double kTumblePhaseShare = 0.8;
 
 /// Extra full forward turns layered on top of the minimal angle needed to
-/// reach the landing face, so the roll always has visible travel. Chosen
-/// comfortably above the maximum turns the tumble segments could possibly
-/// cover (5 segments * up to 500ms * rate <= 1.0 * 3 turns/s ~= 4.6 turns
-/// worst case), so the final easing segment never has to move backward.
+/// reach the landing face, purely so the roll has enough visible travel to
+/// read as a real throw rather than a small nudge.
 const int kExtraForwardTurns = 6;
 
 /// One planned roll: which face lands, the absolute rotation targets for
@@ -122,6 +118,11 @@ double _forwardTarget(double current, double target, int sign) {
 /// Five stepping-down-rate tumble segments (340-500ms each) followed by a
 /// 680ms `Curves.easeOutCubic` settle, exposed as a single monotonic
 /// `Animatable<double>` from 0 (rest) to 1 (exact landing angle).
+///
+/// Multiply this curve's sampled value by a die's own real rotation delta
+/// (target - current) to get that axis's actual angle at time t; both axes
+/// can differ in total travel while staying perfectly time-synced, since
+/// they share this same normalized 0..1 curve.
 class TumbleSchedule {
   TumbleSchedule(math.Random random)
     : segmentDurations = List.generate(
@@ -138,56 +139,37 @@ class TumbleSchedule {
     (sum, duration) => sum + duration,
   );
 
-  /// Turns (fractional) covered by the tumble phase alone, before the
-  /// final easing segment takes over. Always well under
-  /// [kExtraForwardTurns] (see its doc comment), so the final segment
-  /// always has forward distance left to animate.
-  double get tumbleTurnsCovered {
-    var turns = 0.0;
-    for (var i = 0; i < kTumbleRates.length; i++) {
-      final seconds = segmentDurations[i].inMilliseconds / 1000;
-      turns += kTumbleRates[i] * kReferenceTurnsPerSecond * seconds;
-    }
-    return turns;
-  }
-
   /// Builds the normalized 0..1 progress curve: piecewise-linear through
-  /// the five tumble segments (each covering its own share of
-  /// [tumbleTurnsCovered], at a constant rate within the segment - an
-  /// authored "stair-step slowdown", not a simulated physical curve), then
-  /// `Curves.easeOutCubic` for the remaining distance to 1.0.
+  /// the five tumble segments (each claiming a share of the 0..[kTumblePhaseShare]
+  /// range proportional to rate*duration - an authored "stair-step
+  /// slowdown", not a simulated physical curve), then
+  /// `Curves.easeOutCubic` covering [kTumblePhaseShare]..1.0.
   Animatable<double> buildProgressCurve() {
-    final totalTurns = tumbleTurnsCovered + _remainingTurnsPlaceholder;
-    var cumulativeTurns = 0.0;
+    final weights = [
+      for (var i = 0; i < kTumbleRates.length; i++)
+        kTumbleRates[i] * segmentDurations[i].inMilliseconds,
+    ];
+    final weightSum = weights.fold(0.0, (sum, w) => sum + w);
+    var cumulativeShare = 0.0;
     final items = <TweenSequenceItem<double>>[];
     for (var i = 0; i < kTumbleRates.length; i++) {
-      final seconds = segmentDurations[i].inMilliseconds / 1000;
-      final segmentTurns = kTumbleRates[i] * kReferenceTurnsPerSecond * seconds;
-      final start = cumulativeTurns / totalTurns;
-      cumulativeTurns += segmentTurns;
-      final end = cumulativeTurns / totalTurns;
+      final start = cumulativeShare;
+      cumulativeShare += kTumblePhaseShare * (weights[i] / weightSum);
       items.add(
         TweenSequenceItem(
           weight: segmentDurations[i].inMilliseconds.toDouble(),
-          tween: Tween(begin: start, end: end),
+          tween: Tween(begin: start, end: cumulativeShare),
         ),
       );
     }
     items.add(
       TweenSequenceItem(
         weight: finalSegmentDuration.inMilliseconds.toDouble(),
-        tween: Tween(begin: cumulativeTurns / totalTurns, end: 1.0).chain(
+        tween: Tween(begin: kTumblePhaseShare, end: 1.0).chain(
           CurveTween(curve: Curves.easeOutCubic),
         ),
       ),
     );
     return TweenSequence<double>(items);
   }
-
-  // Placeholder so buildProgressCurve's totalTurns matches the *actual*
-  // forward travel passed in by the caller; overwritten by
-  // WordDieState.roll(), which rescales this curve's 0..1 output against
-  // the real rotationXTarget/rotationYTarget deltas rather than this
-  // schedule's own (rate-only) turn estimate.
-  static const _remainingTurnsPlaceholder = 0.0001;
 }
