@@ -3,12 +3,12 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:spinning_wheel/spinning_wheel.dart';
+import 'package:flutter_spinning_wheel/flutter_spinning_wheel.dart';
 import 'package:veloura/features/positions/domain/position_zone.dart';
 import 'package:veloura/features/positions/presentation/widgets/positions_wheel_pointer.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
-/// Flick-to-spin Creative Positions wheel, built on `package:spinning_wheel`.
+/// Flick-to-spin Creative Positions wheel, built on `package:flutter_spinning_wheel`.
 ///
 /// The package only animates a supplied wheel `image`; it doesn't draw the
 /// wheel itself. This widget renders that image - zone slices plus a
