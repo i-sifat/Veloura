@@ -10,11 +10,17 @@ abstract final class OnboardingTokens {
   static const sexPageIndex = setupStartIndex + 1;
 
   static const maxWidth = 430.0;
-  static const visualHeight = 300.0;
   static const fieldHeight = 72.0;
   static const choiceHeight = 132.0;
   static const pagePadding = AppDesignTokens.padding;
   static const cardRadius = AppDesignTokens.cardRadius;
+
+  /// Vertical placement of the Veloura wordmark over the first intro
+  /// illustration, expressed as an [Alignment] `y` within the image box
+  /// (-1 = top edge, 0 = center, 1 = bottom edge). Kept slightly above center
+  /// so the wordmark sits on the upper part of the hands. Nudge this single
+  /// value if the wordmark ever drifts off the hands.
+  static const brandOverlayAlignmentY = -0.1;
 
   static const background = Color(0xFF050711);
   static const elevated = Color(0xFF0D1020);

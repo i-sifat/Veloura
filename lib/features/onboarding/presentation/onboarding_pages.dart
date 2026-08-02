@@ -1,56 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:veloura/features/onboarding/presentation/onboarding_art.dart';
 import 'package:veloura/features/onboarding/presentation/onboarding_tokens.dart';
 
-/// A cinematic introduction page with centered artwork and copy.
+/// A cinematic introduction page whose illustration is painted full-bleed
+/// behind the page (see `OnboardingBackground`); this widget lays out just the
+/// copy, pinned to the bottom so it sits below the artwork.
 class OnboardingIntroPage extends StatelessWidget {
   const OnboardingIntroPage({
-    required this.variant,
     required this.title,
     required this.body,
-    this.brand = false,
     super.key,
   });
 
-  final int variant;
   final String title;
   final String body;
-  final bool brand;
 
   @override
-  Widget build(BuildContext context) => SingleChildScrollView(
-    padding: const EdgeInsets.only(top: 8),
-    child: Column(
-      children: [
-        OnboardingArt(variant: variant),
-        if (brand) ...[
-          const Text('Veloura', style: TextStyle(fontSize: 38, fontWeight: FontWeight.w700)),
-          const Text(
-            'Play. Connect. Grow together.',
-            style: TextStyle(color: OnboardingTokens.pinkLight, fontSize: 13),
-          ),
-          const SizedBox(height: 42),
-        ] else
-          const SizedBox(height: 34),
-        Text(
-          title,
+  Widget build(BuildContext context) => Column(
+    children: [
+      const Spacer(),
+      Text(
+        title,
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+          fontWeight: FontWeight.w700,
+          height: 1.2,
+        ),
+      ),
+      const SizedBox(height: 14),
+      ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 330),
+        child: Text(
+          body,
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-            fontWeight: FontWeight.w700,
-            height: 1.2,
-          ),
+          style: const TextStyle(color: OnboardingTokens.muted, height: 1.55),
         ),
-        const SizedBox(height: 14),
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 330),
-          child: Text(
-            body,
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: OnboardingTokens.muted, height: 1.55),
-          ),
-        ),
-      ],
-    ),
+      ),
+      const SizedBox(height: 8),
+    ],
   );
 }
 

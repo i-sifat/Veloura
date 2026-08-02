@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:veloura/features/onboarding/presentation/onboarding_art.dart';
 import 'package:veloura/features/onboarding/presentation/onboarding_controller.dart';
 import 'package:veloura/features/onboarding/presentation/onboarding_pages.dart';
 import 'package:veloura/features/onboarding/presentation/onboarding_tokens.dart';
@@ -37,43 +38,66 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
     backgroundColor: OnboardingTokens.background,
-    body: DecoratedBox(
-      decoration: const BoxDecoration(
-        gradient: OnboardingTokens.backgroundGradient,
-      ),
-      child: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(
-              maxWidth: OnboardingTokens.maxWidth,
+    body: Stack(
+      children: [
+        // Base gradient behind everything.
+        const Positioned.fill(
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: OnboardingTokens.backgroundGradient,
             ),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(
-                OnboardingTokens.pagePadding,
-                4,
-                OnboardingTokens.pagePadding,
-                24,
+          ),
+        ),
+        // Full-bleed illustration for the active intro page. Rendered outside
+        // the content padding/maxWidth so it reaches the true screen edges,
+        // and only shown on the three intro pages (not the setup pages).
+        Positioned.fill(
+          child: IgnorePointer(
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 320),
+              child: _page < OnboardingTokens.setupStartIndex
+                  ? OnboardingBackground(
+                      key: ValueKey<int>(_page),
+                      variant: _page,
+                    )
+                  : const SizedBox.shrink(),
+            ),
+          ),
+        ),
+        SafeArea(
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxWidth: OnboardingTokens.maxWidth,
               ),
-              child: Column(
-                children: [
-                  _OnboardingNav(
-                    page: _page,
-                    onBack: _back,
-                    onSkip: () => _goTo(OnboardingTokens.setupStartIndex),
-                  ),
-                  Expanded(child: _pageView()),
-                  const SizedBox(height: 16),
-                  _OnboardingFooter(
-                    page: _page,
-                    saving: _saving,
-                    onPressed: _next,
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  OnboardingTokens.pagePadding,
+                  4,
+                  OnboardingTokens.pagePadding,
+                  24,
+                ),
+                child: Column(
+                  children: [
+                    _OnboardingNav(
+                      page: _page,
+                      onBack: _back,
+                      onSkip: () => _goTo(OnboardingTokens.setupStartIndex),
+                    ),
+                    Expanded(child: _pageView()),
+                    const SizedBox(height: 16),
+                    _OnboardingFooter(
+                      page: _page,
+                      saving: _saving,
+                      onPressed: _next,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
         ),
-      ),
+      ],
     ),
   );
 
@@ -83,19 +107,15 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     onPageChanged: (value) => setState(() => _page = value),
     children: [
       const OnboardingIntroPage(
-        variant: 0,
-        brand: true,
         title: 'Stronger together',
         body: 'Fun and intimate games that bring you closer, every day.',
       ),
       const OnboardingIntroPage(
-        variant: 1,
         title: 'Deep conversations\nand playful moments',
         body:
             'From flirty questions to spicy challenges, every game is designed to spark connection.',
       ),
       const OnboardingIntroPage(
-        variant: 2,
         title: 'Track your journey\nand grow together',
         body:
             'Celebrate your progress, keep your streak alive and make memories as a couple.',
