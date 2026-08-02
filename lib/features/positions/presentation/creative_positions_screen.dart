@@ -8,7 +8,7 @@ import 'package:veloura/features/positions/presentation/positions_controller.dar
 import 'package:veloura/features/positions/presentation/widgets/beat_rail.dart';
 import 'package:veloura/features/positions/presentation/widgets/held_card.dart';
 import 'package:veloura/features/positions/presentation/widgets/position_card.dart';
-import 'package:veloura/features/positions/presentation/widgets/position_dial.dart';
+import 'package:veloura/features/positions/presentation/widgets/positions_spinning_wheel.dart';
 import 'package:veloura/features/premium/provider.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
 import 'package:veloura/shared/widgets/error_state.dart';
@@ -30,26 +30,8 @@ class CreativePositionsScreen extends ConsumerStatefulWidget {
 
 class _CreativePositionsScreenState
     extends ConsumerState<CreativePositionsScreen> {
-  Timer? _spinTimer;
   Timer? _cooldownTimer;
   DateTime? _beatShownAt;
-
-  void _spin([double omega = 4.8]) {
-    ref.read(positionsControllerProvider.notifier).beginSpin(omega: omega);
-    _spinTimer?.cancel();
-    final reduceMotion = MediaQuery.disableAnimationsOf(context);
-    _spinTimer = Timer(
-      reduceMotion
-          ? GameTokens.fadeDuration
-          : const Duration(milliseconds: 4500),
-      () {
-        if (mounted) {
-          ref.read(positionsControllerProvider.notifier).finishSpin();
-          unawaited(HapticFeedback.heavyImpact());
-        }
-      },
-    );
-  }
 
   void _advanceBeat() {
     final now = DateTime.now();
@@ -96,7 +78,6 @@ class _CreativePositionsScreenState
 
   @override
   void dispose() {
-    _spinTimer?.cancel();
     _cooldownTimer?.cancel();
     super.dispose();
   }
@@ -163,12 +144,16 @@ class _CreativePositionsScreenState
 
   Widget _hero(PositionsRoundState state, bool premium) => switch (state.stage) {
     RoundStage.invite || RoundStage.spinning || RoundStage.cooldown =>
-      PositionDial(
-        key: const ValueKey('position-dial'),
-        degrees: state.dialDegrees,
+      PositionsSpinningWheel(
+        key: const ValueKey('positions-wheel'),
         zoneCount: premium ? 6 : 5,
-        spinning: state.stage == RoundStage.spinning,
-        onFlick: state.stage == RoundStage.invite ? _spin : null,
+        interactive: state.stage == RoundStage.invite,
+        onSpinStarted: () =>
+            ref.read(positionsControllerProvider.notifier).beginSpin(),
+        onZoneLanded: (zone) {
+          ref.read(positionsControllerProvider.notifier).landOnZone(zone);
+          unawaited(HapticFeedback.heavyImpact());
+        },
       ),
     RoundStage.held => HeldCard(
       key: const ValueKey('held-card'),
@@ -190,7 +175,7 @@ class _CreativePositionsScreenState
   Widget? _footnote(BuildContext context, PositionsRoundState state) {
     final colors = AppColors.of(context);
     final text = switch (state.stage) {
-      RoundStage.invite => 'Flick it, or use the button',
+      RoundStage.invite => 'Flick the wheel to spin',
       RoundStage.held => 'Press and hold to reveal',
       RoundStage.cooldown => 'Stay close.',
       _ => null,
@@ -201,11 +186,9 @@ class _CreativePositionsScreenState
   }
 
   Widget _actions(PositionsRoundState state) => switch (state.stage) {
-    RoundStage.invite => PrimaryCta(
-      label: 'Spin the dial',
-      icon: Icons.rotate_right,
-      onPressed: _spin,
-    ),
+    // Flick-only interaction on the wheel itself - no button to trigger it,
+    // same pattern already used below for the press-and-hold reveal.
+    RoundStage.invite => const SizedBox.shrink(),
     RoundStage.spinning => const PrimaryCta(
       label: 'Spinning…',
       busy: true,
