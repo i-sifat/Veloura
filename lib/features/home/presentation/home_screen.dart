@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -129,7 +127,10 @@ class _Greeting extends StatelessWidget {
 /// Full-bleed "Spice up your connection" hero. Sizes itself to the
 /// artwork's own aspect ratio (instead of a fixed height) so the image is
 /// never stretched or cropped on any side: whatever the artwork's real
-/// proportions are, the card's height follows them exactly.
+/// proportions are, the card's height follows them - within a clamped
+/// range so an unusually tall/narrow source image can't balloon the card
+/// past a sane fraction of the screen and push everything below it off
+/// a normal phone viewport.
 class _TonightCard extends StatefulWidget {
   const _TonightCard();
 
@@ -139,6 +140,14 @@ class _TonightCard extends StatefulWidget {
 
 class _TonightCardState extends State<_TonightCard> {
   static const _heroAsset = 'assets/homescreen/spice_up_your_connection_bg.png';
+
+  // Clamp bounds (width / height) for the resolved aspect ratio: never
+  // shorter/wider than 328:230 nor taller/narrower than 328:380. That's
+  // roughly a -22%/+28% band around the original fixed 296px footprint -
+  // enough for the real artwork's proportions to read as "fitted" without
+  // ever taking over the screen.
+  static const _minRatio = 328 / 380;
+  static const _maxRatio = 328 / 230;
 
   // Placeholder ratio matching the card's previous footprint, used only
   // until the artwork's real dimensions resolve (avoids a layout jump).
@@ -155,7 +164,7 @@ class _TonightCardState extends State<_TonightCard> {
   void _onImage(ImageInfo info, bool _) {
     final height = info.image.height;
     if (height == 0) return;
-    final ratio = info.image.width / height;
+    final ratio = (info.image.width / height).clamp(_minRatio, _maxRatio);
     // ImageStream.addListener() calls this *synchronously* when the image
     // is already in the global imageCache (e.g. every widget test after
     // the first one that resolves this asset). Deferring to a microtask
@@ -195,9 +204,9 @@ class _TonightCardState extends State<_TonightCard> {
   Widget build(BuildContext context) {
     final colors = AppColors.of(context);
     return AspectRatio(
-      // The box's shape now always matches the artwork's native shape, so
-      // BoxFit.cover below never has to crop anything to fill it — every
-      // edge of the image stays fully visible, edge to edge.
+      // The box's shape now always matches the artwork's native shape
+      // (within the clamp above), so BoxFit.cover below never has to crop
+      // anything to fill it - every edge of the image stays fully visible.
       aspectRatio: _aspectRatio,
       child: Container(
         clipBehavior: Clip.antiAlias,
