@@ -18,7 +18,7 @@ two of you.
 | **Love Dice** | Let fate decide — roll action, place, and twist. |
 | **Card Challenge** | Flip a mystery card and reveal a desire. |
 | **Truth or Dare** | The classic, spun up with a real wheel. |
-| **Creative Positions** | Spin a zone, hold a beat, try something new. |
+| **Creative Positions** | Spin a zone, hold the position as the ring counts down. |
 | **Follow the Tempo** | Move together, one pulse at a time. |
 | **Passionate Roleplay** | Become someone else for a night. |
 

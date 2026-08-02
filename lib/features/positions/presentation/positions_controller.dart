@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,7 +8,7 @@ import 'package:veloura/features/positions/domain/heat_ladder.dart';
 import 'package:veloura/features/positions/domain/intimacy_position.dart';
 import 'package:veloura/features/positions/domain/position_repository.dart';
 import 'package:veloura/features/positions/domain/position_zone.dart';
-import 'package:veloura/features/positions/domain/tempo_beat.dart';
+import 'package:veloura/features/positions/domain/session_intensity.dart';
 import 'package:veloura/features/premium/provider.dart';
 
 /// Physical stages of one Creative Positions round.
@@ -80,8 +81,8 @@ class PositionsRoundState {
     required this.turns,
     required this.completedRounds,
     required this.heat,
-    required this.beats,
-    required this.beatIndex,
+    this.sessionSeconds = 0,
+    this.elapsedInSession = Duration.zero,
     this.zone,
     this.position,
     this.cooldownEndsAt,
@@ -94,21 +95,45 @@ class PositionsRoundState {
   final int turns;
   final int completedRounds;
   final int heat;
-  final List<TempoBeat> beats;
-  final int beatIndex;
+
+  /// Total length of the active position session, in seconds.
+  final int sessionSeconds;
+
+  /// Time already spent inside the active position session.
+  final Duration elapsedInSession;
+
   final PositionZone? zone;
   final IntimacyPosition? position;
   final DateTime? cooldownEndsAt;
 
-  TempoBeat? get currentBeat => beats.isEmpty ? null : beats[beatIndex];
+  /// Intensity of the active session, chosen by the current heat.
+  PositionSessionIntensity get sessionIntensity =>
+      PositionSessionIntensity.forHeat(heat);
+
+  /// 0..1 how full the timer ring should be. Fills clockwise as the
+  /// session elapses and resets for the next round.
+  double get sessionProgress {
+    if (sessionSeconds <= 0) return 0;
+    return (elapsedInSession.inMilliseconds /
+            (sessionSeconds * Duration.millisecondsPerSecond))
+        .clamp(0.0, 1.0);
+  }
+
+  /// Whole seconds remaining in the active session, for the ring center.
+  int get sessionSecondsLeft {
+    if (sessionSeconds <= 0) return 0;
+    final remaining = Duration(seconds: sessionSeconds) - elapsedInSession;
+    final seconds = (remaining.inMilliseconds / 1000).ceil();
+    return seconds < 0 ? 0 : seconds;
+  }
 
   PositionsRoundState copyWith({
     RoundStage? stage,
     int? turns,
     int? completedRounds,
     int? heat,
-    List<TempoBeat>? beats,
-    int? beatIndex,
+    int? sessionSeconds,
+    Duration? elapsedInSession,
     PositionZone? Function()? zone,
     IntimacyPosition? Function()? position,
     DateTime? Function()? cooldownEndsAt,
@@ -118,8 +143,8 @@ class PositionsRoundState {
     turns: turns ?? this.turns,
     completedRounds: completedRounds ?? this.completedRounds,
     heat: heat ?? this.heat,
-    beats: beats ?? this.beats,
-    beatIndex: beatIndex ?? this.beatIndex,
+    sessionSeconds: sessionSeconds ?? this.sessionSeconds,
+    elapsedInSession: elapsedInSession ?? this.elapsedInSession,
     zone: zone == null ? this.zone : zone(),
     position: position == null ? this.position : position(),
     cooldownEndsAt: cooldownEndsAt == null
@@ -128,21 +153,26 @@ class PositionsRoundState {
   );
 }
 
-/// Coordinates the dial, held reveal, dynamic image card and beat rail.
+/// Coordinates the dial, held reveal, dynamic image card and timed session.
 class PositionsController extends AsyncNotifier<PositionsRoundState> {
   late Random _random;
+  Timer? _clock;
+  DateTime? _lastTick;
+  var _paused = false;
   final Map<PositionZone, Set<String>> _used = {
     for (final zone in PositionZone.values) zone: <String>{},
   };
 
   @override
   Future<PositionsRoundState> build() async {
+    ref.onDispose(_cancelClock);
     _random = ref.watch(positionsRandomProvider);
     final result = await ref.watch(positionRepositoryProvider).loadAll();
     final catalog = switch (result) {
       AppSuccess<List<IntimacyPosition>>(:final value) => value,
-      AppFailure<List<IntimacyPosition>>(:final message) =>
-        throw StateError(message),
+      AppFailure<List<IntimacyPosition>>(:final message) => throw StateError(
+        message,
+      ),
     };
     return PositionsRoundState(
       catalog: catalog,
@@ -150,8 +180,6 @@ class PositionsController extends AsyncNotifier<PositionsRoundState> {
       turns: 0,
       completedRounds: 0,
       heat: 1,
-      beats: const [],
-      beatIndex: 0,
     );
   }
 
@@ -208,10 +236,7 @@ class PositionsController extends AsyncNotifier<PositionsRoundState> {
     final position = eligible[_random.nextInt(eligible.length)];
     _used[zone]!.add(position.id);
     state = AsyncData(
-      current.copyWith(
-        stage: RoundStage.revealed,
-        position: () => position,
-      ),
+      current.copyWith(stage: RoundStage.revealed, position: () => position),
     );
   }
 
@@ -223,38 +248,63 @@ class PositionsController extends AsyncNotifier<PositionsRoundState> {
     );
   }
 
-  /// Creates a compact stateful tempo script from the current heat.
+  /// Starts the timed session for the revealed position. The ring fills
+  /// clockwise over [PositionsRoundState.sessionSeconds] while the clock
+  /// runs; the round finishes on its own when time runs out.
   void enterTempo() {
     final current = state.requireValue;
-    final beatCount = current.heat <= 1 ? 2 : (current.heat <= 3 ? 3 : 4);
-    final labels = ['SLOW', 'TEASE', 'DEEP', 'HOLD'];
-    final beats = <TempoBeat>[
-      for (var index = 0; index < beatCount; index++)
-        TempoBeat(
-          label: labels[index % labels.length],
-          count: 3 + current.heat + index * 2,
-        ),
-      const TempoBeat(label: 'Stay close together.'),
-    ];
+    _cancelClock();
+    _paused = false;
     state = AsyncData(
       current.copyWith(
         stage: RoundStage.tempo,
-        beats: beats,
-        beatIndex: 0,
+        sessionSeconds: positionSessionSeconds(current.heat),
+        elapsedInSession: Duration.zero,
       ),
     );
+    _startClock();
   }
 
-  void advanceBeat() {
+  /// Advances the active session by [delta]. Public for deterministic
+  /// unit tests.
+  void advanceSession(Duration delta) {
     final current = state.requireValue;
-    if (current.stage != RoundStage.tempo || current.beats.isEmpty) return;
-    if (current.beatIndex < current.beats.length - 1) {
-      state = AsyncData(current.copyWith(beatIndex: current.beatIndex + 1));
+    if (current.stage != RoundStage.tempo || delta <= Duration.zero) return;
+    if (_paused) return;
+    final elapsed = current.elapsedInSession + delta;
+    if (elapsed >= Duration(seconds: current.sessionSeconds)) {
+      finishRound();
+      return;
     }
+    state = AsyncData(current.copyWith(elapsedInSession: elapsed));
+  }
+
+  /// Ends the session early; the couple calls it when they're done.
+  void finishSession() {
+    final current = state.requireValue;
+    if (current.stage != RoundStage.tempo) return;
+    finishRound();
+  }
+
+  /// Pauses the session clock without losing progress, for app
+  /// backgrounding. Call [resumeSession] to pick up where it left off.
+  void pauseSession() {
+    final current = state.requireValue;
+    if (current.stage != RoundStage.tempo) return;
+    _paused = true;
+    _cancelClock();
+  }
+
+  void resumeSession() {
+    final current = state.requireValue;
+    if (current.stage != RoundStage.tempo || !_paused) return;
+    _paused = false;
+    _startClock();
   }
 
   /// Completes the round; the screen advances the shared player turn once.
   void finishRound() {
+    _cancelClock();
     final current = state.requireValue;
     final completed = current.completedRounds + 1;
     state = AsyncData(
@@ -272,17 +322,34 @@ class PositionsController extends AsyncNotifier<PositionsRoundState> {
   }
 
   void restart() {
+    _cancelClock();
     final current = state.requireValue;
     state = AsyncData(
       current.copyWith(
         stage: RoundStage.invite,
         zone: () => null,
         position: () => null,
-        beats: const [],
-        beatIndex: 0,
+        sessionSeconds: 0,
+        elapsedInSession: Duration.zero,
         cooldownEndsAt: () => null,
       ),
     );
+  }
+
+  void _startClock() {
+    _lastTick = DateTime.now();
+    _clock = Timer.periodic(const Duration(milliseconds: 25), (_) {
+      final now = DateTime.now();
+      final previous = _lastTick ?? now;
+      _lastTick = now;
+      advanceSession(now.difference(previous));
+    });
+  }
+
+  void _cancelClock() {
+    _clock?.cancel();
+    _clock = null;
+    _lastTick = null;
   }
 }
 

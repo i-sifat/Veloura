@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:veloura/features/positions/domain/session_intensity.dart';
 import 'package:veloura/features/positions/presentation/positions_controller.dart';
-import 'package:veloura/features/positions/presentation/widgets/beat_rail.dart';
 import 'package:veloura/features/positions/presentation/widgets/held_card.dart';
 import 'package:veloura/features/positions/presentation/widgets/position_card.dart';
 import 'package:veloura/features/positions/presentation/widgets/position_wheel.dart';
 import 'package:veloura/features/premium/provider.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
+import 'package:veloura/features/tempo/presentation/widgets/tempo_ring.dart';
 import 'package:veloura/shared/widgets/error_state.dart';
 import 'package:veloura/shared/widgets/game/game_shell.dart';
 import 'package:veloura/shared/widgets/game/primary_cta.dart';
@@ -20,7 +21,7 @@ import 'package:veloura/shared/widgets/loading_shimmer.dart';
 import 'package:veloura/theme/app_colors.dart';
 import 'package:veloura/theme/game_tokens.dart';
 
-/// Dial-to-card-to-beats Creative Positions game. The dial itself is
+/// Dial-to-card-to-session Creative Positions game. The dial itself is
 /// inherited 1:1 from the Truth or Dare wheel screen: an explicit
 /// [AnimationController]-driven tween spins forward-only to a fairly
 /// chosen zone, mirroring `TruthOrDareWheelScreen` down to the easing
@@ -35,20 +36,26 @@ class CreativePositionsScreen extends ConsumerStatefulWidget {
 
 class _CreativePositionsScreenState
     extends ConsumerState<CreativePositionsScreen>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   late final AnimationController _animation;
+  late final AnimationController _pulse;
   Animation<double> _rotation = const AlwaysStoppedAnimation(0);
   double _settledRotation = 0;
   Timer? _cooldownTimer;
-  DateTime? _beatShownAt;
+  var _wasRunningBeforePause = false;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _animation = AnimationController(
       vsync: this,
       // Same fixed 5s throw as the Truth or Dare wheel.
       duration: const Duration(seconds: 5),
+    );
+    _pulse = AnimationController(
+      vsync: this,
+      duration: PositionSessionIntensity.soft.beatPeriod,
     );
   }
 
@@ -90,24 +97,55 @@ class _CreativePositionsScreenState
     ref.read(positionsControllerProvider.notifier).finishSpin();
   }
 
-  void _advanceBeat() {
-    final now = DateTime.now();
-    final shown = _beatShownAt;
-    if (shown != null && now.difference(shown) < const Duration(milliseconds: 1200)) {
-      return;
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    final notifier = ref.read(positionsControllerProvider.notifier);
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.inactive) {
+      _wasRunningBeforePause =
+          ref.read(positionsControllerProvider).asData?.value.stage ==
+          RoundStage.tempo;
+      notifier.pauseSession();
+      _pulse.stop();
+    } else if (state == AppLifecycleState.resumed && _wasRunningBeforePause) {
+      notifier.resumeSession();
+      _syncPulse(ref.read(positionsControllerProvider).requireValue);
+      _wasRunningBeforePause = false;
     }
-    ref.read(positionsControllerProvider.notifier).advanceBeat();
-    _beatShownAt = now;
-    unawaited(HapticFeedback.lightImpact());
   }
 
-  Future<void> _finishRound() async {
-    ref.read(positionsControllerProvider.notifier).finishRound();
+  /// Round finished (timed out or tapped Done): pass the turn and arm the
+  /// cooldown restart. The controller already moved to [RoundStage.cooldown].
+  Future<void> _afterRoundComplete() async {
     await ref.read(sessionControllerProvider.notifier).nextTurn();
     _cooldownTimer?.cancel();
     _cooldownTimer = Timer(const Duration(seconds: 8), () {
       if (mounted) ref.read(positionsControllerProvider.notifier).restart();
     });
+  }
+
+  void _onRoundChanged(
+    PositionsRoundState? previous,
+    PositionsRoundState? next,
+  ) {
+    if (previous?.stage != next?.stage && next != null) {
+      _syncPulse(next);
+    }
+    if (previous?.stage == RoundStage.tempo &&
+        next?.stage == RoundStage.cooldown) {
+      unawaited(_afterRoundComplete());
+    }
+  }
+
+  /// Runs the heartbeat pulse while a session is active; stops it otherwise.
+  void _syncPulse(PositionsRoundState state) {
+    if (state.stage != RoundStage.tempo) {
+      _pulse.stop();
+      _pulse.value = 0;
+      return;
+    }
+    _pulse.duration = state.sessionIntensity.beatPeriod;
+    _pulse.repeat();
   }
 
   void _showInfo() {
@@ -120,10 +158,13 @@ class _CreativePositionsScreenState
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Creative Positions', style: Theme.of(context).textTheme.titleLarge),
+              Text(
+                'Creative Positions',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
               const SizedBox(height: 10),
               const Text(
-                'Spin the wheel to choose a zone, hold to reveal, then follow each beat together.',
+                'Spin the wheel to choose a zone, hold to reveal, then hold your position while the heartbeat ring counts down.',
                 textAlign: TextAlign.center,
               ),
             ],
@@ -135,7 +176,9 @@ class _CreativePositionsScreenState
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _animation.dispose();
+    _pulse.dispose();
     _cooldownTimer?.cancel();
     super.dispose();
   }
@@ -144,6 +187,10 @@ class _CreativePositionsScreenState
   Widget build(BuildContext context) {
     final round = ref.watch(positionsControllerProvider);
     final session = ref.watch(sessionControllerProvider).asData?.value;
+    ref.listen<PositionsRoundState?>(
+      positionsControllerProvider.select((state) => state.asData?.value),
+      _onRoundChanged,
+    );
     return round.when(
       loading: () => const Scaffold(
         body: Padding(
@@ -185,7 +232,8 @@ class _CreativePositionsScreenState
     PositionsRoundState state,
     String leader,
   ) {
-    if (state.stage != RoundStage.invite && state.stage != RoundStage.cooldown) {
+    if (state.stage != RoundStage.invite &&
+        state.stage != RoundStage.cooldown) {
       return null;
     }
     return Align(
@@ -203,25 +251,28 @@ class _CreativePositionsScreenState
 
   Widget _hero(BuildContext context, PositionsRoundState state, bool premium) =>
       switch (state.stage) {
-        RoundStage.invite || RoundStage.spinning || RoundStage.cooldown => _wheel(
-          context,
-          state,
-          premium,
-        ),
+        RoundStage.invite ||
+        RoundStage.spinning ||
+        RoundStage.cooldown => _wheel(context, state, premium),
         RoundStage.held => HeldCard(
           key: const ValueKey('held-card'),
           zone: state.zone!,
-          onReveal: () => ref.read(positionsControllerProvider.notifier).reveal(),
+          onReveal: () =>
+              ref.read(positionsControllerProvider.notifier).reveal(),
         ),
         RoundStage.revealed => PositionCard(
           key: ValueKey(state.position!.id),
           position: state.position!,
         ),
-        RoundStage.tempo => BeatRail(
-          key: ValueKey('beat-${state.beatIndex}'),
-          beats: state.beats,
-          index: state.beatIndex,
-          onAdvance: _advanceBeat,
+        RoundStage.tempo => TempoRing(
+          key: ValueKey('session-${state.sessionSeconds}'),
+          animation: _pulse,
+          label: state.sessionIntensity.label,
+          secondsLeft: state.sessionSecondsLeft,
+          progress: state.sessionProgress,
+          running: true,
+          finale: false,
+          reduceMotion: MediaQuery.disableAnimationsOf(context),
         ),
       };
 
@@ -236,7 +287,8 @@ class _CreativePositionsScreenState
         builder: (context, _) => PositionWheel(
           rotation: _rotation.value,
           zoneCount: zoneCount,
-          winningZoneIndex: state.stage == RoundStage.spinning || state.zone == null
+          winningZoneIndex:
+              state.stage == RoundStage.spinning || state.zone == null
               ? null
               : state.zone!.index,
         ),
@@ -274,20 +326,21 @@ class _CreativePositionsScreenState
       children: [
         PrimaryCta(
           label: "We're in position",
-          onPressed: () {
-            ref.read(positionsControllerProvider.notifier).enterTempo();
-            _beatShownAt = DateTime.now();
-          },
+          onPressed: () =>
+              ref.read(positionsControllerProvider.notifier).enterTempo(),
         ),
         SecondaryTextButton(
           label: 'Pass',
-          onPressed: () => ref.read(positionsControllerProvider.notifier).pass(),
+          onPressed: () =>
+              ref.read(positionsControllerProvider.notifier).pass(),
         ),
       ],
     ),
-    RoundStage.tempo => state.beatIndex == state.beats.length - 1
-        ? PrimaryCta(label: 'Done', onPressed: _finishRound)
-        : const SizedBox.shrink(),
+    RoundStage.tempo => SecondaryTextButton(
+      label: 'Done',
+      onPressed: () =>
+          ref.read(positionsControllerProvider.notifier).finishSession(),
+    ),
     RoundStage.cooldown => const PrimaryCta(
       label: 'Spin again',
       onPressed: null,
