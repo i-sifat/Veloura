@@ -8,6 +8,7 @@ import 'package:sensors_plus/sensors_plus.dart';
 import 'package:veloura/features/dice/domain/dice_roll_record.dart';
 import 'package:veloura/features/dice/presentation/dice_controller.dart';
 import 'package:veloura/features/dice/presentation/dice_state.dart';
+import 'package:veloura/features/dice/presentation/widgets/word_die.dart';
 import 'package:veloura/features/premium/provider.dart';
 import 'package:veloura/shared/widgets/empty_state.dart';
 import 'package:veloura/shared/widgets/error_state.dart';
@@ -26,6 +27,9 @@ class DiceScreen extends ConsumerStatefulWidget {
 class _DiceScreenState extends ConsumerState<DiceScreen> {
   StreamSubscription<AccelerometerEvent>? _shakeSubscription;
   DateTime _lastShake = DateTime.fromMillisecondsSinceEpoch(0);
+  final _actionDieKey = GlobalKey<WordDieState>();
+  final _bodyDieKey = GlobalKey<WordDieState>();
+  final _extraDieKey = GlobalKey<WordDieState>();
 
   @override
   void initState() {
@@ -44,20 +48,34 @@ class _DiceScreenState extends ConsumerState<DiceScreen> {
     if (magnitude > 22 &&
         now.difference(_lastShake) > const Duration(seconds: 2)) {
       _lastShake = now;
-      unawaited(_roll());
+      unawaited(_rollAll());
     }
   }
 
-  Future<void> _roll() async {
+  /// Rolls the shared record, then plays every enabled die's tumble
+  /// animation in lockstep, each forced onto the word from that record so
+  /// the cubes and the persisted result always agree.
+  Future<void> _rollAll() async {
     final diceValue = ref.read(diceControllerProvider).asData?.value;
     if (diceValue == null || diceValue.status == DiceRollStatus.rolling) return;
-    final reduceMotion = MediaQuery.disableAnimationsOf(context);
     await HapticFeedback.mediumImpact();
+    // Duration.zero: the *visual* roll duration now lives entirely in each
+    // WordDie's own tumble animation, not an artificial controller delay.
     await ref.read(diceControllerProvider.notifier).roll(
-      animationDuration: reduceMotion
-          ? Duration.zero
-          : const Duration(milliseconds: 720),
+      animationDuration: Duration.zero,
     );
+    final record = ref.read(diceControllerProvider).asData?.value.current;
+    if (record == null) return;
+    final rolls = <Future<String>>[
+      _actionDieKey.currentState?.roll(result: record.action) ??
+          Future.value(record.action),
+      _bodyDieKey.currentState?.roll(result: record.body) ??
+          Future.value(record.body),
+      if (record.extra != null)
+        _extraDieKey.currentState?.roll(result: record.extra!) ??
+            Future.value(record.extra),
+    ];
+    await Future.wait(rolls);
     await HapticFeedback.selectionClick();
   }
 
@@ -81,17 +99,32 @@ class _DiceScreenState extends ConsumerState<DiceScreen> {
           message: '$error',
           onRetry: () => ref.invalidate(diceControllerProvider),
         ),
-        data: (state) => _DiceBody(state: state, onRoll: _roll),
+        data: (state) => _DiceBody(
+          state: state,
+          onRollAll: _rollAll,
+          actionDieKey: _actionDieKey,
+          bodyDieKey: _bodyDieKey,
+          extraDieKey: _extraDieKey,
+        ),
       ),
     );
   }
 }
 
 class _DiceBody extends ConsumerWidget {
-  const _DiceBody({required this.state, required this.onRoll});
+  const _DiceBody({
+    required this.state,
+    required this.onRollAll,
+    required this.actionDieKey,
+    required this.bodyDieKey,
+    required this.extraDieKey,
+  });
 
   final DiceState state;
-  final Future<void> Function() onRoll;
+  final Future<void> Function() onRollAll;
+  final GlobalKey<WordDieState> actionDieKey;
+  final GlobalKey<WordDieState> bodyDieKey;
+  final GlobalKey<WordDieState> extraDieKey;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -100,10 +133,15 @@ class _DiceBody extends ConsumerWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 12, 20, 120),
       children: [
-        _DiceStage(state: state),
+        _DiceTray(
+          state: state,
+          actionDieKey: actionDieKey,
+          bodyDieKey: bodyDieKey,
+          extraDieKey: extraDieKey,
+        ),
         const SizedBox(height: 18),
         FilledButton.icon(
-          onPressed: state.status == DiceRollStatus.rolling ? null : onRoll,
+          onPressed: state.status == DiceRollStatus.rolling ? null : onRollAll,
           icon: const Icon(Icons.casino),
           label: Text(
             state.status == DiceRollStatus.rolling ? 'Rolling…' : 'Roll dice',
@@ -160,39 +198,65 @@ class _DiceBody extends ConsumerWidget {
   }
 }
 
-class _DiceStage extends StatelessWidget {
-  const _DiceStage({required this.state});
+/// Themed tray holding the two (or three) word cubes side by side.
+class _DiceTray extends StatelessWidget {
+  const _DiceTray({
+    required this.state,
+    required this.actionDieKey,
+    required this.bodyDieKey,
+    required this.extraDieKey,
+  });
 
   final DiceState state;
+  final GlobalKey<WordDieState> actionDieKey;
+  final GlobalKey<WordDieState> bodyDieKey;
+  final GlobalKey<WordDieState> extraDieKey;
 
   @override
   Widget build(BuildContext context) {
-    final rolling = state.status == DiceRollStatus.rolling;
+    final colors = AppColors.of(context);
     final record = state.current;
     return GlassCard(
       child: Column(
         children: [
-          Wrap(
-            alignment: WrapAlignment.center,
-            spacing: 12,
-            runSpacing: 12,
-            children: [
-              _AnimatedDie(
-                value: rolling ? '…' : record?.action ?? 'Action',
-                rolling: rolling,
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  colors.primary.withValues(alpha: 0.16),
+                  colors.secondary.withValues(alpha: 0.10),
+                ],
               ),
-              _AnimatedDie(
-                value: rolling ? '…' : record?.body ?? 'Place',
-                rolling: rolling,
-              ),
-              if (state.useThirdDie)
-                _AnimatedDie(
-                  value: rolling ? '…' : record?.extra ?? 'Twist',
-                  rolling: rolling,
+            ),
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 16,
+              runSpacing: 16,
+              children: [
+                WordDie(
+                  key: actionDieKey,
+                  wordPool: state.actions,
+                  initialWord: record?.action,
                 ),
-            ],
+                WordDie(
+                  key: bodyDieKey,
+                  wordPool: state.bodies,
+                  initialWord: record?.body,
+                ),
+                if (state.useThirdDie)
+                  WordDie(
+                    key: extraDieKey,
+                    wordPool: state.extras,
+                    initialWord: record?.extra,
+                  ),
+              ],
+            ),
           ),
-          if (!rolling && record != null) ...[
+          if (state.status != DiceRollStatus.rolling && record != null) ...[
             const SizedBox(height: 20),
             Text(
               record.summary,
@@ -201,56 +265,6 @@ class _DiceStage extends StatelessWidget {
             ),
           ],
         ],
-      ),
-    );
-  }
-}
-
-class _AnimatedDie extends StatelessWidget {
-  const _AnimatedDie({required this.value, required this.rolling});
-
-  final String value;
-  final bool rolling;
-
-  @override
-  Widget build(BuildContext context) {
-    final reduceMotion = MediaQuery.disableAnimationsOf(context);
-    final colors = AppColors.of(context);
-    return TweenAnimationBuilder<double>(
-      key: ValueKey('$value-$rolling'),
-      tween: Tween(
-        begin: 0,
-        end: rolling && !reduceMotion ? math.pi * 3 : 0,
-      ),
-      duration: reduceMotion
-          ? Duration.zero
-          : const Duration(milliseconds: 700),
-      curve: Curves.easeOutBack,
-      builder: (context, angle, child) => Transform(
-        alignment: Alignment.center,
-        transform: Matrix4.identity()
-          ..setEntry(3, 2, 0.0015)
-          ..rotateX(angle)
-          ..rotateY(angle * 0.72),
-        child: child,
-      ),
-      child: Container(
-        width: 92,
-        height: 92,
-        alignment: Alignment.center,
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: colors.card,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: colors.secondary),
-          boxShadow: [
-            BoxShadow(
-              color: colors.primary.withValues(alpha: 0.25),
-              blurRadius: 18,
-            ),
-          ],
-        ),
-        child: Text(value, textAlign: TextAlign.center),
       ),
     );
   }
