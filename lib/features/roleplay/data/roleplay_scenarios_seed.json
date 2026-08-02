@@ -1,0 +1,716 @@
+[
+  {
+    "id": "rs_0001",
+    "title": "The Moonlit Masquerade",
+    "category": "fantasy",
+    "tier": "cute",
+    "roleA": "The Hidden Host",
+    "roleB": "The Curious Guest",
+    "description": "@CharacterA plays The Hidden Host — Protects the ball's sweetest secret. @CharacterB plays The Curious Guest — Follows clues behind a borrowed mask. A candlelit ballroom where every guest has a secret name. Your shared goal: Discover why your invitations carry matching silver moons.",
+    "twists": [
+      "The orchestra plays a melody only you recognize.",
+      "A sealed note says one mask must come off before midnight."
+    ],
+    "packId": "enchanted_evenings",
+    "packTitle": "Enchanted Evenings",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0002",
+    "title": "The Dragon's Tea Room",
+    "category": "fantasy",
+    "tier": "cute",
+    "roleA": "The Tea Keeper",
+    "roleB": "The Wandering Knight",
+    "description": "@CharacterA plays The Tea Keeper — Serves brews that reveal tiny truths. @CharacterB plays The Wandering Knight — Needs courage for an unusual quest. A hidden tea room beneath a peacefully sleeping dragon. Your shared goal: Choose the right enchanted tea without waking your host.",
+    "twists": [
+      "One cup begins answering questions in rhyme.",
+      "The dragon wakes only to request a story."
+    ],
+    "packId": "enchanted_evenings",
+    "packTitle": "Enchanted Evenings",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0003",
+    "title": "Borrowed Magic",
+    "category": "fantasy",
+    "tier": "romantic",
+    "roleA": "The Spell Librarian",
+    "roleB": "The Charming Thief",
+    "description": "@CharacterA plays The Spell Librarian — Guards magic that cannot leave the shelves. @CharacterB plays The Charming Thief — Claims to need one impossible spell. A midnight library where books whisper to the right reader. Your shared goal: Trade a true memory for a spell that lasts one evening.",
+    "twists": [
+      "The requested spell has already chosen both of you.",
+      "A book opens to a future neither expected."
+    ],
+    "packId": "enchanted_evenings",
+    "packTitle": "Enchanted Evenings",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0004",
+    "title": "The Star Cartographer",
+    "category": "fantasy",
+    "tier": "romantic",
+    "roleA": "The Sky Mapper",
+    "roleB": "The Night Traveler",
+    "description": "@CharacterA plays The Sky Mapper — Charts constellations that appear once. @CharacterB plays The Night Traveler — Carries a star with no recorded name. A rooftop observatory above a sleeping kingdom. Your shared goal: Name a new constellation before dawn erases it.",
+    "twists": [
+      "The stars rearrange into a shared memory.",
+      "The final star responds only to a promise."
+    ],
+    "packId": "enchanted_evenings",
+    "packTitle": "Enchanted Evenings",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0005",
+    "title": "The Wishmaker's Apprentice",
+    "category": "fantasy",
+    "tier": "spicy",
+    "roleA": "The Wishmaker",
+    "roleB": "The Bold Apprentice",
+    "description": "@CharacterA plays The Wishmaker — Tests whether wishes are spoken honestly. @CharacterB plays The Bold Apprentice — Believes every rule has an exception. A workshop filled with bottled wishes and warm golden light. Your shared goal: Create one wish together without saying what either wants directly.",
+    "twists": [
+      "A bottle repeats the last unspoken thought.",
+      "The workshop grants only a wish phrased as an invitation."
+    ],
+    "packId": "velvet_magic",
+    "packTitle": "Velvet Magic",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0006",
+    "title": "Throne of Two",
+    "category": "fantasy",
+    "tier": "spicy",
+    "roleA": "The Returning Royal",
+    "roleB": "The Trusted Rival",
+    "description": "@CharacterA plays The Returning Royal — Has one night to reclaim the court. @CharacterB plays The Trusted Rival — Controls the secret path to the throne. An empty throne room during a storm-lit coronation eve. Your shared goal: Negotiate an alliance convincing enough to change the kingdom.",
+    "twists": [
+      "The crown recognizes both of you.",
+      "A rival court demands proof of your trust."
+    ],
+    "packId": "velvet_magic",
+    "packTitle": "Velvet Magic",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0007",
+    "title": "Keeper of Dreams",
+    "category": "fantasy",
+    "tier": "romantic",
+    "roleA": "The Dream Keeper",
+    "roleB": "The Lucid Visitor",
+    "description": "@CharacterA plays The Dream Keeper — Repairs stories before sleepers wake. @CharacterB plays The Lucid Visitor — Can change one detail in any dream. A quiet city assembled from half-remembered dreams. Your shared goal: Repair a shared dream by finding its missing ending.",
+    "twists": [
+      "A doorway opens onto your first meeting.",
+      "The missing ending asks what should happen next."
+    ],
+    "packId": "enchanted_evenings",
+    "packTitle": "Enchanted Evenings",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0008",
+    "title": "The Secret Garden Gate",
+    "category": "fantasy",
+    "tier": "cute",
+    "roleA": "The Garden Guardian",
+    "roleB": "The Lost Botanist",
+    "description": "@CharacterA plays The Garden Guardian — Allows entry only for a worthy reason. @CharacterB plays The Lost Botanist — Carries a seed thought extinct. A moonlit garden that changes paths whenever someone laughs. Your shared goal: Plant the final seed in the garden's hidden center.",
+    "twists": [
+      "The seed blooms into a question.",
+      "The garden offers one path home and one deeper inside."
+    ],
+    "packId": "enchanted_evenings",
+    "packTitle": "Enchanted Evenings",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0009",
+    "title": "The Oracle's Last Question",
+    "category": "fantasy",
+    "tier": "extreme",
+    "roleA": "The Oracle",
+    "roleB": "The Fearless Seeker",
+    "description": "@CharacterA plays The Oracle — Knows every answer except one. @CharacterB plays The Fearless Seeker — Refuses to accept a rehearsed destiny. A mirrored temple at the edge of a vanished city. Your shared goal: Ask and answer the one question that can rewrite the prophecy.",
+    "twists": [
+      "Every mirror shows a different choice.",
+      "The prophecy can change only if both risk an honest answer."
+    ],
+    "packId": "velvet_magic",
+    "packTitle": "Velvet Magic",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0010",
+    "title": "The Clockwork Waltz",
+    "category": "fantasy",
+    "tier": "romantic",
+    "roleA": "The Clockmaker",
+    "roleB": "The Unexpected Dancer",
+    "description": "@CharacterA plays The Clockmaker — Built a ballroom that stops time. @CharacterB plays The Unexpected Dancer — Entered one minute before midnight. A mechanical ballroom where each dance preserves one minute. Your shared goal: Choose which moment deserves to last until morning.",
+    "twists": [
+      "The clock begins counting backward.",
+      "One final dance requires a shared confession."
+    ],
+    "packId": "enchanted_evenings",
+    "packTitle": "Enchanted Evenings",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0011",
+    "title": "The Phoenix Letter",
+    "category": "fantasy",
+    "tier": "spicy",
+    "roleA": "The Ember Courier",
+    "roleB": "The Intended Recipient",
+    "description": "@CharacterA plays The Ember Courier — Delivers letters that burn after reading. @CharacterB plays The Intended Recipient — Has waited years for this message. A warm tower room while a phoenix circles outside. Your shared goal: Decide whether to read, rewrite, or return a dangerous invitation.",
+    "twists": [
+      "The blank page fills when held together.",
+      "The phoenix will carry only a reply spoken aloud."
+    ],
+    "packId": "velvet_magic",
+    "packTitle": "Velvet Magic",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0012",
+    "title": "Under the Glass Mountain",
+    "category": "fantasy",
+    "tier": "extreme",
+    "roleA": "The Mountain Guide",
+    "roleB": "The Crownless Heir",
+    "description": "@CharacterA plays The Mountain Guide — Knows the path but hides its cost. @CharacterB plays The Crownless Heir — Must retrieve a promise from the summit. A crystal cavern reflecting every possible route. Your shared goal: Reach the summit by agreeing which truth to leave behind.",
+    "twists": [
+      "The safest path disappears.",
+      "The mountain asks each traveler to trust the other's direction."
+    ],
+    "packId": "velvet_magic",
+    "packTitle": "Velvet Magic",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0013",
+    "title": "The Forest Remembers",
+    "category": "fantasy",
+    "tier": "romantic",
+    "roleA": "The Forest Warden",
+    "roleB": "The Forgotten Friend",
+    "description": "@CharacterA plays The Forest Warden — Recognizes every returning traveler. @CharacterB plays The Forgotten Friend — Returns with a ribbon and no explanation. An ancient forest where paths replay old conversations. Your shared goal: Find the clearing that remembers why you promised to return.",
+    "twists": [
+      "A tree repeats a sentence differently than remembered.",
+      "The clearing asks you to make a new promise."
+    ],
+    "packId": "enchanted_evenings",
+    "packTitle": "Enchanted Evenings",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0014",
+    "title": "The Midnight Potion",
+    "category": "fantasy",
+    "tier": "spicy",
+    "roleA": "The Careful Alchemist",
+    "roleB": "The Daring Patron",
+    "description": "@CharacterA plays The Careful Alchemist — Measures every ingredient except courage. @CharacterB plays The Daring Patron — Requests a potion with unpredictable effects. A tiny apothecary locked after midnight. Your shared goal: Invent a potion whose effect you both agree to name.",
+    "twists": [
+      "The potion reveals which ingredient each secretly added.",
+      "Its effect lasts only while you maintain the scene."
+    ],
+    "packId": "velvet_magic",
+    "packTitle": "Velvet Magic",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0015",
+    "title": "The Lighthouse Letter",
+    "category": "romance",
+    "tier": "cute",
+    "roleA": "The Lighthouse Keeper",
+    "roleB": "The Returning Sailor",
+    "description": "@CharacterA plays The Lighthouse Keeper — Collects letters washed in by the tide. @CharacterB plays The Returning Sailor — Recognizes the handwriting on one envelope. A quiet lighthouse during a gentle summer storm. Your shared goal: Decide whether to open a letter written before you met.",
+    "twists": [
+      "The letter contains a map to a nearby cove.",
+      "A second envelope is addressed to both of you."
+    ],
+    "packId": "little_love_stories",
+    "packTitle": "Little Love Stories",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0016",
+    "title": "Table for Two, Again",
+    "category": "romance",
+    "tier": "cute",
+    "roleA": "The Familiar Stranger",
+    "roleB": "The Playful Regular",
+    "description": "@CharacterA plays The Familiar Stranger — Pretends this is your first meeting. @CharacterB plays The Playful Regular — Knows the cafe's secret menu. A corner cafe where you agree to meet as strangers. Your shared goal: Win a second first date without using any old stories.",
+    "twists": [
+      "The server delivers a dessert neither ordered.",
+      "A nearby song reveals something familiar."
+    ],
+    "packId": "little_love_stories",
+    "packTitle": "Little Love Stories",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0017",
+    "title": "The Last Train Home",
+    "category": "romance",
+    "tier": "romantic",
+    "roleA": "The Quiet Commuter",
+    "roleB": "The Ticket Collector",
+    "description": "@CharacterA plays The Quiet Commuter — Has noticed the other passenger for weeks. @CharacterB plays The Ticket Collector — Knows this train is taking a detour. An almost-empty night train crossing a glowing city. Your shared goal: Turn an unexpected delay into a memorable journey.",
+    "twists": [
+      "The train stops at a station not on the map.",
+      "An announcement invites two passengers to the observation car."
+    ],
+    "packId": "little_love_stories",
+    "packTitle": "Little Love Stories",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0018",
+    "title": "Room 214",
+    "category": "romance",
+    "tier": "spicy",
+    "roleA": "The Hotel Guest",
+    "roleB": "The Discreet Concierge",
+    "description": "@CharacterA plays The Hotel Guest — Booked a room for a mysterious celebration. @CharacterB plays The Discreet Concierge — Has been asked to deliver one unusual request. A boutique hotel during a citywide blackout. Your shared goal: Create an unforgettable evening using only what the hotel can provide.",
+    "twists": [
+      "A candlelit note arrives from an unknown admirer.",
+      "The rooftop has been reserved under both names."
+    ],
+    "packId": "after_dark",
+    "packTitle": "After Dark",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0019",
+    "title": "The Anniversary Mix-Up",
+    "category": "romance",
+    "tier": "cute",
+    "roleA": "The Event Planner",
+    "roleB": "The Surprised Partner",
+    "description": "@CharacterA plays The Event Planner — Prepared the wrong couple's perfect evening. @CharacterB plays The Surprised Partner — Decides to play along with every detail. A decorated apartment filled with clues meant for someone else. Your shared goal: Turn the mistaken celebration into one that fits you better.",
+    "twists": [
+      "A clue accidentally describes your real first date.",
+      "The final gift has no name on it."
+    ],
+    "packId": "little_love_stories",
+    "packTitle": "Little Love Stories",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0020",
+    "title": "Letters from Tomorrow",
+    "category": "romance",
+    "tier": "romantic",
+    "roleA": "The Future Correspondent",
+    "roleB": "The Present-Day Skeptic",
+    "description": "@CharacterA plays The Future Correspondent — Claims to be writing from ten years ahead. @CharacterB plays The Present-Day Skeptic — Tests every detail in the letters. A rainy apartment where tomorrow's post arrives early. Your shared goal: Write one reply together that your future selves would treasure.",
+    "twists": [
+      "A letter predicts the next sentence spoken.",
+      "The final page is blank except for today's date."
+    ],
+    "packId": "little_love_stories",
+    "packTitle": "Little Love Stories",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0021",
+    "title": "The Photographer's Muse",
+    "category": "romance",
+    "tier": "spicy",
+    "roleA": "The Portrait Artist",
+    "roleB": "The Reluctant Muse",
+    "description": "@CharacterA plays The Portrait Artist — Looks for the story behind every expression. @CharacterB plays The Reluctant Muse — Agrees to one unconventional portrait session. A private studio with music, fabric, and warm window light. Your shared goal: Create a portrait concept that captures how you see each other.",
+    "twists": [
+      "The camera contains one undeveloped photograph.",
+      "The muse becomes the director for the final frame."
+    ],
+    "packId": "after_dark",
+    "packTitle": "After Dark",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0022",
+    "title": "The Rooftop Reservation",
+    "category": "romance",
+    "tier": "romantic",
+    "roleA": "The Secret Organizer",
+    "roleB": "The Honored Guest",
+    "description": "@CharacterA plays The Secret Organizer — Planned an evening with one missing detail. @CharacterB plays The Honored Guest — Must guess why tonight matters. A rooftop garden overlooking a quiet midnight skyline. Your shared goal: Reveal the occasion through three meaningful clues.",
+    "twists": [
+      "One clue points to a memory you remember differently.",
+      "The final clue asks for a new tradition."
+    ],
+    "packId": "little_love_stories",
+    "packTitle": "Little Love Stories",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0023",
+    "title": "The Velvet Interview",
+    "category": "romance",
+    "tier": "extreme",
+    "roleA": "The Selective Host",
+    "roleB": "The Confident Candidate",
+    "description": "@CharacterA plays The Selective Host — Asks questions nobody rehearsed for. @CharacterB plays The Confident Candidate — Plans to reverse the interview. An exclusive lounge after closing time. Your shared goal: Earn an invitation by trading increasingly honest questions.",
+    "twists": [
+      "The candidate takes control of the interview.",
+      "The final question must be answered by both."
+    ],
+    "packId": "after_dark",
+    "packTitle": "After Dark",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0024",
+    "title": "Second Chance Bookshop",
+    "category": "romance",
+    "tier": "cute",
+    "roleA": "The Bookseller",
+    "roleB": "The Last Customer",
+    "description": "@CharacterA plays The Bookseller — Pairs customers with stories they need. @CharacterB plays The Last Customer — Searches for a book remembered only by feeling. A cozy bookshop five minutes before closing. Your shared goal: Find the story that explains why neither wants to leave.",
+    "twists": [
+      "A margin note is written in familiar handwriting.",
+      "The bookseller offers a blank journal instead."
+    ],
+    "packId": "little_love_stories",
+    "packTitle": "Little Love Stories",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0025",
+    "title": "The Private Tasting",
+    "category": "romance",
+    "tier": "spicy",
+    "roleA": "The Flavor Curator",
+    "roleB": "The Adventurous Guest",
+    "description": "@CharacterA plays The Flavor Curator — Designs tastes around moods and memories. @CharacterB plays The Adventurous Guest — Agrees to a menu with no descriptions. A closed restaurant prepared for one private tasting. Your shared goal: Guess the memory behind each course and invent the final one.",
+    "twists": [
+      "One course was chosen by the guest long ago.",
+      "The final taste must be described without naming it."
+    ],
+    "packId": "after_dark",
+    "packTitle": "After Dark",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0026",
+    "title": "The Dance Lesson",
+    "category": "romance",
+    "tier": "romantic",
+    "roleA": "The Patient Instructor",
+    "roleB": "The Determined Beginner",
+    "description": "@CharacterA plays The Patient Instructor — Teaches connection before choreography. @CharacterB plays The Determined Beginner — Has a surprise reason for learning. An empty dance studio after the evening classes end. Your shared goal: Learn a short dance and discover what it is for.",
+    "twists": [
+      "The music changes to a song you both know.",
+      "The beginner reveals the dance is an invitation."
+    ],
+    "packId": "little_love_stories",
+    "packTitle": "Little Love Stories",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0027",
+    "title": "The Unsent Voicemail",
+    "category": "romance",
+    "tier": "extreme",
+    "roleA": "The Message Keeper",
+    "roleB": "The Intended Listener",
+    "description": "@CharacterA plays The Message Keeper — Saved words never meant to be heard. @CharacterB plays The Intended Listener — Gets one chance to ask why. A quiet room with an old phone and one unsent message. Your shared goal: Recreate the conversation that should have happened.",
+    "twists": [
+      "The recording ends before the important sentence.",
+      "The listener may record a new ending."
+    ],
+    "packId": "after_dark",
+    "packTitle": "After Dark",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0028",
+    "title": "Midnight Radio",
+    "category": "romance",
+    "tier": "spicy",
+    "roleA": "The Late-Night Host",
+    "roleB": "The Mystery Caller",
+    "description": "@CharacterA plays The Late-Night Host — Takes anonymous requests after midnight. @CharacterB plays The Mystery Caller — Dedicates songs through coded clues. A tiny radio studio during the final hour on air. Your shared goal: Identify the caller before the last song ends.",
+    "twists": [
+      "The next request is already your shared favorite.",
+      "The caller is invited into the studio for the finale."
+    ],
+    "packId": "after_dark",
+    "packTitle": "After Dark",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0029",
+    "title": "The Island Map",
+    "category": "adventure",
+    "tier": "cute",
+    "roleA": "The Careful Navigator",
+    "roleB": "The Cheerful Castaway",
+    "description": "@CharacterA plays The Careful Navigator — Trusts maps more than legends. @CharacterB plays The Cheerful Castaway — Knows the island by its sounds. A bright island after your small boat drifts ashore. Your shared goal: Find the signal point before the evening tide.",
+    "twists": [
+      "The map leads to a picnic left for two.",
+      "A second boat appears with no one aboard."
+    ],
+    "packId": "weekend_quests",
+    "packTitle": "Weekend Quests",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0030",
+    "title": "Agents at the Gala",
+    "category": "adventure",
+    "tier": "romantic",
+    "roleA": "Agent Rose",
+    "roleB": "Agent North",
+    "description": "@CharacterA plays Agent Rose — Blends into any room except this one. @CharacterB plays Agent North — Carries the key to the mission. A glittering embassy gala where the target knows your faces. Your shared goal: Exchange a coded message and leave without breaking character.",
+    "twists": [
+      "Your cover story is announced as the evening's entertainment.",
+      "The target offers to help for a personal favor."
+    ],
+    "packId": "weekend_quests",
+    "packTitle": "Weekend Quests",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0031",
+    "title": "The Museum Heist",
+    "category": "adventure",
+    "tier": "spicy",
+    "roleA": "The Master Planner",
+    "roleB": "The Elegant Distraction",
+    "description": "@CharacterA plays The Master Planner — Designed a flawless route through the museum. @CharacterB plays The Elegant Distraction — Improvises when the plan gets interesting. A modern museum during a private midnight exhibition. Your shared goal: Recover a keepsake that was never meant to be displayed.",
+    "twists": [
+      "The exhibit label names one of you.",
+      "The security system asks a personal verification question."
+    ],
+    "packId": "dangerous_detours",
+    "packTitle": "Dangerous Detours",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0032",
+    "title": "Stormbound Cabin",
+    "category": "adventure",
+    "tier": "romantic",
+    "roleA": "The Mountain Guide",
+    "roleB": "The Stranded Traveler",
+    "description": "@CharacterA plays The Mountain Guide — Knows storms and avoids personal questions. @CharacterB plays The Stranded Traveler — Carries a destination worth hiding. A remote cabin while snow closes every road. Your shared goal: Pass the night by trading stories and planning a safe route home.",
+    "twists": [
+      "The radio reports the road may stay closed for days.",
+      "A hidden guestbook contains both your names."
+    ],
+    "packId": "weekend_quests",
+    "packTitle": "Weekend Quests",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0033",
+    "title": "The Sunken Observatory",
+    "category": "adventure",
+    "tier": "extreme",
+    "roleA": "The Deep-Sea Pilot",
+    "roleB": "The Ocean Researcher",
+    "description": "@CharacterA plays The Deep-Sea Pilot — Keeps calm when the instruments disagree. @CharacterB plays The Ocean Researcher — Believes the lost station still has power. A small submersible descending toward a forgotten observatory. Your shared goal: Retrieve its final recording before your return window closes.",
+    "twists": [
+      "A light switches on inside the empty station.",
+      "The recording includes a message addressed to your call signs."
+    ],
+    "packId": "dangerous_detours",
+    "packTitle": "Dangerous Detours",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0034",
+    "title": "Desert Compass",
+    "category": "adventure",
+    "tier": "cute",
+    "roleA": "The Caravan Scout",
+    "roleB": "The Traveling Inventor",
+    "description": "@CharacterA plays The Caravan Scout — Reads dunes like pages in a book. @CharacterB plays The Traveling Inventor — Built a compass that points toward wishes. A desert camp beneath a sky full of falling stars. Your shared goal: Test the impossible compass and choose whether to follow it.",
+    "twists": [
+      "The compass points to the other traveler.",
+      "A distant lantern answers your signal."
+    ],
+    "packId": "weekend_quests",
+    "packTitle": "Weekend Quests",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0035",
+    "title": "The Alpine Express",
+    "category": "adventure",
+    "tier": "spicy",
+    "roleA": "The Runaway Diplomat",
+    "roleB": "The Charming Pursuer",
+    "description": "@CharacterA plays The Runaway Diplomat — Carries a case everyone wants. @CharacterB plays The Charming Pursuer — May be an ally or an excellent liar. A luxury train winding through moonlit mountains. Your shared goal: Decide whether to share the case before the border crossing.",
+    "twists": [
+      "The case contains two matching passports.",
+      "The train conductor offers a private escape route."
+    ],
+    "packId": "dangerous_detours",
+    "packTitle": "Dangerous Detours",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0036",
+    "title": "Treasure at Low Tide",
+    "category": "adventure",
+    "tier": "cute",
+    "roleA": "The Local Historian",
+    "roleB": "The Weekend Explorer",
+    "description": "@CharacterA plays The Local Historian — Knows where the old stories exaggerate. @CharacterB plays The Weekend Explorer — Found a key inside a seashell. A rocky beach where ruins appear only at low tide. Your shared goal: Use the key before the sea covers the path again.",
+    "twists": [
+      "The locked chest contains a recent photograph.",
+      "The tide reveals a second doorway farther out."
+    ],
+    "packId": "weekend_quests",
+    "packTitle": "Weekend Quests",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0037",
+    "title": "The Rooftop Chase",
+    "category": "adventure",
+    "tier": "spicy",
+    "roleA": "The Courier",
+    "roleB": "The Reluctant Bodyguard",
+    "description": "@CharacterA plays The Courier — Protects a message without knowing its meaning. @CharacterB plays The Reluctant Bodyguard — Was hired by someone neither trusts. Rainy city rooftops while searchlights sweep the streets. Your shared goal: Reach the clock tower and decode the message together.",
+    "twists": [
+      "The message is an invitation, not a warning.",
+      "The pursuer removes their mask and offers a truce."
+    ],
+    "packId": "dangerous_detours",
+    "packTitle": "Dangerous Detours",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0038",
+    "title": "The Hidden Speakeasy",
+    "category": "adventure",
+    "tier": "romantic",
+    "roleA": "The Password Keeper",
+    "roleB": "The Determined Detective",
+    "description": "@CharacterA plays The Password Keeper — Changes the password for every guest. @CharacterB plays The Determined Detective — Needs entry before the band stops playing. A secret jazz club behind an ordinary flower shop. Your shared goal: Earn entry by inventing a convincing shared history.",
+    "twists": [
+      "The band dedicates a song to your cover names.",
+      "The real person you impersonated walks in."
+    ],
+    "packId": "weekend_quests",
+    "packTitle": "Weekend Quests",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0039",
+    "title": "Mission: Northern Lights",
+    "category": "adventure",
+    "tier": "romantic",
+    "roleA": "The Field Scientist",
+    "roleB": "The Resourceful Pilot",
+    "description": "@CharacterA plays The Field Scientist — Has waited years for tonight's sky. @CharacterB plays The Resourceful Pilot — Can land anywhere except on schedule. A tiny research station under a bright arctic sky. Your shared goal: Repair the camera before the rare lights disappear.",
+    "twists": [
+      "The camera has one frame left.",
+      "The lights form a pattern matching your route home."
+    ],
+    "packId": "weekend_quests",
+    "packTitle": "Weekend Quests",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0040",
+    "title": "The Volcano Archive",
+    "category": "adventure",
+    "tier": "extreme",
+    "roleA": "The Archive Guardian",
+    "roleB": "The Rescue Captain",
+    "description": "@CharacterA plays The Archive Guardian — Refuses to abandon the final record. @CharacterB plays The Rescue Captain — Has minutes to change the guardian's mind. An underground archive beneath a rumbling volcanic island. Your shared goal: Choose one record to save and escape before the last ferry.",
+    "twists": [
+      "The record contains evidence about the captain.",
+      "A second exit opens but only one knows the route."
+    ],
+    "packId": "dangerous_detours",
+    "packTitle": "Dangerous Detours",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0041",
+    "title": "The Midnight Airship",
+    "category": "adventure",
+    "tier": "spicy",
+    "roleA": "The Airship Captain",
+    "roleB": "The Last-Minute Stowaway",
+    "description": "@CharacterA plays The Airship Captain — Never takes passengers without a secret. @CharacterB plays The Last-Minute Stowaway — Offers a map in exchange for passage. A velvet-lined airship above a sleeping capital. Your shared goal: Reach the floating market before the map changes.",
+    "twists": [
+      "The map marks the captain's private cabin.",
+      "A rival airship sends an invitation to negotiate."
+    ],
+    "packId": "dangerous_detours",
+    "packTitle": "Dangerous Detours",
+    "premium": true,
+    "createdAt": "2026-07-29T00:00:00Z"
+  },
+  {
+    "id": "rs_0042",
+    "title": "Cave of Echoes",
+    "category": "adventure",
+    "tier": "cute",
+    "roleA": "The Cave Guide",
+    "roleB": "The Curious Musician",
+    "description": "@CharacterA plays The Cave Guide — Navigates by listening instead of looking. @CharacterB plays The Curious Musician — Hears a melody beneath every echo. A glowing cave reached by a hidden forest trail. Your shared goal: Follow the echo that leads to the legendary chamber.",
+    "twists": [
+      "The cave repeats your words in the other's voice.",
+      "The final chamber asks you to finish the melody together."
+    ],
+    "packId": "weekend_quests",
+    "packTitle": "Weekend Quests",
+    "premium": false,
+    "createdAt": "2026-07-29T00:00:00Z"
+  }
+]

@@ -12,9 +12,12 @@ import 'package:veloura/features/dice/presentation/widgets/word_die.dart';
 import 'package:veloura/features/premium/provider.dart';
 import 'package:veloura/shared/widgets/empty_state.dart';
 import 'package:veloura/shared/widgets/error_state.dart';
-import 'package:veloura/shared/widgets/glass_card.dart';
+import 'package:veloura/shared/widgets/game/game_app_bar.dart';
+import 'package:veloura/shared/widgets/game/game_backdrop.dart';
+import 'package:veloura/shared/widgets/game/glass_panel.dart';
+import 'package:veloura/shared/widgets/game/primary_cta.dart';
 import 'package:veloura/shared/widgets/loading_shimmer.dart';
-import 'package:veloura/theme/app_colors.dart';
+import 'package:veloura/theme/game_tokens.dart';
 
 /// Animated, shake-enabled Dice game.
 class DiceScreen extends ConsumerStatefulWidget {
@@ -79,6 +82,22 @@ class _DiceScreenState extends ConsumerState<DiceScreen> {
     await HapticFeedback.selectionClick();
   }
 
+  void _showInfo() {
+    showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: GameTokens.sheet,
+      showDragHandle: true,
+      builder: (context) => const Padding(
+        padding: EdgeInsets.fromLTRB(24, 8, 24, 32),
+        child: Text(
+          'Roll both dice together. One die chooses the action and the other '
+          'chooses where. Pass the turn after each result.',
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+
   @override
   void dispose() {
     unawaited(_shakeSubscription?.cancel());
@@ -89,22 +108,37 @@ class _DiceScreenState extends ConsumerState<DiceScreen> {
   Widget build(BuildContext context) {
     final dice = ref.watch(diceControllerProvider);
     return Scaffold(
-      appBar: AppBar(title: const Text('Dice')),
-      body: dice.when(
-        loading: () => const Padding(
-          padding: EdgeInsets.all(20),
-          child: LoadingShimmer(height: 280),
-        ),
-        error: (error, _) => ErrorState(
-          message: '$error',
-          onRetry: () => ref.invalidate(diceControllerProvider),
-        ),
-        data: (state) => _DiceBody(
-          state: state,
-          onRollAll: _rollAll,
-          actionDieKey: _actionDieKey,
-          bodyDieKey: _bodyDieKey,
-          extraDieKey: _extraDieKey,
+      body: GameBackdrop(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: GameTokens.screenPadH,
+            ),
+            child: Column(
+              children: [
+                GameAppBar(title: 'Love Dice', onInfo: _showInfo),
+                Expanded(
+                  child: dice.when(
+                    loading: () => const Padding(
+                      padding: EdgeInsets.all(20),
+                      child: LoadingShimmer(height: 280),
+                    ),
+                    error: (error, _) => ErrorState(
+                      message: '$error',
+                      onRetry: () => ref.invalidate(diceControllerProvider),
+                    ),
+                    data: (state) => _DiceBody(
+                      state: state,
+                      onRollAll: _rollAll,
+                      actionDieKey: _actionDieKey,
+                      bodyDieKey: _bodyDieKey,
+                      extraDieKey: _extraDieKey,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -131,7 +165,7 @@ class _DiceBody extends ConsumerWidget {
     final controller = ref.read(diceControllerProvider.notifier);
     final premium = ref.watch(isPremiumProvider);
     return ListView(
-      padding: const EdgeInsets.fromLTRB(20, 12, 20, 120),
+      padding: const EdgeInsets.fromLTRB(0, 12, 0, 120),
       children: [
         _DiceTray(
           state: state,
@@ -140,41 +174,96 @@ class _DiceBody extends ConsumerWidget {
           extraDieKey: extraDieKey,
         ),
         const SizedBox(height: 18),
-        FilledButton.icon(
+        PrimaryCta(
+          label: state.status == DiceRollStatus.rolling ? 'Rolling\u2026' : 'Roll dice',
+          icon: Icons.casino,
+          busy: state.status == DiceRollStatus.rolling,
           onPressed: state.status == DiceRollStatus.rolling ? null : onRollAll,
-          icon: const Icon(Icons.casino),
-          label: Text(
-            state.status == DiceRollStatus.rolling ? 'Rolling…' : 'Roll dice',
-          ),
         ),
         const SizedBox(height: 8),
         Text(
           'Tap Roll or shake your phone',
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.bodySmall,
-        ),
-        SwitchListTile(
-          contentPadding: EdgeInsets.zero,
-          title: const Text('Add intensity / time die'),
-          subtitle: const Text('Roll three dice instead of two'),
-          value: state.useThirdDie,
-          onChanged: controller.setThirdDie,
-        ),
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          leading: Icon(premium ? Icons.tune : Icons.lock_outline),
-          title: const Text('Custom dice faces'),
-          subtitle: Text(
-            premium
-                ? (state.customFacesEnabled
-                      ? 'Custom set active'
-                      : 'Create your own set')
-                : 'Premium feature',
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+            color: Colors.white.withValues(alpha: 0.6),
           ),
-          trailing: const Icon(Icons.chevron_right),
-          onTap: () => premium
-              ? _showCustomFaces(context, ref, state)
-              : _showPremiumMessage(context),
+        ),
+        const SizedBox(height: 18),
+        GlassPanel(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Add intensity / time die',
+                          style: TextStyle(fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          'Roll three dice instead of two',
+                          style: TextStyle(
+                            color: Colors.white.withValues(alpha: 0.6),
+                            fontSize: 12,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Switch(
+                    value: state.useThirdDie,
+                    onChanged: controller.setThirdDie,
+                  ),
+                ],
+              ),
+              const Divider(height: 24, color: GameTokens.hairline),
+              InkWell(
+                borderRadius: BorderRadius.circular(GameTokens.cardRadius),
+                onTap: () => premium
+                    ? _showCustomFaces(context, ref, state)
+                    : _showPremiumMessage(context),
+                child: Row(
+                  children: [
+                    Icon(
+                      premium ? Icons.tune : Icons.lock_outline,
+                      color: Colors.white.withValues(alpha: 0.72),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Custom dice faces',
+                            style: TextStyle(fontWeight: FontWeight.w600),
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            premium
+                                ? (state.customFacesEnabled
+                                      ? 'Custom set active'
+                                      : 'Create your own set')
+                                : 'Premium feature',
+                            style: TextStyle(
+                              color: Colors.white.withValues(alpha: 0.6),
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Icon(
+                      Icons.chevron_right,
+                      color: Colors.white.withValues(alpha: 0.6),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
         const SizedBox(height: 24),
         Text('Roll history', style: Theme.of(context).textTheme.titleLarge),
@@ -186,11 +275,17 @@ class _DiceBody extends ConsumerWidget {
             icon: Icons.casino_outlined,
           )
         else
-          ...state.history.map(
-            (record) => _HistoryTile(
-              record: record,
-              onTap: () => controller.selectRecord(record),
-              onFavorite: () => controller.toggleFavorite(record.id),
+          GlassPanel(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            child: Column(
+              children: [
+                for (final record in state.history)
+                  _HistoryTile(
+                    record: record,
+                    onTap: () => controller.selectRecord(record),
+                    onFavorite: () => controller.toggleFavorite(record.id),
+                  ),
+              ],
             ),
           ),
       ],
@@ -214,22 +309,18 @@ class _DiceTray extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = AppColors.of(context);
     final record = state.current;
-    return GlassCard(
+    return GlassPanel(
       child: Column(
         children: [
           Container(
             padding: const EdgeInsets.symmetric(vertical: 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24),
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [
-                  colors.primary.withValues(alpha: 0.16),
-                  colors.secondary.withValues(alpha: 0.10),
-                ],
+                colors: [Color(0x298E4BD1), Color(0x1AFF4D6D)],
               ),
             ),
             child: Wrap(
@@ -284,18 +375,23 @@ class _HistoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.zero,
       onTap: onTap,
       title: Text(
         record.summary,
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
       ),
-      subtitle: Text(_formatTime(record.createdAt)),
+      subtitle: Text(
+        _formatTime(record.createdAt),
+        style: TextStyle(color: Colors.white.withValues(alpha: 0.6)),
+      ),
       trailing: IconButton(
         tooltip: record.favorite ? 'Remove favorite' : 'Favorite roll',
         onPressed: onFavorite,
-        icon: Icon(record.favorite ? Icons.favorite : Icons.favorite_border),
+        icon: Icon(
+          record.favorite ? Icons.favorite : Icons.favorite_border,
+          color: record.favorite ? GameTokens.rose : null,
+        ),
       ),
     );
   }
@@ -305,7 +401,7 @@ class _HistoryTile extends StatelessWidget {
     final hour = local.hour % 12 == 0 ? 12 : local.hour % 12;
     final minute = local.minute.toString().padLeft(2, '0');
     final suffix = local.hour >= 12 ? 'PM' : 'AM';
-    return '${local.month}/${local.day}/${local.year} · $hour:$minute $suffix';
+    return '${local.month}/${local.day}/${local.year} \u00b7 $hour:$minute $suffix';
   }
 }
 
