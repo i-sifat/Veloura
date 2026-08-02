@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:veloura/features/roleplay/domain/roleplay_scenario.dart';
+import 'package:veloura/features/roleplay/domain/roleplay_story.dart';
 import 'package:veloura/features/roleplay/presentation/wheel/roleplay_wheel_controller.dart';
 import 'package:veloura/features/roleplay/presentation/wheel/widgets/roleplay_spin_wheel.dart';
 import 'package:veloura/features/session/presentation/session_controller.dart';
