@@ -152,8 +152,18 @@ class _TonightCardState extends State<_TonightCard> {
 
   void _onImage(ImageInfo info, bool _) {
     final height = info.image.height;
-    if (height == 0 || !mounted) return;
-    setState(() => _aspectRatio = info.image.width / height);
+    if (height == 0) return;
+    final ratio = info.image.width / height;
+    // ImageStream.addListener() calls this *synchronously* when the image
+    // is already in the global imageCache (e.g. every widget test after
+    // the first one that resolves this asset). Deferring to a microtask
+    // guarantees setState always runs after the current
+    // build/didChangeDependencies pass finishes, instead of risking
+    // "setState() called during build" when this fires synchronously.
+    scheduleMicrotask(() {
+      if (!mounted || ratio == _aspectRatio) return;
+      setState(() => _aspectRatio = ratio);
+    });
   }
 
   // Falls back to the placeholder ratio (and the Image.asset errorBuilder's
