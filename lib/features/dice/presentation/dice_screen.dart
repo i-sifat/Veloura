@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,6 +9,7 @@ import 'package:veloura/features/dice/domain/dice_roll_record.dart';
 import 'package:veloura/features/dice/presentation/dice_controller.dart';
 import 'package:veloura/features/dice/presentation/dice_state.dart';
 import 'package:veloura/features/dice/presentation/widgets/word_die.dart';
+import 'package:veloura/features/premium/provider.dart';
 import 'package:veloura/shared/widgets/empty_state.dart';
 import 'package:veloura/shared/widgets/error_state.dart';
 import 'package:veloura/shared/widgets/glass_card.dart';
