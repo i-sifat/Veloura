@@ -189,9 +189,10 @@ class _CreativePositionsScreenState
       return null;
     }
     return Align(
-      alignment: Alignment.centerLeft,
+      alignment: Alignment.center,
       child: Text(
         '${leader.toUpperCase()},\nSPIN TO CHOOSE',
+        textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.headlineMedium?.copyWith(
           fontWeight: FontWeight.w800,
           height: 1.02,

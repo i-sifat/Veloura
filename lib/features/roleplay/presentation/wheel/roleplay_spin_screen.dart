@@ -167,9 +167,10 @@ class _RoleplaySpinScreenState extends ConsumerState<RoleplaySpinScreen>
             duration: GameTokens.fadeDuration,
             opacity: hideHeadline ? 0 : 1,
             child: Align(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.center,
               child: Text(
                 'SPIN FOR YOUR\nNEXT SCENE',
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.w800,
                   height: 1.02,

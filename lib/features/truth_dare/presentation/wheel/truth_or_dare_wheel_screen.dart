@@ -165,9 +165,10 @@ class _TruthOrDareWheelScreenState
             duration: GameTokens.fadeDuration,
             opacity: hideHeadline ? 0 : 1,
             child: Align(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.center,
               child: Text(
                 'LET THE WHEEL\nDECIDE',
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.w800,
                   height: 1.02,
