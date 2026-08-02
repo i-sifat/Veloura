@@ -10,10 +10,10 @@ import 'package:veloura/theme/game_tokens.dart';
 
 /// Flick-to-spin Creative Positions wheel, built on `package:spinning_wheel`.
 ///
-/// The package only animates a supplied [Image]; it doesn't draw the wheel
-/// itself. This widget renders that image (and a small center hub image)
-/// from [PositionZone] colors/icons at runtime with `dart:ui`, so no extra
-/// design assets are needed.
+/// The package only animates a supplied wheel `image`; it doesn't draw the
+/// wheel itself. This widget renders that image - zone slices plus a
+/// painted center hub - from [PositionZone] colors/icons at runtime with
+/// `dart:ui`, so no extra design assets are needed.
 class PositionsSpinningWheel extends StatefulWidget {
   const PositionsSpinningWheel({
     required this.zoneCount,
@@ -34,20 +34,20 @@ class PositionsSpinningWheel extends StatefulWidget {
 }
 
 class _PositionsSpinningWheelState extends State<PositionsSpinningWheel> {
-  Future<_WheelFaceImages>? _images;
+  Future<Uint8List>? _faceImage;
   bool _spinReported = false;
 
   @override
   void initState() {
     super.initState();
-    _images = _renderFaceImages(widget.zoneCount);
+    _faceImage = _renderFaceImage(widget.zoneCount);
   }
 
   @override
   void didUpdateWidget(PositionsSpinningWheel oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.zoneCount != widget.zoneCount) {
-      _images = _renderFaceImages(widget.zoneCount);
+      _faceImage = _renderFaceImage(widget.zoneCount);
     }
     if (!oldWidget.interactive && widget.interactive) {
       _spinReported = false;
@@ -69,11 +69,11 @@ class _PositionsSpinningWheelState extends State<PositionsSpinningWheel> {
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, constraints) {
       final diameter = math.min(constraints.maxWidth, constraints.maxHeight);
-      return FutureBuilder<_WheelFaceImages>(
-        future: _images,
+      return FutureBuilder<Uint8List>(
+        future: _faceImage,
         builder: (context, snapshot) {
-          final images = snapshot.data;
-          if (images == null) {
+          final face = snapshot.data;
+          if (face == null) {
             return SizedBox.square(
               dimension: diameter,
               child: const Center(child: CircularProgressIndicator()),
@@ -88,16 +88,16 @@ class _PositionsSpinningWheelState extends State<PositionsSpinningWheel> {
                 IgnorePointer(
                   ignoring: !widget.interactive,
                   child: SpinningWheel(
-                    Image.memory(images.face, key: const ValueKey('positions-wheel-face')),
+                    image: Image.memory(
+                      face,
+                      key: const ValueKey('positions-wheel-face'),
+                    ),
                     width: diameter,
                     height: diameter,
                     dividers: widget.zoneCount,
                     initialSpinAngle: 0,
                     spinResistance: 0.78,
                     canInteractWhileSpinning: false,
-                    secondaryImage: Image.memory(images.hub),
-                    secondaryImageHeight: diameter * 0.16,
-                    secondaryImageWidth: diameter * 0.16,
                     onUpdate: _onUpdate,
                     onEnd: _onEnd,
                   ),
@@ -112,16 +112,9 @@ class _PositionsSpinningWheelState extends State<PositionsSpinningWheel> {
   );
 }
 
-class _WheelFaceImages {
-  const _WheelFaceImages({required this.face, required this.hub});
-
-  final Uint8List face;
-  final Uint8List hub;
-}
-
-Future<_WheelFaceImages> _renderFaceImages(int zoneCount) async {
+Future<Uint8List> _renderFaceImage(int zoneCount) async {
   const dimension = 640.0;
-  final face = await _rasterize(dimension, (canvas, size) {
+  return _rasterize(dimension, (canvas, size) {
     final center = size.center(Offset.zero);
     final radius = size.width / 2;
     final sweep = 2 * math.pi / zoneCount;
@@ -159,31 +152,27 @@ Future<_WheelFaceImages> _renderFaceImages(int zoneCount) async {
         ..strokeWidth = 5
         ..color = Colors.white.withValues(alpha: 0.85),
     );
-  });
-
-  const hubDimension = 160.0;
-  final hub = await _rasterize(hubDimension, (canvas, size) {
-    final center = size.center(Offset.zero);
+    // Center hub, painted directly onto the face texture (the package has
+    // no verified secondary-overlay-image parameter to rely on instead).
+    final hubRadius = radius * 0.17;
     canvas.drawCircle(
       center,
-      size.width / 2 - 4,
+      hubRadius,
       Paint()
-        ..shader = const RadialGradient(
+        ..shader = RadialGradient(
           colors: [GameTokens.rose, GameTokens.roseDeep],
-        ).createShader(Rect.fromCircle(center: center, radius: size.width / 2)),
+        ).createShader(Rect.fromCircle(center: center, radius: hubRadius)),
     );
     canvas.drawCircle(
       center,
-      size.width / 2 - 4,
+      hubRadius,
       Paint()
         ..style = PaintingStyle.stroke
-        ..strokeWidth = 5
+        ..strokeWidth = 4
         ..color = Colors.white,
     );
-    _paintIcon(canvas, Icons.favorite, center, size.width * 0.34);
+    _paintIcon(canvas, Icons.favorite, center, hubRadius * 0.9);
   });
-
-  return _WheelFaceImages(face: face, hub: hub);
 }
 
 void _paintIcon(Canvas canvas, IconData icon, Offset center, double fontSize) {
